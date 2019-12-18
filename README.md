@@ -63,13 +63,13 @@
 ### Association
 - has_many :images dependent: :destroy
 - has_many :likes
-- belongs_to : category
-- belongs_to : review
-- belongs_to : brand_group
-- belongs_to : size
-- belongs_to : buyer
-- belongs_to : seller
-- has_one : shipping dependent: :destroy
+- belongs_to :category
+- belongs_to :review
+- belongs_to :brand_group
+- belongs_to :size
+- belongs_to :buyer
+- belongs_to :seller
+- has_one :shipping dependent: :destroy
 
 ## shippingテーブル
 |Column|Type|Options|
