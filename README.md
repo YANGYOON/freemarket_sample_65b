@@ -157,6 +157,7 @@
 |prefecture_from|string|null: false|
 |period_before_shopping|string|null: false|
 |fee_burden|string|null: false|
+|item_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to : item
 
