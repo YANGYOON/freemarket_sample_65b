@@ -30,8 +30,8 @@
 |optinal_phone_number|string||
 |user_id|integer|null: false, foreign_key: true|
 ### Association
--belongs_to :user
--belongs_to :adress
+- belongs_to :user
+- has_one  :adress
 
 ## adress テーブル
 |Column|Type|Options|
@@ -42,7 +42,7 @@
 |district|string|-------|
 |building|string|-------|
 ### Association
-- has_one :user_profile
+- belongs_to :user_profile
 
 ## itemsテーブル
 |Column|Type|Options|
