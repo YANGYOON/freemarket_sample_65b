@@ -80,7 +80,7 @@
 |fee_burden|string|null: false|
 |item_id|integer|null: false, foreign_key: true|
 ### Association
-- belongs_to : item
+- belongs_to :item
 
 ## commentsテーブル
 |Column|Type|Options|
@@ -137,15 +137,15 @@
 |parent_id|integer|foreign_key: true|
 |grandparent_id|integer|foreign_key: true|
 ### Association
-- has_many : items
+- has_many :items
 
 ## brand_groupテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|
 ### Association
-- has_many : items
-- has_many : brands
+- has_many :items
+- has_many :brands
 
 ## brandsテーブル
 |Column|Type|Options|
@@ -153,7 +153,7 @@
 |name|string|
 |brand_group_id|references|null: false, foreign_key: true|
 ### Association
-- belongs_to : brand_group
+- belongs_to :brand_group
 
 ## imagesテーブル
 |Column|Type|Options|
@@ -161,7 +161,7 @@
 |image|text|null: false|
 |item_id|integer|null: false, foreign_key: true|
 ### Association
-- belongs_to : item
+- belongs_to :item
 
 
 
@@ -170,4 +170,4 @@
 |------|----|-------|
 |name|string|null: false|
 ### Association
-- has_many : items
+- has_many :items
