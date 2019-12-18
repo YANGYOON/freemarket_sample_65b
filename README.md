@@ -14,6 +14,7 @@
 - has_many :items
 - has_one :user_profile
 - has_one :creditcard
+- has_one :address
 
 ## user_profile テーブル
 |Column|Type|Options|
@@ -31,9 +32,8 @@
 |user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-- has_one  :adress
 
-## adress テーブル
+## address テーブル
 |Column|Type|Options|
 |------|----|-------|
 |zipcode|string|null: false|
@@ -42,7 +42,7 @@
 |district|string|-------|
 |building|string|-------|
 ### Association
-- belongs_to :user_profile
+- belongs_to :user
 
 ## itemsテーブル
 |Column|Type|Options|
