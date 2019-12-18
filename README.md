@@ -58,8 +58,8 @@
 |review_id|integer|null: false, foreign_key: true|
 |brand_group_id|integer|null: false, foreign_key: true|
 |size_id|integer|null: false, foreign_key: true|
-|buyer_id|integer|foreign_key: true|
-|seller_id|integer|null: false, foreign_key: true|
+|buyer_id|integer||
+|seller_id|integer|null: false|
 ### Association
 - has_many :images dependent: :destroy
 - has_many :likes
@@ -67,8 +67,7 @@
 - belongs_to :review
 - belongs_to :brand_group
 - belongs_to :size
-- belongs_to :buyer
-- belongs_to :seller
+- belongs_to :user
 - has_one :shipping dependent: :destroy
 
 ## shippingテーブル
