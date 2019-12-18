@@ -12,8 +12,8 @@
 - has_many :likes
 - has_many :reviews
 - has_many :items
-- belongs_to :user_profile
-- belongs_to :creditcard
+- has_one :user_profile
+- has_one :creditcard
 
 ## user_profile テーブル
 |Column|Type|Options|
@@ -28,14 +28,21 @@
 |birth_day|string|null: false|
 |phone_number|string|null: false|
 |optinal_phone_number|string||
+|user_id|integer|null: false, foreign_key: true|
+### Association
+-belongs_to :user
+-belongs_to :adress
+
+## adress テーブル
+|Column|Type|Options|
+|------|----|-------|
 |zipcode|string|null: false|
 |prefecture|string|null: false|
 |city|string|null: false|
 |district|string|-------|
 |building|string|-------|
-|user_id|integer|null: false, foreign_key: true|
 ### Association
--belongs_to :user
+- has_one :user_profile
 
 ## itemsテーブル
 |Column|Type|Options|
@@ -50,7 +57,7 @@
 |size_id|integer|null: false, foreign_key: true|
 |buyer_id|integer|foreign_key: true|
 |seller_id|integer|null: false, foreign_key: true|
-|like_id|integer|null: false, foreign_key: true|
+|shipping_id|integer|null: false, foreign_key: true|
 ### Association
 - has_many :images
 - has_many :likes
@@ -60,6 +67,7 @@
 - belongs_to : size
 - belongs_to : buyer
 - belongs_to : seller
+- belongs_to : shipping
 
 ## commentsテーブル
 |Column|Type|Options|
@@ -123,7 +131,7 @@
 |------|----|-------|
 |name|string|
 ### Association
-- belongs_to : item
+- has_many : items
 - has_many : brands
 
 ## brandsテーブル
@@ -138,7 +146,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |image|text|null: false|
-|items_id|integer|null: false, foreign_key: true|
+|item_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to : item
 
