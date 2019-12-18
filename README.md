@@ -67,7 +67,7 @@
 - belongs_to : size
 - belongs_to : buyer
 - belongs_to : seller
-- belongs_to : shipping
+- has_one : shipping
 
 ## commentsテーブル
 |Column|Type|Options|
