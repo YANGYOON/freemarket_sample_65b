@@ -7,14 +7,26 @@
 |email|string|null: false|
 |password|string|null: false|
 ### Association
-- has_many :sns_links
-- has_many :comments
-- has_many :likes
-- has_many :reviews
-- has_many :items
+- has_many :sns_links dependent: :destroy
+- has_many :comments dependent: :destroy
+- has_many :likes dependent: :destroy
+- has_many :reviews dependent: :destroy
+- has_many :items dependent: :destroy
 - has_one :user_profile
 - has_one :creditcard
 - has_one :address
+
+## address テーブル
+|Column|Type|Options|
+|------|----|-------|
+|zipcode|string|null: false|
+|prefecture|string|null: false|
+|city|string|null: false|
+|district|string|-------|
+|building|string|-------|
+|user_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :user
 
 ## user_profile テーブル
 |Column|Type|Options|
@@ -33,16 +45,7 @@
 ### Association
 - belongs_to :user
 
-## address テーブル
-|Column|Type|Options|
-|------|----|-------|
-|zipcode|string|null: false|
-|prefecture|string|null: false|
-|city|string|null: false|
-|district|string|-------|
-|building|string|-------|
-### Association
-- belongs_to :user
+
 
 ## itemsテーブル
 |Column|Type|Options|
@@ -57,9 +60,8 @@
 |size_id|integer|null: false, foreign_key: true|
 |buyer_id|integer|foreign_key: true|
 |seller_id|integer|null: false, foreign_key: true|
-|shipping_id|integer|null: false, foreign_key: true|
 ### Association
-- has_many :images
+- has_many :images dependent: :destroy
 - has_many :likes
 - belongs_to : category
 - belongs_to : review
@@ -67,7 +69,18 @@
 - belongs_to : size
 - belongs_to : buyer
 - belongs_to : seller
-- has_one : shipping
+- has_one : shipping dependent: :destroy
+
+## shippingテーブル
+|Column|Type|Options|
+|------|----|-------|
+|method|string|null: false|
+|prefecture_from|string|null: false|
+|period_before_shopping|string|null: false|
+|fee_burden|string|null: false|
+|item_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to : item
 
 ## commentsテーブル
 |Column|Type|Options|
@@ -150,16 +163,7 @@
 ### Association
 - belongs_to : item
 
-## shippingテーブル
-|Column|Type|Options|
-|------|----|-------|
-|method|string|null: false|
-|prefecture_from|string|null: false|
-|period_before_shopping|string|null: false|
-|fee_burden|string|null: false|
-|item_id|integer|null: false, foreign_key: true|
-### Association
-- belongs_to : item
+
 
 ## sizeテーブル
 |Column|Type|Options|
