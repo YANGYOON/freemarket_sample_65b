@@ -1,6 +1,6 @@
 # README
 
-users テーブル
+## users テーブル
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false|
@@ -15,7 +15,7 @@ users テーブル
 - belongs_to :user_profile
 - belongs_to :creditcard
 
-user_profile テーブル
+## user_profile テーブル
 |Column|Type|Options|
 |------|----|-------|
 |self_introduction|text|-------|
@@ -37,55 +37,7 @@ user_profile テーブル
 ### Association
 -belongs_to :user
 
-commentsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|item_id|integer|null: false, foreign_key: true|
-|user_id|integer|null: false, foreign_key: true|
-|comment|text|null: false|
-### Association
-- belongs_to :user
-- belongs_to :item
-
-reviewsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|item_id|integer|null: false, foreign_key: true|
-|user_id|integer|null: false, foreign_key: true|
-|review|text||
-|rate|integer|null: false|
-### Association
-- belongs_to :user
-- belongs_to :item
-
-likesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|item_id|integer|null: false, foreign_key: true|
-|user_id|integer|null: false, foreign_key: true|
-### Association
-- belongs_to :user
-- belongs_to :item
-
-sns_link テーブル
-|Column|Type|Options|
-|------|----|-------|
-|security_token|text|null: false|
-|uid|text|null: false|
-|provider|text|null: false|
-|user_id|integer|null: false, foreign_key: true|
-### Association
--belongs_to :user
-
-creditcard テーブル
-|Column|Type|Options|
-|------|----|-------|
-|security_token|text|null: false|
-|user_id|integer|null: false, foreign_key: true|
-### Association
--belongs_to :user
-
-itemsテーブル
+## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
@@ -99,7 +51,7 @@ itemsテーブル
 |buyer_id|integer|foreign_key: true|
 |seller_id|integer|null: false, foreign_key: true|
 |like_id|integer|null: false, foreign_key: true|
-## Association
+### Association
 - has_many :images
 - has_many :likes
 - belongs_to : category
@@ -109,52 +61,100 @@ itemsテーブル
 - belongs_to : buyer
 - belongs_to : seller
 
-categoriesテーブル
+## commentsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|item_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
+|comment|text|null: false|
+### Association
+- belongs_to :user
+- belongs_to :item
+
+## reviewsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|item_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
+|review|text||
+|rate|integer|null: false|
+### Association
+- belongs_to :user
+- belongs_to :item
+
+## likesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|item_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+- belongs_to :item
+
+## sns_link テーブル
+|Column|Type|Options|
+|------|----|-------|
+|security_token|text|null: false|
+|uid|text|null: false|
+|provider|text|null: false|
+|user_id|integer|null: false, foreign_key: true|
+### Association
+-belongs_to :user
+
+## creditcard テーブル
+|Column|Type|Options|
+|------|----|-------|
+|security_token|text|null: false|
+|user_id|integer|null: false, foreign_key: true|
+### Association
+-belongs_to :user
+
+## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 |parent_id|integer|foreign_key: true|
 |grandparent_id|integer|foreign_key: true|
-## Association
+### Association
 - has_many : items
 
-brand_groupテーブル
+## brand_groupテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|
-## Association
+### Association
 - belongs_to : item
 - has_many : brands
 
-brandsテーブル
+## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|
 |brand_group_id|references|null: false, foreign_key: true|
-## Association
+### Association
 - belongs_to : brand_group
 
-imagesテーブル
+## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |image|text|null: false|
 |items_id|integer|null: false, foreign_key: true|
-## Association
+### Association
 - belongs_to : item
 
-shippingテーブル
+## shippingテーブル
 |Column|Type|Options|
 |------|----|-------|
 |method|string|null: false|
 |prefecture_from|string|null: false|
 |period_before_shopping|string|null: false|
 |fee_burden|string|null: false|
-## Association
+### Association
 - belongs_to : item
 
-sizeテーブル
+## sizeテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-## Association
+### Association
 - has_many : items
