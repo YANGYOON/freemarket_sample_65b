@@ -1,0 +1,68 @@
+.header
+  .header__logo
+    = link_to root_path, class: "header__logo--link" do
+      = image_tag src='fmarket_logo_red.svg', class: "header__logo--image"
+
+
+.contents
+  .contents__main
+    .contents__main__header
+      商品の情報を入力
+    .contents__main__upload
+      .contents__main__image
+        .contents__main__image__head
+          出品画像
+          .contents__main__image__head--icon
+            必須
+        最大10枚までアップロードできます
+
+        .contents__main__image__box
+          
+      .contents__main__name
+        .contents__main__name__name-content
+          .contents__main__name__name-content__item-name
+            商品名
+            .contents__main__name__name-content__item-name--icon
+              必須
+          
+          %input.contents__main__name__name-content__item-nameform{:name => "item-name", :placeholder => "商品名 (必須40文字まで)", :type => "text", :value => ""}/
+
+        .contents__main__name__item-exp
+          商品の説明
+          .contents__main__name__item-exp--icon
+            必須
+        %textarea.contents__main__name__name-content__item-expform(name="item-exp" cols="30" rows="5" placeholder="商品名（必須1000文字以内）（色、素材、重さ色、素材、重さ、低下、注意点など） 例）2019年ごろに購入したコートです。ライトグレーで傷はありません。あたたかくてオススメです。")
+        
+
+
+
+      .contents__main__detail
+        .contents__main__detail__left
+          詳細
+        .contents__main__detail__right
+          .contents__main__detail__right__categorylab
+            カテゴリー
+            .contents__main__detail__right__categorylab--icon
+              必須
+          .contents__main__detail__right__categoryform
+            %input.contents__main__detail__right__categoryform--form{:name => "item-category", :placeholder => "---", :type => "text", :value => ""}/
+
+            .contents__main__detail__right__categoryform--icon
+              = icon('fas', 'angle-down')
+
+          .contents__main__detail__right__status
+            .contents__main__detail__right__status__lab
+              商品の状態
+              .contents__main__detail__right__status__lab--icon
+                必須
+
+            .contents__main__detail__right__status__statusform
+              %input.contents__main__detail__right__status__statusform--form{:name => "item-category", :placeholder => "---", :type => "text", :value => ""}/
+
+              .contents__main__detail__right__status__statusform--icon
+                = icon('fas', 'angle-down')
+
+      .contents__main__delivery
+        配送
+        
+   

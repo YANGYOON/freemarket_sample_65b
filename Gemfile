@@ -79,4 +79,4 @@ gem 'mini_magick'
 gem 'fog-aws'
 gem 'kaminari'
 gem 'jquery-rails'
-gem "omniauth-rails_csrf_protection"
+# gem "omniauth-rails_csrf_protection"

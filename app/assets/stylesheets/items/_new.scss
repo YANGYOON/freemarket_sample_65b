@@ -1,0 +1,212 @@
+body {
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+}
+
+.header {
+  height: 128px;
+  width: 100%;
+  background-color: rgb(245, 245, 245);
+  &__logo{
+    width: 185px;
+    height: 48px;
+    margin: 0 auto;
+    padding-top: 40px;
+    &--link{
+      display: block;
+    }
+  }
+  
+}
+
+.contents {
+  background-color: rgb(245, 245, 245);
+  height: 100%;
+  width: 100%;
+  &__main{
+    width: 700px;
+    margin: 0 auto;
+    background-color: #fff;
+    &__header{
+      text-align: center;
+      font-size: 22px;
+      height: 97px;
+      line-height: 97px;
+    }
+
+    &__image {
+      border-top: 1px solid #eee;
+      padding: 40px;
+      font-size: 13px;
+      &__head{
+        font-size: 16px;
+        display: flex;
+        font-weight: bold;
+        &--icon{
+          padding: 2px 4px;
+          background-color: red;
+          font-size: 12px;
+          vertical-align: top;
+          border-radius: 2px;
+          margin-left: 8px;
+          color: white;
+        }       
+      }
+    }
+
+    &__name{
+      border-top: 1px solid #eee;
+      padding: 40px;
+      &__name-content{
+        font-size: 15px;
+        font-weight: bold;
+      }
+
+      &__name-content__item-name{
+        display: flex;
+      }
+      
+      &__name-content__item-name--icon{
+          padding: 2px 4px;
+          background-color: red;
+          font-size: 12px;
+          vertical-align: top;
+          border-radius: 2px;
+          margin-left: 8px;
+          color: white;
+          vertical-align: top;
+      }
+
+      &__name-content__item-nameform{
+        width: calc(100% - 20px);
+        height: 48px;
+        border-radius: 4px;
+        font-size: 16px;
+        border: solid 1px #ccc;
+        padding: 0px 10px;
+        margin-top: 5px;
+        font-weight: normal;
+      }
+
+      &__item-exp{
+        font-size: 15px;
+        display: flex;
+        font-weight: bold;
+        margin-top: 40px;
+        &--icon{
+          padding: 2px 4px;
+          background-color: red;
+          font-size: 12px;
+          vertical-align: top;
+          border-radius: 2px;
+          margin-left: 8px;
+          color: white;
+          vertical-align: top;
+
+        }
+      }
+
+      &__name-content__item-expform{
+        width: calc(100% - 20px);
+        border-radius: 4px;
+        font-size: 16px;
+        border: solid 1px #ccc;
+        padding: 10px;
+        margin-top: 5px;
+        min-height: 104%;
+        padding: 10px;
+        line-height: 1.5;
+      }
+    }
+
+    &__detail{
+      border-top: 1px solid #eee;
+      padding: 40px;
+      
+
+      &__left{
+        float: left;
+        color: gray;
+      }
+
+      &__right{
+        float: right;
+        width: 400px;
+        right: 0;
+
+        &__categorylab{
+          display: flex;
+          font-weight: bold;
+        }
+
+        &__categorylab--icon{
+          padding: 2px 4px;
+          background-color: red;
+          font-size: 12px;
+          vertical-align: top;
+          border-radius: 2px;
+          margin-left: 8px;
+          color: white;
+          vertical-align: top;
+        }
+
+        &__categoryform{
+          position: relative;
+          padding-top: 10px;
+        }
+
+        &__categoryform--icon{
+          position: absolute;
+          right: 10px;
+          top: 30px;
+        }
+
+        &__categoryform--form{
+          width: calc(100% - 10px);
+          height: 48px;
+          border-radius: 4px;
+          font-size: 16px;
+          border: solid 1px #ccc;
+          padding-left: 10px;
+        }
+
+        &__status{
+          padding-top: 30px;
+        }
+
+        &__status__lab{
+          display: flex;
+          font-weight: bold;
+        }
+
+        &__status__lab--icon{
+          padding: 2px 4px;
+          background-color: red;
+          font-size: 12px;
+          vertical-align: top;
+          border-radius: 2px;
+          margin-left: 8px;
+          color: white;
+          vertical-align: top;
+        }
+        &__status__statusform{
+          position: relative;
+          padding-top: 10px;
+        }
+        &__status__statusform--form{
+          width: calc(100% - 10px);
+          height: 48px;
+          border-radius: 4px;
+          font-size: 16px;
+          border: solid 1px #ccc;
+          padding-left: 10px;
+        }
+        &__status__statusform--icon{
+          position: absolute;
+          right: 10px;
+          top: 30px;
+        }
+      }
+    
+    }
+  }
+}
