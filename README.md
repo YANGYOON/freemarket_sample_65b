@@ -31,7 +31,7 @@
 ## user_profile テーブル
 |Column|Type|Options|
 |------|----|-------|
-|self_introduction|text|-------|
+|self_introduction|text|optional: true|
 |last_name|string|null: false|
 |first_name|string|null: false|
 |last_name_kana|string|null: false|
@@ -40,7 +40,7 @@
 |birth_month|string|null: false|
 |birth_day|string|null: false|
 |phone_number|string|null: false|
-|optinal_phone_number|string||
+|optinal_phone_number|string|optional: true|
 |user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
