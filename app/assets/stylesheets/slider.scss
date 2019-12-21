@@ -1,0 +1,233 @@
+.slick {
+  overflow: hidden;
+  height: 390px;
+  width: 100vw;
+  &__one {
+    background-image: url("slick_one.jpeg");
+    background-position: center center;
+    background-size: cover;
+    &__box {
+      height: 100%;
+      &__link {
+        &__image {
+          height:390px
+        }
+      }
+    }
+  }
+  &__two {
+    background-size: cover;
+    background-image: url("slick_two.jpeg");
+    height:390px;
+    &__box {
+      height:390px;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      padding: 0 200px;
+      &__texts {
+        width: 80%;
+        margin: 0 auto;
+        position: relative;
+        &__title {
+          &__big {
+            margin-top: 30px;
+            font-size: 58px;
+            font-weight: bold;
+            position: relative;
+            z-index: 2;
+          }
+          &__mini {
+            display: none;
+          }
+        }
+        &__text {
+          margin-top: 10px;
+          line-height: 1.6em;
+          font-size: 19px;
+        }
+        &__links {
+          margin-top: 20px;
+          display: flex;
+          &__apple {
+            margin-top: 10px;
+             &__link {
+               &__tags {
+                width: 135px;
+                height: auto;
+               }
+             }
+          }
+          &__google {
+            &__link {
+              &__tags {
+               width: auto;
+               height: 70px;
+              }
+            }
+          }
+        }
+        &__images {
+          
+          position: absolute;
+          top: 0;
+          left: 370px;
+          display: flex;
+          align-items: center;
+          height: 390px;
+          &__image {
+            z-index: 1;
+            height: 390px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.slick-dots {
+  bottom: 3px;
+  li button{
+    &::before{
+      height: 5px;
+      width: 5px;
+      background: black;
+      border-radius: 50%;
+      align-items: center;
+    }
+  }
+}
+
+.slick-prev{
+  left: 50px;
+  height: 80px;
+  width: 80px;
+  background-image: image-url("hidari.png");
+  z-index: 100;
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@media (max-width: 1068px) {
+  .slick {
+    height: 290px;
+  }
+  .slick__one__box__link__image {
+    height: 290px
+  }
+  .slick__two {
+    height:290px;
+    &__box {
+      padding: 0 50px;
+      &__texts {
+        &__title {
+          &__big {
+          margin-top: 15px;
+          font-size: 40px;
+          }
+        }
+        &__text {
+          margin-top: 5px;
+          font-size: 16px;
+        }
+        &__links {
+          margin-top: 5px;
+        }
+        &__images {
+          top: -50px;
+          left: calc(50px + 30vw);
+          &__image {
+            height: 290px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  .slick {
+    height: 170px;
+  }
+  .slick__one__box__link__image {
+    height: 170px
+  }
+}
+
+@media (max-width: 768px) {
+  .slick-dots {
+    position: relative;
+    z-index: -1;
+  }
+  .slick__two {
+    height: 170px;
+    background-position: center center;
+    &__box {
+      padding: 0;
+      display: flex;
+      margin: 0;
+      position: relative;
+      &__texts {
+        width: 100%;
+        margin: 0 auto;
+        position: relative;
+        &__title {
+          &__big {
+            display: none;
+          }
+          &__mini {
+            display: block;
+            margin-top: 12px;
+            margin-left: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            position: relative;
+          }
+        }
+        &__text {
+          display: none;
+        }
+        &__links {
+          float: center;
+          display: flex;
+          justify-content: center;
+          background-color: rgba(255, 255, 255, 0.5);
+          position: relative;
+          margin-top: 0px;
+          z-index: 2;
+          &__apple {
+            margin-top: 8px;
+             &__link {
+               &__tags {
+                width: 100px;
+                height: auto;
+                margin-top: 2px;
+               }
+             }
+          }
+          &__google {
+            &__link {
+              &__tags {
+               width: auto;
+               height: 55px;
+              }
+            }
+          }
+        }
+        &__images {
+          position: absolute;
+          top: -110px;
+          left: calc(-70px + 80vw);
+          display: flex;
+          align-items: center;
+          height: 390px;
+          &__image {
+            height: 170px;
+          }
+        }
+      }
+    }
+  }
+}

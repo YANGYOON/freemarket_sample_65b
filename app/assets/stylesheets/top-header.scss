@@ -1,0 +1,91 @@
+body {
+  font-family: "Source Sans Pro", 
+                "Helvetica", 
+                "Arial", 
+                "游ゴシック体", 
+                "YuGothic", 
+                "メイリオ", 
+                "Meiryo", 
+                "sans-serif";
+}
+.top-header {
+  height: 80px;
+  width: 100vw;
+  padding: 10px 0px;
+  box-shadow: 0px 5px 3px -1px rgba(199, 197, 197, 0.6);
+  &__box {
+    margin:0 auto;
+    padding-right: 20px;
+    width: 80%;
+    &__upper {
+      display: flex;
+      &__icon {
+        &__image {
+          height: 40px;
+          width: 134px;
+        }
+      }
+      &__search {
+        width: 100%;
+        height: 35px;
+        position: relative;
+        margin-left: 40px;
+        &__area {
+          width: 100%;
+          height: 35px;
+          border-radius: 5px;
+          background: #F5F5F5;
+          padding-left: 15px;
+        }
+        &__icon {
+          position:absolute;
+          top: 14px;
+          right: 5px;
+        }
+      }
+    }
+    &__lower {
+      margin-top: 15px;
+      display: flex;
+      justify-content: space-between;
+      &__select {
+        display: flex;
+        &__lists {
+          font-size: 14px;
+          font-weight: bold;
+          &__icon {
+            color: red;
+            margin-top: 3px;
+            margin-right: 4px;
+            &--tags {
+              margin-left: 25px;
+            }
+          }
+          &__title {
+
+          }
+        }
+      }
+      &__users {
+        display: flex;
+        &__lists {
+          margin-left: 20px;
+          font-size: 14px;
+          &__icon {
+            margin-top: 4px;
+            margin-right: 10px;
+          }
+          &__title {
+
+          }
+        }
+      }
+    }
+  }
+  &__link {
+    color: black;
+    display: flex;
+    text-decoration: none;
+  }
+}
+

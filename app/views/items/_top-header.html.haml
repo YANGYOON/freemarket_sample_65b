@@ -1,0 +1,42 @@
+.top-header 
+  .top-header__box
+    .top-header__box__upper
+      .top-header__box__upper__icon
+        = link_to "#", class: "top-header__link" do
+          = image_tag "fmarket_logo_red.svg", class: "top-header__box__upper__icon__image"
+      .top-header__box__upper__search
+        %input.top-header__box__upper__search__area{:name => "body", :placeholder => "何かお探しですか", :type => "text",}/
+        = icon('fas', 'search', class: "top-header__box__upper__search__icon")
+    .top-header__box__lower
+      %ul.top-header__box__lower__select
+        %li.top-header__box__lower__select__lists
+          = link_to "#", class: "top-header__link" do
+            = icon('fas', 'list', class: "top-header__box__lower__select__lists__icon")
+            .top-header__box__lower__select__lits__title
+              カテゴリィから探す
+        %li.top-header__box__lower__select__lists
+          = link_to "#", class: "top-header__link" do
+            = icon('fas', 'tags', class: "top-header__box__lower__select__lists__icon top-header__box__lower__select__lists__icon--tags")
+            .top-header__box__lower__select__lists__title
+              ブランドから探す
+      %ul.top-header__box__lower__users
+        %li.top-header__box__lower__users__lists
+          = link_to "#", class: "top-header__link" do
+            = icon('far', 'heart', class: "top-header__box__lower__users__lists__icon")
+            .top-header__box__lower__users__lists__title
+              いいね!一覧
+        %li.top-header__box__lower__users__lists
+          = link_to "#", class: "top-header__link" do
+            = icon('far', 'bell', class: "top-header__box__lower__users__lists__icon")
+            .top-header__box__lower__users__lists__title
+              お知らせ
+        %li.top-header__box__lower__users__lists
+          = link_to "#", class: "top-header__link" do
+            = icon('fas', 'check', class: "top-header__box__lower__users__lists__icon")
+            .top-header__box__lower__users__lists__title
+              やることリスト
+        %li.top-header__box__lower__users__lists
+          = link_to "#", class: "top-header__link" do
+            = icon('fas', 'user-circle', class: "top-header__box__lower__users__lists__icon")
+            .top-header__box__lower__users__lists__title
+              マイページ
