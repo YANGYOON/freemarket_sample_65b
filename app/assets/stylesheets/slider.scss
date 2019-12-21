@@ -20,11 +20,11 @@
     background-image: url("slick_two.jpeg");
     height:390px;
     &__box {
-      height:390px;
       width: 100%;
       margin: 0 auto;
       display: flex;
       padding: 0 200px;
+      height: 390px;
       &__texts {
         width: 80%;
         margin: 0 auto;
@@ -120,6 +120,7 @@
     height:290px;
     &__box {
       padding: 0 50px;
+      height: 290px;
       &__texts {
         &__title {
           &__big {
@@ -151,27 +152,23 @@
   .slick {
     height: 170px;
   }
-  .slick__one__box__link__image {
-    height: 170px
-  }
-}
-
-@media (max-width: 768px) {
   .slick-dots {
     position: relative;
     z-index: -1;
+  }
+  .slick__one__box__link__image {
+    height: 170px
   }
   .slick__two {
     height: 170px;
     background-position: center center;
     &__box {
       padding: 0;
-      display: flex;
       margin: 0;
       position: relative;
+      height: 170px;
       &__texts {
         width: 100%;
-        margin: 0 auto;
         position: relative;
         &__title {
           &__big {
@@ -190,7 +187,6 @@
           display: none;
         }
         &__links {
-          float: center;
           display: flex;
           justify-content: center;
           background-color: rgba(255, 255, 255, 0.5);
@@ -202,7 +198,6 @@
              &__link {
                &__tags {
                 width: 100px;
-                height: auto;
                 margin-top: 2px;
                }
              }
@@ -210,19 +205,14 @@
           &__google {
             &__link {
               &__tags {
-               width: auto;
                height: 55px;
               }
             }
           }
         }
         &__images {
-          position: absolute;
           top: -110px;
           left: calc(-70px + 80vw);
-          display: flex;
-          align-items: center;
-          height: 390px;
           &__image {
             height: 170px;
           }
