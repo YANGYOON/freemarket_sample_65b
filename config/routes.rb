@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  root to: 'Creditcards#index'
+  root to: 'creditcards#index'
   resources :test, only: :index
-  resources :Creditcards, only: :index
+  resources :creditcards, only: :index
   devise_for :users
   
 end
