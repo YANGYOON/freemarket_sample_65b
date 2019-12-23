@@ -22,6 +22,12 @@ body {
   background-color: rgb(245, 245, 245);
   height: 100%;
   width: 100%;
+
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: block;
+  }
   &__main{
     width: 700px;
     margin: 0 auto;
@@ -50,6 +56,15 @@ body {
           margin-left: 8px;
           color: white;
         }       
+      }
+
+      &__box{
+        width: 100%;
+        height: 150px;
+        border: 1px dotted #ccc;
+        background-color: #eee;
+        text-align: center;
+        line-height: 150px;
       }
     }
 
@@ -208,5 +223,308 @@ body {
       }
     
     }
+
+    &__delivery{
+      border-top: 1px solid #eee;
+      padding: 40px;
+
+      &__left{
+        float: left;
+        color: gray;
+        font-size: 14px;
+      }
+
+      &__right{
+        float: right;
+        width: 400px;
+      }
+      
+
+      &__left--question{
+        border-radius: 50%;
+        background-color: #0099e8;
+        color: #fff;
+        width: 15px;
+        height: 15px;
+        font-size: 12px;
+        text-align: center;
+        line-height: 15px;
+        display: inline-block;
+      }
+
+      a{
+        text-decoration: none;
+      }
+
+      &__right__burden{
+        display: flex;
+        font-weight: bold;
+      }
+
+      &__right__burden--icon{
+        padding: 2px 4px;
+        background-color: red;
+        font-size: 12px;
+        vertical-align: top;
+        border-radius: 2px;
+        margin-left: 8px;
+        color: white;
+        vertical-align: top;
+      }
+
+      &__right__burdenform{
+        position: relative;
+        padding-top: 10px;
+      }
+
+      &__right__burdenform--form{
+        width: calc(100% - 10px);
+        height: 48px;
+        border-radius: 4px;
+        font-size: 16px;
+        border: solid 1px #ccc;
+        padding-left: 10px;
+      }
+
+      &__right__burdenform--icon{
+        position: absolute;
+        right: 10px;
+        top: 30px;
+      }
+
+      &__right__shipping-area{
+        display: flex;
+        font-weight: bold;
+        padding-top: 30px;
+      }
+
+      &__right__shipping-area--icon{
+        padding: 2px 4px;
+        background-color: red;
+        font-size: 12px;
+        vertical-align: top;
+        border-radius: 2px;
+        margin-left: 8px;
+        color: white;
+        vertical-align: top;
+      }
+
+      &__right__shipping-area-form{
+        position: relative;
+        padding-top: 10px;
+      }
+
+      &__right__shipping-area-form--form{
+        width: calc(100% - 10px);
+        height: 48px;
+        border-radius: 4px;
+        font-size: 16px;
+        border: solid 1px #ccc;
+        padding-left: 10px;
+      }
+
+      &__right__shipping-area-form--icon{
+        position: absolute;
+        right: 10px;
+        top: 30px;
+      }
+
+      &__right__shipping-period{
+        display: flex;
+        font-weight: bold;
+        padding-top: 30px;
+      }
+
+      &__right__shipping-period--icon{
+        padding: 2px 4px;
+        background-color: red;
+        font-size: 12px;
+        vertical-align: top;
+        border-radius: 2px;
+        margin-left: 8px;
+        color: white;
+        vertical-align: top;
+      }
+
+      &__right__shipping-periodform{
+        position: relative;
+        padding-top: 10px;
+      }
+
+      &__right__shipping-periodform--form{
+        width: calc(100% - 10px);
+        height: 48px;
+        border-radius: 4px;
+        font-size: 16px;
+        border: solid 1px #ccc;
+        padding-left: 10px;
+      }
+
+      &__right__shipping-periodform--icon{
+        position: absolute;
+        right: 10px;
+        top: 30px;
+      }   
+    }
+
+    &__price{
+      border-top: 1px solid #eee;
+      padding: 40px;
+    }
+
+    &__price__left{
+      float: left;
+      color: gray;
+      font-size: 14px;
+    }
+
+    &__price__right{
+      float: right;
+      width: 400px;
+    }
+    
+    &__price__right__box__price{
+      display: flex;
+      font-weight: bold;
+      position: relative;
+      padding-bottom: 5px;
+      line-height: 43px;
+      margin-bottom: 25px;
+    }
+
+    &__price__right__box__price--icon{
+      padding: 2px 4px;
+      background: red;
+      font-size: 12px;
+      vertical-align: top;
+      border-radius: 2px;
+      margin-left: 8px;
+      color: white;
+      background-position-y: center;
+      line-height: 25px;
+      height: 25px;
+    }
+
+    &__price__right__box__price--form{
+      position: absolute;
+      right: 0;
+      font-weight: normal;
+    }
+
+    &__price__right__box__price--form-input{
+      height: 48px;
+      border-radius: 4px;
+      text-align: right;
+      padding-right: 20px;
+    }
+
+    &__price__right__box__fee{
+      border-top: solid 1px #ccc;
+      padding-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    &__price__right__box__fee__left{
+      float: left;
+    }
+
+    &__price__right__box__fee__right{
+      float: right;
+    }
+
+    &__price__right__box__profit{
+      border-top: solid 1px #ccc;
+      padding-top: 15px;
+      font-weight: bold;
+    }
+    
+    &__price__right__box__profit__left{
+      float: left;
+    }
+
+    &__price__right__box__profit__right{
+      float: right;
+    }
+
+    &__submit{
+      padding: 40px;
+    }
+
+    &__submit--text{
+      font-size: 14px;
+    }
+
+    &__submit--button{
+      width: 100%;
+      height: 50px;
+      background-color: red;
+      color: white;
+      margin-top: 40px;
+    }
+
+    &__submit--return{
+      width: 45%;
+      height: 50px;
+      margin: 0 auto;
+      background-color: gray;
+      color: white;
+      position: relative;
+      margin-top: 20px;
+    }
+
+    &__submit--return--button{
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: absolute;
+      text-align: center;
+      line-height: 50px;
+    }
+
+    a{
+      text-decoration: none;
+      color: white;
+    }
+  }
+}
+
+.footer{
+  background-color: rgb(245, 245, 245);
+
+  &__contents{
+    width: 456px;
+    height: 220px;
+    margin: 0 auto;
+  }
+
+  a{
+    color: #333;
+    text-decoration: none;
+  }
+
+  &__contents__links{
+    display: block;
+    display: flex;
+    justify-content: space-around;
+    font-size: 12px;
+    padding-top: 20px;
+  }
+
+  &__contents__logo{
+    height: 75px;
+    width: 90px;
+    margin: 0 auto;
+    padding-top: 50px;
+  }
+
+  &__contents__logo--image{
+    width: 100%;
+    height: 100%;
+  }
+
+  &__contents__inc{
+    text-align: center;
+    font-size: 10px;
+    padding-top: 5px;
   }
 }
