@@ -1,7 +1,7 @@
 .main__footer {
   &__upper_big {
     height: 260px;
-    background-image: url("footer.jpeg");
+    background-image: url("/images/footer.jpeg");
     background-position: center;
     background-size: cover;
     &__contents {
@@ -133,7 +133,7 @@
     display: block;
     height: 80px;
     padding: 15px 0;
-    background-image: url("footer.jpeg");
+    background-image: url("/images/footer.jpeg");
     background-position: center;
     background-size: cover;
     &__contents {
