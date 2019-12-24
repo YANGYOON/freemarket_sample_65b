@@ -1,24 +1,9 @@
-%nav.bread__crumbs
-  %ul.bread__crumbs__list
-    %li{itemscope: "", itemtype:"http://data-vocabulary.org/Breadcrumb"}
-      %a{href: "https://www.mercari.com/jp/", itemprop: "url"}
-        %span{itemprop: "title"} メルカリ
-      %i.fas.fa-chevron-right
-    %li{itemscope:  "", itemtype: "http://data-vocabulary.org/Breadcrumb"}
-      %a{href: "https://www.mercari.com/jp/mypage/", itemprop: "url"}
-        %span{itemprop: "title"} マイページ
-      %i.fas.fa-chevron-right
-    %li{itemscope:"", itemtype: "http://data-vocabulary.org/Breadcrumb"}
-      %a{href: "https://www.mercari.com/jp/mypage/card/", itemprop: "url"}
-        %span{itemprop: "title"} 支払い方法
-      %i.fas.fa-chevron-right
-    %li{itemscope: "", itemtype: "http://data-vocabulary.org/Breadcrumb"}
-      %span.right__text{itemprop: "title"} クレジットカード情報入力
+= render partial: 'credit_bar'
 
 %section.chapter
   %h2.chapter__head クレジットカード情報入力
   %form#add-card-form.chapter__body{action: "https://www.mercari.com/jp/mypage/card/add/", data_adyen_id: "card-form", method: "POST", novalidate: "novalidate"}
-    %input{name: "__csrf_value", type: "hidden", value: "8bbf2a5e9ade89390de3f599f5fd415fb27e9ff18dea685d9c72ea3dbbb28e7290b2cd8b781c06ac67592347359d717bdb30fb487ebc26d6100e1dcf5ee090a43"}/
+    %input{name: "__csrf_value", type: "hidden", value: ""}/
     .content
       .content__group
         %label.label1{for: "payment_card_no"} カード番号

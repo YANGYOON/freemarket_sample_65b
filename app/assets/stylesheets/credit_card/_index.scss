@@ -1,0 +1,33 @@
+.btn-default.btn-reds.submit_button{
+  text-decoration: none;
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  transition: all ease-out .3s;
+  cursor: pointer;
+  text-align: center;
+}
+.creka{
+  margin-right: 8px;
+}
+.fa-chevron-right.b{
+  margin-right: 8px;
+}
+.credit_card_paytext{
+  font-weight: 600;
+}
+.fa-chevron-right.b{
+  font-size: 13px;
+}
+.setting__credit{
+  padding: 24px 0;
+  border-bottom: 1px solid #eee;
+  &__content{
+    max-width: 320px;
+    margin: 0 auto;
+  }
+}
