@@ -13,7 +13,7 @@
         %span{itemprop: "title"} 支払い方法
       %i.fas.fa-chevron-right
     %li{itemscope: "", itemtype: "http://data-vocabulary.org/Breadcrumb"}
-      %span{itemprop: "title"} クレジットカード情報入力
+      %span.right__text{itemprop: "title"} クレジットカード情報入力
 
 %section.chapter
   %h2.chapter__head クレジットカード情報入力
@@ -60,7 +60,7 @@
             %option{value: "12"} 12
           %i.fas.fa-chevron-down
           %span 月
-        .content__expire__half
+        .content__expire__hal
           %select#payment_card_expire_yy.select-default
             %option{value: "19"} 19
             %option{value: "20"} 20
@@ -80,15 +80,14 @@
       .content__form
         %label.label1{for: "payment_card_security_code"} セキュリティコード
         %span.content__require 必須
-        %input#payment_card_security_code.input-default{placeholder: "カード背面4桁or3桁の番号", type: "number", value: ""}/
+        %input#payment_card_security_code.content__form__input{placeholder: "カード背面4桁 or 3桁の番号", type: "number", value: ""}/
         %ul#security-code-error-wrapper.has-error-text
         .content__form__seqcode
           .content__form__seqcode__text{data_js: "show-tips-toggle"}
-            %span.form-question> ?
+            %span.content__form__seqcode__text__question> ?
             カード裏面の番号とは？
-          .content__form__seqcode__info{data_js: "show-tips-content"}
+          .content__form__seqcode__info.is-show{data_js: "show-tips-content"}
             カードの裏面をご参照ください。
-            %br/
             %img{alt: "", src: "//www-mercari-jp.akamaized.net/assets/img/signup/seq-card.png?1714804574", width: 240}/
       %input#user_id{name: "user_id",type: "hidden", value: ""}/
       %input#encrypted_card_data{name: "encrypted_card_data", type: "hidden"}/
