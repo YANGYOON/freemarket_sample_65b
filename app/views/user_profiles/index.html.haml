@@ -1,16 +1,26 @@
 %nav.bread__crumbs
   %ul.bread__crumbs__list
-    %li{itemscope: "", itemtype:"http://data-vocabulary.org/Breadcrumb"}
+    %li.bread__crumbs__list__li{itemscope: "", itemtype:"#"}
       %a{href: "https://www.mercari.com/jp/", itemprop: "url"}
         %span{itemprop: "title"} メルカリ
       %i.fas.fa-chevron-right
-    %li{itemscope:  "", itemtype: "http://data-vocabulary.org/Breadcrumb"}
+    %li.bread__crumbs__list__li{itemscope:  "", itemtype: "#"}
       %a{href: "https://www.mercari.com/jp/mypage/", itemprop: "url"}
         %span{itemprop: "title"} マイページ
       %i.fas.fa-chevron-right
-    %li{itemscope:"", itemtype: "http://data-vocabulary.org/Breadcrumb"}
-      %a{href: "https://www.mercari.com/jp/mypage/card/", itemprop: "url"}
-        %span{itemprop: "title"} 支払い方法
-      %i.fas.fa-chevron-right
-    %li{itemscope: "", itemtype: "http://data-vocabulary.org/Breadcrumb"}
-      %span.right__text{itemprop: "title"} クレジットカード情報入力
+    %li.bread__crumbs__list__li{itemscope: "", itemtype: "#"}
+      %span.right__text{itemprop: "title"} プロフィール
+
+.user__profile
+  %section.user__profile__content
+    %h2.user__profile__content__head プロフィール
+    %form{action: "https://www.mercari.com/jp/mypage/profile/", method: "POST"}
+      %input{name: "#", :type => "hidden", value: "#"}/
+      .user__profile__content__head__icon
+        %figure
+          %img{height: 60, src: "//static.mercdn.net/images/member_photo_noimage_thumb.png", width: 60}/
+        %input.user__profile__content__head__icon__input{name: "nickname", placeholder: "例)AYA☆セール中", type: "text", value: "#"}/
+      .user__profile__content__head__setting
+        %textarea.textarea-default{name: "introduction", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
+        %input{name: "after_save_callback", type: "hidden", value: "#"}/
+        %button.btn-default.btn-red{type: "submit"} 変更する
