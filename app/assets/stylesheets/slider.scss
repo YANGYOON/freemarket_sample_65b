@@ -3,7 +3,7 @@
   height: 390px;
   width: 100vw;
   &__one {
-    background-image: url("slick_one.jpeg");
+    background-image: url("/images/slick_one.jpeg");
     background-position: center;
     background-size: cover;
     &__box {
@@ -18,7 +18,7 @@
   }
   &__two {
     background-size: cover;
-    background-image: url("slick_two.jpeg");
+    background-image: url("/images/slick_two.jpeg");
     height:390px;
     position: relative;
     &__box {
