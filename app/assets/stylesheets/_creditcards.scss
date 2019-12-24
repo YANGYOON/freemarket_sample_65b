@@ -1,14 +1,55 @@
+*{
+  box-sizing:border-box;
+}
+
 body{
   position: relative;
   min-height: 100%;
   background: #f5f5f5;
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   font-size: 14px;
-  color: #333;
+  color:black;
   line-height: 1;
 }
+i{
+  display: inline-block;
+  font-family: 'icon-font';
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+}
+.fa-chevron-right{
+  margin: 0 8px;
+  font-size: 9px;
+  color: #888;
+}
+.label1{
+  font-weight: 600;
+}
+.content__require{
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: top;
+  background: #ea352d;
+}
 
-
+.contet__input{
+  width: 100%;
+  margin: 8px 0 0;
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+}
 .bread__crumbs{
   position: relative;
   border-top: 1px solid #eee;
@@ -27,3 +68,34 @@ body{
     line-height: 1.2;
     }
   }}
+
+.chapter{
+  width: 700px;
+  margin: 24px auto 0;
+  padding: 0 0 40px;
+  background-color: white;
+  &__head{
+    padding: 12px 4%;
+    border-bottom: 1px solid #f5f5f5;
+    text-align: center;
+    font-size: 18px;
+  }
+  &__body{
+    padding: 24px 16px 40px;
+    background-color: white;
+    border-top: 1px solid #f5f5f5;
+}}
+  .content{
+    max-width: 343px;
+    margin: 0 auto;
+    &__group{
+      background-color: blueviolet;
+      width: 1000px;
+      &__list{
+        margin: 8px 0 0;
+        font-size: 0;
+        display: flexbox;
+
+      }
+    }
+  }
