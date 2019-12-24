@@ -1,0 +1,20 @@
+.new_register__body
+  .new_register__header
+    .new_register__header__logo
+      = image_tag src="/images/fmarket_logo_red.svg", size: "200x100"
+  .new_register__content
+    .new_register__content__top
+      新規会員登録
+    .new_register__content__main
+      .new_register__content__main__mail_btn
+        = link_to "#", class:"new_register_mail" do
+          %i.far.fa-envelope
+          メールアドレスで登録する
+      .new_register__content__main__facebook_btn
+        = link_to "#", class:"new_register_facebook" do
+          %i.fab.fa-facebook-square
+          Facebookで登録する
+      .new_register__content__main__google_btn
+        = link_to "#", class:"new_register_google" do
+          %i.fab.fa-google
+          Googleで登録する
