@@ -17,12 +17,12 @@
     display: inline-block;
     font-size: 14px;
     line-height: 1.2;    
-    }
-    a{
+    &__text{
       color: black;
-    }
+    }}
     .right__text{
       font-weight: 600;
+      color: black;
     }
     .fa-chevron-right{
       margin: 0 8px;
@@ -44,7 +44,6 @@
     background: #fff;
     &__head{
     padding: 12px 4%;
-    border-bottom: 1px solid #791818;
     text-align: center;
     font-size: 22px;
     line-height: 1.4;
