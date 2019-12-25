@@ -97,6 +97,27 @@
         寿限無寿限無五劫の擦り切れ海砂利水魚の水行末雲来末風来末食う寝る処に住む処やぶら小路の藪柑子
 
       .item-detail__contents__center__description__icons
+        .item-detail__contents__center__description__icons__left
+          .item-detail__contents__center__description__icons__left__likes
+            .item-detail__contents__center__description__icons__left__likes--icon
+              = icon('far', 'heart' )
+            .item-detail__contents__center__description__icons__left__likes--text
+              いいね！
+            .item-detail__contents__center__description__icons__left__likes--num
+              0
+
+          .item-detail__contents__center__description__icons__left__flag
+            .item-detail__contents__center__description__icons__left__flag--icon
+              = icon('far', 'flag' )
+            .item-detail__contents__center__description__icons__left__flag--text
+              不適切な商品の報告
+
+        .item-detail__contents__center__description__icons__right
+          = link_to root_path, class:"item-detail__contents__center__description__icons__right__content" do
+            .item-detail__contents__center__description__icons__right__content--icon
+              = icon('fas', 'lock' )
+            .item-detail__contents__center__description__icons__right__content--text
+              あんしん・あんぜんへの取り組み
 
 
   .item-detail__contents__center__message-form
@@ -204,5 +225,7 @@
             暖かい服
           .item-detail__contents__center__relatede-items__sec__box__price
             ¥900
+
+      %input.item-detail__contents__center{name: "item-buy", placeholder: "", type: "button", value: "コメントする"}/
 
 = render 'main_footer'
