@@ -13,8 +13,6 @@
     font-size: 0;
     white-space: nowrap;
     overflow: auto;
-    
-    
     &__li{
     display: inline-block;
     font-size: 14px;
@@ -31,18 +29,16 @@
       font-size: 9px;
       color: #888;
     }
-  }}
+  }
+}
 .userprofile__content{
   margin: 40px auto 0;
   width: 1020px;
   display: flex;
 }
-
 .user__profile{
-  
   padding: 0 0 40px;
   width: 700px;
-  
   &__content{
     width: 100%;
     background: #fff;
@@ -62,7 +58,6 @@
         font-size: 0;
         display: flex;
         justify-content: center;
-
         &__input{
           padding: 10px 16px 8px;
           border-radius: 4px;
@@ -73,13 +68,11 @@
           width: 220px;
           margin: 0 0 0 8px;
           vertical-align: middle;
-          
         }
         &__image{
           border-radius: 50%;
-          
         }
-      }
+    }
     &__setting{
       padding: 40px 16px;
       &__text{
@@ -110,10 +103,7 @@
           cursor: pointer;
           text-align: center;
         }
-      
     }
-}
+  }
 }
 }  
-
-
