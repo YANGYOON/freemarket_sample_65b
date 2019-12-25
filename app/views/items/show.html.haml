@@ -1,0 +1,231 @@
+= render partial: 'main_header'
+
+.item-detail__contents
+  .item-detail__contents__center
+    .item-detail__contents__center__head
+      商品名
+
+    .item-detail__contents__center__detail
+      .item-detail__contents__center__detail__left.clearfix
+        = image_tag src='item.jpeg', class: "item-detail__contents__center__detail__left__main-image"
+
+        .item-detail__contents__center__detail__left__sub-images
+          .item-detail__contents__center__detail__left__sub-images__dot
+            = image_tag src='item.jpeg', class: "item-detail__contents__center__detail__left__sub-images__dot"
+
+          .item-detail__contents__center__detail__left__sub-images__dot
+            = image_tag src='item.jpeg', class: "item-detail__contents__center__detail__left__sub-images__dot"
+
+          .item-detail__contents__center__detail__left__sub-images__dot
+            = image_tag src='item.jpeg', class: "item-detail__contents__center__detail__left__sub-images__dot"
+
+          .item-detail__contents__center__detail__left__sub-images__dot
+            = image_tag src='item.jpeg', class: "item-detail__contents__center__detail__left__sub-images__dot"
+
+          .item-detail__contents__center__detail__left__sub-images__dot
+            = image_tag src='item.jpeg', class: "item-detail__contents__center__detail__left__sub-images__dot"
+
+          .item-detail__contents__center__detail__left__sub-images__dot
+            = image_tag src='item.jpeg', class: "item-detail__contents__center__detail__left__sub-images__dot"
+
+      .item-detail__contents__center__detail__right
+        %table
+          %th 出品者
+          %td.item-detail__contents__center__detail__right__user-rate
+            アルジャーノン
+            .item-detail__contents__center__detail__right__user-rate--icon
+              .item-detail__contents__center__detail__right__user-rate--icon--good
+                .item-detail__contents__center__detail__right__user-rate--icon--good--left
+                  = icon('fas', 'laugh')
+                .item-detail__contents__center__detail__right__user-rate--icon--good--right
+                  0
+
+              .item-detail__contents__center__detail__right__user-rate--icon--meh
+                .item-detail__contents__center__detail__right__user-rate--icon--meh--left
+                  = icon('fas', 'meh')
+                .item-detail__contents__center__detail__right__user-rate--icon--meh--right
+                  0
+
+              .item-detail__contents__center__detail__right__user-rate--icon--sad
+                .item-detail__contents__center__detail__right__user-rate--icon--sad--left
+                  = icon('fas', 'sad-tear')
+                .item-detail__contents__center__detail__right__user-rate--icon--sad--right
+                  0
+
+        %table
+          %th カテゴリー
+          %td メンズ
+
+        %table
+          %th ブランド
+          %td ニケ
+        
+        %table
+          %th 商品の状態
+          %td 傷なし
+
+        %table
+          %th 配送料の負担
+          %td 送料込（出品者負担）
+
+        %table
+          %th 配送の方法
+          %td 未定
+        
+        %table
+          %th 発送元地域
+          %td 北海道
+
+        %table
+          %th 発送日の目安
+          %td 2~3日で発送
+    
+    .item-detail__contents__center__price
+      %span.item-detail__contents__center__price__price
+        ¥9,900
+      %span.item-detail__contents__center__price__tax
+        （税込）
+      %span.item-detail__contents__center__price__fee
+        送料込み
+
+    .item-detail__contents__center__submit
+      %input.item-detail__contents__center__submit--button{name: "item-buy", placeholder: "", type: "submit", value: "購入画面に進む"}/
+        
+
+    .item-detail__contents__center__description
+      %p.item-detail__contents__center__description__description
+        寿限無寿限無五劫の擦り切れ海砂利水魚の水行末雲来末風来末食う寝る処に住む処やぶら小路の藪柑子
+
+      .item-detail__contents__center__description__icons
+        .item-detail__contents__center__description__icons__left
+          .item-detail__contents__center__description__icons__left__likes
+            .item-detail__contents__center__description__icons__left__likes--icon
+              = icon('far', 'heart' )
+            .item-detail__contents__center__description__icons__left__likes--text
+              いいね！
+            .item-detail__contents__center__description__icons__left__likes--num
+              0
+
+          .item-detail__contents__center__description__icons__left__flag
+            .item-detail__contents__center__description__icons__left__flag--icon
+              = icon('far', 'flag' )
+            .item-detail__contents__center__description__icons__left__flag--text
+              不適切な商品の報告
+
+        .item-detail__contents__center__description__icons__right
+          = link_to root_path, class:"item-detail__contents__center__description__icons__right__content" do
+            .item-detail__contents__center__description__icons__right__content--icon
+              = icon('fas', 'lock' )
+            .item-detail__contents__center__description__icons__right__content--text
+              あんしん・あんぜんへの取り組み
+
+
+  .item-detail__contents__center__message-form
+    .item-detail__contents__center__message-form__text
+      相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+
+    %textarea.item-detail__contents__center__message-form--form(name="item-message" cols="30" rows="5" placeholder="")
+    .item-detail__contents__center__message-form__submit
+      %input.item-detail__contents__center__message-form__submit--button{name: "item-buy", placeholder: "", type: "submit", value: "コメントする"}/
+
+
+  .item-detail__contents__center__change-page
+    = link_to root_path, class:"item-detail__contents__center__change-page__left" do
+      .item-detail__contents__center__change-page__left--icon
+        ＜
+      .item-detail__contents__center__change-page__left--text
+        ページ移動
+    = link_to root_path, class:"item-detail__contents__center__change-page__right" do
+      .item-detail__contents__center__change-page__right--text
+        ページ移動
+      .item-detail__contents__center__change-page__right--icon
+        ＞
+
+  .item-detail__contents__center__sns-links
+    .item-detail__contents__center__sns-links--icon
+      = link_to "https://www.facebook.com/", class: "icon1" do
+        = icon('fab', 'facebook-square fa-3x' )
+      
+      = link_to "https://twitter.com/", class: "" do
+        = icon('fab', 'twitter-square fa-3x')
+
+      = link_to "https://www.pinterest.jp/", class: "" do
+        = icon('fab','pinterest-square fa-3x')
+
+  .item-detail__contents__center__owner-items.clearfix
+    = link_to root_path, class:"item-detail__contents__center__owner-items__head" do
+      アルジャーノンさんのその他の出品
+
+    .item-detail__contents__center__owner-items__sec
+      .item-detail__contents__center__owner-items__sec__box
+        = link_to root_path, class:"" do
+          = image_tag "item.jpeg", class: "item-detail__contents__center__owner-items__sec__box--image"
+          .item-detail__contents__center__owner-items__sec__box__name
+            暖かい服
+          .item-detail__contents__center__owner-items__sec__box__price
+            ¥900
+
+      .item-detail__contents__center__owner-items__sec__box
+        = link_to root_path, class:"" do
+          = image_tag "item.jpeg", class: "item-detail__contents__center__owner-items__sec__box--image"
+          .item-detail__contents__center__owner-items__sec__box__name
+            暖かい服
+          .item-detail__contents__center__owner-items__sec__box__price
+            ¥900
+
+      .item-detail__contents__center__owner-items__sec__box
+        = link_to root_path, class:"" do
+          = image_tag "item.jpeg", class: "item-detail__contents__center__owner-items__sec__box--image"
+          .item-detail__contents__center__owner-items__sec__box__name
+            暖かい服
+          .item-detail__contents__center__owner-items__sec__box__price
+            ¥900
+
+      .item-detail__contents__center__owner-items__sec__box
+        = link_to root_path, class:"" do
+          = image_tag "item.jpeg", class: "item-detail__contents__center__owner-items__sec__box--image"
+          .item-detail__contents__center__owner-items__sec__box__name
+            暖かい服
+          .item-detail__contents__center__owner-items__sec__box__price
+            ¥900
+          
+  .item-detail__contents__center__relatede-items.clearfix
+    = link_to root_path, class:"item-detail__contents__center__relatede-items__head" do
+      その他の出品
+
+    .item-detail__contents__center__relatede-items__sec
+      .item-detail__contents__center__relatede-items__sec__box
+        = link_to root_path, class:"" do
+          = image_tag "item.jpeg", class: "item-detail__contents__center__relatede-items__sec__box--image"
+          .item-detail__contents__center__relatede-items__sec__box__name
+            暖かい服
+          .item-detail__contents__center__relatede-items__sec__box__price
+            ¥900
+
+      .item-detail__contents__center__relatede-items__sec__box
+        = link_to root_path, class:"" do
+          = image_tag "item.jpeg", class: "item-detail__contents__center__relatede-items__sec__box--image"
+          .item-detail__contents__center__relatede-items__sec__box__name
+            暖かい服
+          .item-detail__contents__center__relatede-items__sec__box__price
+            ¥900
+
+      .item-detail__contents__center__relatede-items__sec__box
+        = link_to root_path, class:"" do
+          = image_tag "item.jpeg", class: "item-detail__contents__center__relatede-items__sec__box--image"
+          .item-detail__contents__center__relatede-items__sec__box__name
+            暖かい服
+          .item-detail__contents__center__relatede-items__sec__box__price
+            ¥900
+
+      .item-detail__contents__center__relatede-items__sec__box
+        = link_to root_path, class:"" do
+          = image_tag "item.jpeg", class: "item-detail__contents__center__relatede-items__sec__box--image"
+          .item-detail__contents__center__relatede-items__sec__box__name
+            暖かい服
+          .item-detail__contents__center__relatede-items__sec__box__price
+            ¥900
+
+      %input.item-detail__contents__center{name: "item-buy", placeholder: "", type: "button", value: "コメントする"}/
+
+= render 'main_footer'
