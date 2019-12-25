@@ -1,0 +1,31 @@
+%nav.bread__crumbs
+  %ul.bread__crumbs__list
+    %li{itemscope: "", itemtype:"http://data-vocabulary.org/Breadcrumb"}
+      %a{href: "https://www.mercari.com/jp/", itemprop: "url"}
+        %span{itemprop: "title"} メルカリ
+      %i.fas.fa-chevron-right
+    %li{itemscope:  "", itemtype: "http://data-vocabulary.org/Breadcrumb"}
+      %a{href: "https://www.mercari.com/jp/mypage/", itemprop: "url"}
+        %span{itemprop: "title"} マイページ
+      %i.fas.fa-chevron-right
+    %li{itemscope:"", itemtype: "http://data-vocabulary.org/Breadcrumb"}
+      %a{href: "https://www.mercari.com/jp/mypage/card/", itemprop: "url"}
+        %span.credit_card_paytext{itemprop: "title"} 支払い方法
+%main.creditcard__verification
+  %section.creditcard__verification__chapter
+    %h2.creditcard__verification__chapter__text 支払い方法
+    .single__inner
+      %section
+        .single__inner__content
+          %h3.single__inner__content__midle クレジットカード一覧
+      %section.setting__credit
+        .setting__credit__content
+          %a.btn-default.btn-reds.submit_button{href: "#"}
+            %i.fas.fa-credit-card.creka>
+            クレジットカードを追加する
+      .single__inner__settings
+        %a.single__inner__settings__a{href: "#", target: "_blank"}
+          %span.single__inner__settings__a__pay 支払い方法について
+          %i.fas.fa-chevron-right.b
+.test
+  aaaaa
