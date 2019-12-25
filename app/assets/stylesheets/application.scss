@@ -1,9 +1,9 @@
-@import "module/mypage";
 @import "reset";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "./items/new";
 @import "./items/buy";
+@import "./items/show";
 @import "slick-theme"; 
 @import "slick";
 @import "slider";
@@ -12,4 +12,9 @@
 @import "popular_categories";
 @import "new_items";
 @import "sell_btn";
-@import "./items/show";
+@import "user_profiles/index";
+@import "common/sub_header";
+@import "module/mypage";
+@import "common/side_bar";
+
+

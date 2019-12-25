@@ -1,0 +1,561 @@
+.side_bar_content{
+  width: 280px;
+  margin: 0 40px 0 0
+}
+.line {
+    border-top: 1px solid #eee;
+    margin: 0 auto;
+    padding: 16px 0;
+    display: flex;
+    background: #fff;
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+    margin-bottom: 40px;
+    &__mercari {
+      margin-left: 210px;
+    }
+    &__mypage {
+      font-weight: 600;
+      padding-left: 10px;
+    }
+  }
+  .content {
+    display: flex;
+    .lef-content {
+      
+      padding: 0px, 0px, 40px;
+      &__lists_top {
+        width: 280px;
+        font-size: 14px;
+        color: #333;
+        .list{
+          position: relative;
+        }
+          .list_mypage {
+            text-decoration: none;
+            border: #eeeeee;
+            background-color: #eeeeee;
+            display: flex;
+            justify-content: space-between;
+            padding: 16px;
+            font-size: 14px;
+            color: #333;
+          }
+          .list_things {
+            text-decoration: none;
+            border-bottom: solid;
+            border-color: #eeeeee;
+            display: flex;
+            justify-content: space-between;
+            padding: 16px;
+            background: #fff;
+            font-size: 14px;
+            color: #333;
+          }
+          .list_likes {
+            text-decoration: none;
+            border-bottom: solid;
+            border-color: #eeeeee;
+            display: flex;
+            justify-content: space-between;
+            padding: 16px;
+            background: #fff;
+            font-size: 14px;
+            color: #333;
+          }
+          .list_exhibit {
+            text-decoration: none;
+            border-bottom: solid;
+            border-color: #eeeeee;
+            display: flex;
+            justify-content: space-between;
+            padding: 16px;
+            background: #fff;
+            font-size: 14px;
+            color: #333;
+          }
+          .list_exhibit_item {
+            text-decoration: none;
+            border-bottom: solid;
+            border-color: #eeeeee;
+            display: flex;
+            justify-content: space-between;
+            padding: 16px;
+            background: #fff;
+            font-size: 14px;
+            color: #333;
+          }
+          .list_exhibit_trades {
+            text-decoration: none;
+            border-bottom: solid;
+            border-color: #eeeeee;
+            display: flex;
+            justify-content: space-between;
+            padding: 16px;
+            background: #fff;
+            font-size: 14px;
+            color: #333;
+          }
+          .list_exhibit_sold {
+            text-decoration: none;
+            border-bottom: solid;
+            border-color: #eeeeee;
+            display: flex;
+            justify-content: space-between;
+            padding: 16px;
+            background: #fff;
+            font-size: 14px;
+            color: #333;
+          }
+          .list_purchase_trade {
+            text-decoration: none;
+            border-bottom: solid;
+            border-color: #eeeeee;
+            display: flex;
+            justify-content: space-between;
+            padding: 16px;
+            background: #fff;
+            font-size: 14px;
+            color: #333;
+          }
+          .list_purchase_trade_past {
+            text-decoration: none;
+            border-bottom: solid;
+            border-color: #eeeeee;
+            display: flex;
+            justify-content: space-between;
+            padding: 16px;
+            background: #fff;
+            font-size: 14px;
+            color: #333;
+          }
+          .list_news {
+            text-decoration: none;
+            border-bottom: solid;
+            border-color: #eeeeee;
+            display: flex;
+            justify-content: space-between;
+            padding: 16px;
+            background: #fff;
+            font-size: 14px;
+            color: #333;
+          }
+          .list_evaluation {
+            text-decoration: none;
+            border-bottom: solid;
+            border-color: #eeeeee;
+            display: flex;
+            justify-content: space-between;
+            padding: 16px;
+            background: #fff;
+            font-size: 14px;
+            color: #333;
+          }
+          .list_guide {
+            text-decoration: none;
+            border-bottom: solid;
+            border-color: #eeeeee;
+            display: flex;
+            justify-content: space-between;
+            padding: 16px;
+            background: #fff;
+            font-size: 14px;
+            color: #333;
+          }
+          .list_inquiry {
+            text-decoration: none;
+            display: flex;
+            justify-content: space-between;
+            padding: 16px;
+            background: #fff;
+            font-size: 14px;
+            color: #333;
+          }
+          .list_exhibit_trade {
+            border-bottom: solid;
+            border-color: #eeeeee;
+            text-decoration: none;
+            display: flex;
+            justify-content: space-between;
+            padding: 16px;
+            background: #fff;
+            font-size: 14px;
+            color: #333;
+          }
+      }
+      &__lists_center {
+        width: 280px;
+        .list_merpay {
+          text-decoration: none;
+          display: flex;
+          justify-content: space-between;
+          padding: 40px 40px 10px 20px;
+          font-size: 14px;
+          color: #333;
+        }
+        .list_profit {
+          text-decoration: none;
+          border-bottom: solid;
+          border-color: #eeeeee;
+          display: flex;
+          justify-content: space-between;
+          padding: 16px;
+          background: #fff;
+          font-size: 14px;
+          color: #333;
+        }
+        .list_point {
+          text-decoration: none;
+          display: flex;
+          justify-content: space-between;
+          padding: 16px;
+          background: #fff;
+          font-size: 14px;
+          color: #333;
+        }
+    }
+      .next_icon {
+        position: absolute;
+        top: 10px;
+        float: right;
+      }
+      &__lists_under {
+        width: 280px;
+        .list_set {
+          text-decoration: none;
+          padding: 40px 40px 10px 20px;
+          display: flex;
+          justify-content: space-between;
+          font-size: 14px;
+          color: #333;
+        }
+        .list_profile {
+          text-decoration: none;
+          border-bottom: solid;
+          border-color: #eeeeee;
+          display: flex;
+          justify-content: space-between;
+          padding: 16px;
+          background: #fff;
+          font-size: 14px;
+          color: #333;
+        }
+        .list_address {
+          text-decoration: none;
+          border-bottom: solid;
+          border-color: #eeeeee;
+          display: flex;
+          justify-content: space-between;
+          padding: 16px;
+          background: #fff;
+          font-size: 14px;
+          color: #333;
+        }
+        .list_shipping {
+          text-decoration: none;
+          border-bottom: solid;
+          border-color: #eeeeee;
+          display: flex;
+          justify-content: space-between;
+          padding: 16px;
+          background: #fff;
+          font-size: 14px;
+          color: #333;
+        }
+        .list_mail_pass {
+          text-decoration: none;
+          border-bottom: solid;
+          border-color: #eeeeee;
+          display: flex;
+          justify-content: space-between;
+          padding: 16px;
+          background: #fff;
+          font-size: 14px;
+          color: #333;
+        }
+        .list_inform {
+          text-decoration: none;
+          border-bottom: solid;
+          border-color: #eeeeee;
+          display: flex;
+          justify-content: space-between;
+          padding: 16px;
+          background: #fff;
+          font-size: 14px;
+          color: #333;
+        }
+        .list_number {
+          text-decoration: none;
+          border-bottom: solid;
+          border-color: #eeeeee;
+          display: flex;
+          justify-content: space-between;
+          padding: 16px;
+          background: #fff;
+          font-size: 14px;
+          color: #333;
+        }
+        .list_logout {
+          text-decoration: none;
+          border-bottom: solid;
+          border-color: #eeeeee;
+          display: flex;
+          justify-content: space-between;
+          padding: 16px;
+          background: #fff;
+          font-size: 14px;
+          color: #333;
+        }
+      }
+    } 
+    .content-right {
+      color: #333;
+      padding-left: 40px;
+      .content-right_main {
+        display: block;
+        margin-right: 210px;
+        height: 200px;
+        width: 700px;
+        position: relative;
+        background-image: url('/images/watermark.jpg');
+        text-align: center;
+        .main_link {
+          padding-top: 50px;
+          .content-right_main__photo {
+            color: #333;
+          }
+          .content-right_main__name {
+            text-decoration: none;
+            color: #333;
+          }
+      }
+        .content-right_main__other {
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+    .content_mypage {
+      display: flex;
+      color: #333;
+      font-size: 16px;
+      line-height: 72px;
+      .notice {
+      height: 72px;
+      width: 350px;
+      display: block;
+      border-top: 2px solid #ea352d;
+      background: #fff;
+      text-align: center;
+      }
+      .things {
+      height: 74px;
+      width: 350px;
+      display: block;
+      text-align: center;
+      background-color: #eeeeee;
+      }
+    }
+    .mypage_inform {
+      .mapage_inform_1 {
+        display: flex;
+        width: 680px;
+        padding: 10px;
+        background: #fff;
+        border-bottom: solid;
+        border-color: #eeeeee;
+        color: #333;
+        text-decoration: none;
+        .inform_text {
+          text-decoration: none;
+          color: #333;
+        }
+        .icon {
+          text-align: right;
+          width: 630px;
+        }
+        .time_icon {
+          color: #333;
+          width: 0px;
+          float: left;
+          padding-top: 5px;
+        }
+        .time {
+          color: #333;
+          width: 50px;
+          text-align: right;
+        }
+      }
+      .mapage_inform_2 {
+        display: flex;
+        width: 680px;
+        padding: 10px;
+        background: #fff;
+        border-bottom: solid;
+        border-color: #eeeeee;
+        color: #333;
+        text-decoration: none;
+        .inform_text {
+          text-decoration: none;
+          color: #333;
+        }
+        .icon {
+          text-align: right;
+          width: 630px;
+        }
+        .time_icon {
+          color: #333;
+          width: 0px;
+          float: left;
+          padding-top: 5px;
+        }
+        .time {
+          color: #333;
+          width: 50px;
+          text-align: right;
+        }
+      }
+      .mapage_inform_3 {
+        display: flex;
+        width: 680px;
+        padding: 10px;
+        background: #fff;
+        border-bottom: solid;
+        border-color: #eeeeee;
+        color: #333;
+        text-decoration: none;
+        .inform_text {
+          text-decoration: none;
+          color: #333;
+        }
+        .icon {
+          text-align: right;
+          width: 630px;
+        }
+        .time_icon {
+          color: #333;
+          width: 0px;
+          float: left;
+          padding-top: 5px;
+        }
+        .time {
+          color: #333;
+          width: 50px;
+          text-align: right;
+        }
+      }
+      .mapage_inform_4 {
+        display: flex;
+        width: 680px;
+        padding: 10px;
+        background: #fff;
+        border-bottom: solid;
+        border-color: #eeeeee;
+        color: #333;
+        text-decoration: none;
+        .inform_text {
+          text-decoration: none;
+          color: #333;
+        }
+        .icon {
+          text-align: right;
+          width: 630px;
+        }
+        .time_icon {
+          color: #333;
+          width: 0px;
+          float: left;
+          padding-top: 5px;
+        }
+        .time {
+          color: #333;
+          width: 50px;
+          text-align: right;
+        }
+      }
+      .mapage_inform_5 {
+        display: flex;
+        width: 680px;
+        padding: 10px;
+        background: #fff;
+        border-bottom: solid;
+        border-color: #eeeeee;
+        color: #333;
+        text-decoration: none;
+        .inform_text {
+          text-decoration: none;
+          color: #333;
+        }
+        .icon {
+          text-align: right;
+          width: 630px;
+        }
+        .time_icon {
+          color: #333;
+          width: 0px;
+          float: left;
+          padding-top: 5px;
+        }
+        .time {
+          color: #333;
+          width: 50px;
+          text-align: right;
+        }
+      }
+      .summary {
+        background: #fff;
+        width: 668px;
+        padding: 16px;
+        margin-bottom: 35px;
+        .icon_summary {
+          display: block;
+          height: 56px;
+          background-color: #eeeeee;
+          color: #333;
+          text-align: center;
+          line-height: 56px;
+          text-decoration: none;
+        }
+      }
+    }
+    .under-content {
+      &__buy_item {
+        height: 72px;
+        width: 640px;
+        color: #333333;
+        background: #FAFAFA;
+        padding: 0px 30px;
+        font-size: 16px;
+        line-height: 72px;
+      }
+      .under-content__trade {
+        display: flex;
+      &__left {
+        height: 74px;
+        width: 350px;
+        display: block;
+        border-top: 2px solid #ea352d;
+        background: #fff;
+        text-align: center;
+        line-height: 75px;
+      }
+      &__right {
+        display: flex;
+        height: 74px;
+        width: 350px;
+        line-height: 75px;
+        display: block;
+        text-align: center;
+        background-color: #eeeeee;
+      }
+    }
+      &__main {
+        height: 150px;
+        width: 700px;
+        padding: 50px 0px 60px;
+        text-align: center;
+        background: #fff;
+        color: #cccccc;
+      }
+    }
+  }
+
