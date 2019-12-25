@@ -31,7 +31,6 @@
   margin: 24px auto 0;
   padding: 0 0 40px;
   width: 700px;
-  
   &__content{
     width: 100%;
     background: #fff;
@@ -48,6 +47,9 @@
         background-size: cover;
         text-align: center;
         font-size: 0;
+      }
+    &__setting{
+      padding: 40px 16px;
       }
       }
       }
