@@ -1,0 +1,39 @@
+.nav {
+  border-top: solid;
+  border-width: 1px;
+  border-color: #dddddd;
+  widows: 100%;
+  box-shadow: 0px 5px 3px -1px rgba(200, 200, 200, 0.6);
+  position: relative;
+  z-index: 7;
+  &__box {
+  padding: 10px 0;
+  width: 80%;
+  margin: 0 auto;
+    &__link {
+      color: #333333;
+      font-size: 14px;
+      &--here {
+        font-weight: bold;
+      } 
+    }
+  }
+}
+.log_out {
+  background-color: #f5f5f5;
+  height: 1000px;
+  &__contents {
+    width: 700px;
+    padding: 64px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__botton {
+      padding: 15px 129px;
+      background: #ea352d;
+      border: 1px solid #ea352d;
+      color: #fff;
+    }
+  }
+}
