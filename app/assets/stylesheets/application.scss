@@ -1,4 +1,3 @@
-@import "module/mypage";
 @import "reset";
 @import "font-awesome-sprockets";
 @import "font-awesome";
@@ -13,3 +12,6 @@
 @import "new_items";
 @import "sell_btn";
 @import "user_profiles/index";
+@import "common/sub_header";
+@import "module/mypage";
+@import "common/side_bar";
