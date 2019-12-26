@@ -8,11 +8,12 @@
     .new_items__contents__grid
       .new_items__contents__grid__item
         = link_to "#" do
-          = image_tag "/images/item.jpeg", class: "new_items__contents__grid__item__image"
+          = image_tag items[0].images, class: "new_items__contents__grid__item__image"
           .new_items__contents__grid__item__price
-            ¥100000
+            ¥
+            = items[0].price
           .new_items__contents__grid__item__name
-            ジャージジャージジャージジャージジャージジャージジャージ
+            = items[0].name
       .new_items__contents__grid__item
         = link_to "#" do
           = image_tag "/images/item.jpeg", class: "new_items__contents__grid__item__image"
