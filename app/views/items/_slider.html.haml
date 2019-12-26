@@ -1,0 +1,31 @@
+.slick
+  .slick__one
+    .slick__one__box
+      = link_to "#", class: "slick__one__box__link" do
+        = image_tag "/images/transparent.png", class: "slick__one__box__link__image"
+  .slick__two
+    .slick__two__box
+      .slick__two__box__texts
+        .slick__two__box__texts__title__big
+          スマホで&nbsp;&nbsp;かんたん
+          %br/
+          フリマアプリ
+        .slick__two__box__texts__title__mini
+          スマホで
+          %br/
+          かんたん
+          %br/
+          フリマアプリ
+        .slick__two__box__texts__text
+          メルカリはスマホカメラからすぐに出品できる
+          %br/
+          購入時も安心な独自システムのアプリです
+        .slick__two__box__texts__links
+          .slick__two__box__texts__links__apple
+            = link_to "#", class: "slick__two__box__texts__links__apple__link" do
+              = image_tag "/images/app_store.svg", class: "slick__two__box__texts__links__apple__link__tags"
+          .slick__two__box__texts__links__google
+            = link_to "#", class: "slick__two__box__texts__links__google__link" do
+              = image_tag "/images/google_play.png", class: "slick__two__box__texts__links__google__link__tags"
+        .slick__two__box__texts__images
+          = image_tag "/images/slick_two_hand.png", class: "slick__two__box__texts__images__image"

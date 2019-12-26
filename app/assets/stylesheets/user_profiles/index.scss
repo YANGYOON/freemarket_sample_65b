@@ -1,0 +1,108 @@
+.user_profile_body{
+  background-color:#f5f5f5;;
+}
+.bread__crumbs{
+  position: relative;
+  border-top: 1px solid #eee;
+  background: #f5f5f5;
+  -webkit-box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  background: #fff;
+  &__list{
+    padding: 16px;
+    font-size: 0;
+    white-space: nowrap;
+    overflow: auto;
+    &__li{
+    display: inline-block;
+    font-size: 14px;
+    line-height: 1.2;    
+    &__text{
+      color: black;
+    }}
+    .right__text{
+      font-weight: 600;
+      color: black;
+    }
+    .fa-chevron-right{
+      margin: 0 8px;
+      font-size: 9px;
+      color: #888;
+    }
+  }
+}
+.userprofile__content{
+  margin: 40px auto 0;
+  width: 1020px;
+  display: flex;
+}
+.user__profile{
+  padding: 0 0 40px;
+  width: 700px;
+  &__content{
+    width: 100%;
+    background: #fff;
+    &__head{
+    padding: 12px 4%;
+    text-align: center;
+    font-size: 22px;
+    line-height: 1.4;
+    font-weight: 600;
+    &__icon{
+        padding: 72px 16px 24px;
+        background: url(/images/watermark.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        text-align: center;
+        font-size: 0;
+        display: flex;
+        justify-content: center;
+        &__input{
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+          width: 220px;
+          margin: 0 0 0 8px;
+          vertical-align: middle;
+        }
+        &__image{
+          border-radius: 50%;
+        }
+    }
+    &__setting{
+      padding: 40px 16px;
+      &__text{
+        min-height: 216px;
+        display: block;
+        width: 97%;
+        max-width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        background: #fff;
+        font-size: 16px;
+        line-height: 1.5;
+        -webkit-appearance: none;
+        font-family: inherit;
+        font-style: inherit;
+        font-weight: inherit;
+      }
+        &__btn{
+          margin-top: 16px;
+          background: #ea352d;
+          border: 1px solid #ea352d;
+          color: #fff;
+          display: block;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+          transition: all ease-out .3s;
+          cursor: pointer;
+          text-align: center;
+        }
+    }
+  }
+}
+}  

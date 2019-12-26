@@ -1,0 +1,223 @@
+.slick {
+  overflow: hidden;
+  height: 390px;
+  width: 100vw;
+  &__one {
+    background-image: url("/images/slick_one.jpeg");
+    background-position: center;
+    background-size: cover;
+    &__box {
+      height: 100%;
+      &__link {
+        text-overflow: ellipsis;
+        &__image {
+          height:390px
+        }
+      }
+    }
+  }
+  &__two {
+    background-size: cover;
+    background-image: url("/images/slick_two.jpeg");
+    height:390px;
+    position: relative;
+    &__box {
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      height: 390px;
+      &__texts {
+        width: 60%;
+        margin: 0 auto;
+        position: relative;
+        &__title {
+          &__big {
+            margin-top: 30px;
+            font-size: 58px;
+            font-weight: bold;
+            position: relative;
+            z-index: 2;
+          }
+          &__mini {
+            display: none;
+          }
+        }
+        &__text {
+          margin-top: 10px;
+          line-height: 1.6em;
+          font-size: 19px;
+        }
+        &__links {
+          margin-top: 20px;
+          display: flex;
+          &__apple {
+            margin-top: 12px;
+             &__link {
+               &__tags {
+                width: 135px;
+                height: auto;
+               }
+             }
+          }
+          &__google {
+            &__link {
+              &__tags {
+               width: auto;
+               height: 75px;
+              }
+            }
+          }
+        }
+        &__images {
+          
+          position: absolute;
+          top: 0;
+          left: 370px;
+          display: flex;
+          align-items: center;
+          height: 390px;
+          &__image {
+            z-index: 1;
+            height: 390px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.slick-dots {
+  li button{
+    &::before{
+      border-radius: 50%;
+      align-items: center;
+    }
+  }
+}
+
+.slick-prev{
+  left: 50px;
+  height: 80px;
+  width: 80px;
+  z-index: 10;
+}
+
+.slick-next{
+  right: 50px;
+  height: 80px;
+  width: 80px;
+  z-index: 10;
+}
+
+@media (max-width: 1068px) {
+  .slick {
+    height: 290px;
+  }
+  .slick__one__box__link__image {
+    height: 290px
+  }
+  .slick__two {
+    height:290px;
+    &__box {
+      padding: 0 50px;
+      height: 290px;
+      &__texts {
+        &__title {
+          &__big {
+          margin-top: 15px;
+          font-size: 40px;
+          }
+        }
+        &__text {
+          margin-top: 5px;
+          font-size: 16px;
+        }
+        &__links {
+          margin-top: 5px;
+        }
+        &__images {
+          top: -50px;
+          left: calc(50px + 30vw);
+          &__image {
+            height: 290px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  .slick {
+    height: 170px;
+  }
+  .slick-dots {
+    position: relative;
+    z-index: -1;
+  }
+  .slick__one__box__link__image {
+    height: 170px
+  }
+  .slick__two {
+    height: 170px;
+    background-position: center center;
+    &__box {
+      padding: 0;
+      margin: 0;
+      position: relative;
+      height: 170px;
+      &__texts {
+        width: 100%;
+        position: relative;
+        &__title {
+          &__big {
+            display: none;
+          }
+          &__mini {
+            display: block;
+            margin-top: 12px;
+            margin-left: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            position: relative;
+          }
+        }
+        &__text {
+          display: none;
+        }
+        &__links {
+          display: flex;
+          justify-content: center;
+          background-color: rgba(255, 255, 255, 0.5);
+          position: relative;
+          margin-top: 0px;
+          z-index: 2;
+          &__apple {
+            margin-top: 8px;
+             &__link {
+               &__tags {
+                width: 100px;
+                margin-top: 2px;
+               }
+             }
+          }
+          &__google {
+            &__link {
+              &__tags {
+               height: 55px;
+              }
+            }
+          }
+        }
+        &__images {
+          top: -110px;
+          left: calc(-70px + 80vw);
+          &__image {
+            height: 170px;
+          }
+        }
+      }
+    }
+  }
+}

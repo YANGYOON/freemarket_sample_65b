@@ -1,0 +1,71 @@
+.creditcard_index_body{
+  background-color: #f5f5f5;
+}
+.creditcard_content{
+  margin: 40px auto 0;
+  width: 1020px;
+  display: flex;
+}
+.creditcard__verification{
+  &__chapter{
+    width: 700px;
+    padding: 0 0 40px;
+    background-color: white;
+    &__text{
+      border-bottom: 1px solid #f5f5f5;
+      text-align: center;
+      font-weight: 600;
+      font-size: 24px;
+      padding: 8px 24px;
+    }}}
+.single__inner{
+  border-top: 1px solid #f5f5f5;
+  padding: 64px;
+  &__content{
+    max-width: 320px;
+    margin: 0 auto;
+    &__head{
+      font-size:14px;
+    }
+    &__midle{
+      font-size:14px;
+      font-weight: 600;
+    }
+  }
+  &__list{
+    list-style: none;
+    padding: 24px 0;
+    border-bottom: 1px solid #eee;
+    &__content{
+      max-width: 320px;
+      margin: 0 auto;
+      position: relative;
+    }
+    &__num{
+      margin: 8px 0 0;
+      font-size: 16px;
+    }
+    &__remove{
+      top: 0;
+      right: 0;
+      padding: 4px 6px;
+      background: #fff;
+      border-radius: 3px;
+      border: 1px solid #ea352d;
+      color: #ea352d;
+      position: absolute;
+    }}}
+  .single__inner__settings{
+    display: block;
+    margin: 40px 0 0;
+    text-align: right;
+    &__a{
+      text-decoration: none;
+      color: black;
+    &__pay{
+      color: #0099e8;
+      text-decoration: none;
+      }}}
+      .fa-chevron-right.b{
+        color: #0099e8;
+      }
