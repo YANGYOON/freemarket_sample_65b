@@ -18,7 +18,7 @@
       padding-left: 10px;
     }
   }
-  .content {
+  .sidecontent {
     display: flex;
     .lef-content {
       
@@ -32,13 +32,14 @@
         }
           .list_mypage {
             text-decoration: none;
-            border: #eeeeee;
-            background-color: #eeeeee;
+            border-color: #eeeeee;
+            background-color: #fff;
             display: flex;
             justify-content: space-between;
             padding: 16px;
             font-size: 14px;
             color: #333;
+            border-bottom: solid #eeeeee;
           }
           .list_things {
             text-decoration: none;
@@ -191,6 +192,7 @@
           padding: 40px 40px 10px 20px;
           font-size: 14px;
           color: #333;
+          
         }
         .list_profit {
           text-decoration: none;
@@ -558,4 +560,3 @@
       }
     }
   }
-
