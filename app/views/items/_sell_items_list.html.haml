@@ -8,12 +8,14 @@
     .new_items__contents__grid
       .new_items__contents__grid__item
         = link_to "#" do
-          = image_tag items[0].images, class: "new_items__contents__grid__item__image"
+          = image_tag items[0].images[0].image.url, class: "new_items__contents__grid__item__image"
           .new_items__contents__grid__item__price
             ¥
             = items[0].price
           .new_items__contents__grid__item__name
             = items[0].name
+            %br/
+            = items[0].category.name
       .new_items__contents__grid__item
         = link_to "#" do
           = image_tag "/images/item.jpeg", class: "new_items__contents__grid__item__image"
