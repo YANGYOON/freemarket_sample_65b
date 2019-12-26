@@ -1,0 +1,41 @@
+<h2>お届け先住所入力</h2>
+
+<%= form_for @address, url: addresses_path, method: :post do |f| %>
+  <%= render "devise/shared/error_messages", resource: @address %>
+
+
+  <div class="field">
+    <%= f.label :zipcode %><br />
+    <%= f.text_field :zipcode %>
+  </div>
+
+  <div class="field">
+    <%= f.label :prefecture %><br />
+    <%= f.text_field :prefecture %>
+  </div>
+
+  <div class="field">
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= f.label :detail_address %><br />
+    <%= f.text_field :detail_address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :building %><br />
+    <%= f.text_field :building %>
+  </div>
+
+  <div class="field">
+    <%= f.label :optional_phone_number %><br />
+    <%= f.text_field :optional_phone_number %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit "次へ進む" %>
+  </div>
+<% end %>
