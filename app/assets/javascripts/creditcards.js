@@ -1,5 +1,6 @@
 $(function() {
   $('.credit_content__form__seqcode__text').click(function() {
-    $('.credit_is_show').toggle();
+    console.log("ok");
+    $('.is-show').toggle()
   })
 });
