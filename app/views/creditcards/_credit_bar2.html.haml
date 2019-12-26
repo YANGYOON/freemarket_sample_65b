@@ -1,0 +1,13 @@
+%nav.bread__crumbs
+  %ul.bread__crumbs__list
+    %li{itemscope: "", itemtype:""}
+      = link_to "#",class: "bread__crumbs__list__url", itemprop: "url" do
+        %span{itemprop: "title"} メルカリ
+      %i.fas.fa-chevron-right
+    %li{itemscope:  "", itemtype: ""}
+      = link_to "#",class: "bread__crumbs__list__url", itemprop: "url" do
+        %span{itemprop: "title"} マイページ
+      %i.fas.fa-chevron-right
+    %li{itemscope:"", itemtype: ""}
+      = link_to "#", class: "bread__crumbs__list__url", itemprop: "url" do
+        %span.credit_card_paytext{itemprop: "title"} 支払い方法

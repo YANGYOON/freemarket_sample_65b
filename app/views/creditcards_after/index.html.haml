@@ -1,0 +1,29 @@
+= render partial: '/common/sub_header'
+.creditcard_index_body
+  = render partial: '/creditcards/credit_bar'
+  .creditcard_content
+    = render partial: '/common/side_bar'
+    %main.creditcard__verification
+      %section.creditcard__verification__chapter
+        %h2.creditcard__verification__chapter__text 支払い方法
+        .single__inner
+          %section
+            .single__inner__content
+              %h3.single__inner__content__head クレジットカード一覧
+            %ul.single__inner__list
+              %li
+                %form.single__inner__list__content{action: "#", method:"POST"}
+                  = image_tag "/images/visa.svg", height: 15, width: 49
+                  %input{name: "__csrf_value", type: "hidden", value: ""}/
+                  %input{:name => "card_sequence_no", :type => "hidden", :value => ""}/
+                  .single__inner__list__num ************
+                  .single__inner__list__num 02 / 22
+                  %input{name: "method", type: "hidden", value: "card"}/
+                  %button.single__inner__list__remove{type: "submit"}
+                    削除する
+          .single__inner__settings
+            .single__inner__settings__a{href: "#", target: "_blank"}
+              %span.single__inner__settings__a__pay 支払い方法について
+              %i.fas.fa-chevron-right
+= render partial: '/items/main_footer'
+= render partial: '/items/sell_btn'

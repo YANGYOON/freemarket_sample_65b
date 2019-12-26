@@ -1,0 +1,141 @@
+= render 'items-header'
+
+.contents
+  .contents__main
+    .contents__main__header
+      商品の情報を入力
+    .contents__main__upload
+      .contents__main__image
+        .contents__main__image__head
+          出品画像
+          .contents__main__image__head--icon
+            必須
+        最大10枚までアップロードできます
+        
+        .contents__main__image__box
+          ドラッグアンドドロップまたはクリック
+          
+      .contents__main__name
+        .contents__main__name__name-content
+          .contents__main__name__name-content__item-name
+            商品名
+            .contents__main__name__name-content__item-name--icon
+              必須
+          
+          %input.contents__main__name__name-content__item-nameform{name: "item-name", placeholder:"商品名 (必須40文字まで)", type: "text", value: ""}/
+
+        .contents__main__name__item-exp
+          商品の説明
+          .contents__main__name__item-exp--icon
+            必須
+        %textarea.contents__main__name__name-content__item-expform(name="item-exp" cols="30" rows="5" placeholder="商品名（必須1000文字以内）（色、素材、重さ色、素材、重さ、低下、注意点など） 例）2019年ごろに購入したコートです。ライトグレーで傷はありません。あたたかくてオススメです。")
+        
+
+
+
+      .contents__main__detail.clearfix
+        .contents__main__detail__left
+          詳細
+        .contents__main__detail__right
+          .contents__main__detail__right__categorylab
+            カテゴリー
+            .contents__main__detail__right__categorylab--icon
+              必須
+          .contents__main__detail__right__categoryform
+            %input.contents__main__detail__right__categoryform--form{name:"item-category", placeholder: "---", type: "text", value: ""}/
+
+            .contents__main__detail__right__categoryform--icon
+              = icon('fas', 'angle-down')
+
+          .contents__main__detail__right__status
+            .contents__main__detail__right__status__lab
+              商品の状態
+              .contents__main__detail__right__status__lab--icon
+                必須
+
+            .contents__main__detail__right__status__statusform
+              %input.contents__main__detail__right__status__statusform--form{name: "item-category", placeholder: "---", type: "text", value: ""}/
+
+              .contents__main__detail__right__status__statusform--icon
+                = icon('fas', 'angle-down')
+
+      .contents__main__delivery.clearfix
+        .contents__main__delivery__left
+          配送について
+          
+          = link_to root_path, class: "contents__main__delivery__left--question" do
+            ?
+
+        .contents__main__delivery__right
+          .contents__main__delivery__right__burden
+            送料の負担
+            .contents__main__delivery__right__burden--icon
+              必須
+          .contents__main__delivery__right__burdenform
+            %input.contents__main__delivery__right__burdenform--form{name: "item-burden", placeholder: "---", type: "text", value: ""}/
+
+            .contents__main__delivery__right__burdenform--icon
+              = icon('fas', 'angle-down')
+          
+          .contents__main__delivery__right__shipping-area
+            発送元の地域
+            .contents__main__delivery__right__shipping-area--icon
+              必須
+
+          .contents__main__delivery__right__shipping-area-form
+            %input.contents__main__delivery__right__shipping-area-form--form{name: "item-shipping-area", placeholder: "---", type: "text", value: ""}/
+            .contents__main__delivery__right__shipping-area-form--icon
+              = icon('fas', 'angle-down')
+
+          .contents__main__delivery__right__shipping-period
+            発送までの日数
+            .contents__main__delivery__right__shipping-period--icon
+              必須
+
+          .contents__main__delivery__right__shipping-periodform
+            %input.contents__main__delivery__right__shipping-periodform--form{name: "item-shipping-period", placeholder: "---", type: "text", value: ""}/
+            .contents__main__delivery__right__shipping-periodform--icon
+              = icon('fas', 'angle-down')
+      
+
+      .contents__main__price.clearfix
+        .contents__main__price__left
+          販売価格(300~9,999,999)
+          = link_to root_path, class: "contents__main__price__left--question" do
+            ?
+
+        .contents__main__price__right
+          .contents__main__price__right__box
+            .contents__main__price__right__box__price
+              価格
+              .contents__main__price__right__box__price--icon
+                必須
+              .contents__main__price__right__box__price--form
+                ¥
+                %input.contents__main__price__right__box__price--form-input{name: "item-price", placeholder: "例） 300", type: "text", value: ""}/
+
+
+            .contents__main__price__right__box__fee.clearfix
+              .contents__main__price__right__box__fee__left
+                販売手数料(10%)
+              .contents__main__price__right__box__fee__right
+                ー
+
+            .contents__main__price__right__box__profit.clearfix
+              .contents__main__price__right__box__profit__left
+                販売利益
+              .contents__main__price__right__box__profit__right
+                ー
+
+      .contents__main__submit
+        .contents__main__submit--text
+          %p 禁止されている出品、行為を必ずご確認ください。 
+          %p また、ブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
+          %p また、出品をもちまして加盟店規約に同意したことになります。
+
+        %input.contents__main__submit--button{name: "item-put-up", placeholder: "", type: "submit", value: "出品する"}/
+        .contents__main__submit--return
+          = link_to root_path, class: "contents__main__submit--return--button" do
+            もどる
+
+= render 'items-footer'

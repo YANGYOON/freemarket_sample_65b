@@ -36,6 +36,7 @@
 ## address テーブル
 |Column|Type|Options|
 |------|----|-------|
+
 |zipcode|integer|null: false|
 |prefecture|string|null: false|
 |city|string|null: false|

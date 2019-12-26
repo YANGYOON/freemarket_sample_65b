@@ -1,0 +1,23 @@
+.creditcard_index_body
+  = render partial: '/common/sub_header'
+  %nav.bread__crumbs
+    %ul.bread__crumbs__list
+      %li{itemscope: "", itemtype:"http://data-vocabulary.org/Breadcrumb"}
+        = link_to "#",class: "bread__crumbs__list__url", itemprop: "url" do
+          %span{itemprop: "title"} メルカリ
+        %i.fas.fa-chevron-right
+      %li{itemscope:  "", itemtype: "http://data-vocabulary.org/Breadcrumb"}
+        = link_to "#",class: "bread__crumbs__list__url", itemprop: "url" do
+          %span{itemprop: "title"} マイページ
+        %i.fas.fa-chevron-right
+      %li{itemscope:"", itemtype: "http://data-vocabulary.org/Breadcrumb"}
+        = link_to "#",class: "bread__crumbs__list__url", itemprop: "url" do
+          %span{itemprop: "title"} ログアウト
+  .creditcard_content
+    = render partial: '/common/side_bar'
+    %form.logout-inner{action: "https://www.mercari.com/jp/logout/", method: "POST", novalidate: "novalidate"}
+      .logout-inner__box
+        %button.logout-inner__box__text{type: "submit"} ログアウト
+        %input{name: "#", type: "hidden", value: "#"}/
+= render partial: '/items/main_footer'
+= render partial: '/items/sell_btn'

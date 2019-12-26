@@ -1,0 +1,142 @@
+body {
+  font-family: "Source Sans Pro", 
+                "Helvetica", 
+                "Arial", 
+                "游ゴシック体", 
+                "YuGothic", 
+                "メイリオ", 
+                "Meiryo", 
+                "sans-serif";
+}
+.main_header {
+  position: relative;
+  z-index: 5;
+  height: 100px;
+  width: 100vw;
+  padding: 10px 0px;
+  box-shadow: 0px 5px 3px -1px rgba(200, 200, 200, 0.6);
+  &__box {
+    margin:0 auto;
+    padding-right: 20px;
+    width: 80%;
+    &__upper {
+      display: flex;
+      &__icon {
+        &__image {
+          height: 40px;
+          width: 134px;
+        }
+      }
+      &__search {
+        width: 100%;
+        height: 35px;
+        position: relative;
+        margin-left: 40px;
+        &__area {
+          width: 100%;
+          height: 35px;
+          border-radius: 5px;
+          background: #F5F5F5;
+          padding-left: 15px;
+        }
+        &__icon {
+          position:absolute;
+          top: 13px;
+          right: 3px;
+        }
+        &__botton {
+          display: none;
+        }
+      }
+    }
+    &__lower {
+      margin-top: 15px;
+      display: flex;
+      justify-content: space-between;
+      &__select {
+        display: flex;
+        &__lists {
+          font-size: 14px;
+          font-weight: bold;
+          &__icon {
+            color: red;
+            margin-top: 3px;
+            margin-right: 4px;
+            &--tags {
+              margin-left: 25px;
+            }
+          }
+        }
+      }
+      &__users {
+        display: flex;
+        &__lists {
+          margin-left: 20px;
+          font-size: 14px;
+          &__icon {
+            color: #cccccc;
+            font-size: 18px;
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+  &__link {
+    color: black;
+    display: flex;
+    text-decoration: none;
+  }
+}
+
+@media (max-width: 1068px) {
+  .main_header__box {
+    width: 90%;
+  }
+  .main_header__box__lower__users__lists--like {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .main_header {
+    height: 100%;
+    width: calc(100% - 20px);
+    padding: 10px;
+    &__box {
+      width: 95%;
+      &__upper {
+        flex-direction: column;
+        justify-content: flex-start;
+        &__search {
+          width: 100%;
+          margin-top: 10px;
+          margin-left: 0;
+          &__area {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+  .main_header__box__lower {
+    position: relative;
+    &__select {
+      width: 100%;
+      justify-content: space-around;
+    }
+    &__users {
+      position: absolute;
+      right: -20px;
+      bottom: 90px;
+      &__lists {
+        &__icon {
+          font-size: 24px;
+        }
+        &__title {
+          display: none;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,66 @@
+.wrapper
+  = render 'items-header'
+
+
+.item-buy-contents
+  .item-buy-contents__main
+    .item-buy-contents__main__header
+      購入内容の確認
+
+    .item-buy-contents__main__purchase-goods
+      .item-buy-contents__main__purchase-goods__box
+        .item-buy-contents__main__purchase-goods__left
+          = image_tag src='/images/fmarket_logo_red.svg', class: "item-buy-contents__main__purchase-goods__left--image"
+
+
+        .item-buy-contents__main__purchase-goods__right
+          .item-buy-contents__main__purchase-goods__right--item-name
+            採掘用ドリル
+
+          .item-buy-contents__main__purchase-goods__right--item-price
+            %span ¥ 200,000  
+            %span（税込） 送料込み
+
+    .item-buy-contents__main__buy-item
+      .item-buy-contents__main__buy-item__box
+        .item-buy-contents__main__buy-item__box__price
+          .item-buy-contents__main__buy-item__box__price--text
+            支払い金額
+          .item-buy-contents__main__buy-item__box__price--price
+            ¥200,000
+        .item-buy-contents__main__buy-item__box__price--point
+          %input.item-buy-contents__main__buy-item__box__price--point--check{name: "item-point", placeholder: "", type: "checkbox", value: ""}/
+          ポイントを使用 (所持ポイント: P0)
+
+        .item-buy-contents__main__buy-item__box__pay-method
+          .item-buy-contents__main__buy-item__box__pay-method--text
+            .item-buy-contents__main__buy-item__box__pay-method--text--left
+              支払い方法
+            .item-buy-contents__main__buy-item__box__pay-method--text--right
+              = link_to root_path, class:"item-buy-contents__main__buy-item__box__pay-method--link" do
+                変更する
+
+          .item-buy-contents__main__buy-item__box__pay-method__method
+            %p クレジットカード
+            %p ************9999
+            %p 有効期限 09/30
+
+          .item-buy-contents__main__buy-item__box__pay-method__logo
+            = image_tag src='/images/fmarket_logo_red.svg', class: ".item-buy-contents__main__buy-item__box__pay-method__logo--image"
+
+        .item-buy-contents__main__buy-item__box__area
+          .item-buy-contents__main__buy-item__box__area--text
+            .item-buy-contents__main__buy-item__box__area--text--left
+              配送先
+            = link_to root_path, class:"item-buy-contents__main__buy-item__box__area--text--right" do
+              変更する
+
+          .item-buy-contents__main__buy-item__box__area--address
+            %p 〒123-456
+            %p 東京都渋谷区１−２−３
+            %p 山田 太郎
+
+        .item-buy-contents__main__buy-item__box__submit
+          %input.item-buy-contents__main__buy-item__box__submit--button{name: "item-buy", placeholder: "", type: "submit", value: "購入する"}/
+        
+= render 'items-footer'
