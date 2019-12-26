@@ -1,18 +1,6 @@
 = render partial: '/common/sub_header'
 .creditcard_index_body
-  %nav.bread__crumbs
-    %ul.bread__crumbs__list
-      %li{itemscope: "", itemtype:"http://data-vocabulary.org/Breadcrumb"}
-        = link_to "#",class: "bread__crumbs__list__url", itemprop: "url" do
-          %span{itemprop: "title"} メルカリ
-        %i.fas.fa-chevron-right
-      %li{itemscope:  "", itemtype: "http://data-vocabulary.org/Breadcrumb"}
-        = link_to "#",class: "bread__crumbs__list__url", itemprop: "url" do
-          %span{itemprop: "title"} マイページ
-        %i.fas.fa-chevron-right
-      %li{itemscope:"", itemtype: "http://data-vocabulary.org/Breadcrumb"}
-        = link_to "#", class: "bread__crumbs__list__url", itemprop: "url" do
-          %span.credit_card_paytext{itemprop: "title"} 支払い方法
+  = render partial: '/creditcards/credit_bar'
   .creditcard_content
     = render partial: '/common/side_bar'
     %main.creditcard__verification
@@ -24,11 +12,11 @@
               %h3.single__inner__content__midle クレジットカード一覧
           %section.setting__credit
             .setting__credit__content
-              %a.btn-default.btn-reds.submit_button{href: "#"}
+              = link_to "#" ,class: "btn-default  submit_button  btn-reds" do
                 %i.fas.fa-credit-card.creka>
                 クレジットカードを追加する
           .single__inner__settings
-            %a.single__inner__settings__a{href: "#", target: "_blank"}
+            = link_to"#",class: "single__inner__settings__a" ,target: "_blank" do
               %span.single__inner__settings__a__pay 支払い方法について
               %i.fas.fa-chevron-right.b
 = render partial: '/items/main_footer'

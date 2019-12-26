@@ -1,10 +1,11 @@
 .creditcard_info{
   margin: 40px auto 0;
   width: 1020px;
+  display: flex;
 }
 .chapter{
   width: 700px;
-  margin: 24px auto 0;
+  height: 562px;
   padding: 0 0 40px;
   background-color: white;
   &__head{
@@ -15,7 +16,7 @@
     font-weight: 600;
   }
   &__body{
-    padding: 24px 16px 40px;
+    padding: 40px 40px 64px;
     background-color: white;
     border-top: 1px solid #f5f5f5;
 }}
