@@ -4,5 +4,4 @@ Rails.application.routes.draw do
   resources :user_profiles, only: :index
   resources :creditcards
   devise_for :users
-
 end
