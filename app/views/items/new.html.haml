@@ -41,16 +41,36 @@
           .contents__main__name__item-exp--icon
             必須
         = f.text_area :state, placeholder: "商品名（必須1000文字以内）（色、素材、重さ色、素材、重さ、低下、注意点など） 例）2019年ごろに購入したコートです。ライトグレーで傷はありません。あたたかくてオススメです。", class:"contents__main__name__name-content__item-expform"
+        
+        
         .contents__main__detail.clearfix
           .contents__main__detail__left
             詳細
           .contents__main__detail__right
-            .contents__main__detail__right__categorylab
+            .contents__main__detail__right__name
               カテゴリー
-              .contents__main__detail__right__categorylab--icon
+              .contents__main__detail__right__name--icon
                 必須
-            .contents__main__detail__right__categoryform
-              = f.select :category_id, [["----", 0],["レディース", 1],["メンズ", 2],["ベビー・キッズ", 3],["インテリア・住まい・小物", 4],["本・音楽・ゲーム", 5],["おもちゃ・ホビー・グッズ", 6],["コスメ・香水・美容", 7],["家電・スマホ・カメラ", 8],["スポーツ・レジャー", 9]], {}, class:"contents__main__detail__right__categoryform--form"
+            = f.select :category_first, [["----", "0"],["レディース", 1],["メンズ", 2],["ベビー・キッズ", 3],["インテリア・住まい・小物", 4],["本・音楽・ゲーム", 5],["おもちゃ・ホビー・グッズ", 6],["コスメ・香水・美容", 7],["家電・スマホ・カメラ", 8],["スポーツ・レジャー", 9]], {}, class:"contents__main__detail__right__form"
+            = f.select :category_second, [["----", "0"],["レディース", 1],["メンズ", 2],["ベビー・キッズ", 3],["インテリア・住まい・小物", 4],["本・音楽・ゲーム", 5],["おもちゃ・ホビー・グッズ", 6],["コスメ・香水・美容", 7],["家電・スマホ・カメラ", 8],["スポーツ・レジャー", 9]], {}, class:"contents__main__detail__right__form"
+            = f.select :category_id, [["----", "0"],["レディース", 1],["メンズ", 2],["ベビー・キッズ", 3],["インテリア・住まい・小物", 4],["本・音楽・ゲーム", 5],["おもちゃ・ホビー・グッズ", 6],["コスメ・香水・美容", 7],["家電・スマホ・カメラ", 8],["スポーツ・レジャー", 9]], {}, class:"contents__main__detail__right__form"
+            .contents__main__detail__right__name
+              サイズ
+              .contents__main__detail__right__name--icon
+                必須
+            = f.select :size, [["----", "0"],["レディース", 1],["メンズ", 2],["ベビー・キッズ", 3],["インテリア・住まい・小物", 4],["本・音楽・ゲーム", 5],["おもちゃ・ホビー・グッズ", 6],["コスメ・香水・美容", 7],["家電・スマホ・カメラ", 8],["スポーツ・レジャー", 9]], {}, class:"contents__main__detail__right__form"
+            .contents__main__detail__right__name
+              ブランド
+              .contents__main__detail__right__name--icon
+                任意
+            = f.select :brand_id, [["----", "0"],["レディース", 1],["メンズ", 2],["ベビー・キッズ", 3],["インテリア・住まい・小物", 4],["本・音楽・ゲーム", 5],["おもちゃ・ホビー・グッズ", 6],["コスメ・香水・美容", 7],["家電・スマホ・カメラ", 8],["スポーツ・レジャー", 9]], {}, class:"contents__main__detail__right__form"
+            .contents__main__detail__right__name
+              製品の状態
+              .contents__main__detail__right__name--icon
+                必須
+            = f.select :brand_id, [["----", "0"],["レディース", 1],["メンズ", 2],["ベビー・キッズ", 3],["インテリア・住まい・小物", 4],["本・音楽・ゲーム", 5],["おもちゃ・ホビー・グッズ", 6],["コスメ・香水・美容", 7],["家電・スマホ・カメラ", 8],["スポーツ・レジャー", 9]], {}, class:"contents__main__detail__right__form"
+        
+        
         .contents__main__delivery.clearfix
           .contents__main__delivery__left
             配送について
