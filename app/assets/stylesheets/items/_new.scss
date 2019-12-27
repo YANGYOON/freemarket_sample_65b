@@ -136,23 +136,18 @@ body {
     &__detail{
       border-top: 1px solid #eee;
       padding: 40px;
-      
-
       &__left{
         float: left;
         color: gray;
       }
-
       &__right{
         float: right;
         width: 400px;
         right: 0;
-
         &__categorylab{
           display: flex;
           font-weight: bold;
         }
-
         &__categorylab--icon{
           padding: 2px 4px;
           background-color: red;
