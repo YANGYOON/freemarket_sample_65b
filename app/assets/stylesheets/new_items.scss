@@ -94,7 +94,7 @@
       grid-template-rows: repeat(1, 1fr);
       grid-template-columns: repeat(3, 1fr);
       &__item {
-        height: 259px;
+        height: 255px;
         width: 200px;
         &__image {
           width: 200px;
@@ -105,7 +105,7 @@
         }
         &__name {
           font-size: 14px;
-          height: 35px;
+          height: 32px;
         }
       }
     }
