@@ -234,6 +234,60 @@ mens_legwear.children.create([{name: "ソックス"},
                               {name: "ストッキング/タイツ"},
                               {name: "レッグウォーマー"}])
 
+ladys_brand = Brand.create(name: "レディース")
+mens_brand = Brand.create(name: "メンズ")
+kids_brand = Brand.create(name: "ベビー・キッズ")
+smartphone_brand = Brand.create(name: "スマートフォン")
+interiors_brand = Brand.create(name: "インテリア・住まい・小物")
+kitchens_brand = Brand.create(name: "キッチン・食器")
+hobbys_brand = Brand.create(name: "おもちゃ・ホビー・グッズ")
+cosmetics_brand = Brand.create(name: "コスメ・香水・美容")
+sports_brand = Brand.create(name: "スポーツ・レジャー")
+musical_instrumen_brand = Brand.create(name: "楽器")
+cars_brand = Brand.create(name: "自動車・オートバイ")
+others_brand = Brand.create(name: "その他")
+
+ladys_brand.children.create([{name: "ナイキ"},
+                              {name: "アディダス"},
+                              {name: "シャネル"},
+                              {name: "ルイヴィトン"},
+                              {name: "シュプリーム"},
+                              {name: "エルメス"},
+                              {name: "プラダ"},
+                              {name: "クリスチャン・ディオール"},
+                              {name: "イヴ・サンローラン"},
+                              {name: "ロエベ"},
+                              {name: "セリーヌ"},
+                              {name: "クロエ"},
+                              {name: "ティファニー"}])
+mens_brand.children.create([{name: "ナイキ"},
+                            {name: "アディダス"},
+                            {name: "リーバイス"},
+                            {name: "グローバルワーク"},
+                            {name: "ユニクロ"},
+                            {name: "ギャップ"},
+                            {name: "ナノユニバース"},
+                            {name: "ポール・スミス"},
+                            {name: "ラルフローレン"},
+                            {name: "ディーゼル"},
+                            {name: "ユナイテッドアローズ"},
+                            {name: "バーバリー"},
+                            {name: "ラコステ"}])
+kids_brand.children.create([{name: "ナイキ"},
+                            {name: "アディダス"},
+                            {name: "ミキハウス"},
+                            {name: "チャンピオンキッズ"},
+                            {name: "ユニクロ"},
+                            {name: "ベビードール"},
+                            {name: "ディズニーピクサー"}])
+smartphone_brand.children.create([{name: "アップル"},
+                                  {name: "ソニー"},
+                                  {name: "カシオ"},
+                                  {name: "シャープ"},
+                                  {name: "パナソニック"},
+                                  {name: "サムスン"},
+                                  {name: "ファーウェイ"}])
+
 # mens_accessory.children.create([{name: ""},
 #                               {name: ""},
 #                               {name: ""},
