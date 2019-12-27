@@ -1,67 +1,134 @@
 = render 'items-header'
 
-
--# = form_with(model: @product, local: true) do |f|
--#   #image-box
--#     = f.fields_for :images do |i|
--#       %div.js-file_group{"data-index" => "#{i.index}"}
--#         = i.file_field :image, class: 'js-file'
--#       %span.js-remove 削除
--#     = f.submit
-
-= form_with(model: @item, local: true) do |f|
-  .contents__main__name
-    .contents__main__name__name-content
-      .contents__main__name__name-content__item-name
-        商品名
-        .contents__main__name__name-content__item-name--icon
-          必須
-      = f.text_field :name, placeholder: "商品名 (必須40文字まで)", class: "contents__main__name__name-content__item-nameform"
-    -# .contents__main__name__item-exp
-    -#   商品の説明
-    -#   .contents__main__name__item-exp--icon
-    -#     必須
-    -# -# = f.text_field
-    -# %textarea.contents__main__name__name-content__item-expform(name="item-exp" cols="30" rows="5" placeholder="商品名（必須1000文字以内）（色、素材、重さ色、素材、重さ、低下、注意点など） 例）2019年ごろに購入したコートです。ライトグレーで傷はありません。あたたかくてオススメです。")
-    .contents__main__detail.clearfix
-      .contents__main__detail__left
-        詳細
-      .contents__main__detail__right
-        .contents__main__detail__right__categorylab
-          カテゴリー
-          .contents__main__detail__right__categorylab--icon
+.contents
+  = form_with(model: @item, local: true) do |f|
+    .contents__main
+      .contents__main__header
+        商品情報を入力
+      .contents__main__upload
+        .contents__main__image
+          .contents__main__image__head
+            出品画像
+            .contents__main__image__head--icon
+              必須
+          最大10枚までアップロードできます
+          .contents__main__image__box
+            #image-box
+              #previews
+                - if @item.persisted?
+                  - @item.images.each_with_index do |image, i|
+                    = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
+              = f.fields_for :images do |image|
+                .js-file_group{"data-index" => "#{image.index}"}
+                  = image.file_field :image, class: 'js-file'
+                  %br/
+                  %span.js-remove 削除
+                - if @item.persisted?
+                  = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+              - if @item.persisted?
+                .js-file_group{"data-index" => "#{@item.images.count}"}
+                  = file_field_tag :image, name: "product[images_attributes][#{@item.images.count}][src]", class: 'js-file'
+                  .js-remove 削除
+      .contents__main__name
+        .contents__main__name__name-content
+          .contents__main__name__name-content__item-name
+            商品名
+            .contents__main__name__name-content__item-name--icon
+              必須
+          = f.text_field :name, placeholder: "商品名 (必須40文字まで)", class: "contents__main__name__name-content__item-nameform"
+        .contents__main__name__item-exp
+          商品の説明
+          .contents__main__name__item-exp--icon
             必須
-        .contents__main__detail__right__categoryform
-          = f.select :category_id, [["レディース", 1],["メンズ", 2],["ベビー・キッズ", 3],["インテリア・住まい・小物", 4],["本・音楽・ゲーム", 5],["おもちゃ・ホビー・グッズ", 6],["コスメ・香水・美容", 7],["家電・スマホ・カメラ", 8],["スポーツ・レジャー", 9]]
-
-        
-  -# 商品名#{f.text_field :name}
-  -# %br/
-  -# 説明#{f.text_field :price}
-  -# %br/
-  価格#{f.number_field :price}
-  %br/
-  -# カテゴリー#{f.select :category_id, [["レディース", 1],["メンズ", 2],["ベビー・キッズ", 3],["インテリア・住まい・小物", 4],["本・音楽・ゲーム", 5],["おもちゃ・ホビー・グッズ", 6],["コスメ・香水・美容", 7],["家電・スマホ・カメラ", 8],["スポーツ・レジャー", 9]], class: "main__product__line__name__select"}
-  -# %br/
-  #image-box
-    #previews
-      - if @item.persisted?
-        - @item.images.each_with_index do |image, i|
-          = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
+        = f.text_area :state, placeholder: "商品名（必須1000文字以内）（色、素材、重さ色、素材、重さ、低下、注意点など） 例）2019年ごろに購入したコートです。ライトグレーで傷はありません。あたたかくてオススメです。", class:"contents__main__name__name-content__item-expform"
+        .contents__main__detail.clearfix
+          .contents__main__detail__left
+            詳細
+          .contents__main__detail__right
+            .contents__main__detail__right__categorylab
+              カテゴリー
+              .contents__main__detail__right__categorylab--icon
+                必須
+            .contents__main__detail__right__categoryform
+              = f.select :category_id, [["----", 0],["レディース", 1],["メンズ", 2],["ベビー・キッズ", 3],["インテリア・住まい・小物", 4],["本・音楽・ゲーム", 5],["おもちゃ・ホビー・グッズ", 6],["コスメ・香水・美容", 7],["家電・スマホ・カメラ", 8],["スポーツ・レジャー", 9]], class:"contents__main__detail__right__categoryform--form"
+        .contents__main__delivery.clearfix
+          .contents__main__delivery__left
+            配送について
+            = link_to root_path, class: "contents__main__delivery__left--question" do
+              ?
+          .contents__main__delivery__right
+            .contents__main__delivery__right__burden
+              送料の負担
+              .contents__main__delivery__right__burden--icon
+                必須
+            .contents__main__delivery__right__burdenform
+              = f.select :fee_burden, [["----", 0],["送料込み(出品者負担)", "送料込み"],["着払い(購入者負担)", "着払い"]], class: "contents__main__delivery__right__burdenform--form"
+            .contents__main__delivery__right__shipping-area
+              発送元の地域
+              .contents__main__delivery__right__shipping-area--icon
+                必須
+            .contents__main__delivery__right__shipping-area-form
+              = f.select :prefecture_from, [["----", 0],["東京都", "東京都"],["千葉県", "千葉県"]], class: "contents__main__delivery__right__shipping-area-form--form"
+            .contents__main__delivery__right__shipping-period
+              発送までの日数
+              .contents__main__delivery__right__shipping-period--icon
+                必須
+            .contents__main__delivery__right__shipping-periodform
+              =f.select :period_before_shopping, [["----", 0],["1~2日で発送", "1~2日で発送"],["2~3日で発送", "2~3日で発送"],["4~7日で発送", "4~7日で発送"]], class: "contents__main__delivery__right__shipping-periodform--form"
+        .contents__main__price.clearfix
+          .contents__main__price__left
+            販売価格(300~9,999,999)
+            = link_to root_path, class: "contents__main__price__left--question" do
+              ?    
+          .contents__main__price__right
+            .contents__main__price__right__box
+              .contents__main__price__right__box__price
+                価格
+                .contents__main__price__right__box__price--icon
+                  必須
+                .contents__main__price__right__box__price--form
+                  ¥
+                  =f.number_field :price, class: "contents__main__price__right__box__price--form-input", placeholder: "例） 300"
+              .contents__main__price__right__box__fee.clearfix
+                .contents__main__price__right__box__fee__left
+                  販売手数料(10%)
+                .contents__main__price__right__box__fee__right
+                  ー
+              .contents__main__price__right__box__profit.clearfix
+                .contents__main__price__right__box__profit__left
+                  販売利益
+                .contents__main__price__right__box__profit__right
+                  ー
+        .contents__main__submit
+          .contents__main__submit--text
+            %p 禁止されている出品、行為を必ずご確認ください。 
+            %p また、ブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
+            %p また、出品をもちまして加盟店規約に同意したことになります。
+          =f.submit class: "contents__main__submit--button", value: "出品する"
+          .contents__main__submit--return
+            = link_to root_path, class: "contents__main__submit--return--button" do
+              もどる
+  = render partial: 'items-footer'
+ 
+  -# #image-box
+  -#   #previews
+  -#     - if @item.persisted?
+  -#       - @item.images.each_with_index do |image, i|
+  -#         = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
     
-    = f.fields_for :images do |image|
-      .js-file_group{"data-index" => "#{image.index}"}
-        = image.file_field :image, class: 'js-file'
-        %br/
-        %span.js-remove 削除
+  -#   = f.fields_for :images do |image|
+  -#     .js-file_group{"data-index" => "#{image.index}"}
+  -#       = image.file_field :image, class: 'js-file'
+  -#       %br/
+  -#       %span.js-remove 削除
         
-      - if @item.persisted?
-        = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-    - if @item.persisted?
-      .js-file_group{"data-index" => "#{@item.images.count}"}
-        = file_field_tag :image, name: "product[images_attributes][#{@item.images.count}][src]", class: 'js-file'
-        .js-remove 削除
-  = f.submit
+  -#     - if @item.persisted?
+  -#       = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+  -#   - if @item.persisted?
+  -#     .js-file_group{"data-index" => "#{@item.images.count}"}
+  -#       = file_field_tag :image, name: "product[images_attributes][#{@item.images.count}][src]", class: 'js-file'
+  -#       .js-remove 削除
+  
 
 
 
