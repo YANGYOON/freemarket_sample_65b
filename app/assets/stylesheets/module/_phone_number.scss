@@ -1,0 +1,217 @@
+.phone_number_body {
+  position: relative;
+    min-height: 100%;
+    background: #f5f5f5;
+    font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+    font-size: 14px;
+    color: #333;
+    line-height: 1;
+  .phone_number_header {
+    padding-right: 100px;
+    height: 128px;
+    display: flex;
+    &__logo {
+      margin: 0 auto;
+      padding-top: 20px;
+      padding-left: 50px;
+    }
+    &__pankuzu {
+      position: relative;
+      margin: 0 auto;
+      display: flex;
+      padding-top: 50px;
+      &__register_inform_text {
+        font-weight: 600;
+        color: grey;
+        min-width: 50px;
+        &__status {
+          position: relative;
+          z-index: 2;
+          font-size: 20px;
+          color: red;
+        }
+        &__underline {
+          height: 2px;
+          bottom: 12px;
+          width: 100px;
+          color: transparent;
+          position: relative;
+          z-index: 1;
+          display: inline-block;
+          min-width: 40px;
+          margin: 0 5% 0 0;
+          font-size: 12px;
+          background-color: red;
+          margin-left: 2px;
+        }
+      }
+      &__phone_number_text {
+        font-weight: 600;
+        min-width: 50px;
+        color: red;
+        &__status {
+          position: relative;
+          z-index: 2;
+          font-size: 20px;
+          color: red;
+        }
+        &__underline {
+          height: 2px;
+          bottom: 12px;
+          width: 100px;
+          color: transparent;
+          position: relative;
+          z-index: 1;
+          display: inline-block;
+          min-width: 40px;
+          margin: 0 5% 0 0;
+          font-size: 12px;
+          background-color: #888;
+          margin-left: 2px;
+        }
+      }
+      &__adress_text {
+        font-weight: 600;
+        min-width: 50px;
+        color: #888;
+        &__status {
+          position: relative;
+          z-index: 2;
+          font-size: 20px;
+          color: #888;
+        }
+        &__underline {
+          height: 2px;
+          bottom: 12px;
+          width: 120px;
+          color: transparent;
+          position: relative;
+          z-index: 1;
+          display: inline-block;
+          min-width: 40px;
+          margin: 0 5% 0 0;
+          font-size: 12px;
+          background-color: #888;
+          margin-left: 2px;
+        }
+      }
+      &__pay_text {
+        font-weight: 600;
+        min-width: 50px;
+        color: #888;
+        &__status {
+          position: relative;
+          z-index: 2;
+          font-size: 20px;
+          color: #888;
+        }
+        &__underline {
+          height: 2px;
+          bottom: 12px;
+          width: 100px;
+          color: transparent;
+          position: relative;
+          z-index: 1;
+          display: inline-block;
+          min-width: 40px;
+          margin: 0 5% 0 0;
+          font-size: 12px;
+          background-color: #888;
+          margin-left: 2px;
+        }
+      }
+      &__done_text {
+        font-weight: 600;
+        min-width: 50px;
+        color: #888;
+        &__status {
+          position: relative;
+          z-index: 2;
+          font-size: 20px;
+          color: #888;
+        }
+      }
+    }
+  }
+  .phone_number_content_text {
+    height: 1311px;
+    background: #f5f5f5;
+    &__top {
+      text-align: center;
+      margin: 0 auto;
+      width: 700px;
+      height: 25px;
+      font-size: 22px;
+      padding: 32px;
+      line-height: 100px;
+      background: #fff;
+      font-weight: 50px;
+      font-weight: bold;
+      border-bottom: solid;
+      border-color: #f5f5f5;
+      line-height: 35px;
+    }
+    &__main {
+      width: 685px;
+      height: 300px;
+      background: #fff;
+      margin: 0 auto;
+      padding: 40px 40px 64px;
+      &__text {
+        padding-left: 170px;
+        display: flex;
+        font-weight: bold;
+        font-size: 15px;
+      }
+      &__number_form {
+        text-align: center;
+        &__button {
+          width: 50%;
+          margin: 8px 0 0;
+          height: 30px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+          color: grey;
+        }
+      &__text {
+        padding-left: 170px;
+        padding-right: 170px;
+        padding-top: 10px;
+        padding-bottom: 50px;
+        color: black;
+      }
+      &__button_2 {
+        .btn-red {
+          width: 200px;
+          height: 50px;
+          background-color: red;
+          text-decoration: none;
+          color: white;
+          }
+        .btn-default {
+          display: block;
+          width: 50%;
+          line-height: 48px;
+          font-size: 14px;
+          border: 1px solid transparent;
+          -webkit-transition: all ease-out .3s;
+          transition: all ease-out .3s;
+          cursor: pointer;
+          margin: 0 auto;
+          }
+        }
+      }
+      &__text_2 {
+        padding-left: 170px;
+        padding-right: 170px;
+        padding-top: 10px;
+        padding-bottom: 50px;
+        color: black;
+        }
+    }
+  }
+}
