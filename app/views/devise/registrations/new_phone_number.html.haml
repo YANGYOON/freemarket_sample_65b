@@ -1,9 +1,0 @@
-%h2 電話番号の確認
-= form_for @phone_number, url: addresses_path, method: :get do |f|
-  = render "devise/shared/error_messages", resource: @phone_number
-  .field
-    = f.label :phone_number
-    %br/
-    = f.text_field :phone_number
-  .actions
-    = f.submit "次へ進む"
