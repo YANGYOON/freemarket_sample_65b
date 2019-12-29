@@ -5,7 +5,7 @@ $(function(){
   }
   function appendChidrenBox(insertHTML){ // 子セレクトボックスのhtml作成
     var childSelectHtml = '';
-      childSelectHtml = `<div class='product-select-wrapper' id= 'children_wrapper'>
+      childSelectHtml = `<div class='item-select-wrapper' id= 'children_wrapper'>
                           <div class='contents__main__detail__right__select'>
                             <select class="contents__main__detail__right__select__form" id="child_category" name="item[category_id]">
                               <option value="---">---</option>
@@ -13,14 +13,14 @@ $(function(){
                             </select>
                             <i class="fas fa-angle-down contents__main__detail__right__select--icon"></i>
                           </div>
-                          <div class= 'product_select-grandchildren'>
+                          <div class= 'item_select-grandchildren'>
                           </div>
                         </div>`;
-    $('.product_select-children').append(childSelectHtml);
+    $('.item_select-children').append(childSelectHtml);
   }
   function appendgrandChidrenBox(insertHTML){ // 孫セレクトボックスのhtml作成
     var grandchildrenSelectHtml = '';
-    grandchildrenSelectHtml = `<div class='product-select-wrapper' id= 'grandchildren_wrapper'>
+    grandchildrenSelectHtml = `<div class='item-select-wrapper' id= 'grandchildren_wrapper'>
                                 <div class='contents__main__detail__right__select'>
                                   <select class="contents__main__detail__right__select__form" id="grandchild_category" name="item[category_id]">
                                     <option value="---">---</option>
@@ -28,10 +28,31 @@ $(function(){
                                   </select>
                                   <i class="fas fa-angle-down contents__main__detail__right__select--icon"></i>
                                 </div>
-                                <div class= 'product_select-grandchildren'>
+                                <div class= 'item_select-size'>
                                 </div>
                               </div>`;
-    $('.product_select-grandchildren').append(grandchildrenSelectHtml);
+    $('.item_select-grandchildren').append(grandchildrenSelectHtml);
+  }
+  function appendSizeBox(insertHTML){ // 孫セレクトボックスのhtml作成
+    var sizeSelectHtml = '';
+    sizeSelectHtml = `<div class='item-select-wrapper' id= 'grandchildren_wrapper'>
+                                <div class="contents__main__detail__right__name">
+                                  サイズ
+                                  <div class="contents__main__detail__right__name--icon">
+                                    必須
+                                  </div>
+                                </div>
+                                <div class='contents__main__detail__right__select'>
+                                  <select class="contents__main__detail__right__select__form" id="grandchild_category" name="item[size_id]">
+                                    <option value="---">---</option>
+                                    ${insertHTML} 
+                                  </select>
+                                  <i class="fas fa-angle-down contents__main__detail__right__select--icon"></i>
+                                </div>
+                                <div class= 'item_select-grandchildren'>
+                                </div>
+                              </div>`;
+    $('.item_select-size').append(sizeSelectHtml);
   }
 
   $(document).on('change', '#category_select', function(){  // 親セレクトボックスの選択肢を変えたらイベント発火
