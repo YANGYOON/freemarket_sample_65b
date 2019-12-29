@@ -52,34 +52,34 @@
               .contents__main__detail__right__name--icon
                 必須
             .contents__main__detail__right__select
-              = f.collection_select :category_ids, @parents, :id, :name,{prompt: "---"}, {class: "contents__main__detail__right__select__form", id: "parent-form"}
+              = f.collection_select :category, @category, :id, :name,{prompt: "---"}, {class: "contents__main__detail__right__select__form", id: "category_select"}
               = icon('fas', 'angle-down', class: "contents__main__detail__right__select--icon")
             .contents__main__detail__right__select
-              = f.select :category_second, [["レディース", 1],["メンズ", 2],["ベビー・キッズ", 3]], {prompt: "---"}, {class: "contents__main__detail__right__select__form", id: "parent-form"}
+              = f.select :category_second, [["レディース", 1],["メンズ", 2],["ベビー・キッズ", 3]], {prompt: "---"}, {class: "contents__main__detail__right__select__form"}
               = icon('fas', 'angle-down', class: "contents__main__detail__right__select--icon")
             .contents__main__detail__right__select
-              = f.select :category_second, [["レディース", 1],["メンズ", 2],["ベビー・キッズ", 3]], {prompt: "---"}, {class: "contents__main__detail__right__select__form", id: "parent-form"}
+              = f.select :category_third, [["レディース", 1],["メンズ", 2],["ベビー・キッズ", 3]], {prompt: "---"}, {class: "contents__main__detail__right__select__form"}
               = icon('fas', 'angle-down', class: "contents__main__detail__right__select--icon")
             .contents__main__detail__right__name
               サイズ
               .contents__main__detail__right__name--icon
                 必須
             .contents__main__detail__right__select
-              = f.select :category_second, [["レディース", 1],["メンズ", 2],["ベビー・キッズ", 3]], {prompt: "---"}, {class: "contents__main__detail__right__select__form", id: "parent-form"}
+              = f.select :size, [["レディース", 1],["メンズ", 2],["ベビー・キッズ", 3]], {prompt: "---"}, {class: "contents__main__detail__right__select__form"}
               = icon('fas', 'angle-down', class: "contents__main__detail__right__select--icon")
             .contents__main__detail__right__name
               ブランド
               .contents__main__detail__right__name--icon
                 任意
             .contents__main__detail__right__select
-              = f.select :category_second, [["レディース", 1],["メンズ", 2],["ベビー・キッズ", 3]], {prompt: "---"}, {class: "contents__main__detail__right__select__form", id: "parent-form"}
+              = f.select :brand, [["レディース", 1],["メンズ", 2],["ベビー・キッズ", 3]], {prompt: "---"}, {class: "contents__main__detail__right__select__form"}
               = icon('fas', 'angle-down', class: "contents__main__detail__right__select--icon")
             .contents__main__detail__right__name
               製品の状態
               .contents__main__detail__right__name--icon
                 必須
             .contents__main__detail__right__select
-              = f.select :category_second, [["レディース", 1],["メンズ", 2],["ベビー・キッズ", 3]], {prompt: "---"}, {class: "contents__main__detail__right__select__form", id: "parent-form"}
+              = f.select :status, [["レディース", 1],["メンズ", 2],["ベビー・キッズ", 3]], {prompt: "---"}, {class: "contents__main__detail__right__select__form"}
               = icon('fas', 'angle-down', class: "contents__main__detail__right__select--icon")
         
         
