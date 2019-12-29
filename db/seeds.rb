@@ -71,6 +71,15 @@ mens_article = mens.children.create(name: "小物")
 mens_watch = mens.children.create(name: "時計")
 mens_legwear = mens.children.create(name: "レッグウェア")
 
+kids_babyg = kids.children.create(name: "ベビー服(女の子)")
+kids_babyb = kids.children.create(name: "ベビー服(男の子)")
+kids_kid = kids.children.create(name: "キッズ服")
+
+
+interiors_kitchen = interiors.children.create(name: "キッチン/食器")
+interiors_bed = interiors.children.create(name: "ベッド/マットレス")
+interiors_table = interiors.children.create(name: "机/テーブル")
+
 ladys_tops.children.create([{name: "Tシャツ/カットソー(半袖/袖なし)"},
                             {name: "Tシャツ/カットソー(七分/長袖)"},
                             {name: "シャツ/ブラウス(半袖/袖なし)"},
@@ -265,6 +274,25 @@ mens_legwear.children.create([{name: "ソックス"},
                               {name: "スパッツ/レギンス"},
                               {name: "ストッキング/タイツ"},
                               {name: "レッグウォーマー"}])
+kids_babyg.children.create([{name: "トップス"},
+                            {name: "アウター"},
+                            {name: "パンツ"}])
+kids_babyb.children.create([{name: "トップス"},
+                            {name: "アウター"},
+                            {name: "パンツ"}])
+kids_kid.children.create([{name: "トップス"},
+                            {name: "アウター"},
+                            {name: "パンツ"}])
+
+interiors_kitchen.children.create([{name: "食器"},
+                              {name: "調理器具"},
+                              {name: "エプロン"}])
+interiors_bed.children.create([{name: "セミシングルベッド"},
+                              {name: "シングルベッド"},
+                              {name: "ダブルベッド"}])
+interiors_table.children.create([{name: "こたつ"},
+                              {name: "カウンターテーブル"},
+                              {name: "ダイニングテーブル"}])
 
 ladys_brand = Brand.create(name: "レディース")
 mens_brand = Brand.create(name: "メンズ")
