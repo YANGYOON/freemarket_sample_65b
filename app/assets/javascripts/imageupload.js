@@ -1,4 +1,9 @@
 $(document).on('turbolinks:load', ()=> {
+  // プレビュー用のimgタグを生成する関数
+  const buildImg = (index, url)=> {
+    const html = `<img class= "image${index}", data-index="${index}" src="${url}" width="100px" height="100px">`;
+    return html;
+  }
   // 画像用のinputを生成する関数
   const buildFileField = (num)=> {
     const html = `<div data-index="${num}" class="js-file_group">
@@ -9,12 +14,6 @@ $(document).on('turbolinks:load', ()=> {
                   </div>`;
     return html;
   }
-  // プレビュー用のimgタグを生成する関数
-  const buildImg = (index, url)=> {
-    const html = `<img data-index="${index}" src="${url}" width="100px" height="100px">`;
-    return html;
-  }
-
   // file_fieldのnameに動的なindexをつける為の配列
   let fileIndex = [1,2,3,4,5,6,7,8,9,10];
   // 既に使われているindexを除外
