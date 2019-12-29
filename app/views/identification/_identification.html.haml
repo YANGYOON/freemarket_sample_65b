@@ -1,0 +1,67 @@
+.identification
+  .identification__contents
+    .identification__contents__header
+      本人情報の登録
+    .identification__contents__description
+      .identification__contents__description__text
+        お客様の本人情報をご登録ください。
+        %br/
+        登録されたお名前・生年月日を変更する場合、本に確認書類の提出が必要になります。
+      = link_to "#", class: "identification__contents__description__link" do
+        本人確認書類のアップロードについて＞
+    .identification__contents__form
+    %ul.identification__contents__form__ul
+      %li.identification__contents__form__title
+        お名前
+      %li.identification__contents__form__content
+        自分の名前
+    %ul.identification__contents__form__ul
+      %li.identification__contents__form__title
+        お名前カナ
+      %li.identification__contents__form__content
+        ジブンノナマエ
+    %ul.identification__contents__form__ul
+      %li.identification__contents__form__title
+        生年月日
+      %li.identification__contents__form__content
+        2000/11/33
+    %ul.identification__contents__form__ul
+      %li.identification__contents__form__title
+        郵便番号
+        .identification__contents__form__title__any
+          任意
+      %li.identification__contents__form__content
+        %input.identification__contents__form__content__input{name: "zipcode", placeholder: "例) 1234567", type: "text",}/
+    %ul.identification__contents__form__ul
+      %li.identification__contents__form__title
+        都道府県
+        .identification__contents__form__title__any
+          任意
+      %li.identification__contents__form__content
+        %input.identification__contents__form__content__input{name: "prefectures", placeholder: "--"}
+    %ul.identification__contents__form__ul
+      %li.identification__contents__form__title
+        市町村
+        .identification__contents__form__title__any
+          任意
+      %li.identification__contents__form__content
+        %input.identification__contents__form__content__input{name: "city", placeholder: "例) 東京都渋谷区", type: "text",}/
+    %ul.identification__contents__form__ul
+      %li.identification__contents__form__title
+        番地
+        .identification__contents__form__title__any
+          任意
+      %li.identification__contents__form__content
+        %input.identification__contents__form__content__input{name: "district", placeholder: "例) 青山31-1-1", type: "text",}/
+    %ul.identification__contents__form__ul
+      %li.identification__contents__form__title
+        建物名
+        .identification__contents__form__title__any
+          任意
+      %li.identification__contents__form__content
+        %input.identification__contents__form__content__input{name: "building", placeholder: "例) フォンテス4階", type: "text",}/
+    .identification__contents__form__footer
+      = link_to "#", class: "identification__contents__form__footer__botton" do
+        登録する
+    = link_to "#", class: "identification__contents__description__link" do
+      本人の登録について>
