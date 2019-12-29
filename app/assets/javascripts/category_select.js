@@ -116,7 +116,7 @@ $(function(){
   });
   $(document).on('change', '#grandchild_category', function(){
     var parents_category_value = document.getElementById('category_select').value;
-    if (parents_category_value != ''){
+    if (parents_category_value == 1 || parents_category_value == 2 || parents_category_value == 3){
       $.ajax ({
         url: 'set_sizes',
         type: 'GET',
@@ -133,7 +133,7 @@ $(function(){
           $('#grandchildren_wrapper').remove();
           $('#set_sizes_wrapper').remove();
         })
-      })  
+      }) 
       .fail(function(){
         alert('サイズ取得に失敗しました');
       })
