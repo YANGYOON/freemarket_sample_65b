@@ -61,8 +61,7 @@
               .contents__main__detail__right__name--icon
                 任意
             .contents__main__detail__right__select
-              = f.select :brand, [["レディース", 1],["メンズ", 2],["ベビー・キッズ", 3]], {prompt: "---"}, {class: "contents__main__detail__right__select__form"}
-              = icon('fas', 'angle-down', class: "contents__main__detail__right__select--icon")
+              = f.text_field :brand, class: "contents__main__detail__right__select__form", placeholder: "例) シャネル"
             .contents__main__detail__right__name
               製品の状態
               .contents__main__detail__right__name--icon
