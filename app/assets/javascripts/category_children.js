@@ -33,7 +33,7 @@ $(function(){
                               <option value="---">---</option>
                               ${insertHTML}
                             </select>
-                            <i class="fas fa-angle-down contents__main__detail__right__select--icon'></i>
+                            <i class="fas fa-angle-down contents__main__detail__right__select--icon"></i>
                           </div>
                           <div class= 'product_select-grandchildren'>
                           </div>
@@ -48,7 +48,7 @@ $(function(){
                                     <option value="---">---</option>
                                     ${insertHTML} 
                                   </select>
-                                  <i class="fas fa-angle-down contents__main__detail__right__select--icon'></i>
+                                  <i class="fas fa-angle-down contents__main__detail__right__select--icon"></i>
                                 </div>
                                 <div class= 'product_select-grandchildren'>
                                 </div>
@@ -58,7 +58,6 @@ $(function(){
 
   $(document).on('change', '#category_select', function(){  // 親セレクトボックスの選択肢を変えたらイベント発火
     var category_value = document.getElementById('category_select').value;
-    console.log(category_value)
   // ↑ productcategoryに選択した親のvalueを代入
     if (category_value != ''){
  // ↑ productcategoryが空ではない場合のみAjax通信を行う｡選択肢を初期選択肢'---'に変えると､通信失敗となってしまうため｡
