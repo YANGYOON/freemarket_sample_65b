@@ -1,25 +1,3 @@
-// $("#parent-form").on("change",function(){
-//   function buildHTML(children) {
-//     var html = `<select class="contents__main__detail__right__form" id="parent-form" name="item[category_ids][]"><option value="">---</option>
-//                 </select>`
-//   return html;
-// }
-
-
-
-//   // 親ボックスのidを取得してそのidをAjax通信でコントローラーへ送る
-//   var parentValue = document.getElementById("parent-form").value;
-//   //("parent-form")は親ボックスのid属性
-//   $.ajax({
-//     url: '/items/search_category',
-//     type: "GET",
-//     data: {
-//       parent_id: parentValue // 親ボックスの値をparent_idという変数にする。
-//     },
-//     dataType: 'json'
-//   })
-// })
-
 $(function(){
   function appendOption(category){ // optionの作成
     var html = `<option value="${category.id}">${category.name}</option>`;
@@ -57,20 +35,20 @@ $(function(){
   }
 
   $(document).on('change', '#category_select', function(){  // 親セレクトボックスの選択肢を変えたらイベント発火
+    // セレクトボックスのvalueを取得して、category_valueに代入
     var category_value = document.getElementById('category_select').value;
-  // ↑ productcategoryに選択した親のvalueを代入
+    //category_valueが空ではない場合のみAjax通信を行う｡選択肢を初期選択肢'---'に変えると､通信失敗となってしまうため｡
     if (category_value != ''){
- // ↑ productcategoryが空ではない場合のみAjax通信を行う｡選択肢を初期選択肢'---'に変えると､通信失敗となってしまうため｡
       $.ajax({
         url: 'category_children',
         type: 'GET',
         data: { category_value: category_value },
         dataType: 'json'
       })
-      .done(function(children){  // 送られてきたデータをchildrenに代入
+      .done(function(children){
         var insertHTML = '';
         children.forEach(function(child){  
-        // forEachでchildに一つずつデータを代入｡子のoptionが一つずつ作成される｡
+        // forEachでchildに一つずつデータを代入｡子のoptionが一つずつ作成される
           insertHTML += appendOption(child); 
         });
         appendChidrenBox(insertHTML); 
