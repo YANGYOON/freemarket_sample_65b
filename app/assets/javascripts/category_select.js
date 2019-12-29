@@ -16,6 +16,7 @@ $(function(){
                           <div class= 'item_select-grandchildren'>
                           </div>
                         </div>`;
+    // 出現させるクラスの指定
     $('.item_select-children').append(childSelectHtml);
   }
   function appendgrandChidrenBox(insertHTML){ // 孫セレクトボックスのhtml作成
@@ -28,12 +29,10 @@ $(function(){
                                   </select>
                                   <i class="fas fa-angle-down contents__main__detail__right__select--icon"></i>
                                 </div>
-                              </div>
-                              <div class= 'item_select-size'>
                               </div>`;
     $('.item_select-grandchildren').append(grandchildrenSelectHtml);
   }
-  function appendSizeBox(insertHTML){ // 孫セレクトボックスのhtml作成
+  function appendSizeBox(insertHTML){ // サイズセレクトボックスのhtml作成
     var sizeSelectHtml = '';
     sizeSelectHtml = `<div class='item-select-wrapper' id= 'set_sizes_wrapper'>
                                 <div class="contents__main__detail__right__name">
@@ -72,7 +71,7 @@ $(function(){
         });
         appendChidrenBox(insertHTML); 
         $(document).on('change', '#category_select', function(){
-        // 通信成功時に親の選択肢を変えたらイベント発火｡子と孫を削除｡selectのidにかけるのではなく､親要素にかけないと残ってしまう
+        // 親の選択肢を変えたら、子と孫とサイズを削除｡
           $('#children_wrapper').remove(); 
           $('#grandchildren_wrapper').remove();
           $('#set_sizes_wrapper').remove();
@@ -94,6 +93,9 @@ $(function(){
         dataType: 'json'
       })
       .done(function(grandchildren){
+        $(document).on('change', '#child_category',function(){
+          $('set_sizes_wrapper').remove();
+        })
         var insertHTML = '';
         grandchildren.forEach(function(grandchild){
           insertHTML += appendOption(grandchild);
@@ -101,6 +103,10 @@ $(function(){
         appendgrandChidrenBox(insertHTML);  
         $(document).on('change', '#child_category',function(){
           $('#grandchildren_wrapper').remove();
+          $('#set_sizes_wrapper').remove();
+        })
+        $(document).on('change', '#grandchildren_wrapper',function(){
+          $('#set_sizes_wrapper').remove();
         })
       })  
       .fail(function(){
@@ -129,7 +135,7 @@ $(function(){
         })
       })  
       .fail(function(){
-        alert('カテゴリー取得に失敗しました');
+        alert('サイズ取得に失敗しました');
       })
     }
   });
