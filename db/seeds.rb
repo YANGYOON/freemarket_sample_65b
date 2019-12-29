@@ -28,6 +28,7 @@
   Size.create(
     { name: name, classification: classification }
   )
+end
 
 ladys = Category.create(name: "レディース")
 mens = Category.create(name: "メンズ")
