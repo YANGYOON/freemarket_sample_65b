@@ -33,6 +33,10 @@ class ItemsController < ApplicationController
     @category_grandchildren = Category.find(params[:category_value]).children
   end
 
+  def set_sizes
+    @sizes = Size.find(classification: params[:category_value]).children
+  end
+
   private
   def item_params
     params.require(:item).permit(:name, :price, :category_id, images_attributes: [:image])

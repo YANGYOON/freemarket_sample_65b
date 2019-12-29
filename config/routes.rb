@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     collection do
       get 'category_children'
       get 'category_grandchildren'
+      get 'set_sizes'
     end
   end
 end
