@@ -34,7 +34,7 @@ class ItemsController < ApplicationController
   end
 
   def set_sizes
-    @sizes = Size.find(classification: params[:category_value]).children
+    @set_sizes = Size.where(classification: params[:parents_category_value])
   end
 
   private

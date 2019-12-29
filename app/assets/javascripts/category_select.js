@@ -28,14 +28,14 @@ $(function(){
                                   </select>
                                   <i class="fas fa-angle-down contents__main__detail__right__select--icon"></i>
                                 </div>
-                                <div class= 'item_select-size'>
-                                </div>
+                              </div>
+                              <div class= 'item_select-size'>
                               </div>`;
     $('.item_select-grandchildren').append(grandchildrenSelectHtml);
   }
   function appendSizeBox(insertHTML){ // 孫セレクトボックスのhtml作成
     var sizeSelectHtml = '';
-    sizeSelectHtml = `<div class='item-select-wrapper' id= 'grandchildren_wrapper'>
+    sizeSelectHtml = `<div class='item-select-wrapper' id= 'set_sizes_wrapper'>
                                 <div class="contents__main__detail__right__name">
                                   サイズ
                                   <div class="contents__main__detail__right__name--icon">
@@ -43,13 +43,11 @@ $(function(){
                                   </div>
                                 </div>
                                 <div class='contents__main__detail__right__select'>
-                                  <select class="contents__main__detail__right__select__form" id="grandchild_category" name="item[size_id]">
+                                  <select class="contents__main__detail__right__select__form" name="item[size_id]">
                                     <option value="---">---</option>
                                     ${insertHTML} 
                                   </select>
                                   <i class="fas fa-angle-down contents__main__detail__right__select--icon"></i>
-                                </div>
-                                <div class= 'item_select-grandchildren'>
                                 </div>
                               </div>`;
     $('.item_select-size').append(sizeSelectHtml);
@@ -77,6 +75,7 @@ $(function(){
         // 通信成功時に親の選択肢を変えたらイベント発火｡子と孫を削除｡selectのidにかけるのではなく､親要素にかけないと残ってしまう
           $('#children_wrapper').remove(); 
           $('#grandchildren_wrapper').remove();
+          $('#set_sizes_wrapper').remove();
         })
       })
       .fail(function(){
@@ -88,25 +87,50 @@ $(function(){
   $(document).on('change', '#child_category', function(){
     var category_value = document.getElementById('child_category').value;
     if (category_value != ''){
-    $.ajax ({
-      url: 'category_grandchildren',
-      type: 'GET',
-      data: { category_value: category_value },
-      dataType: 'json'
-    })
-    .done(function(grandchildren){
-      var insertHTML = '';
-      grandchildren.forEach(function(grandchild){
-        insertHTML += appendOption(grandchild);
+      $.ajax ({
+        url: 'category_grandchildren',
+        type: 'GET',
+        data: { category_value: category_value },
+        dataType: 'json'
+      })
+      .done(function(grandchildren){
+        var insertHTML = '';
+        grandchildren.forEach(function(grandchild){
+          insertHTML += appendOption(grandchild);
         });
         appendgrandChidrenBox(insertHTML);  
         $(document).on('change', '#child_category',function(){
           $('#grandchildren_wrapper').remove();
-          })
-        })  
-        .fail(function(){
-          alert('カテゴリー取得に失敗しました');
         })
+      })  
+      .fail(function(){
+        alert('カテゴリー取得に失敗しました');
+      })
+    }
+  });
+  $(document).on('change', '#grandchild_category', function(){
+    var parents_category_value = document.getElementById('category_select').value;
+    if (parents_category_value != ''){
+      $.ajax ({
+        url: 'set_sizes',
+        type: 'GET',
+        data: { parents_category_value: parents_category_value },
+        dataType: 'json'
+      })
+      .done(function(sizes){
+        var insertHTML = '';
+        sizes.forEach(function(size){
+          insertHTML += appendOption(size);
+        });
+        appendSizeBox(insertHTML);  
+        $(document).on('change', '#child_category',function(){
+          $('#grandchildren_wrapper').remove();
+          $('#set_sizes_wrapper').remove();
+        })
+      })  
+      .fail(function(){
+        alert('カテゴリー取得に失敗しました');
+      })
     }
   });
 });
