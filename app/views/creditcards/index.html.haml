@@ -1,0 +1,23 @@
+= render partial: '/common/sub_header'
+.creditcard_index_body
+  = render partial: '/creditcards/credit_bar'
+  .creditcard_content
+    = render partial: '/common/side_bar'
+    %main.creditcard__verification
+      %section.creditcard__verification__chapter
+        %h2.creditcard__verification__chapter__text 支払い方法
+        .single__inner
+          %section
+            .single__inner__content
+              %h3.single__inner__content__midle クレジットカード一覧
+          %section.setting__credit
+            .setting__credit__content
+              = link_to "#" ,class: "btn-default  submit_button  btn-reds" do
+                %i.fas.fa-credit-card.creka>
+                クレジットカードを追加する
+          .single__inner__settings
+            = link_to"#",class: "single__inner__settings__a" ,target: "_blank" do
+              %span.single__inner__settings__a__pay 支払い方法について
+              %i.fas.fa-chevron-right.b
+= render partial: '/items/main_footer'
+= render partial: '/items/sell_btn'

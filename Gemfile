@@ -83,4 +83,6 @@ gem 'mini_magick'
 gem 'fog-aws'
 gem 'kaminari'
 gem 'jquery-rails'
+gem 'payjp'
+
 
