@@ -22,6 +22,7 @@
     }
   }
   .content {
+    height: 1300px;
     display: flex;
     .left-content {
       margin-left: 210px;
@@ -365,7 +366,7 @@
     .mypage_inform {
       .mapage_inform_1 {
         display: flex;
-        width: 680px;
+        width: 700px;
         padding: 10px;
         background: #fff;
         border-bottom: solid;
@@ -394,7 +395,7 @@
       }
       .mapage_inform_2 {
         display: flex;
-        width: 680px;
+        width: 700px;
         padding: 10px;
         background: #fff;
         border-bottom: solid;
@@ -423,7 +424,7 @@
       }
       .mapage_inform_3 {
         display: flex;
-        width: 680px;
+        width: 700px;
         padding: 10px;
         background: #fff;
         border-bottom: solid;
@@ -452,7 +453,7 @@
       }
       .mapage_inform_4 {
         display: flex;
-        width: 680px;
+        width: 700px;
         padding: 10px;
         background: #fff;
         border-bottom: solid;
@@ -481,7 +482,7 @@
       }
       .mapage_inform_5 {
         display: flex;
-        width: 680px;
+        width: 700px;
         padding: 10px;
         background: #fff;
         border-bottom: solid;
@@ -510,7 +511,7 @@
       }
       .summary {
         background: #fff;
-        width: 668px;
+        width: 700px;
         padding: 16px;
         margin-bottom: 35px;
         .icon_summary {
@@ -527,7 +528,7 @@
     .under-content {
       &__buy_item {
         height: 72px;
-        width: 640px;
+        width: 700px;
         color: #333333;
         background: #FAFAFA;
         padding: 0px 30px;
@@ -556,7 +557,7 @@
       }
     }
       &__main {
-        height: 150px;
+        height: 200px;
         width: 700px;
         padding: 50px 0px 60px;
         text-align: center;
