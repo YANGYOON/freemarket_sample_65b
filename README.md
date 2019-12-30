@@ -6,32 +6,7 @@
 |nickname|string|null: false|
 |email|string|null: false|
 |password|string|null: false|
-### Association
-- has_many :sns_links dependent: :destroy
-- has_many :comments dependent: :destroy
-- has_many :likes dependent: :destroy
-- has_many :reviews dependent: :destroy
-- has_many :items dependent: :destroy
-- has_one :user_profile
-- has_one :creditcard
-- has_one :address
-
-## address テーブル
-|Column|Type|Options|
-|------|----|-------|
-|zipcode|string|null: false|
-|prefecture|string|null: false|
-|city|string|null: false|
-|district|string|-------|
-|building|string|-------|
-|user_id|integer|null: false, foreign_key: true|
-### Association
-- belongs_to :user
-
-## user_profile テーブル
-|Column|Type|Options|
-|------|----|-------|
-|self_introduction|text|optional: true|
+|self_introduction|text|-------|
 |last_name|string|null: false|
 |first_name|string|null: false|
 |last_name_kana|string|null: false|
@@ -39,8 +14,35 @@
 |birth_year|string|null: false|
 |birth_month|string|null: false|
 |birth_day|string|null: false|
+### Association
+- has_many :sns_links dependent: :destroy
+- has_many :comments dependent: :destroy
+- has_many :likes dependent: :destroy
+- has_many :reviews dependent: :destroy
+- has_many :items dependent: :destroy
+- has_one :creditcard
+- has_one :address
+- has_one :phone_number
+
+##　phone_number　テーブル
+|Column|Type|Options|
+|------|----|-------|
 |phone_number|string|null: false|
-|optinal_phone_number|string|optional: true|
+|user_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+
+
+## address テーブル
+|Column|Type|Options|
+|------|----|-------|
+
+|zipcode|integer|null: false|
+|prefecture|string|null: false|
+|city|string|null: false|
+|detail_address|string|null: false|
+|building|string|-------|
+|optional_phone_number|string|-------|
 |user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
