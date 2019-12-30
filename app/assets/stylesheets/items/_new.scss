@@ -56,17 +56,19 @@ body {
           color: white;
         }       
       }
-
       &__box{
         width: 100%;
-        height: 150px;
+        height: calc(150px + 100%);
         border: 1px dotted #ccc;
         background-color: #eee;
-        text-align: center;
-        line-height: 150px;
+        // text-align: center;
+        // line-height: 150px;
       }
     }
-
+    #previews {
+    display: flex;
+    }
+    
     &__name{
       border-top: 1px solid #eee;
       padding: 40px;
