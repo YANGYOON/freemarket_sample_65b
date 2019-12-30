@@ -35,7 +35,6 @@ class ItemsController < ApplicationController
   def category_children
     @category_children = Category.find(params[:category_value]).children
   end
-  # Ajax通信で送られてきたデータをparamsで受け取り､childrenで子を取得
 
   def category_grandchildren
     @category_grandchildren = Category.find(params[:category_value]).children

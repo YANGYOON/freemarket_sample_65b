@@ -12,10 +12,7 @@ $(function(){
     $('.contents__main__price__right__box__profit__right').append(html)
   }
 
-
-
   $(document).on('change', '#price__form' ,function(){
-    console.log(document.getElementById('price__form'))
     price = document.getElementById('price__form').value
     $.ajax ({
       url: 'cal_profit',
@@ -30,6 +27,6 @@ $(function(){
       })
       calSalesCommission(price);
       calProfit(price);
-  })
-});
+    })
+  });
 });
