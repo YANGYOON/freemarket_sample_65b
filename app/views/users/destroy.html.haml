@@ -1,0 +1,45 @@
+.done_body
+  .done_header
+    .done_header__logo
+      = image_tag src="/images/fmarket_logo_red.svg", size: "200x100"
+    %ul.done_header__pankuzu
+      %li.done_header__pankuzu__register_inform_text
+        会員情報
+        .done_header__pankuzu__register_inform_text__status
+          ●
+        .done_header__pankuzu__register_inform_text__underline
+          あ
+      %li.done_header__pankuzu__phone_number_text
+        電話番号認証
+        .done_header__pankuzu__phone_number_text__status
+          ●
+        .done_header__pankuzu__phone_number_text__underline
+          あ
+      %li.done_header__pankuzu__adress_text
+        お届け先住所入力
+        .done_header__pankuzu__adress_text__status
+          ●
+        .done_header__pankuzu__adress_text__underline
+          あ
+      %li.done_header__pankuzu__pay_text
+        お支払い方法
+        .done_header__pankuzu__pay_text__status
+          ●
+        .done_header__pankuzu__pay_text__underline
+          あ
+      %li.done_header__pankuzu__done_text
+        完了
+        .done_header__pankuzu__done_text__status
+          ●
+  .done_content_text
+    .done_content_text__top
+      会員登録完了
+    .done_content_text__main
+      .done_content_text__main__text
+        ありがとうございます。
+        会員登録が完了しました。
+      .done_content_text__main__button
+        %button.btn-default.btn-red{:type => "submit"} メルカリをはじめる
+
+
+= render "items/items-footer"

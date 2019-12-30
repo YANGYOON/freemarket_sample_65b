@@ -14,7 +14,6 @@
 @import "sell_btn";
 @import "user_profiles/index";
 @import "common/sub_header";
-@import "module/mypage";
 @import "common/side_bar";
 @import "creditcard/index";
 @import "creditcard/new";
@@ -22,5 +21,10 @@
 @import "creditcard/side_bar";
 @import "creditcards_after/index";
 @import "user_logout/index";
-
-
+@import "module/mypage";
+@import "module/new_register";
+@import "module/new_inform";
+@import "module/phone_number";
+@import "module/adress";
+@import "module/pay";
+@import "module/done";
