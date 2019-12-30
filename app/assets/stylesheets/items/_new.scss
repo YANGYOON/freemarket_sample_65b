@@ -46,23 +46,12 @@ body {
         font-size: 16px;
         display: flex;
         font-weight: bold;
-        &--icon{
-          padding: 2px 4px;
-          background-color: red;
-          font-size: 12px;
-          vertical-align: top;
-          border-radius: 2px;
-          margin-left: 8px;
-          color: white;
-        }       
       }
       &__box{
         width: 100%;
         height: calc(150px + 100%);
         border: 1px dotted #ccc;
         background-color: #eee;
-        // text-align: center;
-        // line-height: 150px;
       }
     }
     #previews {
@@ -79,16 +68,6 @@ body {
       &__name-content__item-name{
         display: flex;
       }
-      &__name-content__item-name--icon{
-          padding: 2px 4px;
-          background-color: red;
-          font-size: 12px;
-          vertical-align: top;
-          border-radius: 2px;
-          margin-left: 8px;
-          color: white;
-          vertical-align: top;
-      }
       &__name-content__item-nameform{
         width: calc(100% - 20px);
         height: 48px;
@@ -104,16 +83,6 @@ body {
         display: flex;
         font-weight: bold;
         margin-top: 40px;
-        &--icon{
-          padding: 2px 4px;
-          background-color: red;
-          font-size: 12px;
-          vertical-align: top;
-          border-radius: 2px;
-          margin-left: 8px;
-          color: white;
-          vertical-align: top;
-        }
       }
       &__name-content__item-expform{
         width: calc(100% - 20px);
@@ -135,8 +104,6 @@ body {
         float: left;
         color: gray;
       }
-
-
       &__right{
         float: right;
         width: 400px;
@@ -154,6 +121,15 @@ body {
             margin-left: 8px;
             color: white;
             vertical-align: top;
+          }
+          &--any {
+            padding: 2px 4px;
+            background-color: #dddddd;
+            font-size: 12px;
+            vertical-align: top;
+            border-radius: 2px;
+            margin-left: 8px;
+            color: white;
           }
         }
         &__select {
@@ -181,25 +157,12 @@ body {
             top: 12px;
           }
         }
-
-
-
         &__status{
           padding-top: 30px;
         }
         &__status__lab{
           display: flex;
           font-weight: bold;
-        }
-        &__status__lab--icon{
-          padding: 2px 4px;
-          background-color: red;
-          font-size: 12px;
-          vertical-align: top;
-          border-radius: 2px;
-          margin-left: 8px;
-          color: white;
-          vertical-align: top;
         }
         &__status__statusform{
           position: relative;
@@ -258,18 +221,6 @@ body {
         display: flex;
         font-weight: bold;
       }
-
-      &__right__burden--icon{
-        padding: 2px 4px;
-        background-color: red;
-        font-size: 12px;
-        vertical-align: top;
-        border-radius: 2px;
-        margin-left: 8px;
-        color: white;
-        vertical-align: top;
-      }
-
       &__right__burdenform{
         position: relative;
         padding-top: 10px;
@@ -295,18 +246,6 @@ body {
         font-weight: bold;
         padding-top: 30px;
       }
-
-      &__right__shipping-area--icon{
-        padding: 2px 4px;
-        background-color: red;
-        font-size: 12px;
-        vertical-align: top;
-        border-radius: 2px;
-        margin-left: 8px;
-        color: white;
-        vertical-align: top;
-      }
-
       &__right__shipping-area-form{
         position: relative;
         padding-top: 10px;
@@ -332,18 +271,6 @@ body {
         font-weight: bold;
         padding-top: 30px;
       }
-
-      &__right__shipping-period--icon{
-        padding: 2px 4px;
-        background-color: red;
-        font-size: 12px;
-        vertical-align: top;
-        border-radius: 2px;
-        margin-left: 8px;
-        color: white;
-        vertical-align: top;
-      }
-
       &__right__shipping-periodform{
         position: relative;
         padding-top: 10px;
