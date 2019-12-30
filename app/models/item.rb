@@ -4,6 +4,7 @@ class Item < ApplicationRecord
 
   has_one :shipping, dependent: :destroy
   accepts_nested_attributes_for :shipping, allow_destroy: true
+
   belongs_to :category
   belongs_to :brand, optional: true
   belongs_to :size, optional: true
