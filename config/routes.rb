@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       get 'category_children'
       get 'category_grandchildren'
       get 'set_sizes'
+      get 'cal_profit'
     end
   end
 end

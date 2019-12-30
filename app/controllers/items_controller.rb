@@ -45,6 +45,12 @@ class ItemsController < ApplicationController
     @set_sizes = Size.where(classification: params[:parents_category_value])
   end
 
+  def cal_profit
+    @price = params[:price].to_i
+    @sales_commission = @price * 0.1
+    @profit = @price * 0.9
+  end
+
   private
   def item_params
     params.require(:item).permit(:name, :price, :category_id, images_attributes: [:image])

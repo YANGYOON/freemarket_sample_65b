@@ -1,5 +1,4 @@
 = render 'items-header'
-
 .contents
   = form_with(model: @item) do |f|
     .contents__main
@@ -9,40 +8,39 @@
         .contents__main__image
           .contents__main__image__head
             出品画像
-            .contents__main__image__head--icon
+            .contents__main__detail__right__name--icon
               必須
           最大10枚までアップロードできます
           .contents__main__image__box
             #image-box
-              #previews
+              .previews
+                #previews
+                  - if @item.persisted?
+                    - @item.images.each_with_index do |image, i|
+                      = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
+                = f.fields_for :images do |image|
+                  .js-file_group{"data-index" => "#{image.index}"}
+                    = image.file_field :image, class: 'js-file'
+                    %br/
+                    %span.js-remove 削除
+                  - if @item.persisted?
+                    = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
                 - if @item.persisted?
-                  - @item.images.each_with_index do |image, i|
-                    = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
-              = f.fields_for :images do |image|
-                .js-file_group{"data-index" => "#{image.index}"}
-                  = image.file_field :image, class: 'js-file'
-                  %br/
-                  %span.js-remove 削除
-                - if @item.persisted?
-                  = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-              - if @item.persisted?
-                .js-file_group{"data-index" => "#{@item.images.count}"}
-                  = file_field_tag :image, name: "product[images_attributes][#{@item.images.count}][src]", class: 'js-file'
-                  .js-remove 削除
+                  .js-file_group{"data-index" => "#{@item.images.count}"}
+                    = file_field_tag :image, name: "product[images_attributes][#{@item.images.count}][src]", class: 'js-file'
+                    .js-remove 削除
       .contents__main__name
         .contents__main__name__name-content
           .contents__main__name__name-content__item-name
             商品名
-            .contents__main__name__name-content__item-name--icon
+            .contents__main__detail__right__name--icon
               必須
           = f.text_field :name, placeholder: "商品名 (必須40文字まで)", class: "contents__main__name__name-content__item-nameform"
         .contents__main__name__item-exp
           商品の説明
-          .contents__main__name__item-exp--icon
+          .contents__main__detail__right__name--icon
             必須
         = f.text_area :state, placeholder: "商品名（必須1000文字以内）（色、素材、重さ色、素材、重さ、低下、注意点など） 例）2019年ごろに購入したコートです。ライトグレーで傷はありません。あたたかくてオススメです。", class:"contents__main__name__name-content__item-expform"
-        
-        
         .contents__main__detail.clearfix
           .contents__main__detail__left
             詳細
@@ -58,7 +56,7 @@
             .item_select-size
             .contents__main__detail__right__name
               ブランド
-              .contents__main__detail__right__name--icon
+              .contents__main__detail__right__name--any
                 任意
             .contents__main__detail__right__select
               = f.text_field :brand, class: "contents__main__detail__right__select__form", placeholder: "例) シャネル"
@@ -67,10 +65,8 @@
               .contents__main__detail__right__name--icon
                 必須
             .contents__main__detail__right__select
-              = f.select :status, [["レディース", 1],["メンズ", 2],["ベビー・キッズ", 3]], {prompt: "---"}, {class: "contents__main__detail__right__select__form"}
+              = f.select :status, [["新品、未使用", "新品、未使用"],["未使用に近い", "未使用に近い"],["目立った傷や汚れなし", "目立った傷や汚れなし"],["やや傷や汚れあり", "やや傷や汚れあり"],["傷や汚れあり", "傷や汚れあり"],["全体的に状態が悪い", "全体的に状態が悪い"]], {prompt: "---"}, {class: "contents__main__detail__right__select__form"}
               = icon('fas', 'angle-down', class: "contents__main__detail__right__select--icon")
-        
-        
         .contents__main__delivery.clearfix
           .contents__main__delivery__left
             配送について
@@ -79,22 +75,25 @@
           .contents__main__delivery__right
             .contents__main__delivery__right__burden
               送料の負担
-              .contents__main__delivery__right__burden--icon
+              .contents__main__detail__right__name--icon
                 必須
-            .contents__main__delivery__right__burdenform
-              = f.select :fee_burden, [["----", 0],["送料込み(出品者負担)", "送料込み"],["着払い(購入者負担)", "着払い"]], {}, class: "contents__main__delivery__right__burdenform--form"
+            .contents__main__detail__right__select
+              = f.select :fee_burden, [["送料込み(出品者負担)", "送料込み"],["着払い(購入者負担)", "着払い"]], {prompt: "---"}, class: "contents__main__detail__right__select__form"
+              = icon('fas', 'angle-down', class: "contents__main__detail__right__select--icon")
             .contents__main__delivery__right__shipping-area
               発送元の地域
-              .contents__main__delivery__right__shipping-area--icon
+              .contents__main__detail__right__name--icon
                 必須
-            .contents__main__delivery__right__shipping-area-form
-              = f.select :prefecture_from, [["----", 0],["東京都", "東京都"],["千葉県", "千葉県"]], {}, {class: "contents__main__delivery__right__shipping-area-form--form"}
+            .contents__main__detail__right__select
+              = f.select :prefecture_from, [["東京都", "東京都"],["千葉県", "千葉県"]], {prompt: "---"}, class: "contents__main__detail__right__select__form"
+              = icon('fas', 'angle-down', class: "contents__main__detail__right__select--icon")
             .contents__main__delivery__right__shipping-period
               発送までの日数
-              .contents__main__delivery__right__shipping-period--icon
+              .contents__main__detail__right__name--icon
                 必須
-            .contents__main__delivery__right__shipping-periodform
-              = f.select :period_before_shopping, [["----", 0],["1~2日で発送", "1~2日で発送"],["2~3日で発送", "2~3日で発送"],["4~7日で発送", "4~7日で発送"]], {}, class: "contents__main__delivery__right__shipping-periodform--form"
+            .contents__main__detail__right__select
+              = f.select :period_before_shopping, [["1~2日で発送", "1~2日で発送"],["2~3日で発送", "2~3日で発送"],["4~7日で発送", "4~7日で発送"]], {prompt: "---"}, class: "contents__main__detail__right__select__form"
+              = icon('fas', 'angle-down', class: "contents__main__detail__right__select--icon")
         .contents__main__price.clearfix
           .contents__main__price__left
             販売価格(300~9,999,999)
@@ -108,17 +107,15 @@
                   必須
                 .contents__main__price__right__box__price--form
                   ¥
-                  =f.number_field :price, class: "contents__main__price__right__box__price--form-input", placeholder: "例） 300"
+                  =f.number_field :price, id: "price__form", class: "contents__main__price__right__box__price--form-input", placeholder: "例） 300"
               .contents__main__price__right__box__fee.clearfix
                 .contents__main__price__right__box__fee__left
                   販売手数料(10%)
                 .contents__main__price__right__box__fee__right
-                  ー
               .contents__main__price__right__box__profit.clearfix
                 .contents__main__price__right__box__profit__left
                   販売利益
                 .contents__main__price__right__box__profit__right
-                  ー
         .contents__main__submit
           .contents__main__submit--text
             %p 禁止されている出品、行為を必ずご確認ください。 
