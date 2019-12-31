@@ -7,8 +7,8 @@ $(function(){
     var childSelectHtml = '';
       childSelectHtml = `<div class='item-select-wrapper' id= 'children_wrapper'>
                           <div class='contents__main__detail__right__select'>
-                            <select class="contents__main__detail__right__select__form" id="child_category" name="item[category_id]">
-                              <option value="---">---</option>
+                            <select class="contents__main__detail__right__select__form" id="child_category" required="required" name="item[category_id]">
+                              <option value="">---</option>
                               ${insertHTML}
                             </select>
                             <i class="fas fa-angle-down contents__main__detail__right__select--icon"></i>
@@ -23,8 +23,8 @@ $(function(){
     var grandchildrenSelectHtml = '';
     grandchildrenSelectHtml = `<div class='item-select-wrapper' id= 'grandchildren_wrapper'>
                                 <div class='contents__main__detail__right__select'>
-                                  <select class="contents__main__detail__right__select__form" id="grandchild_category" name="item[category_id]">
-                                    <option value="---">---</option>
+                                  <select class="contents__main__detail__right__select__form" id="grandchild_category" required="required" name="item[category_id]">
+                                    <option value="">---</option>
                                     ${insertHTML} 
                                   </select>
                                   <i class="fas fa-angle-down contents__main__detail__right__select--icon"></i>
@@ -42,8 +42,8 @@ $(function(){
                                   </div>
                                 </div>
                                 <div class='contents__main__detail__right__select'>
-                                  <select class="contents__main__detail__right__select__form" name="item[size_id]">
-                                    <option value="---">---</option>
+                                  <select class="contents__main__detail__right__select__form" required="required" true name="item[size_id]">
+                                    <option value="">---</option>
                                     ${insertHTML} 
                                   </select>
                                   <i class="fas fa-angle-down contents__main__detail__right__select--icon"></i>
