@@ -3,6 +3,6 @@ class Shipping < ApplicationRecord
 
   validates :method, presence: true
   validates :prefecture_from, presence: true
-  validates :period_before_shipping, presence: true
+  validates :period_before_shopping, presence: true
   validates :fee_burden, presence: true
 end
