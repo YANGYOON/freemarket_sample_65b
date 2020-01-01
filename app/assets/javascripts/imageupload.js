@@ -47,6 +47,7 @@ $(document).on('turbolinks:load', ()=> {
     }
   });
 
+  // 削除ボタンの設定
   $('.contents__main__image__box').on('click', '.js-remove', function() {
     const targetIndex = $(this).prev().data('index');
     // 該当indexを振られているチェックボックスを取得する
@@ -54,12 +55,11 @@ $(document).on('turbolinks:load', ()=> {
     // もしチェックボックスが存在すればチェックを入れる
     if (hiddenCheck) hiddenCheck.prop('checked', true);
     $(this).parent().remove();
-    $(`img[data-index="${targetIndex}"]`).remove();
     $(`div[data-index="${targetIndex}"]`).remove();
     // 画像入力欄が0個にならないようにしておく
     if ($('.js-file').length == 0) $('.contents__main__image__box').append(buildFileField(fileIndex[0]));
   });
-  
+
   // プレビューの画像(imgタグ)の数による表示の変化を記述
   $(document).ready(function() {
     $('.contents__main__image__box__previews').on('DOMSubtreeModified propertychange', function() {
@@ -124,6 +124,9 @@ $(document).on('turbolinks:load', ()=> {
             'grid-column-start':'5',
             'grid-row-start':'1'
           });;
+          $('.contents__main__image').css({
+            'height':'190px'
+          });;
           break;
         case 5:
           $('.contents__main__image__box__previews').css({
@@ -136,6 +139,9 @@ $(document).on('turbolinks:load', ()=> {
             'width':'500%',
             'grid-column-start':'1',
             'grid-row-start':'2'
+          });;
+          $('.contents__main__image').css({
+            'height':'360px'
           });;
           break;
         case 6:
@@ -150,6 +156,9 @@ $(document).on('turbolinks:load', ()=> {
             'grid-column-start':'2',
             'grid-row-start':'2'
           });;
+          $('.contents__main__image').css({
+            'height':'360px'
+          });;
           break;
         case 7:
           $('.contents__main__image__box__previews').css({
@@ -162,6 +171,9 @@ $(document).on('turbolinks:load', ()=> {
             'width':'300%',
             'grid-column-start':'3',
             'grid-row-start':'2'
+          });;
+          $('.contents__main__image').css({
+            'height':'360px'
           });;
           break;
         case 8:
@@ -176,6 +188,9 @@ $(document).on('turbolinks:load', ()=> {
             'grid-column-start':'4',
             'grid-row-start':'2'
           });;
+          $('.contents__main__image').css({
+            'height':'360px'
+          });;
           break;
         case 9:
           $('.contents__main__image__box__previews').css({
@@ -184,10 +199,14 @@ $(document).on('turbolinks:load', ()=> {
             'grid-template-columns':'repeat(5, 120px)',
           });;
           $('.contents__main__image__box__uploader').css({
+            'display':'grid',
             'grid-template-rows':'repeat(2, 169px)',
             'width':'100%',
             'grid-column-start':'5',
             'grid-row-start':'2'
+          });;
+          $('.contents__main__image').css({
+            'height':'360px'
           });;
           break;
         case 10:
@@ -197,9 +216,10 @@ $(document).on('turbolinks:load', ()=> {
             'grid-template-columns':'repeat(5, 120px)',
           });;
           $('.contents__main__image__box__uploader').css({
-            'width':'110px',
-            'grid-column-start':'5',
-            'grid-row-start':'2'
+            'display':'none',
+          });;
+          $('.contents__main__image').css({
+            'height':'360px'
           });;
           break;
       }

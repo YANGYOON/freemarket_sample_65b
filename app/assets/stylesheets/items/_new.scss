@@ -61,18 +61,18 @@ body {
           grid-gap: 5px;
           display: none;
           &__preview {
-            position: relative;
-            z-index: 2;
             &__image {
               .input_images {
                 vertical-align: bottom;
               }
             }
             &__delete {
+              width: 118px;
+              height: 40px;
               color: #0099E8;
               background-color: #F5F5F5;
-              padding: 10px 9px;
               text-align: center;
+              line-height: 40px;
               border: 1px solid #EEEEEE;
             }
           }
