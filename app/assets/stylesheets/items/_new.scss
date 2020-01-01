@@ -43,6 +43,7 @@ body {
       border-top: 1px solid #eee;
       padding: 40px;
       font-size: 13px;
+      height: 100%;
       &__head{
         font-size: 16px;
         display: flex;
@@ -53,8 +54,9 @@ body {
         box-sizing: border-box;
         &__upper {
           display: grid;
-          grid-template-rows: repeat(1, 167px);
+          grid-template-rows: repeat(1, 169px);
           grid-template-columns: repeat(5, 125px);
+          
           &__previews {
             width: 620px;
             height: 162px;
@@ -65,6 +67,8 @@ body {
             // flex-wrap: wrap;
             display: none;
             &__preview {
+              position: relative;
+              z-index: 2;
               &__image {
                 .input_images {
                   vertical-align: bottom;

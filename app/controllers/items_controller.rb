@@ -47,8 +47,8 @@ class ItemsController < ApplicationController
 
   def cal_profit
     @price = params[:price].to_i
-    @sales_commission = @price * 0.1
-    @profit = @price * 0.9
+    @sales_commission = (@price * 0.1).to_i
+    @profit = (@price * 0.9).to_i
   end
 
   private
