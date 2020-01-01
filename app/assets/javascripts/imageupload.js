@@ -29,9 +29,6 @@ $(document).on('turbolinks:load', ()=> {
   $('.hidden-destroy').hide();
   
   $('.contents__main__image__box').on('change', '.js-file', function(e) {
-    image_tag_count = $('.input_images').size();
-    console.log(image_tag_count)
-    
     const targetIndex = $(this).parent().data('index');
     // ファイルのブラウザ上でのURLを取得する
     const file = e.target.files[0];
@@ -67,34 +64,46 @@ $(document).on('turbolinks:load', ()=> {
     switch (len){
       case 1:
         $('.contents__main__image__box__upper__previews').css({
-          'display':'flex'
+          'display':'grid',
+          'grid-template-rows':'repeat(1, 165px)',
+          'grid-template-columns':'repeat(1, 120px)',
+          'width':'120px'
         });;
         $('.contents__main__image__box__upper__uploader').css({
           'width':'400%'
         });;
         break;
       case 2:
-        $('.contents__main__image__box__upper').css({
-          'display':'flex'
+        $('.contents__main__image__box__upper__previews').css({
+          'display':'grid',
+          'grid-template-rows':'repeat(1, 165px)',
+          'grid-template-columns':'repeat(2, 120px)',
         });;
         $('.contents__main__image__box__upper__uploader').css({
-          'width':'300%'
+          'width':'300%',
+          'grid-column-start':'3'
         });;
         break;
       case 3:
-        $('.contents__main__image__box__upper').css({
-          'display':'flex'
+        $('.contents__main__image__box__upper__previews').css({
+          'display':'grid',
+          'grid-template-rows':'repeat(1, 165px)',
+          'grid-template-columns':'repeat(3, 120px)',
         });;
         $('.contents__main__image__box__upper__uploader').css({
-          'width':'200%'
+          'width':'200%',
+          'grid-column-start':'4'
         });;
         break;
       case 4:
-        $('.contents__main__image__box__upper').css({
-          'display':'flex'
+        $('.contents__main__image__box__upper__previews').css({
+          'display':'grid',
+          'grid-template-rows':'repeat(1, 165px)',
+          'grid-template-columns':'repeat(4, 120px)',
         });;
         $('.contents__main__image__box__upper__uploader').css({
-          'width':'100%'
+          'width':'120px',
+          'grid-column-start':'5'
         });;
         break;
         
