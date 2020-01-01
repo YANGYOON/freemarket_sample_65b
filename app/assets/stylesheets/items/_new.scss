@@ -31,6 +31,7 @@ body {
     width: 700px;
     margin: 0 auto;
     background-color: #fff;
+
     &__header{
       text-align: center;
       font-size: 22px;
@@ -49,9 +50,40 @@ body {
       }
       &__box{
         width: 100%;
-        height: calc(150px + 100%);
-        border: 1px dotted #ccc;
-        background-color: #eee;
+        box-sizing: border-box;
+        &__upper {
+          display: grid;
+          grid-template-rows: repeat(1, 167px);
+          grid-template-columns: repeat(5, 120px);
+          &__previews {
+            max-width: 620px;
+            // display: flex;
+            flex-wrap: wrap;
+            display: none;
+            &__preview {
+              &__image {
+                .input_images {
+                  vertical-align: bottom;
+                }
+              }
+              &__delete {
+                color: #0099E8;
+                background-color: #F5F5F5;
+                padding: 10px 9px;
+                text-align: center;
+                border: 1px solid #EEEEEE;
+
+              }
+            }
+          }
+          &__uploader {
+            border: 1px dashed #ccc;
+            background-color: #F5F5F5;
+            background-color: rgb(255, 251, 149);
+            width: 500%;
+            height: 160px;
+          }
+        }
       }
     }
     #previews {

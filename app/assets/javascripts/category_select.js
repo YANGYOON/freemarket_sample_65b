@@ -66,7 +66,7 @@ $(function(){
       .done(function(children){
         var insertHTML = '';
         children.forEach(function(child){  
-        // forEachでchildに一つずつデータを代入｡子のoptionが一つずつ作成される
+        // forEachでchildに一つずつデータをinsertHTMLに代入｡子のoptionが一つずつ作成される
           insertHTML += appendOption(child); 
         });
         appendChidrenBox(insertHTML); 
