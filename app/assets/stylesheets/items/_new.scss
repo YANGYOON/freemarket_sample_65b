@@ -82,6 +82,18 @@ body {
           background-color: #F5F5F5;
           width: 500%;
           height: 160px;
+          .js-file_group {
+            display: none;
+            opacity: 0;
+          }
+          &__text {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            width: 100%;
+            height: 100%;
+          }
         }
       }
     }

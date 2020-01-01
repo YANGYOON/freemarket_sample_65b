@@ -15,10 +15,12 @@
             .contents__main__image__box
               .contents__main__image__box__previews
               .contents__main__image__box__uploader
-                = f.fields_for :images do |image|
-                  .js-file_group{"data-index" => "#{image.index}"}
-                    = image.file_field :image, class: 'js-file'
-                クリックしてファイルをアップロード
+                %label.contents__main__image__box__uploader__label<>
+                  = f.fields_for :images do |image|
+                    .js-file_group{"data-index" => "#{image.index}"}
+                      = image.file_field :image, class: 'js-file'
+                  .contents__main__image__box__uploader__text
+                    クリックしてファイルをアップロード
           -# .contents__main__image__box
           -#   #image__box
           -#     .previews
