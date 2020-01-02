@@ -45,12 +45,12 @@
             商品名
             .contents__main__detail__right__name--icon
               必須
-          = f.text_field :name, placeholder: "商品名 (必須40文字まで)", class: "contents__main__name__name-content__item-nameform"
+          = f.text_field :name, placeholder: "商品名 (必須40文字まで)", class: "contents__main__name__name-content__item-nameform", required: true
         .contents__main__name__item-exp
           商品の説明
           .contents__main__detail__right__name--icon
             必須
-        = f.text_area :state, placeholder: "商品名（必須1000文字以内）（色、素材、重さ色、素材、重さ、低下、注意点など） 例）2019年ごろに購入したコートです。ライトグレーで傷はありません。あたたかくてオススメです。", class:"contents__main__name__name-content__item-expform"
+        = f.text_area :state, placeholder: "商品名（必須1000文字以内）（色、素材、重さ色、素材、重さ、低下、注意点など） 例）2019年ごろに購入したコートです。ライトグレーで傷はありません。あたたかくてオススメです。", class:"contents__main__name__name-content__item-expform",required: true
         .contents__main__detail.clearfix
           .contents__main__detail__left
             詳細
@@ -60,7 +60,7 @@
               .contents__main__detail__right__name--icon
                 必須
             .contents__main__detail__right__select
-              = f.collection_select :category, @category, :id, :name,{prompt: "---"}, {class: "contents__main__detail__right__select__form", id: "category_select"}
+              = f.collection_select :category, @category, :id, :name,{prompt: "---"}, {class: "contents__main__detail__right__select__form", id: "category_select", required: true}
               = icon('fas', 'angle-down', class: "contents__main__detail__right__select--icon")
             .item_select-children
             .item_select-size
@@ -75,7 +75,7 @@
               .contents__main__detail__right__name--icon
                 必須
             .contents__main__detail__right__select
-              = f.select :condition, [["新品、未使用", "新品、未使用"],["未使用に近い", "未使用に近い"],["目立った傷や汚れなし", "目立った傷や汚れなし"],["やや傷や汚れあり", "やや傷や汚れあり"],["傷や汚れあり", "傷や汚れあり"],["全体的に状態が悪い", "全体的に状態が悪い"]], {prompt: "---"}, class: "contents__main__detail__right__select__form"
+              = f.select :condition, [["新品、未使用", "新品、未使用"],["未使用に近い", "未使用に近い"],["目立った傷や汚れなし", "目立った傷や汚れなし"],["やや傷や汚れあり", "やや傷や汚れあり"],["傷や汚れあり", "傷や汚れあり"],["全体的に状態が悪い", "全体的に状態が悪い"]], {prompt: "---"}, class: "contents__main__detail__right__select__form", required: true
               = icon('fas', 'angle-down', class: "contents__main__detail__right__select--icon")
 
         .contents__main__delivery.clearfix
@@ -90,7 +90,7 @@
                 必須
             .contents__main__detail__right__select
               = f.fields_for :shipping do |s|
-                = s.select :method, [["送料込み(出品者負担)", "送料込み"],["着払い(購入者負担)", "着払い"]], {prompt: "---"}, class: "contents__main__detail__right__select__form"
+                = s.select :method, [["送料込み(出品者負担)", "送料込み"],["着払い(購入者負担)", "着払い"]], {prompt: "---"}, class: "contents__main__detail__right__select__form", required: true
               = icon('fas', 'angle-down', class: "contents__main__detail__right__select--icon")
             .contents__main__detail__right__name
               配送方法
@@ -98,7 +98,7 @@
                 必須
             .contents__main__detail__right__select
               = f.fields_for :shipping do |s|
-                = s.select :fee_burden, [["ゆうパック", "ゆうパック"],["クロネコヤマト", "クロネコヤマト"],["らくらくメルカリ便", "らくらくメルカリ便"],["レターパック", "レターパック"]], {prompt: "---"}, class: "contents__main__detail__right__select__form"
+                = s.select :fee_burden, [["ゆうパック", "ゆうパック"],["クロネコヤマト", "クロネコヤマト"],["らくらくメルカリ便", "らくらくメルカリ便"],["レターパック", "レターパック"]], {prompt: "---"}, class: "contents__main__detail__right__select__form", required: true
               = icon('fas', 'angle-down', class: "contents__main__detail__right__select--icon")
             .contents__main__delivery__right__shipping-area
               発送元の地域
@@ -114,7 +114,7 @@
                 必須
             .contents__main__detail__right__select
               = f.fields_for :shipping do |s|
-                = s.select :period_before_shopping, [["1~2日で発送", "1~2日で発送"],["2~3日で発送", "2~3日で発送"],["4~7日で発送", "4~7日で発送"]], {prompt: "---"}, class: "contents__main__detail__right__select__form"
+                = s.select :period_before_shopping, [["1~2日で発送", "1~2日で発送"],["2~3日で発送", "2~3日で発送"],["4~7日で発送", "4~7日で発送"]], {prompt: "---"}, class: "contents__main__detail__right__select__form", required: true
               = icon('fas', 'angle-down', class: "contents__main__detail__right__select--icon")
         .contents__main__price.clearfix
           .contents__main__price__left
@@ -129,7 +129,7 @@
                   必須
                 .contents__main__price__right__box__price--form
                   ¥
-                  =f.number_field :price, id: "price__form", class: "contents__main__price__right__box__price--form-input", placeholder: "例） 300"
+                  =f.number_field :price, id: "price__form", class: "contents__main__price__right__box__price--form-input", placeholder: "例） 300", required: true
               .contents__main__price__right__box__fee.clearfix
                 .contents__main__price__right__box__fee__left
                   販売手数料(10%)
