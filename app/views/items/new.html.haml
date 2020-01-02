@@ -21,24 +21,6 @@
                       = image.file_field :image, class: 'js-file'
                   .contents__main__image__box__uploader__text
                     クリックしてファイルをアップロード
-          -# .contents__main__image__box
-          -#   #image__box
-          -#     .previews
-          -#       #previews
-          -#         - if @item.persisted?
-          -#           - @item.images.each_with_index do |image, i|
-          -#             = image_tag image.src.url, data: { index: i }, width: "120", height: '120'
-          -#       = f.fields_for :images do |image|
-          -#         .js-file_group{"data-index" => "#{image.index}"}
-          -#           = image.file_field :image, class: 'js-file'
-          -#           %br/
-          -#           %span.js-remove 削除
-          -#         - if @item.persisted?
-          -#           = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-          -#       - if @item.persisted?
-          -#         .js-file_group{"data-index" => "#{@item.images.count}"}
-          -#           = file_field_tag :image, name: "product[images_attributes][#{@item.images.count}][src]", class: 'js-file'
-          -#           .js-remove 削除
       .contents__main__name
         .contents__main__name__name-content
           .contents__main__name__name-content__item-name
@@ -77,7 +59,6 @@
             .contents__main__detail__right__select
               = f.select :condition, [["新品、未使用", "新品、未使用"],["未使用に近い", "未使用に近い"],["目立った傷や汚れなし", "目立った傷や汚れなし"],["やや傷や汚れあり", "やや傷や汚れあり"],["傷や汚れあり", "傷や汚れあり"],["全体的に状態が悪い", "全体的に状態が悪い"]], {prompt: "---"}, class: "contents__main__detail__right__select__form", required: true
               = icon('fas', 'angle-down', class: "contents__main__detail__right__select--icon")
-
         .contents__main__delivery.clearfix
           .contents__main__delivery__left
             配送について
