@@ -2,7 +2,7 @@ class Item < ApplicationRecord
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
 
-  has_one :shipping, dependent: :destroy
+  has_one :shipping, dependent: :destroy, validate: true
   accepts_nested_attributes_for :shipping, allow_destroy: true
 
   belongs_to :category
@@ -15,7 +15,9 @@ class Item < ApplicationRecord
   validates :name, presence: true
   validates :state, presence: true
   validates :condition, presence: true
+  validates :category_id, presence: true
   validates :price, presence: true,
-                    greater_than_or_equal_to: 300,
-                    less_than_or_equal_to: 9999999,
+                    numericality: {
+                      greater_than_or_equal_to: 300,
+                      less_than_or_equal_to: 9999999}
 end

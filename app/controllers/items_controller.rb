@@ -1,13 +1,13 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.includes(:images).order('created_at DESC')
+    @items = Item.includes(:images).order('created_at DESC').limit(20)
   end
 
   def new
     @item = Item.new
     @item.images.new
     @item.build_shipping
-    @category = Category.all.order("id ASC").limit(13)
+    @category = Category.all.order("id ASC").limit(20)
   end
 
   def create
@@ -23,7 +23,8 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
-      render :new
+      @category = Category.all.order("id ASC").limit(13)
+      redirect_to action: 'new'
     end
   end
 
