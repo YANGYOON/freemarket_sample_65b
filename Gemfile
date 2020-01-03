@@ -84,3 +84,4 @@ gem 'fog-aws'
 gem 'kaminari'
 gem 'jquery-rails'
 gem 'payjp'
+
