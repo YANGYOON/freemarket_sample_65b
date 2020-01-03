@@ -6,76 +6,14 @@
       = link_to "#", class: "new_items__contents__header__more" do
         もっとみる ＞
     .new_items__contents__grid
-      .new_items__contents__grid__item
-        = link_to "#" do
-          = image_tag items[0].images[0].image.url, class: "new_items__contents__grid__item__image"
-          .new_items__contents__grid__item__price
-            ¥
-            = items[0].price
-          .new_items__contents__grid__item__name
-            = items[0].name
-            %br/
-            = items[0].category.name
-      .new_items__contents__grid__item
-        = link_to "#" do
-          = image_tag "/images/item.jpeg", class: "new_items__contents__grid__item__image"
-          .new_items__contents__grid__item__price
-            ¥10000
-          .new_items__contents__grid__item__name
-            ジャージ
-      .new_items__contents__grid__item
-        = link_to "#" do
-          = image_tag "/images/item.jpeg", class: "new_items__contents__grid__item__image"
-          .new_items__contents__grid__item__price
-            ¥10000
-          .new_items__contents__grid__item__name
-            ジャージ
-      .new_items__contents__grid__item
-        = link_to "#" do
-          = image_tag "/images/item.jpeg", class: "new_items__contents__grid__item__image"
-          .new_items__contents__grid__item__price
-            ¥10000
-          .new_items__contents__grid__item__name
-            ジャージ
-      .new_items__contents__grid__item
-        = link_to "#" do
-          = image_tag "/images/item.jpeg", class: "new_items__contents__grid__item__image"
-          .new_items__contents__grid__item__price
-            ¥10000
-          .new_items__contents__grid__item__name
-            ジャージ
-      .new_items__contents__grid__item
-        = link_to "#" do
-          = image_tag "/images/item.jpeg", class: "new_items__contents__grid__item__image"
-          .new_items__contents__grid__item__price
-            ¥10000
-          .new_items__contents__grid__item__name
-            ジャージ
-      .new_items__contents__grid__item
-        = link_to "#" do
-          = image_tag "/images/item.jpeg", class: "new_items__contents__grid__item__image"
-          .new_items__contents__grid__item__price
-            ¥10000
-          .new_items__contents__grid__item__name
-            ジャージ
-      .new_items__contents__grid__item
-        = link_to "#" do
-          = image_tag "/images/item.jpeg", class: "new_items__contents__grid__item__image"
-          .new_items__contents__grid__item__price
-            ¥10000
-          .new_items__contents__grid__item__name
-            ジャージ
-      .new_items__contents__grid__item
-        = link_to "#" do
-          = image_tag "/images/item.jpeg", class: "new_items__contents__grid__item__image"
-          .new_items__contents__grid__item__price
-            ¥10000
-          .new_items__contents__grid__item__name
-            ジャージ
-      .new_items__contents__grid__item.new_items__contents__grid__item--last
-        = link_to "#" do
-          = image_tag "/images/item.jpeg", class: "new_items__contents__grid__item__image"
-          .new_items__contents__grid__item__price
-            ¥10000
-          .new_items__contents__grid__item__name
-            ジャージ
+      - items.each_with_index do |item, i|
+        .new_items__contents__grid__item
+          = link_to "/items/#{item.id}" do
+            = image_tag item.images.last.image.url, class: "new_items__contents__grid__item__image"
+            .new_items__contents__grid__item__price
+              ¥
+              = items[i].price
+            .new_items__contents__grid__item__name
+              = items[i].name
+              %br/
+              = items[i].category.name

@@ -9,7 +9,14 @@ Rails.application.routes.draw do
     post 'addresses', to: 'users/registrations#create_address'
   end
   root to: 'items#index'
-  resources :items
+  resources :items do
+    collection do
+      get 'category_children'
+      get 'category_grandchildren'
+      get 'set_sizes'
+      get 'cal_profit'
+    end
+  end
   resources :test, only: :index
   resources :user_profiles, only: :index
   resources :creditcards

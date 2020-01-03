@@ -356,14 +356,14 @@ books_book.children.create([{name: "小説"},
                               {name: "漫画"},
                               {name: "趣味"},
                               {name: "ビジネス書"},
-                              {name: "参考書"}
+                              {name: "参考書"}])
 books_music.children.create([{name: "邦楽"},
                                 {name: "洋楽"},
                                 {name: "クラシック"},
-                                {name: "アニメ"}
+                                {name: "アニメ"}])
 books_game.children.create([{name: "家庭用ゲーム"},
                             {name: "携帯用ゲーム"},
-                            {name: "PCゲーム"}
+                            {name: "PCゲーム"}])
 
 hobbys_toy = hobbys.children.create(name: "おもちゃ")
 hobbys_goods = hobbys.children.create(name: "グッズ")
@@ -372,17 +372,78 @@ hobbys_musical_instrument = hobbys.children.create(name: "楽器")
 hobbys_toy.children.create([{name: "キャラクターグッズ"},
                               {name: "ぬいぐるみ"},
                               {name: "模型/プラモデル"},
-                              {name: "ラジコン"}
+                              {name: "ラジコン"}])
 hobbys_goods.children.create([{name: "ミュージシャン"},
                                 {name: "スポーツ選手"},
                                 {name: "アイドル"},
-                                {name: "お笑い芸人"}
+                                {name: "お笑い芸人"}])
 hobbys_musical_instrument.children.create([{name: "ギター"},
                                             {name: "ベース"},
                                             {name: "ドラム"},
                                             {name: "弦楽器"},
-                                            {name: "管楽器"}
+                                            {name: "管楽器"}])
 
+cosmetics_perfume = cosmetics.children.create(name: "香水")
+cosmetics_base = cosmetics.children.create(name: "ベースメイク")
+cosmetics_skin = cosmetics.children.create(name: "スキンケア")
+
+cosmetics_perfume.children.create([{name: "香水(女性用)"},
+                              {name: "香水(男性用)"},
+                              {name: "ボディミスト"}])
+cosmetics_base.children.create([{name: "ファンデーション"},
+                                {name: "化粧下地"},
+                                {name: "コントロールカラー"},
+                                {name: "コンシーラー"}])
+cosmetics_skin.children.create([{name: "化粧水"},
+                                {name: "乳液"},
+                                {name: "美容液"},
+                                {name: "洗顔料"}])
+
+home_appliances_smartphone = home_appliances.children.create(name: "スマートフォン/携帯電話")
+home_appliances_pc = home_appliances.children.create(name: "PC/タブレット")
+home_appliances_camera = home_appliances.children.create(name: "カメラ")
+home_appliances_tv = home_appliances.children.create(name: "テレビ")
+home_appliances_life = home_appliances.children.create(name: "スキンケア")
+
+home_appliances_smartphone.children.create([{name: "スマートフォン"},
+                                            {name: "バッテリー/充電器"},
+                                            {name: "携帯電話本体"}])
+home_appliances_pc.children.create([{name: "タブレット"},
+                                    {name: "ノートPC"},
+                                    {name: "テスクトップPC"},
+                                    {name: "ディスプレイ"}])
+home_appliances_camera.children.create([{name: "デジタルカメラ"},
+                                        {name: "ビデオカメラ"},
+                                        {name: "レンズ"},
+                                        {name: "フィルムカメラ"}])
+home_appliances_tv.children.create([{name: "テレビ"},
+                                    {name: "プロジェクター"},
+                                    {name: "ブルーレイレコーダー"},
+                                    {name: "DVDレコーダー"}])
+home_appliances_life.children.create([{name: "冷蔵庫"},
+                                      {name: "洗濯機"},
+                                      {name: "炊飯器"},
+                                      {name: "アイロン"},
+                                      {name: "調理器具"},
+                                      {name: "掃除機"},
+                                      {name: "電子レンジ"}])
+
+sports_golf = sports.children.create(name: "ゴルフ")
+sports_soccer = sports.children.create(name: "サッカー")
+sports_tennis = sports.children.create(name: "テニス")
+
+sports_golf.children.create([{name: "クラブ"},
+                              {name: "ウエア"},
+                              {name: "バッグ"}])
+sports_soccer.children.create([{name: "ウェア"},
+                                {name: "シューズ"},
+                                {name: "ボール"},
+                                {name: "応援グッズ"}])
+sports_tennis.children.create([{name: "ラケット"},
+                                {name: "ウェア"},
+                                {name: "シューズ"},
+                                {name: "アクセサリー"}])
+                                            
 #                               {name: ""},
 #                               {name: ""},
 #                               {name: ""},

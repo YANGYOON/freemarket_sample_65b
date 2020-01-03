@@ -29,12 +29,12 @@ body {
       }
       &__search {
         width: 100%;
-        height: 35px;
+        height: 40px;
         position: relative;
         margin-left: 40px;
         &__area {
           width: 100%;
-          height: 35px;
+          height: 40px;
           border-radius: 5px;
           background: #F5F5F5;
           padding-left: 15px;
@@ -42,7 +42,7 @@ body {
         &__icon {
           position:absolute;
           top: 13px;
-          right: 3px;
+          right: 15px;
         }
         &__botton {
           display: none;

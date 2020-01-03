@@ -1,7 +1,8 @@
 = render partial: 'main_header'
 = render partial: 'slider'
 = render partial: 'popular_categories'
-= render partial: 'sell_items_list', locals: { items: @items }
+- if @items[0] != nil
+  = render partial: 'sell_items_list', locals: { items: @items }
 = render partial: 'new_items'
 = render partial: 'main_footer'
 = render partial: 'sell_btn'
