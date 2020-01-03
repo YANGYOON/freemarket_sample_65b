@@ -85,5 +85,3 @@ gem 'kaminari'
 gem 'jquery-rails'
 gem 'payjp'
 gem 'ancestry'
-
-
