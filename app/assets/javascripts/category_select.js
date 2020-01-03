@@ -88,7 +88,7 @@ $(function(){
     var category_value = document.getElementById('child_category').value;
     if (category_value != ''){
       $.ajax ({
-        url: 'category_grandchildren',
+        url: '/items/category_grandchildren',
         type: 'GET',
         data: { category_value: category_value },
         dataType: 'json'
@@ -119,7 +119,7 @@ $(function(){
     var parents_category_value = document.getElementById('category_select').value;
     if (parents_category_value == 1 || parents_category_value == 2 || parents_category_value == 3){
       $.ajax ({
-        url: 'set_sizes',
+        url: '/items/set_sizes',
         type: 'GET',
         data: { parents_category_value: parents_category_value },
         dataType: 'json'
