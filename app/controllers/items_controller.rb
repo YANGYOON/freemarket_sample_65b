@@ -32,6 +32,10 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
+  end 
+  
+
   end
 
   def category_children
@@ -62,4 +66,5 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
+
 end

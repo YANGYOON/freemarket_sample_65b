@@ -25,16 +25,19 @@
       &__left{
         width: 300px;
         height: 100%;
-        &__main-image{
-          height: 300px;
-          width: 300px;
+        &__sub-images{
+          width:300px;
+          height:120px;
         }
-        
-        &__sub-images__dot{
-          width: 60px;
-          height: 60px;
-          float: left;
-        }
+      }
+      .show_main_image{
+        height: 300px;
+        width: 300px;
+      }
+      .thumbnail{
+        width: 60px;
+        height: 60px;
+        float: left;
       }
 
       &__right{
