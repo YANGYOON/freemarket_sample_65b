@@ -3,7 +3,7 @@
   = form_with(model: @item) do |f|
     .contents__main
       .contents__main__header
-        商品情報を入力
+        商品情報を編集
       .contents__main__upload
         .contents__main__image
           .contents__main__image__head
@@ -121,7 +121,7 @@
             %p 禁止されている出品、行為を必ずご確認ください。 
             %p また、ブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
             %p また、出品をもちまして加盟店規約に同意したことになります。
-          =f.submit class: "contents__main__submit--button", value: "出品する" ;
+          =f.submit class: "contents__main__submit--button", value: "更新する" ;
           .contents__main__submit--return
             = link_to root_path, class: "contents__main__submit--return--button" do
               もどる
