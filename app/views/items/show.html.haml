@@ -3,31 +3,13 @@
 .item-detail__contents
   .item-detail__contents__center
     .item-detail__contents__center__head
-      商品名
-
+      = @item.name
     .item-detail__contents__center__detail
       .item-detail__contents__center__detail__left.clearfix
-        = image_tag src='/images/item.jpeg', class: "item-detail__contents__center__detail__left__main-image"
-
-        .item-detail__contents__center__detail__left__sub-images
-          .item-detail__contents__center__detail__left__sub-images__dot
-            = image_tag src='/images/item.jpeg', class: "item-detail__contents__center__detail__left__sub-images__dot"
-
-          .item-detail__contents__center__detail__left__sub-images__dot
-            = image_tag src='/images/item.jpeg', class: "item-detail__contents__center__detail__left__sub-images__dot"
-
-          .item-detail__contents__center__detail__left__sub-images__dot
-            = image_tag src='/images/item.jpeg', class: "item-detail__contents__center__detail__left__sub-images__dot"
-
-          .item-detail__contents__center__detail__left__sub-images__dot
-            = image_tag src='/images/item.jpeg', class: "item-detail__contents__center__detail__left__sub-images__dot"
-
-          .item-detail__contents__center__detail__left__sub-images__dot
-            = image_tag src='/images/item.jpeg', class: "item-detail__contents__center__detail__left__sub-images__dot"
-
-          .item-detail__contents__center__detail__left__sub-images__dot
-            = image_tag src='/images/item.jpeg', class: "item-detail__contents__center__detail__left__sub-images__dot"
-
+        = image_tag src= @item.images[1].image.url, class: "item-detail__contents__center__detail__left__main-image"
+        %ul.item-detail__contents__center__detail__left__sub-images
+          - @item.images.each do |i|
+            %li= image_tag src=i.image.url, class: "item-detail__contents__center__detail__left__sub-images__dot"
       .item-detail__contents__center__detail__right
         %table
           %th 出品者
@@ -62,8 +44,8 @@
         
         %table
           %th 商品の状態
-          %td 傷なし
-
+          %td
+            = @item.condition
         %table
           %th 配送料の負担
           %td 送料込（出品者負担）
@@ -82,7 +64,7 @@
     
     .item-detail__contents__center__price
       %span.item-detail__contents__center__price__price
-        ¥9,900
+        = "¥#{@item.price}"
       %span.item-detail__contents__center__price__tax
         （税込）
       %span.item-detail__contents__center__price__fee
