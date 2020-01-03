@@ -20,4 +20,5 @@ Rails.application.routes.draw do
   resources :test, only: :index
   resources :user_profiles, only: :index
   resources :creditcards
+  resources :users
 end
