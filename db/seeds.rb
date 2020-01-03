@@ -356,14 +356,14 @@ books_book.children.create([{name: "小説"},
                               {name: "漫画"},
                               {name: "趣味"},
                               {name: "ビジネス書"},
-                              {name: "参考書"}
+                              {name: "参考書"}])
 books_music.children.create([{name: "邦楽"},
                                 {name: "洋楽"},
                                 {name: "クラシック"},
-                                {name: "アニメ"}
+                                {name: "アニメ"}])
 books_game.children.create([{name: "家庭用ゲーム"},
                             {name: "携帯用ゲーム"},
-                            {name: "PCゲーム"}
+                            {name: "PCゲーム"}])
 
 hobbys_toy = hobbys.children.create(name: "おもちゃ")
 hobbys_goods = hobbys.children.create(name: "グッズ")
@@ -372,16 +372,16 @@ hobbys_musical_instrument = hobbys.children.create(name: "楽器")
 hobbys_toy.children.create([{name: "キャラクターグッズ"},
                               {name: "ぬいぐるみ"},
                               {name: "模型/プラモデル"},
-                              {name: "ラジコン"}
+                              {name: "ラジコン"}])
 hobbys_goods.children.create([{name: "ミュージシャン"},
                                 {name: "スポーツ選手"},
                                 {name: "アイドル"},
-                                {name: "お笑い芸人"}
+                                {name: "お笑い芸人"}])
 hobbys_musical_instrument.children.create([{name: "ギター"},
                                             {name: "ベース"},
                                             {name: "ドラム"},
                                             {name: "弦楽器"},
-                                            {name: "管楽器"}
+                                            {name: "管楽器"}])
 
 #                               {name: ""},
 #                               {name: ""},
