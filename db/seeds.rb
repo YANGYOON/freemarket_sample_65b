@@ -1,7 +1,759 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+[
+  ['XXS', 1],
+  ['XS', 1],
+  ['S', 1],
+  ['M', 1],
+  ['L', 1],
+  ['XL', 1],
+  ['2XL', 1],
+  ['3XL', 1],
+  ['4XL', 1],
+  ['FREESIZE', 1],
+  ['XXS', 2],
+  ['XS', 2],
+  ['S', 2],
+  ['M', 2],
+  ['L', 2],
+  ['XL', 2],
+  ['2XL', 2],
+  ['3XL', 2],
+  ['4XL', 2],
+  ['FREESIZE', 2],
+  ['60cm', 3],
+  ['70cm', 3],
+  ['80cm', 3],
+  ['90cm', 3],
+  ['95cm', 3]
+].each do |name, classification|
+  Size.create(
+    { name: name, classification: classification }
+  )
+end
+
+ladys = Category.create(name: "レディース")
+mens = Category.create(name: "メンズ")
+kids = Category.create(name: "ベビー・キッズ")
+interiors = Category.create(name: "インテリア・住まい・小物")
+books = Category.create(name: "本・音楽・ゲーム")
+hobbys = Category.create(name: "おもちゃ・ホビー・グッズ")
+cosmetics = Category.create(name: "コスメ・香水・美容")
+home_appliances = Category.create(name: "家電・スマホ・カメラ")
+sports = Category.create(name: "スポーツ・レジャー")
+handmades = Category.create(name: "ハンドメイド")
+tickets = Category.create(name: "チケット")
+cars = Category.create(name: "自動車・オートバイ")
+others = Category.create(name: "その他")
+
+ladys_tops = ladys.children.create(name: "トップス")
+ladys_jacket = ladys.children.create(name: "ジャケット/アウター")
+ladys_pants = ladys.children.create(name: "パンツ")
+ladys_skirt = ladys.children.create(name: "スカート")
+ladys_onepiece = ladys.children.create(name: "ワンピース")
+ladys_shoes = ladys.children.create(name: "シューズ")
+ladys_roomwear = ladys.children.create(name: "ルームウェア/パジャマ")
+ladys_legwear = ladys.children.create(name: "レッグウェア")
+ladys_hat = ladys.children.create(name: "帽子")
+ladys_bag = ladys.children.create(name: "バッグ")
+ladys_accessory = ladys.children.create(name: "アクセサリー")
+ladys_hairaccessory = ladys.children.create(name: "ヘアアクセサリー")
+ladys_article = ladys.children.create(name: "小物")
+ladys_watch = ladys.children.create(name: "時計")
+
+mens_tops = mens.children.create(name: "トップス")
+mens_jacket = mens.children.create(name: "ジャケット/アウター")
+mens_pants = mens.children.create(name: "パンツ")
+mens_shoes = mens.children.create(name: "靴")
+mens_bag = mens.children.create(name: "バッグ")
+mens_suit = mens.children.create(name: "スーツ")
+mens_hat = mens.children.create(name: "帽子")
+mens_accessory = mens.children.create(name: "アクセサリー")
+mens_article = mens.children.create(name: "小物")
+mens_watch = mens.children.create(name: "時計")
+mens_legwear = mens.children.create(name: "レッグウェア")
+
+kids_babyg = kids.children.create(name: "ベビー服(女の子)")
+kids_babyb = kids.children.create(name: "ベビー服(男の子)")
+kids_kid = kids.children.create(name: "キッズ服")
+
+
+interiors_kitchen = interiors.children.create(name: "キッチン/食器")
+interiors_bed = interiors.children.create(name: "ベッド/マットレス")
+interiors_table = interiors.children.create(name: "机/テーブル")
+
+ladys_tops.children.create([{name: "Tシャツ/カットソー(半袖/袖なし)"},
+                            {name: "Tシャツ/カットソー(七分/長袖)"},
+                            {name: "シャツ/ブラウス(半袖/袖なし)"},
+                            {name: "Tシャツ/ブラウス(七分/長袖)"},
+                            {name: "ポロシャツ"},
+                            {name: "キャミソール"},
+                            {name: "タンクトップ"},
+                            {name: "ホルターネック"},
+                            {name: "ニット/セーター"},
+                            {name: "チュニック"},
+                            {name: "カーティガン/ボレロ"},
+                            {name: "アンサンブル"},
+                            {name: "ベスト/ジレ"},
+                            {name: "パーカー"}])
+ladys_jacket.children.create([{name: "テーラードジャケット"},
+                              {name: "ノーカラージャケット"},
+                              {name: "Gジャン/デニムジャケット"},
+                              {name: "レザージャケット"},
+                              {name: "ダウンジャケット"},
+                              {name: "ライダースジャケット"},
+                              {name: "ミリタリージャケット"},
+                              {name: "ダウンベスト"},
+                              {name: "ジャンパー/ブルゾン"},
+                              {name: "ポンチョ"},
+                              {name: "ロングコート"},
+                              {name: "トレンチコート"},
+                              {name: "ダッフルコート"},
+                              {name: "チェスターコート"}])
+ladys_pants.children.create([{name: "デニム/ジーンズ"},
+                              {name: "ショートパンツ"},
+                              {name: "カジュアルパンツ"},
+                              {name: "ハーフパンツ"},
+                              {name: "チノパン"},
+                              {name: "ワークパンツ/カーゴパンツ"},
+                              {name: "クロップドパンツ"},
+                              {name: "サロペット/オーバーオール"},
+                              {name: "オールインワン"},
+                              {name: "サルエルパンツ"},
+                              {name: "ガウチョパンツ"}])
+ladys_skirt.children.create([{name: "ミニスカート"},
+                              {name: "ひざ丈スカート"},
+                              {name: "ロングスカート"},
+                              {name: "キュロット"}])
+ladys_onepiece.children.create([{name: "ミニワンピース"},
+                              {name: "ひざ丈ワンピース"},
+                              {name: "ロングワンピース"}])
+ladys_shoes.children.create([{name: "ハイヒール/パンプス"},
+                              {name: "ブーツ"},
+                              {name: "サンダル"},
+                              {name: "スニーカー"},
+                              {name: "ミュール"},
+                              {name: "モカシン"},
+                              {name: "ローファー/革靴"},
+                              {name: "フラットシューズ/バレエシューズ"},
+                              {name: "長靴/レインシューズ"}])
+ladys_roomwear.children.create([{name: "パジャマ"},
+                              {name: "ルームウェア"}])
+ladys_legwear.children.create([{name: "ソックス"},
+                              {name: "スパッツ/レギンス"},
+                              {name: "ストッキング/タイツ"},
+                              {name: "レッグウォーマー"}])
+ladys_hat.children.create([{name: "ニットキャップ/ビーニー"},
+                              {name: "ハット"},
+                              {name: "ハンチング/ベレー帽"},
+                              {name: "キャップ"},
+                              {name: "キャスケット"},
+                              {name: "麦わら帽子"}])
+ladys_bag.children.create([{name: "ハンドバック"},
+                              {name: "トートバッグ"},
+                              {name: "エコバッグ"},
+                              {name: "リュック/バクパック"},
+                              {name: "ボストンバッグ"},
+                              {name: "スポーツバッグ"},
+                              {name: "ショルダーバッグ"},
+                              {name: "クラッチバッグ"},
+                              {name: "ポーチ／バニディ"},
+                              {name: "ボディバッグ/ウェストバッグ"},
+                              {name: "マザーズバッグ"}])
+ladys_accessory.children.create([{name: "ネックレス"},
+                              {name: "ブレスレット"},
+                              {name: "バングル/リストバンド"},
+                              {name: "リング"},
+                              {name: "ピアス"},
+                              {name: "イヤリング"},
+                              {name: "アンクレット"},
+                              {name: "ブローチ"},
+                              {name: "チャーム"}])
+ladys_hairaccessory.children.create([{name: "ヘアゴム/シュシュ"},
+                              {name: "ヘアバンド/カチューシャ"},
+                              {name: "ヘアピン"}])
+ladys_article.children.create([{name: "長財布"},
+                              {name: "折り財布"},
+                              {name: "コインケース"},
+                              {name: "キーケース"},
+                              {name: "ハンカチ"},
+                              {name: "ベルト"},
+                              {name: "マフラー/ショール"},
+                              {name: "手帳"},
+                              {name: "傘"},
+                              {name: "キーホルダー"}])
+ladys_watch.children.create([{name: "腕時計"},
+                              {name: "ラバーベルト"},
+                              {name: "レザーベルト"},
+                              {name: "金属ベルト"}])
+
+mens_tops.children.create([{name: "Tシャツ/カットソー(半袖/袖なし)"},
+                              {name: "Tシャツ/カットソー(七分/長袖)"},
+                              {name: "シャツ/ブラウス(半袖/袖なし)"},
+                              {name: "Tシャツ/ブラウス(七分/長袖)"},
+                              {name: "ポロシャツ"},
+                              {name: "タンクトップ"},
+                              {name: "ジャージ"},
+                              {name: "ホルターネック"},
+                              {name: "ニット/セーター"},
+                              {name: "チュニック"},
+                              {name: "カーティガン"},
+                              {name: "パーカー"}])                              
+mens_jacket.children.create([{name: "テーラードジャケット"},
+                              {name: "ノーカラージャケット"},
+                              {name: "Gジャン/デニムジャケット"},
+                              {name: "レザージャケット"},
+                              {name: "ダウンジャケット"},
+                              {name: "ライダースジャケット"},
+                              {name: "ミリタリージャケット"},
+                              {name: "ダウンベスト"},
+                              {name: "ナイロンジャケット"},
+                              {name: "ピーコート"},
+                              {name: "ロングコート"},
+                              {name: "トレンチコート"},
+                              {name: "ダッフルコート"},
+                              {name: "チェスターコート"}])
+mens_pants.children.create([{name: "デニム/ジーンズ"},
+                              {name: "ショートパンツ"},
+                              {name: "カジュアルパンツ"},
+                              {name: "ハーフパンツ"},
+                              {name: "チノパン"},
+                              {name: "ワークパンツ/カーゴパンツ"},
+                              {name: "オーバーオール"},
+                              {name: "オールインワン"},
+                              {name: "サルエルパンツ"},
+                              {name: "ジャージ"}])
+mens_shoes.children.create([{name: "ブーツ"},
+                              {name: "サンダル"},
+                              {name: "スニーカー"},
+                              {name: "ドレス/ビジネス"},
+                              {name: "モカシン"},
+                              {name: "ローファー/革靴"},
+                              {name: "長靴/レインシューズ"}])
+mens_bag.children.create([{name: "ハンドバック"},
+                              {name: "トートバッグ"},
+                              {name: "エコバッグ"},
+                              {name: "リュック/バクパック"},
+                              {name: "ボストンバッグ"},
+                              {name: "スポーツバッグ"},
+                              {name: "ショルダーバッグ"},
+                              {name: "ビジネスバッグ"},
+                              {name: "ウェストポーチ"},
+                              {name: "トラベルバッグ"}])
+mens_suit.children.create([{name: "スーツジャケット"},
+                              {name: "スーツベスト"},
+                              {name: "スラックス"},
+                              {name: "セットアップ"}])
+mens_hat.children.create([{name: "ニットキャップ/ビーニー"},
+                              {name: "ハット"},
+                              {name: "ハンチング/ベレー帽"},
+                              {name: "キャップ"},
+                              {name: "キャスケット"},
+                              {name: "麦わら帽子"},
+                              {name: "サンバイザー"}])
+mens_accessory.children.create([{name: "ネックレス"},
+                              {name: "ブレスレット"},
+                              {name: "バングル/リストバンド"},
+                              {name: "リング"},
+                              {name: "ピアス"},
+                              {name: "イヤリング"},
+                              {name: "アンクレット"}])
+mens_article.children.create([{name: "長財布"},
+                              {name: "折り財布"},
+                              {name: "コインケース"},
+                              {name: "キーケース"},
+                              {name: "ハンカチ"},
+                              {name: "ベルト"},
+                              {name: "マフラー/ショール"},
+                              {name: "手帳"},
+                              {name: "傘"},
+                              {name: "キーホルダー"}])
+mens_watch.children.create([{name: "腕時計"},
+                              {name: "ラバーベルト"},
+                              {name: "レザーベルト"},
+                              {name: "金属ベルト"}])
+mens_legwear.children.create([{name: "ソックス"},
+                              {name: "スパッツ/レギンス"},
+                              {name: "ストッキング/タイツ"},
+                              {name: "レッグウォーマー"}])
+kids_babyg.children.create([{name: "トップス"},
+                            {name: "アウター"},
+                            {name: "パンツ"}])
+kids_babyb.children.create([{name: "トップス"},
+                            {name: "アウター"},
+                            {name: "パンツ"}])
+kids_kid.children.create([{name: "トップス"},
+                            {name: "アウター"},
+                            {name: "パンツ"}])
+
+interiors_kitchen.children.create([{name: "食器"},
+                              {name: "調理器具"},
+                              {name: "エプロン"}])
+interiors_bed.children.create([{name: "セミシングルベッド"},
+                              {name: "シングルベッド"},
+                              {name: "ダブルベッド"}])
+interiors_table.children.create([{name: "こたつ"},
+                              {name: "カウンターテーブル"},
+                              {name: "ダイニングテーブル"}])
+
+ladys_brand = Brand.create(name: "レディース")
+mens_brand = Brand.create(name: "メンズ")
+kids_brand = Brand.create(name: "ベビー・キッズ")
+smartphone_brand = Brand.create(name: "スマートフォン")
+interiors_brand = Brand.create(name: "インテリア・住まい・小物")
+kitchens_brand = Brand.create(name: "キッチン・食器")
+hobbys_brand = Brand.create(name: "おもちゃ・ホビー・グッズ")
+cosmetics_brand = Brand.create(name: "コスメ・香水・美容")
+sports_brand = Brand.create(name: "スポーツ・レジャー")
+musical_instrumen_brand = Brand.create(name: "楽器")
+cars_brand = Brand.create(name: "自動車・オートバイ")
+others_brand = Brand.create(name: "その他")
+
+ladys_brand.children.create([{name: "ナイキ"},
+                              {name: "アディダス"},
+                              {name: "シャネル"},
+                              {name: "ルイヴィトン"},
+                              {name: "シュプリーム"},
+                              {name: "エルメス"},
+                              {name: "プラダ"},
+                              {name: "クリスチャン・ディオール"},
+                              {name: "イヴ・サンローラン"},
+                              {name: "ロエベ"},
+                              {name: "セリーヌ"},
+                              {name: "クロエ"},
+                              {name: "ティファニー"}])
+mens_brand.children.create([{name: "ナイキ"},
+                            {name: "アディダス"},
+                            {name: "リーバイス"},
+                            {name: "グローバルワーク"},
+                            {name: "ユニクロ"},
+                            {name: "ギャップ"},
+                            {name: "ナノユニバース"},
+                            {name: "ポール・スミス"},
+                            {name: "ラルフローレン"},
+                            {name: "ディーゼル"},
+                            {name: "ユナイテッドアローズ"},
+                            {name: "バーバリー"},
+                            {name: "ラコステ"}])
+kids_brand.children.create([{name: "ナイキ"},
+                            {name: "アディダス"},
+                            {name: "ミキハウス"},
+                            {name: "チャンピオンキッズ"},
+                            {name: "ユニクロ"},
+                            {name: "ベビードール"},
+                            {name: "ディズニーピクサー"}])
+smartphone_brand.children.create([{name: "アップル"},
+                                  {name: "ソニー"},
+                                  {name: "カシオ"},
+                                  {name: "シャープ"},
+                                  {name: "パナソニック"},
+                                  {name: "サムスン"},
+                                  {name: "ファーウェイ"}])
+
+books_book = books.children.create(name: "本")
+books_music = books.children.create(name: "音楽")
+books_game = books.children.create(name: "ゲーム")
+
+books_book.children.create([{name: "小説"},
+                              {name: "漫画"},
+                              {name: "趣味"},
+                              {name: "ビジネス書"},
+                              {name: "参考書"}
+books_music.children.create([{name: "邦楽"},
+                                {name: "洋楽"},
+                                {name: "クラシック"},
+                                {name: "アニメ"}
+books_game.children.create([{name: "家庭用ゲーム"},
+                            {name: "携帯用ゲーム"},
+                            {name: "PCゲーム"}
+
+hobbys_toy = hobbys.children.create(name: "おもちゃ")
+hobbys_goods = hobbys.children.create(name: "グッズ")
+hobbys_musical_instrument = hobbys.children.create(name: "楽器")
+
+hobbys_toy.children.create([{name: "キャラクターグッズ"},
+                              {name: "ぬいぐるみ"},
+                              {name: "模型/プラモデル"},
+                              {name: "ラジコン"}
+hobbys_goods.children.create([{name: "ミュージシャン"},
+                                {name: "スポーツ選手"},
+                                {name: "アイドル"},
+                                {name: "お笑い芸人"}
+hobbys_musical_instrument.children.create([{name: "ギター"},
+                                            {name: "ベース"},
+                                            {name: "ドラム"},
+                                            {name: "弦楽器"},
+                                            {name: "管楽器"}
+
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""}])
+# mens_accessory.children.create([{name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""}])
+# mens_accessory.children.create([{name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""}])
+# mens_accessory.children.create([{name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""}])
+# mens_accessory.children.create([{name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""}])
+# mens_accessory.children.create([{name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""}])
+# mens_accessory.children.create([{name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""}])
+# mens_accessory.children.create([{name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""}])
+# mens_accessory.children.create([{name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""}])
+# mens_accessory.children.create([{name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""}])
+# mens_accessory.children.create([{name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""}])
+# mens_accessory.children.create([{name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""}])
+# mens_accessory.children.create([{name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""}])
+# mens_accessory.children.create([{name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""}])
+# mens_accessory.children.create([{name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""}])
+# mens_accessory.children.create([{name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""}])
+# mens_accessory.children.create([{name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""}])
+# mens_accessory.children.create([{name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""}])
+# mens_accessory.children.create([{name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""}])
+# mens_accessory.children.create([{name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""}])
+# mens_accessory.children.create([{name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""},
+#                               {name: ""}])
