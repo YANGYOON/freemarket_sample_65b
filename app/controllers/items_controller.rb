@@ -35,7 +35,8 @@ class ItemsController < ApplicationController
   end
 
   def edit
-  
+    @category = Category.all.order("id ASC").limit(13)
+    @item = Item.includes(:images).find(params[:id])
   end
 
   def category_children
