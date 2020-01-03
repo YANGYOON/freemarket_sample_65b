@@ -1,5 +1,5 @@
 .wrapper
-  = render 'items-header'
+  = render 'items/items-header'
 
 
 .item-buy-contents
@@ -10,15 +10,17 @@
     .item-buy-contents__main__purchase-goods
       .item-buy-contents__main__purchase-goods__box
         .item-buy-contents__main__purchase-goods__left
-          = image_tag src='/images/fmarket_logo_red.svg', class: "item-buy-contents__main__purchase-goods__left--image"
+          = image_tag @image.image.url, class: "item-buy-contents__main__purchase-goods__left--image"
 
 
         .item-buy-contents__main__purchase-goods__right
           .item-buy-contents__main__purchase-goods__right--item-name
-            採掘用ドリル
+            = @item.name
 
           .item-buy-contents__main__purchase-goods__right--item-price
-            %span ¥ 200,000  
+            %span
+              ¥
+              = @item.price  
             %span（税込） 送料込み
 
     .item-buy-contents__main__buy-item
@@ -27,7 +29,8 @@
           .item-buy-contents__main__buy-item__box__price--text
             支払い金額
           .item-buy-contents__main__buy-item__box__price--price
-            ¥200,000
+            ¥
+            = @item.price
         .item-buy-contents__main__buy-item__box__price--point
           %input.item-buy-contents__main__buy-item__box__price--point--check{name: "item-point", placeholder: "", type: "checkbox", value: ""}/
           ポイントを使用 (所持ポイント: P0)
@@ -56,11 +59,18 @@
               変更する
 
           .item-buy-contents__main__buy-item__box__area--address
-            %p 〒123-456
-            %p 東京都渋谷区１−２−３
-            %p 山田 太郎
+            %p= @address.zipcode
+            %p
+              = @address.prefecture
+              = @address.city
+              = @address.detail_address
+            %p 山田太郎
 
         .item-buy-contents__main__buy-item__box__submit
-          %input.item-buy-contents__main__buy-item__box__submit--button{name: "item-buy", placeholder: "", type: "submit", value: "購入する"}/
+          -# %input.item-buy-contents__main__buy-item__box__submit--button{name: "item-buy", placeholder: "", type: "submit", value: "購入する"}/
+
+          = form_tag(action: "pay", method: "") do
+            %button.item-buy-contents__main__buy-item__box__submit--button 購入する
+            
         
-= render 'items-footer'
+= render 'items/items-footer'
