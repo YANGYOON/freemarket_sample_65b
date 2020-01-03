@@ -34,6 +34,10 @@ class ItemsController < ApplicationController
   def show
   end
 
+  def edit
+  
+  end
+
   def category_children
     @category_children = Category.find(params[:category_value]).children
   end
