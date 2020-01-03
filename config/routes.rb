@@ -16,13 +16,6 @@ Rails.application.routes.draw do
       get 'cal_profit'
     end
   end
-    resources :purchase do
-      collection do
-        get 'buy'
-        post 'pay'
-      end
-    end
-  end
   resources :test, only: :index
   resources :user_profiles, only: :index
   resources :creditcards
