@@ -7,8 +7,15 @@ Rails.application.routes.draw do
     get 'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
   end
-  root to: 'creditcards#new'
+  root to: 'items#index'
   resources :items do
+    collection do
+      get 'category_children'
+      get 'category_grandchildren'
+      get 'set_sizes'
+      get 'cal_profit'
+    end
+  end
     resources :purchase do
       collection do
         get 'buy'
@@ -16,7 +23,6 @@ Rails.application.routes.draw do
       end
     end
   end
-  # root to: 'users#index'
   resources :test, only: :index
   resources :user_profiles, only: :index
   resources :creditcards
