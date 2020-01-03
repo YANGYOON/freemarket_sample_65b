@@ -65,38 +65,35 @@
             = link_to root_path, class: "contents__main__delivery__left--question" do
               ?
           .contents__main__delivery__right
-            .contents__main__delivery__right__burden
-              送料の負担
-              .contents__main__detail__right__name--icon
-                必須
-            .contents__main__detail__right__select
-              = f.fields_for :shipping do |s|
+            = f.fields_for :shipping do |s|
+              .contents__main__delivery__right__burden
+                送料の負担
+                .contents__main__detail__right__name--icon
+                  必須
+              .contents__main__detail__right__select
                 = s.select :method, [["送料込み(出品者負担)", "送料込み"],["着払い(購入者負担)", "着払い"]], {prompt: "---"}, class: "contents__main__detail__right__select__form", required: true
-              = icon('fas', 'angle-down', class: "contents__main__detail__right__select--icon")
-            .contents__main__detail__right__name
-              配送方法
-              .contents__main__detail__right__name--icon
-                必須
-            .contents__main__detail__right__select
-              = f.fields_for :shipping do |s|
+                = icon('fas', 'angle-down', class: "contents__main__detail__right__select--icon")
+              .contents__main__detail__right__name
+                配送方法
+                .contents__main__detail__right__name--icon
+                  必須
+              .contents__main__detail__right__select
                 = s.select :fee_burden, [["ゆうパック", "ゆうパック"],["クロネコヤマト", "クロネコヤマト"],["らくらくメルカリ便", "らくらくメルカリ便"],["レターパック", "レターパック"]], {prompt: "---"}, class: "contents__main__detail__right__select__form", required: true
-              = icon('fas', 'angle-down', class: "contents__main__detail__right__select--icon")
-            .contents__main__delivery__right__shipping-area
-              発送元の地域
-              .contents__main__detail__right__name--icon
-                必須
-            .contents__main__detail__right__select
-              = f.fields_for :shipping do |s|
+                = icon('fas', 'angle-down', class: "contents__main__detail__right__select--icon")
+              .contents__main__delivery__right__shipping-area
+                発送元の地域
+                .contents__main__detail__right__name--icon
+                  必須
+              .contents__main__detail__right__select
                 = s.select :prefecture_from, [["東京都", "東京都"],["千葉県", "千葉県"]], {prompt: "---"}, class: "contents__main__detail__right__select__form"
-              = icon('fas', 'angle-down', class: "contents__main__detail__right__select--icon")
-            .contents__main__delivery__right__shipping-period
-              発送までの日数
-              .contents__main__detail__right__name--icon
-                必須
-            .contents__main__detail__right__select
-              = f.fields_for :shipping do |s|
+                = icon('fas', 'angle-down', class: "contents__main__detail__right__select--icon")
+              .contents__main__delivery__right__shipping-period
+                発送までの日数
+                .contents__main__detail__right__name--icon
+                  必須
+              .contents__main__detail__right__select
                 = s.select :period_before_shopping, [["1~2日で発送", "1~2日で発送"],["2~3日で発送", "2~3日で発送"],["4~7日で発送", "4~7日で発送"]], {prompt: "---"}, class: "contents__main__detail__right__select__form", required: true
-              = icon('fas', 'angle-down', class: "contents__main__detail__right__select--icon")
+                = icon('fas', 'angle-down', class: "contents__main__detail__right__select--icon")
         .contents__main__price.clearfix
           .contents__main__price__left
             販売価格(300~9,999,999)
