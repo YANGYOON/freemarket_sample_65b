@@ -383,6 +383,67 @@ hobbys_musical_instrument.children.create([{name: "ギター"},
                                             {name: "弦楽器"},
                                             {name: "管楽器"}])
 
+cosmetics_perfume = cosmetics.children.create(name: "香水")
+cosmetics_base = cosmetics.children.create(name: "ベースメイク")
+cosmetics_skin = cosmetics.children.create(name: "スキンケア")
+
+cosmetics_perfume.children.create([{name: "香水(女性用)"},
+                              {name: "香水(男性用)"},
+                              {name: "ボディミスト"}])
+cosmetics_base.children.create([{name: "ファンデーション"},
+                                {name: "化粧下地"},
+                                {name: "コントロールカラー"},
+                                {name: "コンシーラー"}])
+cosmetics_skin.children.create([{name: "化粧水"},
+                                {name: "乳液"},
+                                {name: "美容液"},
+                                {name: "洗顔料"}])
+
+home_appliances_smartphone = home_appliances.children.create(name: "スマートフォン/携帯電話")
+home_appliances_pc = home_appliances.children.create(name: "PC/タブレット")
+home_appliances_camera = home_appliances.children.create(name: "カメラ")
+home_appliances_tv = home_appliances.children.create(name: "テレビ")
+home_appliances_life = home_appliances.children.create(name: "スキンケア")
+
+home_appliances_smartphone.children.create([{name: "スマートフォン"},
+                                            {name: "バッテリー/充電器"},
+                                            {name: "携帯電話本体"}])
+home_appliances_pc.children.create([{name: "タブレット"},
+                                    {name: "ノートPC"},
+                                    {name: "テスクトップPC"},
+                                    {name: "ディスプレイ"}])
+home_appliances_camera.children.create([{name: "デジタルカメラ"},
+                                        {name: "ビデオカメラ"},
+                                        {name: "レンズ"},
+                                        {name: "フィルムカメラ"}])
+home_appliances_tv.children.create([{name: "テレビ"},
+                                    {name: "プロジェクター"},
+                                    {name: "ブルーレイレコーダー"},
+                                    {name: "DVDレコーダー"}])
+home_appliances_life.children.create([{name: "冷蔵庫"},
+                                      {name: "洗濯機"},
+                                      {name: "炊飯器"},
+                                      {name: "アイロン"},
+                                      {name: "調理器具"},
+                                      {name: "掃除機"},
+                                      {name: "電子レンジ"}])
+
+sports_golf = sports.children.create(name: "ゴルフ")
+sports_soccer = sports.children.create(name: "サッカー")
+sports_tennis = sports.children.create(name: "テニス")
+
+sports_golf.children.create([{name: "クラブ"},
+                              {name: "ウエア"},
+                              {name: "バッグ"}])
+sports_soccer.children.create([{name: "ウェア"},
+                                {name: "シューズ"},
+                                {name: "ボール"},
+                                {name: "応援グッズ"}])
+sports_tennis.children.create([{name: "ラケット"},
+                                {name: "ウェア"},
+                                {name: "シューズ"},
+                                {name: "アクセサリー"}])
+                                            
 #                               {name: ""},
 #                               {name: ""},
 #                               {name: ""},
