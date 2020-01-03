@@ -348,10 +348,41 @@ smartphone_brand.children.create([{name: "アップル"},
                                   {name: "サムスン"},
                                   {name: "ファーウェイ"}])
 
-# mens_accessory.children.create([{name: ""},
-#                               {name: ""},
-#                               {name: ""},
-#                               {name: ""},
+books_book = books.children.create(name: "本")
+books_music = books.children.create(name: "音楽")
+books_game = books.children.create(name: "ゲーム")
+
+books_book.children.create([{name: "小説"},
+                              {name: "漫画"},
+                              {name: "趣味"},
+                              {name: "ビジネス書"},
+                              {name: "参考書"}
+books_music.children.create([{name: "邦楽"},
+                                {name: "洋楽"},
+                                {name: "クラシック"},
+                                {name: "アニメ"}
+books_game.children.create([{name: "家庭用ゲーム"},
+                            {name: "携帯用ゲーム"},
+                            {name: "PCゲーム"}
+
+hobbys_toy = hobbys.children.create(name: "おもちゃ")
+hobbys_goods = hobbys.children.create(name: "グッズ")
+hobbys_musical_instrument = hobbys.children.create(name: "楽器")
+
+hobbys_toy.children.create([{name: "キャラクターグッズ"},
+                              {name: "ぬいぐるみ"},
+                              {name: "模型/プラモデル"},
+                              {name: "ラジコン"}
+hobbys_goods.children.create([{name: "ミュージシャン"},
+                                {name: "スポーツ選手"},
+                                {name: "アイドル"},
+                                {name: "お笑い芸人"}
+hobbys_musical_instrument.children.create([{name: "ギター"},
+                                            {name: "ベース"},
+                                            {name: "ドラム"},
+                                            {name: "弦楽器"},
+                                            {name: "管楽器"}
+
 #                               {name: ""},
 #                               {name: ""},
 #                               {name: ""},
