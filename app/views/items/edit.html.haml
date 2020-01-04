@@ -42,10 +42,28 @@
               .contents__main__detail__right__name--icon
                 必須
             .contents__main__detail__right__select
-              = f.collection_select :category, @category, :id, :name,{prompt: "---"}, {class: "contents__main__detail__right__select__form", id: "category_select", required: true}
+              = f.collection_select :category, @category, :id, :name,{prompt: "---", selected: @selected_category.root_id}, {class: "contents__main__detail__right__select__form", id: "category_select", required: true}
               = icon('fas', 'angle-down', class: "contents__main__detail__right__select--icon")
             .item_select-children
+              #children_wrapper.item-select-wrapper.edit_select-children
+                .contents__main__detail__right__select
+                  = f.collection_select :category_id, @selected_category.parent.siblings, :id, :name,{selected: @selected_category.parent_id}, {class: "contents__main__detail__right__select__form", id: "child_category", required: true}
+                  = icon('fas', 'angle-down', class: "contents__main__detail__right__select--icon")
+            .item_select-grandchildren
+              #grandchildren_wrapper.item-select-wrapper.edit_selecte-grandchildren
+                .contents__main__detail__right__select
+                  = f.collection_select :category_id, @selected_category.siblings, :id, :name,{selected: @selected_category.id}, {class: "contents__main__detail__right__select__form", id: "grandchild_category", required: true}
+                  = icon('fas', 'angle-down', class: "contents__main__detail__right__select--icon")
             .item_select-size
+              - if @item.size_id != nil
+                #set_sizes_wrapper.item-select-wrapper
+                  .contents__main__detail__right__name
+                    サイズ
+                    .contents__main__detail__right__name--icon
+                      必須
+                  .contents__main__detail__right__select
+                    = f.collection_select :size_id, @selected_size.siblings, :id, :name,{selected: @selected_category.id}, {class: "contents__main__detail__right__select__form", id: "grandchild_category", required: true}
+                    = icon('fas', 'angle-down', class: "contents__main__detail__right__select--icon")
             .contents__main__detail__right__name
               ブランド
               .contents__main__detail__right__name--any

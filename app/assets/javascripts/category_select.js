@@ -56,7 +56,6 @@ $(function(){
     // セレクトボックスのvalueを取得して、category_valueに代入
     var category_value = document.getElementById('category_select').value;
     //category_valueが空ではない場合のみAjax通信を行う｡選択肢を初期選択肢'---'に変えると､通信失敗となってしまうため｡
-    console.log('category_children');
     if (category_value != ''){
       $.ajax({
         url: '/items/category_children',
