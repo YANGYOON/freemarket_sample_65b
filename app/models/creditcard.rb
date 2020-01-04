@@ -1,4 +1,4 @@
 class Creditcard < ApplicationRecord
-  validates :security_token, :user_id true
+  # validates :customer_id, :card_id, :user_id true
   belongs_to :user
 end
