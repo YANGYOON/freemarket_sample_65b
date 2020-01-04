@@ -36,11 +36,16 @@ class ItemsController < ApplicationController
 
   def edit
     @category = Category.all.order("id ASC").limit(13)
-    @item = Item.includes(:images).find(params[:id])
+    @item = Item.find(params[:id])
     @selected_category = Category.find(@item.category_id)
     if @item.size_id != nil
       @selected_size = Size.find(@item.size_id)
     end
+  end
+
+  def update
+    item = Item.find(params[:id])
+    item.update(item_params)
   end
 
   def category_children

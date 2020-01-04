@@ -46,7 +46,6 @@ body {
       }
       &__box{
         width: 100%;
-        box-sizing: border-box;
         display: grid;
         grid-template-rows: repeat(1, 169px);
         grid-template-columns: repeat(5, 125px);

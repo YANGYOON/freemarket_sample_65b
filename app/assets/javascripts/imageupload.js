@@ -58,7 +58,7 @@ $(document).on('turbolinks:load', ()=> {
     $(this).parent().remove();
     $(`div[data-index="${targetIndex}"]`).remove();
     // 画像入力欄が0個にならないようにしておく
-    if ($('.js-file').length == 0) $('.contents__main__image__box').append(buildFileField(fileIndex[0]));
+    if ($('.js-file').length == 0) $('.contents__main__image__box__uploader__label').prepend(buildFileField(fileIndex[0]));
   });
 
   // プレビューの画像(imgタグ)の数による表示の変化を記述
