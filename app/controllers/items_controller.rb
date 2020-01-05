@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :set_item, only: [:edit, :update]
+
   def index
     @items = Item.includes(:images).order('created_at DESC').limit(20)
   end
@@ -36,7 +38,6 @@ class ItemsController < ApplicationController
 
   def edit
     @category = Category.all.order("id ASC").limit(13)
-    @item = Item.find(params[:id])
     @selected_category = Category.find(@item.category_id)
     if @item.size_id != nil
       @selected_size = Size.find(@item.size_id)
@@ -53,9 +54,8 @@ class ItemsController < ApplicationController
       @brand_id = nil
     end
 
-    @item = Item.find(params[:id])
     if @item.update!(item_params.merge(brand_id: @brand_id))
-      redirect_to action: 'index'
+      redirect_to root_path
     else
       redirect_to action: 'edit'
     end
@@ -81,7 +81,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :price, :state, :condition, :category_id, :size_id,
+    params.require(:item).permit(:id, :name, :price, :state, :condition, :category_id, :size_id,
                                   images_attributes: [:id, :image, :_destroy], 
                                   shipping_attributes: [:method, :prefecture_from, :period_before_shopping, :fee_burden])
   end
