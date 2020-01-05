@@ -23,7 +23,6 @@ $(document).on('turbolinks:load', function() {
         $(".select-default").removeAttr("name");
 
         var token = response.id;
-        console.log(token);
         $("#charge-form").append($('<input type="hidden" name="payjp-token" class="payjp-token" />').val(token));
         $("#charge-form").get(0).submit();
       }

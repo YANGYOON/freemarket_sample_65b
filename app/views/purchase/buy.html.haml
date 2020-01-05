@@ -64,12 +64,14 @@
               = @address.prefecture
               = @address.city
               = @address.detail_address
-            %p 山田太郎
+            %p
+              = @user.last_name
+              = @user.first_name
 
         .item-buy-contents__main__buy-item__box__submit
           -# %input.item-buy-contents__main__buy-item__box__submit--button{name: "item-buy", placeholder: "", type: "submit", value: "購入する"}/
 
-          = form_tag(action: "pay", method: "") do
+          = form_tag(action: "pay", method: "POST") do
             %button.item-buy-contents__main__buy-item__box__submit--button 購入する
             
         

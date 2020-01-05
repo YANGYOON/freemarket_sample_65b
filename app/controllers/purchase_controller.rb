@@ -1,31 +1,30 @@
 class PurchaseController < ApplicationController
+  before_action :get_payjp_info, only: [:pay]
 
   require 'payjp'
 
   def buy
     @item = Item.find(params[:item_id])
     @image = Image.find(params[:item_id])
-    @address = Address.find_by(user_id: current_user.id)
+    @address = Address.find_by(user_id: 1)
+    @user = User.find_by(id: 1)
   end
 
   def pay
     @item = Item.find(params[:item_id])
-    Payjp.api_key = ""
+    @creditcard = Creditcard.find_by(user_id: 1)
     Payjp::Charge.create(
       amount: @item.price,
-      card: params['payjp-token'],
+      customer: @creditcard.customer_id,
       currency: 'jpy'
     )
+    redirect_to root_path
   end
-
-
 
   private
-  def item_params
-    params.require(:item).permit(:name, :price)
+  
+  def get_payjp_info
+      Payjp.api_key = ""
   end
 
-  def image_params
-    params.require(:image).permit(:image)
-  end
 end
