@@ -5,9 +5,10 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.text :state, null: false
       t.string :condition, null: false
       t.integer :price, null: false
-      t.integer :buyer_id, null: false
-      t.integer :seller_id
       t.integer :level, default: 0
+
+      # t.integer :buyer_id, null: false
+      # t.integer :seller_id
       t.timestamps
     end
   end

@@ -11,6 +11,7 @@
       &__title {
         font-size: 24px;
         font-weight: bold;
+        margin-bottom: 20px;
       }
       &__more {
         color: #0095EE;
@@ -49,9 +50,10 @@
         &__name {
           overflow-wrap: normal;
           overflow: hidden;
-          padding: 12px 5px;
-          width: calc(100% - 10px);
-          height: 40px;
+          padding: 7px 5px;
+          line-height: 16px;
+          width: 100%;
+          height: 66px;
           background-color: khaki;
           text-decoration: none;
           color: black;
@@ -66,10 +68,10 @@
     width: 680px;
     &__grid {
       gap: 15px;
-      grid-template-rows: 188px;
+      grid-template-rows: 164px;
       grid-template-columns: repeat(5, 124px);
       &__item {
-        height: 188px;
+        height: 164px;
         width: 124px;
         &__image {
           width: 124px;
@@ -90,22 +92,22 @@
   .new_items__contents {
     width: 90%;
     &__grid {
-      gap: 5px;
-      grid-template-rows: repeat(3, 1fr);
+      gap: 3px;
+      grid-template-rows: repeat(1, 1fr);
       grid-template-columns: repeat(3, 1fr);
       &__item {
-        height: auto;
-        width: 100%;
+        height: 244px;
+        width: 200px;
         &__image {
-          width: 100%;
-          height: auto;
+          width: 200px;
+          height: 200px;
         }
         &__price {
-          top: calc(4px + 22vw);
+          top: 160px;
         }
         &__name {
           font-size: 14px;
-          height: 33px;
+          height: 44px;
         }
       }
     }
