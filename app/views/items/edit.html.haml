@@ -21,15 +21,15 @@
                         = image_tag image.image.url, data: { index: i }, class: 'input_images', width: "120", height: '120'
                         .js-remove.contents__main__image__box__previews__preview__delete
                           削除
+                = f.fields_for :images, @item.images do |image|
+                  - if @item.persisted?
+                    = image.check_box :_destroy, include_hidden: false, data:{ index: image.index },class: 'hidden-destroy'
               .contents__main__image__box__uploader
                 %label.contents__main__image__box__uploader__label<>
-                  = f.fields_for :images do |image|
-                    .js-file_group{"data-index" => "#{image.index+1}"}
-                      = image.file_field :image, class: 'js-file'
-                    - if @item.persisted?
-                      = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+                  .js-file_group{"data-index" => "#{@item.images.count}"}
+                    = f.file_field :image, name: "item[images_attributes][#{@item.images.count}][image]", id: "item_images_attributes_#{@item.images.count}_image", class: 'js-file'
                   .contents__main__image__box__uploader__text
-                    クリックしてファイルをアップロード
+                    クリックしてファイルをアップロード                    
       .contents__main__name
         .contents__main__name__name-content
           .contents__main__name__name-content__item-name
@@ -71,7 +71,7 @@
                     .contents__main__detail__right__name--icon
                       必須
                   .contents__main__detail__right__select
-                    = f.collection_select :size_id, @selected_size.siblings, :id, :name,{selected: @selected_category.id}, {class: "contents__main__detail__right__select__form", id: "grandchild_category", required: true}
+                    = f.collection_select :size_id, @selected_size_siblings, :id, :name,{selected: @selected_size.id}, {class: "contents__main__detail__right__select__form", required: true}
                     = icon('fas', 'angle-down', class: "contents__main__detail__right__select--icon")
             .contents__main__detail__right__name
               ブランド
@@ -148,7 +148,7 @@
             %p 禁止されている出品、行為を必ずご確認ください。 
             %p また、ブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
             %p また、出品をもちまして加盟店規約に同意したことになります。
-          =f.submit class: "contents__main__submit--button", value: "更新する" ;
+          =f.submit id: "item-edit-botton", class: "contents__main__submit--button", value: "更新する" ;
           .contents__main__submit--return
             = link_to root_path, class: "contents__main__submit--return--button" do
               もどる

@@ -11,6 +11,7 @@ class ItemsController < ApplicationController
   end
 
   def create
+    # ブランドはstrでparamsにのってくるので、該当するbrand_idを探す
     @brand_data = Brand.find_by(name: params[:item][:brand])
     if @brand_data != nil
       @brand_id = Brand.find_by(name: params[:item][:brand]).id
@@ -19,7 +20,6 @@ class ItemsController < ApplicationController
     end
     
     @item = Item.new(item_params.merge(brand_id: @brand_id))
-    
     if @item.save
       redirect_to root_path
     else
@@ -40,12 +40,25 @@ class ItemsController < ApplicationController
     @selected_category = Category.find(@item.category_id)
     if @item.size_id != nil
       @selected_size = Size.find(@item.size_id)
+      @selected_size_siblings = Size.where(classification: @selected_size.classification)
     end
+    
   end
 
   def update
-    item = Item.find(params[:id])
-    item.update(item_params)
+    @brand_data = Brand.find_by(name: params[:item][:brand])
+    if @brand_data != nil
+      @brand_id = Brand.find_by(name: params[:item][:brand]).id
+    else
+      @brand_id = nil
+    end
+
+    @item = Item.find(params[:id])
+    if @item.update!(item_params.merge(brand_id: @brand_id))
+      redirect_to action: 'index'
+    else
+      redirect_to action: 'edit'
+    end
   end
 
   def category_children
@@ -69,7 +82,7 @@ class ItemsController < ApplicationController
   private
   def item_params
     params.require(:item).permit(:name, :price, :state, :condition, :category_id, :size_id,
-                                  images_attributes: [:image], 
+                                  images_attributes: [:id, :image, :_destroy], 
                                   shipping_attributes: [:method, :prefecture_from, :period_before_shopping, :fee_burden])
   end
 

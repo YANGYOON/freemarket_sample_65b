@@ -9,9 +9,8 @@ $(document).on('change', '#child_category',function(){
   $('.edit_selecte-grandchildren').remove();
 });
 
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
   let img_count = $('.input_images').size();
-  console.log(img_count)
   switch (img_count){
     case 0:
       $('.contents__main__image__box__previews').css({
