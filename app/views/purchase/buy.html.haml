@@ -45,10 +45,17 @@
 
           .item-buy-contents__main__buy-item__box__pay-method__method
             %p クレジットカード
-            %p ************9999
-            %p 有効期限 09/30
+            %p= "**** **** **** " + @default_card_information.last4
+            %p
+              有効期限
+              - exp_month = @default_card_information.exp_month.to_s
+              - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+              = exp_month + " / " + exp_year
 
           .item-buy-contents__main__buy-item__box__pay-method__logo
+            -# - if @default_card_information.brand = "master"
+            -#   = image_tag src='/images/visa.svg', class: ".item-buy-contents__main__buy-item__box__pay-method__logo--image"
+            -# - else
             = image_tag src='/images/fmarket_logo_red.svg', class: ".item-buy-contents__main__buy-item__box__pay-method__logo--image"
 
         .item-buy-contents__main__buy-item__box__area
