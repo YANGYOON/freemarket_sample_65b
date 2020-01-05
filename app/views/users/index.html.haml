@@ -2,9 +2,8 @@
 .body
   .line
     .line__mercari
-      メルカリ >
-    .line__mypage
-      マイページ
+      - breadcrumb :mypage
+      = breadcrumbs pretext: "",separator: " &rsaquo; ", class: "breadcrumbs-list"
   .content
     .left-content
       %ul.left-content__lists_top

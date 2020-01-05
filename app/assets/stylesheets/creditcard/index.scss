@@ -1,4 +1,13 @@
-*{
+.creditcard_index_main {
+  .breadcrumbs-list {
+    line-height: 50px;
+    padding-left: 220px;
+    border-top: 1px solid;
+    border-color: #eee;
+    }
+  }
+
+  *{
   box-sizing: border-box;
 }
 .btn-default.btn-reds.submit_button{

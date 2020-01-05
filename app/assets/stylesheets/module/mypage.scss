@@ -15,6 +15,11 @@
     margin-bottom: 40px;
     &__mercari {
       margin-left: 210px;
+      .breadcrumbs {
+        .current {
+          font-weight: bold;
+        }
+      }
     }
     &__mypage {
       font-weight: 600;
@@ -566,4 +571,7 @@
       }
     }
   }
+}
+a {
+  color: black;
 }
