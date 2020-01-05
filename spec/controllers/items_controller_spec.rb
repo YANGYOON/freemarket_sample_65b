@@ -13,4 +13,18 @@ describe ItemsController, type: :controller do
       expect(response).to render_template :new
     end
   end
+
+  describe 'GET #edit' do
+    it "renders the :edit template" do
+      get :edit
+      expect(response).to render_template :edit
+    end
+  end
+
+  describe 'GET #update' do
+    it "renders the :update template" do
+      get :update
+      expect(response).to render_template :update
+    end
+  end
 end
