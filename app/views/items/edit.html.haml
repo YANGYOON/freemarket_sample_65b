@@ -153,4 +153,4 @@
             = link_to root_path, class: "contents__main__submit--return--button" do
               もどる
           .contents__main__submit__delete
-            = link_to "削除", item_path(@item), method: :delete, class: "contents__main__submit__delete--button"
+            = link_to "削除", item_path(@item), method: :delete, data: {confirm: "削除しますか？"}, class: "contents__main__submit__delete--button"
