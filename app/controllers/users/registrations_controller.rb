@@ -11,15 +11,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
-  def create
-    if params[:sns_auth] == 'true'
-      pass = Devise.friendly_token
-      params[:user][:password] = pass
-      params[:user][:password_confirmation] = pass
-    end
-    super
-  end
-
   # GET /resource/sign_up
   def new
     @user = User.new
@@ -32,7 +23,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def new_address
     @address = @user.build_address
   end
-
 
   # # # POST /resource
 
@@ -48,6 +38,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   #Save and Validation
   def session_and_valid_for_new_phone_number
+    if params[:sns_auth] == "true"
+      pass = Devise.friendly_token
+      params[:user][:password] = pass
+    end
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
     session[:password] = user_params[:password]
