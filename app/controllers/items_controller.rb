@@ -9,7 +9,7 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.images.new
     @item.build_shipping
-    @category = Category.all.order("id ASC").limit(20)
+    @category = Category.order("id ASC").limit(13)
   end
 
   def create
@@ -25,7 +25,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
-      @category = Category.all.order("id ASC").limit(13)
+      @category = Category.order("id ASC").limit(13)
       redirect_to action: 'new'
     end
   end
@@ -37,7 +37,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @category = Category.all.order("id ASC").limit(13)
+    @category = Category.order("id ASC").limit(13)
     @selected_category = Category.find(@item.category_id)
     if @item.size_id != nil
       @selected_size = Size.find(@item.size_id)
