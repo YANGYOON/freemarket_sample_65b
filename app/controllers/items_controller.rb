@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:edit, :update]
+  before_action :set_item, only: [:edit, :update, :delete]
 
   def index
     @items = Item.includes(:images).order('created_at DESC').limit(20)
@@ -59,6 +59,14 @@ class ItemsController < ApplicationController
     end
 
     if @item.update!(item_params.merge(brand_id: @brand_id))
+      redirect_to root_path
+    else
+      redirect_to action: 'edit'
+    end
+  end
+
+  def destroy
+    if @item.destroy!
       redirect_to root_path
     else
       redirect_to action: 'edit'
