@@ -1,0 +1,33 @@
+-# おぽぽぽぽぽぽぽぽぽ
+-# = categories[0].children[0].name
+
+-# %ul
+-#   %li
+-#     = link_to "/categories/#{categories[0].id}" do 
+-#       = categories[0].name
+-#     %ul
+-#       %li
+-#         = categories[0].children[0].name
+-#         %ul
+-#           %li
+-#             = categories[0].children[0].children[0].name
+-#       %li
+-#         = categories[0].children[1].name
+-#       %li
+-#         = categories[0].children[2].name
+
+%ul.gnav
+  %li
+    - categories.each do |category|
+      = link_to "/categories/#{category.id}" do
+        = category.name
+        %ul
+          %li
+            - category.children.each do |children|
+              = link_to "/categories/#{children.id}" do
+                = children.name
+                %ul
+                  %li
+                    - children.children.each do |grandchildren|
+                      = link_to "/categories/#{grandchildren.id}" do
+                        = grandchildren.name
