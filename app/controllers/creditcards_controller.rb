@@ -35,9 +35,9 @@ class CreditcardsController < ApplicationController
       @creditcard = Creditcard.new(user_id: 2, customer_id: customer.id, card_id: customer.default_card)
       
       if @creditcard.save
-        redirect_to action: "index"
+        redirect_to creditcards_path
       else
-        redirect_to action: "create"
+        render action: :create
       end
     end
   end
