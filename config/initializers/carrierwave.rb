@@ -15,7 +15,6 @@ CarrierWave.configure do |config|
       aws_access_key_id: Rails.application.credentials.aws[:access_key_id],
       aws_secret_access_key: Rails.application.credentials.aws[:secret_access_key],
       region: 'ap-northeast-1' # 東京はap-northeast-1
-      path_style: true
     }
   else
     config.storage :file # 開発環境:public/uploades下に保存
