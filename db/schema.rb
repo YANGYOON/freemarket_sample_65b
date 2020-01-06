@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2020_01_05_052700) do
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
-  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "ancestry"
     t.datetime "created_at", null: false
@@ -45,13 +45,15 @@ ActiveRecord::Schema.define(version: 2020_01_05_052700) do
     t.text "state", null: false
     t.string "condition", null: false
     t.integer "price", null: false
-    t.integer "buyer_id", null: false
-    t.integer "seller_id"
     t.integer "level", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "category_id", null: false
+    t.bigint "brand_id"
+    t.bigint "size_id"
+    t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["category_id"], name: "index_items_on_category_id"
+    t.index ["size_id"], name: "index_items_on_size_id"
   end
 
   create_table "phone_numbers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -105,7 +107,9 @@ ActiveRecord::Schema.define(version: 2020_01_05_052700) do
 
   add_foreign_key "addresses", "users"
   add_foreign_key "images", "items"
+  add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"
+  add_foreign_key "items", "sizes"
   add_foreign_key "phone_numbers", "users"
   add_foreign_key "shippings", "items"
   add_foreign_key "sns_credentials", "users"

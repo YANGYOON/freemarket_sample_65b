@@ -45,8 +45,12 @@
 
           .item-buy-contents__main__buy-item__box__pay-method__method
             %p クレジットカード
-            %p ************9999
-            %p 有効期限 09/30
+            %p= "**** **** **** " + @default_card_information.last4
+            %p
+              有効期限
+              - exp_month = @default_card_information.exp_month.to_s
+              - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+              = exp_month + " / " + exp_year
 
           .item-buy-contents__main__buy-item__box__pay-method__logo
             = image_tag src='/images/fmarket_logo_red.svg', class: ".item-buy-contents__main__buy-item__box__pay-method__logo--image"
@@ -64,12 +68,12 @@
               = @address.prefecture
               = @address.city
               = @address.detail_address
-            %p 山田太郎
+            %p
+              = @user.last_name
+              = @user.first_name
 
         .item-buy-contents__main__buy-item__box__submit
-          -# %input.item-buy-contents__main__buy-item__box__submit--button{name: "item-buy", placeholder: "", type: "submit", value: "購入する"}/
-
-          = form_tag(action: "pay", method: "") do
+          = form_tag(action: "pay", method: "POST") do
             %button.item-buy-contents__main__buy-item__box__submit--button 購入する
             
         
