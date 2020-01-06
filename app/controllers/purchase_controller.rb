@@ -28,7 +28,7 @@ class PurchaseController < ApplicationController
   private
 
   def redirect_to_credit_new
-    @creditcard = Creditcard.where(user_id: 2).first
+    @creditcard = Creditcard.find_by(user_id: 2)
     if @creditcard.blank?
       redirect_to controller: "creditcards", action: "new"
     end

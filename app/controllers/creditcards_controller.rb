@@ -55,7 +55,7 @@ class CreditcardsController < ApplicationController
   end
 
   def get_credit_info
-    @creditcard = Creditcard.where(user_id: 2).first
+    @creditcard = Creditcard.find_by(user_id: 2)
   end
   
 end
