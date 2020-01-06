@@ -1,0 +1,408 @@
+.new_inform_body {
+  position: relative;
+    min-height: 100%;
+    background: #f5f5f5;
+    font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+    font-size: 14px;
+    color: #333;
+    line-height: 1;
+  .new_inform_header {
+    padding-right: 100px;
+    height: 128px;
+    display: flex;
+    &__logo {
+      margin: 0 auto;
+      padding-top: 20px;
+      padding-left: 50px;
+    }
+    &__pankuzu {
+      position: relative;
+      margin: 0 auto;
+      display: flex;
+      padding-top: 50px;
+      &__register_inform_text {
+        font-weight: 600;
+        color: #ea352d;
+        min-width: 50px;
+        &__status {
+          position: relative;
+          z-index: 2;
+          font-size: 20px;
+          color: red;
+        }
+        &__underline {
+          height: 2px;
+          bottom: 12px;
+          width: 100px;
+          color: transparent;
+          position: relative;
+          z-index: 1;
+          display: inline-block;
+          min-width: 40px;
+          margin: 0 5% 0 0;
+          font-size: 12px;
+          background-color: #888;
+          margin-left: 2px;
+        }
+      }
+      &__phone_number_text {
+        font-weight: 600;
+        min-width: 50px;
+        color: #888;
+        &__status {
+          position: relative;
+          z-index: 2;
+          font-size: 20px;
+          color: #888;
+        }
+        &__underline {
+          height: 2px;
+          bottom: 12px;
+          width: 100px;
+          color: transparent;
+          position: relative;
+          z-index: 1;
+          display: inline-block;
+          min-width: 40px;
+          margin: 0 5% 0 0;
+          font-size: 12px;
+          background-color: #888;
+          margin-left: 2px;
+        }
+      }
+      &__adress_text {
+        font-weight: 600;
+        min-width: 50px;
+        color: #888;
+        &__status {
+          position: relative;
+          z-index: 2;
+          font-size: 20px;
+          color: #888;
+        }
+        &__underline {
+          height: 2px;
+          bottom: 12px;
+          width: 120px;
+          color: transparent;
+          position: relative;
+          z-index: 1;
+          display: inline-block;
+          min-width: 40px;
+          margin: 0 5% 0 0;
+          font-size: 12px;
+          background-color: #888;
+          margin-left: 2px;
+        }
+      }
+      &__pay_text {
+        font-weight: 600;
+        min-width: 50px;
+        color: #888;
+        &__status {
+          position: relative;
+          z-index: 2;
+          font-size: 20px;
+          color: #888;
+        }
+        &__underline {
+          height: 2px;
+          bottom: 12px;
+          width: 100px;
+          color: transparent;
+          position: relative;
+          z-index: 1;
+          display: inline-block;
+          min-width: 40px;
+          margin: 0 5% 0 0;
+          font-size: 12px;
+          background-color: #888;
+          margin-left: 2px;
+        }
+      }
+      &__done_text {
+        font-weight: 600;
+        min-width: 50px;
+        color: #888;
+        &__status {
+          position: relative;
+          z-index: 2;
+          font-size: 20px;
+          color: #888;
+        }
+      }
+    }
+  }
+  .new_inform_content_text {
+    height: 1000px;
+    background: #f5f5f5;
+    &__top {
+      text-align: center;
+      margin: 0 auto;
+      width: 700px;
+      height: 50px;
+      font-size: 22px;
+      padding: 32px;
+      line-height: 100px;
+      background: #fff;
+      font-weight: 50px;
+      font-weight: bold;
+      border-bottom: solid;
+      border-color: #f5f5f5;
+      line-height: 5px;
+    }
+    &__main {
+      width: 700px;
+      height: 900px;
+      background: #fff;
+      margin: 0 auto;
+      padding: 40px 40px 64px;
+      &__nickname {
+        padding-left: 170px;
+        display: flex;
+        font-weight: bold;
+        font-size: 15px;
+      }
+        &__nickname_required {
+          width: 30px;
+          background-color: red;
+          margin-left: 10px;
+          color: white;
+          border-radius: 2px;
+      }
+      &__nickname_form {
+        text-align: center;
+        &__button {
+          width: 50%;
+          margin: 8px 0 0;
+          height: 30px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+          color: grey;
+        }
+      }
+      &__mailadress {
+        padding-left: 170px;
+        padding-top: 32px;
+        display: flex;
+        font-weight: bold;
+        font-size: 15px;
+      }
+        &__mailadress_required {
+          width: 30px;
+          background-color: red;
+          margin-left: 10px;
+          color: white;
+          border-radius: 2px;
+        }
+      &__mailadress_form {
+        text-align: center;
+        &__button {
+          width: 50%;
+          margin: 8px 0 0;
+          height: 30px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+          color: grey;
+        }
+      }
+      &__password {
+        padding-left: 170px;
+        padding-top: 32px;
+        display: flex;
+        font-weight: bold;
+        font-size: 15px;
+      }
+        &__password_required {
+          width: 30px;
+          background-color: red;
+          margin-left: 10px;
+          color: white;
+          border-radius: 2px;
+        }
+      &__password_form {
+        text-align: center;
+        &__button {
+          width: 50%;
+          margin: 8px 0 0;
+          height: 30px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+          color: grey;
+        }
+      }
+      &__password_text {
+        color: grey;
+        padding-left: 170px;
+        padding-top: 10px;
+      }
+      &__checkbox {
+        padding-left: 170px;
+        display: flex;
+        position: relative;
+        &__button {
+          top: 50%;
+          left: 0;
+          z-index: 1;
+          width: 40px;
+          height: 40px;
+          border-radius: 2px;
+          background: #fff;
+          border: 1px solid #ccc;
+          font-size: 10px;
+          line-height: 17px;
+          color: #fff;
+        }
+        &__text {
+          position: absolute;
+          padding-left: 20px;
+          padding-top: 13px;
+        }
+      }
+      &__person {
+        padding-left: 170px;
+        padding-top: 20px;
+        font-weight: bold;
+        font-size: 15px;
+        display: flex;
+      }
+      &__person_text {
+        padding-left: 170px;
+        padding-right: 170px;
+        padding-top: 10px;
+      }
+        &__person_required {
+          width: 30px;
+          background-color: red;
+          margin-left: 10px;
+          color: white;
+          border-radius: 2px;
+        }
+      
+      &__person_name {
+        display: flex;
+        &__last_name_button {
+          margin: 8px 0 0;
+          height: 30px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+          color: grey;
+          margin-right: 8px;
+          margin-left: 170px;
+          width: 150px;
+          text-align: start;
+        }
+          &__name_button {
+            margin: 8px 0 0;
+            height: 30px;
+            padding: 10px 16px 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: #fff;
+            line-height: 1.5;
+            font-size: 16px;
+            color: grey;
+            width: 150px;
+            text-align: start;
+          }
+        }
+      &__person_name_text {
+        color: red;
+        padding-left: 170px;
+        padding-top: 10px;
+      }
+      &__birthday {
+        padding-left: 170px;
+        padding-top: 20px;
+        display: flex;
+        &__required {
+          width: 30px;
+          background-color: red;
+          margin-left: 10px;
+          color: white;
+          border-radius: 2px;
+        }
+      &__form {
+        display: flex;
+        padding-left: 170px;
+        padding-top: 10px;
+        position: relative;
+        .fas.fa-angle-down {
+          font-size: 20px;
+          position: absolute;
+          top: 25px;
+          margin-left: 60px;
+          color: grey;
+        }
+        .select-default_year {
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          height: 50px;
+          width: 76px;
+          padding-left: 5px;
+          background: #fff;
+        }
+        &__text_year {
+          padding-left: 5px;
+          padding-right: 5px;
+          padding-top: 20px;
+          }
+        &__text_month {
+          padding-left: 5px;
+          padding-right: 5px;
+          padding-top: 20px;
+          }
+        &__text_day {
+          padding-left: 5px;
+          padding-right: 5px;
+          padding-top: 20px;
+          }
+      }
+      &__text {
+        padding-left: 170px;
+        padding-right: 170px;
+        padding-top: 10px;
+        padding-bottom: 50px;
+        color: grey;
+      }
+      &__button {
+        .btn-red {
+          width: 200px;
+          height: 50px;
+          background-color: red;
+          text-decoration: none;
+          color: white;
+          }
+        .btn-default {
+          display: block;
+          width: 50%;
+          line-height: 48px;
+          font-size: 14px;
+          border: 1px solid transparent;
+          -webkit-transition: all ease-out .3s;
+          transition: all ease-out .3s;
+          cursor: pointer;
+          margin: 0 auto;
+          }
+        }
+      }
+    }
+  }
+}
