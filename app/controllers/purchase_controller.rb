@@ -17,12 +17,16 @@ class PurchaseController < ApplicationController
   def pay
     @item = Item.find(params[:item_id])
     @creditcard = Creditcard.find_by(user_id: 2)
+    if @item.blank?
+      redirect_to action: "buy"
+    else
     Payjp::Charge.create(
       amount: @item.price,
       customer: @creditcard.customer_id,
       currency: 'jpy'
-    )
-    redirect_to root_path
+     )
+      redirect_to root_path
+    end
   end
 
   private
