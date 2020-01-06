@@ -24,7 +24,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @address = @user.build_address
   end
 
-
   # # # POST /resource
 
   def create_address
@@ -39,6 +38,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   #Save and Validation
   def session_and_valid_for_new_phone_number
+    if params[:sns_auth] == "true"
+      pass = Devise.friendly_token
+      params[:user][:password] = pass
+    end
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
     session[:password] = user_params[:password]
