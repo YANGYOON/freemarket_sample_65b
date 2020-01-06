@@ -20,7 +20,6 @@
                     - exp_month = @default_card_information.exp_month.to_s
                     - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
                     = exp_month + " / " + exp_year
-                  -# = form_tag(action: "destroy", method: "DELETE") do
                   = link_to creditcard_path(@creditcard.id), class: "single__inner__list__remove", method: :delete do
                     削除する
           .single__inner__settings

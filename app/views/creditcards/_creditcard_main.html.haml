@@ -2,8 +2,6 @@
   %h2.chapter__head クレジットカード情報入力
   .add-card-form.chapter__body
     = form_tag(creditcards_path, method: :POST, action: "create", id: "charge-form") do
-      -# %input{name: "__csrf_value", type: "hidden", value: ""}/
-      -# %input.payjp-token{ type: "hidden", name: "payjpToken", value: "" }
       .credit_content
         .credit_content__group
           %label.label1{for: "payment_card_no"} カード番号
