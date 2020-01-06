@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:edit, :update, :delete]
+  before_action :set_item, only: [:edit, :update, :destroy]
 
   def index
     @items = Item.includes(:images).order('created_at DESC').limit(20)
@@ -36,9 +36,6 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
   end 
-  
-
-  end
 
   def edit
     @category = Category.order("id ASC").limit(13)
