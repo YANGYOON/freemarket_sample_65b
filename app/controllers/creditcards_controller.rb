@@ -1,15 +1,18 @@
 class CreditcardsController < ApplicationController
-  before_action :get_payjp_info, only: [:show, :create, :destroy]
-  before_action :get_credit_info, only: [:show, :destroy]
+  before_action :get_payjp_info, only: [:show, :create, :destroy, :index]
+  before_action :get_credit_info, only: [:show, :destroy, :index]
 
 
   require 'payjp'
 
   def index
+    if @creditcard.present?
+      redirect_to creditcard_path(id: @creditcard.id)
+    end
   end
 
   def new
-    @creditcard = Creditcard.new
+     @creditcard = Creditcard.new
   end
 
   def show
@@ -32,7 +35,7 @@ class CreditcardsController < ApplicationController
       @creditcard = Creditcard.new(user_id: 2, customer_id: customer.id, card_id: customer.default_card)
       
       if @creditcard.save
-        redirect_to action: "show"
+        redirect_to action: "index"
       else
         redirect_to action: "create"
       end
@@ -48,7 +51,7 @@ class CreditcardsController < ApplicationController
 
   private
   def get_payjp_info
-    Payjp.api_key = ""
+    Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
   end
 
   def get_credit_info

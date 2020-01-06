@@ -7,8 +7,8 @@ class PurchaseController < ApplicationController
   def buy
     @item = Item.find(params[:item_id])
     @image = Image.find(params[:item_id])
-    @address = Address.find_by(user_id: 1)
-    @user = User.find_by(id: 1)
+    @address = Address.find_by(user_id: 2)
+    @user = User.find_by(id: 2)
 
     customer = Payjp::Customer.retrieve(@creditcard.customer_id)
       @default_card_information = customer.cards.retrieve(@creditcard.card_id)
@@ -16,7 +16,7 @@ class PurchaseController < ApplicationController
 
   def pay
     @item = Item.find(params[:item_id])
-    @creditcard = Creditcard.find_by(user_id: 1)
+    @creditcard = Creditcard.find_by(user_id: 2)
     Payjp::Charge.create(
       amount: @item.price,
       customer: @creditcard.customer_id,
@@ -28,14 +28,14 @@ class PurchaseController < ApplicationController
   private
 
   def redirect_to_credit_new
-    @creditcard = Creditcard.where(user_id: 1).first
+    @creditcard = Creditcard.where(user_id: 2).first
     if @creditcard.blank?
       redirect_to controller: "creditcards", action: "new"
     end
   end
 
   def get_payjp_info
-      Payjp.api_key = ""
+      Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
   end
 
 end
