@@ -15,7 +15,7 @@ $(function(){
   $(document).on('change', '#price__form' ,function(){
     price = document.getElementById('price__form').value
     $.ajax ({
-      url: 'cal_profit',
+      url: '/items/cal_profit',
       type: 'GET',
       data: { price: price },
       dataType: 'json'

@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :set_item, only: [:edit, :update]
+
   def index
     @items = Item.includes(:images).order('created_at DESC').limit(20)
   end
@@ -7,10 +9,11 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.images.new
     @item.build_shipping
-    @category = Category.all.order("id ASC").limit(20)
+    @category = Category.order("id ASC").limit(13)
   end
 
   def create
+    # ブランドはstrでparamsにのってくるので、該当するbrand_idを探す
     @brand_data = Brand.find_by(name: params[:item][:brand])
     if @brand_data != nil
       @brand_id = Brand.find_by(name: params[:item][:brand]).id
@@ -19,11 +22,10 @@ class ItemsController < ApplicationController
     end
     
     @item = Item.new(item_params.merge(brand_id: @brand_id))
-    
     if @item.save
       redirect_to root_path
     else
-      @category = Category.all.order("id ASC").limit(13)
+      @category = Category.order("id ASC").limit(13)
       redirect_to action: 'new'
     end
   end
@@ -36,6 +38,31 @@ class ItemsController < ApplicationController
   end 
   
 
+  end
+
+  def edit
+    @category = Category.order("id ASC").limit(13)
+    @selected_category = Category.find(@item.category_id)
+    if @item.size_id != nil
+      @selected_size = Size.find(@item.size_id)
+      @selected_size_siblings = Size.where(classification: @selected_size.classification)
+    end
+    
+  end
+
+  def update
+    @brand_data = Brand.find_by(name: params[:item][:brand])
+    if @brand_data != nil
+      @brand_id = Brand.find_by(name: params[:item][:brand]).id
+    else
+      @brand_id = nil
+    end
+
+    if @item.update!(item_params.merge(brand_id: @brand_id))
+      redirect_to root_path
+    else
+      redirect_to action: 'edit'
+    end
   end
 
   def category_children
@@ -58,8 +85,8 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :price, :state, :condition, :category_id, :size_id,
-                                  images_attributes: [:image], 
+    params.require(:item).permit(:id, :name, :price, :state, :condition, :category_id, :size_id,
+                                  images_attributes: [:id, :image, :_destroy], 
                                   shipping_attributes: [:method, :prefecture_from, :period_before_shopping, :fee_burden])
   end
 

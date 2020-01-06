@@ -36,7 +36,7 @@ $(document).on('turbolinks:load', ()=> {
 
     // 該当indexを持つimgがあれば取得して変数imgに入れる(画像変更の処理)
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
-      img.setAttribute('src', blobUrl);
+      img.setAttribute('image', blobUrl);
     } else {  // 新規画像追加の処理
       $('.contents__main__image__box__previews').append(buildImg(targetIndex, blobUrl));
       // fileIndexの先頭の数字を使ってinputを作る
@@ -58,7 +58,7 @@ $(document).on('turbolinks:load', ()=> {
     $(this).parent().remove();
     $(`div[data-index="${targetIndex}"]`).remove();
     // 画像入力欄が0個にならないようにしておく
-    if ($('.js-file').length == 0) $('.contents__main__image__box').append(buildFileField(fileIndex[0]));
+    if ($('.js-file').length == 0) $('.contents__main__image__box__uploader__label').prepend(buildFileField(fileIndex[0]));
   });
 
   // プレビューの画像(imgタグ)の数による表示の変化を記述
