@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
   }
   devise_scope :user do
+    get 'users', to: 'users/registrations#index'
     get 'phone_numbers', to: 'users/registrations#new_phone_number'
     get 'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
