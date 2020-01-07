@@ -71,7 +71,7 @@
         送料込み
 
     .item-detail__contents__center__submit
-      = link_to buy_item_purchase_index_path(1), class:"item-detail__contents__center__submit--button" do
+      = link_to buy_item_purchase_index_path(@item.id), class:"item-detail__contents__center__submit--button" do
         購入画面に進む
       -# %input.item-detail__contents__center__submit--button{name: "item-buy", placeholder: "", type: "submit", value: "購入画面に進む"}/
         
