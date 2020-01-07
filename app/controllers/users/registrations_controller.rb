@@ -12,6 +12,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
+
+  def index
+  end
+
   def new
     @user = User.new
   end
@@ -112,11 +116,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
     session[:prefecture] = address_params[:prefecture]
     session[:city] = address_params[:city]
     session[:detail_address] = address_params[:detail_address]
+    session[:buidling] = address_params[:building]
+    session[:optional_phone_number] = address_params[:optional_phone_number]
     @address = Address.new(
       zipcode: session[:zipcode],
       prefecture: session[:prefecture],
       city: session[:city],
-      detail_address: session[:detail_address]
+      detail_address: session[:detail_address],
+      building: session[:building],
+      optional_phone_number: session[:optional_phone_number]
     )
     unless @address.valid?
       flash.now[:alert] = @address.errors.full_messages
@@ -131,7 +139,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def address_params
-    params.require(:address).permit(:zipcode, :prefecture, :city, :detail_address)
+    params.require(:address).permit(:zipcode, :prefecture, :city, :detail_address, :buidling, :optional_phone_number)
   end
 
   def user_params
