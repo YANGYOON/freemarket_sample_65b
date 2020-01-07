@@ -16,10 +16,7 @@ Rails.application.routes.draw do
       get 'set_sizes'
       get 'cal_profit'
     end
-    
-    collection do
-      get 'search'
-    end
+
   end
   resources :test, only: :index
   resources :user_profiles, only: :index
