@@ -1,33 +1,37 @@
--# おぽぽぽぽぽぽぽぽぽ
--# = categories[0].children[0].name
+%ul.categories-list__parents
+  - categories.each do |category|
+    %li.categories-list__parents__parent
+      = link_to "/categories/#{category.id}", class: "categories-list__parents__parent__link" do
+        = category.name
+      %ul.categories-list__children
+        - category.children.each do |children|
+          %li.categories-list__children__child
+            = link_to "/categories/#{children.id}", class: "categories-list__children__child__link" do
+              = children.name
+            %ul.categories-list__grandchildren
+              - children.children.each do |grandchildren|
+                %li.categories-list__grandchild
+                  = link_to "/categories/#{grandchildren.id}", class: "categories-list__grandchildren__grandchild__link" do
+                    = grandchildren.name
 
--# %ul
--#   %li
--#     = link_to "/categories/#{categories[0].id}" do 
+-# %ul.categories-list__parents
+-#   %li.categories-list__parents__parent
+-#     = link_to "/categories/#{categories[0].id}", class: "categories-list__parents__parent__link" do 
 -#       = categories[0].name
--#     %ul
--#       %li
+-#     %ul.categories-list__children
+-#       %li.categories-list__children__child
 -#         = categories[0].children[0].name
--#         %ul
--#           %li
--#             = categories[0].children[0].children[0].name
+-#         -# %ul
+-#         -#   %li
+-#         -#     = categories[0].children[0].children[0].name
+-#         -# %ul
+-#         -#   %li
+-#         -#     = categories[0].children[0].children[1].name
+-#         -# %ul
+-#         -#   %li
+-#         -#     = categories[0].children[0].children[2].name                        
 -#       %li
 -#         = categories[0].children[1].name
 -#       %li
 -#         = categories[0].children[2].name
 
-%ul.gnav
-  %li
-    - categories.each do |category|
-      = link_to "/categories/#{category.id}" do
-        = category.name
-        %ul
-          %li
-            - category.children.each do |children|
-              = link_to "/categories/#{children.id}" do
-                = children.name
-                %ul
-                  %li
-                    - children.children.each do |grandchildren|
-                      = link_to "/categories/#{grandchildren.id}" do
-                        = grandchildren.name

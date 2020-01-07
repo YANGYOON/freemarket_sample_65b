@@ -1,3 +1,101 @@
+.categories-list {
+  &__parents {
+    &__parent {
+      width: 220px;
+      font-weight: bold;
+      font-size:14px;
+      height: 55px;
+      line-height: 55px;
+      position: relative;
+      background-color: #dddddd;
+      &:hover {
+        color: white;
+        background-color: #EA352E;
+        .categories-list__children__child {
+          display: block;
+          height: 40px;
+        }
+      }
+      &__link {
+        padding-left: 15px;
+        text-decoration: none;
+        color: black;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        &:hover {
+          color: white;
+        }
+      }
+    }
+  }
+  &__children {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    left: 220px;
+    z-index: 120;
+    background-color: white;
+    border-right: 1px solid #dddddd;
+    &__child {
+      width: 220px;
+      height: 40px;
+      line-height: 40px;
+      color: black;
+      display: none;
+      background-color: white;
+      &:hover {
+        background-color: blue;
+        .categories-list__grandchildren__grandchild {
+          display: block;
+          height: 40px;
+        }
+      }
+      &__link {
+        padding-left: 15px;
+        text-decoration: none;
+        color: black;
+        display: block;
+        &:hover {
+          color: white;
+        }
+      }
+    }
+  }
+  &__grandchildren {
+    position: absolute;
+    top: 0;
+    left: 220px;
+    z-index: 100;
+    width: 400px;
+    background-color: yellow;
+    border-right: 1px solid #dddddd;
+    &__grandchild {
+      width: 220px;
+      height: 0;
+      display: none;
+      background-color: white;
+      &:hover {
+        background-color: green;
+      }
+      &__link {
+        background-color: orange;
+        padding-left: 15px;
+        text-decoration: none;
+        color: black;
+        display: block;
+        &:hover {
+          color: white;
+        }
+      }
+    }
+    
+  }
+}
+
 .gnav li {
   list-style: none;
   position: relative;
