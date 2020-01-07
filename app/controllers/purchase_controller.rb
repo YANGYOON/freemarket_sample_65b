@@ -1,31 +1,52 @@
 class PurchaseController < ApplicationController
+  before_action :redirect_to_sign_in, only: [:pay, :buy]
+  before_action :redirect_to_credit_new, only: [:pay, :buy]
+  before_action :get_payjp_info, only: [:pay, :buy]
 
   require 'payjp'
 
   def buy
     @item = Item.find(params[:item_id])
     @image = Image.find(params[:item_id])
-    @address = Address.find_by(user_id: current_user.id)
+    @address = Address.find_by(user_id: 2)
+    @user = User.find_by(id: 2)
+
+    customer = Payjp::Customer.retrieve(@creditcard.customer_id)
+      @default_card_information = customer.cards.retrieve(@creditcard.card_id)
   end
 
   def pay
     @item = Item.find(params[:item_id])
-    Payjp.api_key = ""
+    @creditcard = Creditcard.find_by(user_id: 2)
+    if @item.blank?
+      redirect_to action: "buy"
+    else
     Payjp::Charge.create(
       amount: @item.price,
-      card: params['payjp-token'],
+      customer: @creditcard.customer_id,
       currency: 'jpy'
-    )
+     )
+      redirect_to root_path
+    end
   end
-
-
 
   private
-  def item_params
-    params.require(:item).permit(:name, :price)
+
+  def redirect_to_credit_new
+    @creditcard = Creditcard.find_by(user_id: 2)
+    if @creditcard.blank?
+      redirect_to controller: "creditcards", action: "new"
+    end
   end
 
-  def image_params
-    params.require(:image).permit(:image)
+  def get_payjp_info
+      Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
   end
+
+  def redirect_to_sign_in
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
+  end
+
 end

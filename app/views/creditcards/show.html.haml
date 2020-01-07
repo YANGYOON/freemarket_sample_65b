@@ -12,14 +12,15 @@
               %h3.single__inner__content__head クレジットカード一覧
             %ul.single__inner__list
               %li
-                %form.single__inner__list__content{action: "#", method:"POST"}
+                .single__inner__list__content
                   = image_tag "/images/visa.svg", height: 15, width: 49
-                  %input{name: "__csrf_value", type: "hidden", value: ""}/
-                  %input{:name => "card_sequence_no", :type => "hidden", :value => ""}/
-                  .single__inner__list__num ************
-                  .single__inner__list__num 02 / 22
-                  %input{name: "method", type: "hidden", value: "card"}/
-                  %button.single__inner__list__remove{type: "submit"}
+                  .single__inner__list__num
+                    = "**** **** **** " + @default_card_information.last4
+                  .single__inner__list__num
+                    - exp_month = @default_card_information.exp_month.to_s
+                    - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+                    = exp_month + " / " + exp_year
+                  = link_to creditcard_path(@creditcard.id), class: "single__inner__list__remove", method: :delete do
                     削除する
           .single__inner__settings
             .single__inner__settings__a{href: "#", target: "_blank"}

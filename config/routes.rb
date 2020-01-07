@@ -18,9 +18,19 @@ Rails.application.routes.draw do
       get 'set_sizes'
       get 'cal_profit'
     end
+    collection do
+      get 'search'
+    end
+    resources :purchase do
+      collection do
+        get 'buy'
+        post 'pay'
+      end
+    end
   end
   resources :test, only: :index
   resources :user_profiles, only: :index
-  resources :creditcards
+  resources :creditcards, only: [:create, :new, :index, :show, :destroy]
   resources :users
+
 end
