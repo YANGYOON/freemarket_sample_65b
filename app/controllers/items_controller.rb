@@ -88,6 +88,10 @@ class ItemsController < ApplicationController
     @profit = (@price * 0.9).to_i
   end
 
+  def search
+    @items =  Item.search(params[:keyword])
+  end
+
   private
   def item_params
     params.require(:item).permit(:id, :name, :price, :state, :condition, :category_id, :size_id,

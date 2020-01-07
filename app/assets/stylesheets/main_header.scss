@@ -32,12 +32,13 @@ body {
         height: 40px;
         position: relative;
         margin-left: 40px;
-        &__area {
+        .search-input {
           width: 100%;
           height: 40px;
           border-radius: 5px;
           background: #F5F5F5;
           padding-left: 15px;
+          border-style: groove;
         }
         &__icon {
           position:absolute;
