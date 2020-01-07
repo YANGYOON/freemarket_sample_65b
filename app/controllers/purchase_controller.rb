@@ -1,4 +1,5 @@
 class PurchaseController < ApplicationController
+  before_action :redirect_to_sign_in, only: [:pay, :buy]
   before_action :redirect_to_credit_new, only: [:pay, :buy]
   before_action :get_payjp_info, only: [:pay, :buy]
 
@@ -40,6 +41,12 @@ class PurchaseController < ApplicationController
 
   def get_payjp_info
       Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
+  end
+
+  def redirect_to_sign_in
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
   end
 
 end
