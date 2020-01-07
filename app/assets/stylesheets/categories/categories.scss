@@ -1,165 +1,87 @@
-// .categories-list {
-//   &__parents {
-//     width: 300px;
-//     position: relative;
-//     z-index: 100;
-//     &__parent {
-//       width: 220px;
-//       font-weight: bold;
-//       font-size:14px;
-//       height: 55px;
-//       line-height: 55px;
-//       position: relative;
-//       background-color: #dddddd;
-//       &:hover {
-//         color: white;
-//         background-color: #EA352E;
-//         .categories-list__children {
-//           &__child {
-//             display: block;
-//             height: 40px;
-//           }
-//         }
-//       }
-//       &__link {
-//         padding-left: 15px;
-//         text-decoration: none;
-//         color: black;
-//         position: absolute;
-//         top: 0;
-//         left: 0;
-//         width: 100%;
-//         height: 100%;
-//         &:hover {
-//           color: white;
-//         }
-//       }
-//     }
-//   }
-//   &__children {
-//     position: absolute;
-//     top: 0;
-//     width: 100%;
-//     left: 220px;
-//     z-index: 120;
-//     background-color: white;
-//     border-right: 1px solid #dddddd;
-//     &__child {
-//       width: 220px;
-//       height: 40px;
-//       line-height: 40px;
-//       color: black;
-//       display: none;
-//       background-color: white;
-//       &:hover {
-//         background-color: blue;
-//         .categories-list__grandchildren {
-//           &__grandchild {
-//             display: block;
-//             height: 40px;
-//           }
-//         }
-//       }
-//       &__link {
-//         padding-left: 15px;
-//         text-decoration: none;
-//         color: black;
-//         display: block;
-//         &:hover {
-//           color: white;
-//         }
-//       }
-//     }
-//   }
-//   &__grandchildren {
-//     position: absolute;
-//     top: 0;
-//     height: 0;
-//     left: 220px;
-//     height: 616px;
-//     width: 400px;
-//     background-color: orangered;
-//     border-right: 1px solid #dddddd;
-//     &__grandchild {
-//       width: 220px;
-//       height: 0;
-//       display: none;
-//       background-color: white;
-//       &:hover {
-//         background-color: green;
-//       }
-//       &__link {
-//         padding-left: 15px;
-//         text-decoration: none;
-//         color: black;
-//         &:hover {
-//           color: white;
-//         }
-//       }
-//     }
-    
-//   }
-// }
-
 .categories_box {
-  height: 50px;
-  width: 300px;
+  height: 30px;
+  width: 250px;
   background-color: palegoldenrod;
+  border-color: white;
   li {
     list-style: none;
     position: relative;
     a {
-      background: #001b34;
-      border-right: 1px solid #eee;
-      color: #fff;
       display: block;
-      height: 2rem;
-      line-height: 2rem;
-      text-align: center;
+      padding-left: 15px;
       text-decoration: none;
-      width: 100%;
     }
   }
 }
+.categories_box li li {
+  height: 0;
+  overflow: hidden;
+}
+.categories_box li:hover > .categories-list__parents > .categories-list__parents__parent {
+  height: 44px;
+  overflow: visible;
+}
 
-/*子階層以降共通*/
- .categories_box li li {
-   height: 0;
-   overflow: hidden;
- }
- .categories_box li li a {
-   border-top: 1px solid #eee;
- }
- .categories_box li:hover > ul > li {
-   height: 2rem;
-   overflow: visible;
- }
+.categories-list__parents__parent:hover > .categories-list__children > .categories-list__children__child {
+  height: 30px;
+  overflow: visible;
+}
 
- .categories_box li ul li ul {
-   left: 100%;
-   position: absolute;
-   top: 0;
-   width: 100%;
- }
- /*aの背景色を指定*/   
- .categories_box li:hover .categories-list__link {/*親階層*/
-   background: #00305c;
- }
- .categories-list__parents__parent__link {/*子階層*/
-   background: #00305c;
- }
- .categories-list__parents__parent:hover .categories-list__parents__parent__link {
-   background: #004789;
- }
- .categories-list__children__child__link {/*孫階層*/
-   background: #004789;
- }
- .categories-list__parents__parent:hover a {
-   background: #0065c1;
- }
- .categories-list__grandchildren__grandchild__link {/*ひ孫階層*/
-   background: #0065c1;
- }
- .categories-list__grandchild:hover .categories-list__grandchildren__grandchild__link {
-   background: #1e7dd4;
- }
+.categories-list__children__child:hover > .categories-list__grandchildren > .categories-list__grandchild__grandchild {
+  height: 30px;
+  overflow: visible;
+}
+
+.categories-list{
+  &__parents {
+  list-style:none;
+    &__parent {
+      &__link {
+      color: black;
+      background-color: white;
+      width: 250px;
+      height: 50px;
+      line-height: 50px;
+      &:hover {
+        color: white;
+        background: #EA352E;
+        }
+      }
+    }
+  }
+  &__children{
+    left: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    list-style:none;
+    border-right: 1px solid #dddddd;
+    &__child{
+      width: 250px;
+      height: 30px;
+      line-height: 30px;
+     &__link {
+      color: black;
+      background-color: white;
+       &:hover {
+         background: #dddddd;
+        }
+     }
+   }
+  }
+  &__grandchildren {
+    left: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    border-right: 1px solid #dddddd;
+    &__grandchild {
+      &__link {
+        color: black;
+        &:hover {
+         background: #dddddd;
+        }
+      }
+    }
+  }
+}
