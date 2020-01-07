@@ -6,7 +6,7 @@
       = @item.name
     .item-detail__contents__center__detail
       .item-detail__contents__center__detail__left.clearfix
-        = image_tag src= @item.images[1].image.url, class: "show_main_image",id:"show_main_image"
+        = image_tag src= @item.images[0].image.url, class: "show_main_image",id:"show_main_image"
         %ul.item-detail__contents__center__detail__left__sub-images
           - @item.images.each do |i|
             %li= image_tag src=i.image.url, class: "thumbnail","data-url": "sub_thumbnail"
@@ -71,7 +71,7 @@
         送料込み
 
     .item-detail__contents__center__submit
-      = link_to buy_item_purchase_index_path(1), class:"item-detail__contents__center__submit--button" do
+      = link_to "#", class:"item-detail__contents__center__submit--button" do
         購入画面に進む
       -# %input.item-detail__contents__center__submit--button{name: "item-buy", placeholder: "", type: "submit", value: "購入画面に進む"}/
         
