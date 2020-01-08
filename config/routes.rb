@@ -26,6 +26,7 @@ Rails.application.routes.draw do
         post 'pay'
       end
     end
+    resources :comments, only: :create
   end
   resources :test, only: :index
   resources :user_profiles, only: :index

@@ -200,17 +200,18 @@
       padding: 30px;
       &__comments-sec{
         display: flex;
+        height: 100%;
         &__left{
+          
           &__image{
             height: 40px;
             width: 40px;
             border-radius: 50%;
           }
         }
-
         &__right{
           margin-left: 10px;
-          max-width: 100%;
+          width: 100%;
           display: block;
           &__contents{
             &__comment{
@@ -218,7 +219,7 @@
               border-radius: 15px;
               margin: 10px;
               background-color: rgb(233, 233, 230);
-              
+              word-break: break-all;
               &--text{
                 margin-bottom: 20px;
                 width: 90%;
@@ -238,8 +239,9 @@
       }
       &--form{
         margin-top: 10px;
-        width: calc(100% - 20px);
+        width: calc(100% - 7px);
         padding: 10px;
+        height: 100px;
       }
       &__submit--button{
         width: 100%;
