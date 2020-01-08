@@ -4,64 +4,77 @@
   .item-detail__contents__center
     .item-detail__contents__center__head
       = @item.name
-    .item-detail__contents__center__detail
-      .item-detail__contents__center__detail__left.clearfix
-        = image_tag src= @item.images[0].image.url, class: "show_main_image",id:"show_main_image"
-        %ul.item-detail__contents__center__detail__left__sub-images
-          - @item.images.each do |i|
-            %li= image_tag src=i.image.url, class: "thumbnail","data-url": "sub_thumbnail"
-      .item-detail__contents__center__detail__right
-        %table
-          %th 出品者
-          %td.item-detail__contents__center__detail__right__user-rate
-            アルジャーノン
-            .item-detail__contents__center__detail__right__user-rate--icon
-              .item-detail__contents__center__detail__right__user-rate--icon--good
-                .item-detail__contents__center__detail__right__user-rate--icon--good--left
-                  = icon('fas', 'laugh')
-                .item-detail__contents__center__detail__right__user-rate--icon--good--right
-                  0
+      .itemshow-content
+        .itemshow-content__photo
+          .owl-carousel.owl-loaded.owl-drag
+            .owl-stage-outer
+              .owl-stage{ style: 'left:0px',width: '900px'}
+                - @item.images.each do |i|
+                  - if i.image.present?
+                    .owl-item{ style: 'width:300px'}
+                      .owl-item__inner.is-higher-width
+                        = image_tag i.image.url
+            .owl-dots
+              - if @item.images.present?
+                - @item.images.each do |i|
+                  .owl-dot
+                    .owl-dot-inner
+                      = image_tag i.image.url
+        .item-detail__contents__center__detail__right
+          %table
+            %th 出品者
+            %td.item-detail__contents__center__detail__right__user-rate
+              アルジャーノン
+              .item-detail__contents__center__detail__right__user-rate--icon
+                .item-detail__contents__center__detail__right__user-rate--icon--good
+                  .item-detail__contents__center__detail__right__user-rate--icon--good--left
+                    = icon('fas', 'laugh')
+                  .item-detail__contents__center__detail__right__user-rate--icon--good--right
+                    0
 
-              .item-detail__contents__center__detail__right__user-rate--icon--meh
-                .item-detail__contents__center__detail__right__user-rate--icon--meh--left
-                  = icon('fas', 'meh')
-                .item-detail__contents__center__detail__right__user-rate--icon--meh--right
-                  0
+                .item-detail__contents__center__detail__right__user-rate--icon--meh
+                  .item-detail__contents__center__detail__right__user-rate--icon--meh--left
+                    = icon('fas', 'meh')
+                  .item-detail__contents__center__detail__right__user-rate--icon--meh--right
+                    0
 
-              .item-detail__contents__center__detail__right__user-rate--icon--sad
-                .item-detail__contents__center__detail__right__user-rate--icon--sad--left
-                  = icon('fas', 'sad-tear')
-                .item-detail__contents__center__detail__right__user-rate--icon--sad--right
-                  0
+                .item-detail__contents__center__detail__right__user-rate--icon--sad
+                  .item-detail__contents__center__detail__right__user-rate--icon--sad--left
+                    = icon('fas', 'sad-tear')
+                  .item-detail__contents__center__detail__right__user-rate--icon--sad--right
+                    0
 
-        %table
-          %th カテゴリー
-          %td メンズ
+          %table
+            %th カテゴリー
+            %td 
+              = @item.brand.name
 
-        %table
-          %th ブランド
-          %td ニケ
-        
-        %table
-          %th 商品の状態
-          %td
-            = @item.condition
-        %table
-          %th 配送料の負担
-          %td 送料込（出品者負担）
+          %table
+            %th ブランド
+            %td 
+              = @item.category.name
+          %table
+            %th 商品の状態
+            %td
+              = @item.condition
+          %table
+            %th 配送料の負担
+            %td 送料込（出品者負担）
 
-        %table
-          %th 配送の方法
-          %td 未定
-        
-        %table
-          %th 発送元地域
-          %td 北海道
+          %table
+            %th 配送の方法
+            %td
+              =@item.shipping.method
 
-        %table
-          %th 発送日の目安
-          %td 2~3日で発送
-    
+          %table
+            %th 発送元地域
+            %td 
+              =@item.shipping.prefecture_from
+
+          %table
+            %th 発送日の目安
+            %td 2~3日で発送
+      
     .item-detail__contents__center__price
       %span.item-detail__contents__center__price__price
         = "¥#{@item.price}"
