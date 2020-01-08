@@ -1,5 +1,3 @@
 = render partial: 'items/main_header'
-= render partial: 'search_results', locals: { selected_category: @selected_category }
-
-showだお
-= @selected_category.name
+- if @result_items != nil
+  = render partial: 'search_results', locals: { result_items: @result_items, searched_category: @searched_category}

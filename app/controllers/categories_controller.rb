@@ -5,6 +5,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @selected_category = Category.find(params[:id])
+    @searched_category = Category.find(params[:id])
+    @result_items = @searched_category.search
   end
 end
