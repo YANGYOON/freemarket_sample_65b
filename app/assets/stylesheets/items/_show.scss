@@ -198,6 +198,39 @@
       width: 640px;
       background-color: #fff;
       padding: 30px;
+      &__comments-sec{
+        display: flex;
+        &__left{
+          &__image{
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+          }
+        }
+
+        &__right{
+          margin-left: 10px;
+          max-width: 100%;
+          display: block;
+          &__contents{
+            &__comment{
+              padding: 15px;
+              border-radius: 15px;
+              margin: 10px;
+              background-color: rgb(233, 233, 230);
+              
+              &--text{
+                margin-bottom: 20px;
+                width: 90%;
+              }
+              &--time{
+                color: rgb(151, 150, 149);
+              }
+            }
+          }
+        }
+        
+      }
       &__text{
         font-size: 12px;
         background-color: rgb(237, 247, 99);
