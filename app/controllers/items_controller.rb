@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.includes(:images).order('created_at DESC').limit(20)
+    @categories = Category.order("id ASC").limit(13)
   end
 
   def new

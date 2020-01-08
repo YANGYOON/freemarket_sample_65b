@@ -1,8 +1,9 @@
 .categories_box {
   height: 30px;
-  width: 250px;
-  background-color: palegoldenrod;
+  width: 100px;
   border-color: white;
+  position: relative;
+  z-index: 20;
   li {
     list-style: none;
     position: relative;
@@ -34,6 +35,7 @@
 
 .categories-list{
   &__parents {
+    margin-top: 10px;
   list-style:none;
   width: 250px;
   height: 580px;
@@ -81,6 +83,7 @@
     border-left: 1px solid #dddddd;
     &__grandchild {
       &__link {
+        background-color: white;
         color: #333333;
         &:hover {
          background: #dddddd;

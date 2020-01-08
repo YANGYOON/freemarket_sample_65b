@@ -1,19 +1,15 @@
-%ul.categories_box.gnav
-  %li
-    = link_to "/categories/index", class: "categories-list__link" do
-      カテゴリィで探す
-    %ul.categories-list__parents
-      - categories.each do |category|
-        %li.categories-list__parents__parent
-          = link_to "/categories/#{category.id}", class: "categories-list__parents__parent__link" do
-            = category.name
-          %ul.categories-list__children
-            - category.children.each do |children|
-              %li.categories-list__children__child
-                = link_to "/categories/#{children.id}", class: "categories-list__children__child__link" do
-                  = children.name
-                %ul.categories-list__grandchildren
-                  - children.children.each do |grandchildren|
-                    %li.categories-list__grandchild__grandchild
-                      = link_to "/categories/#{grandchildren.id}", class: "categories-list__grandchildren__grandchild__link" do
-                        = grandchildren.name
+%ul.categories-list__parents
+  - categories.each do |category|
+    %li.categories-list__parents__parent
+      = link_to "/categories/#{category.id}", class: "categories-list__parents__parent__link" do
+        = category.name
+      %ul.categories-list__children
+        - category.children.each do |children|
+          %li.categories-list__children__child
+            = link_to "/categories/#{children.id}", class: "categories-list__children__child__link" do
+              = children.name
+            %ul.categories-list__grandchildren
+              - children.children.each do |grandchildren|
+                %li.categories-list__grandchild__grandchild
+                  = link_to "/categories/#{grandchildren.id}", class: "categories-list__grandchildren__grandchild__link" do
+                    = grandchildren.name

@@ -58,6 +58,7 @@ body {
         &__lists {
           font-size: 14px;
           font-weight: bold;
+          width: 170px;
           &__icon {
             color: red;
             margin-top: 3px;
@@ -86,6 +87,7 @@ body {
     color: black;
     display: flex;
     text-decoration: none;
+    width: 100%;
   }
 }
 
