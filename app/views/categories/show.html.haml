@@ -1,3 +1,5 @@
 = render partial: 'items/main_header'
 - if @result_items != nil
   = render partial: 'search_results', locals: { result_items: @result_items, searched_category: @searched_category}
+= render partial: 'items/main_footer'
+= render partial: 'items/sell_btn'
