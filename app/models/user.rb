@@ -10,6 +10,7 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :address
   accepts_nested_attributes_for :phone_number
   has_many :sns_credentials
+  has_many :comments
 
   def self.from_omniauth(auth)
     sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create
