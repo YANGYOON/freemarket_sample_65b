@@ -32,5 +32,6 @@ Rails.application.routes.draw do
   resources :user_profiles, only: :index
   resources :creditcards, only: [:create, :new, :index, :show, :destroy]
   resources :users
+  resources :categories, only: [:index, :show]
 
 end
