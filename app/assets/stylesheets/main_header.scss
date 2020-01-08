@@ -50,6 +50,7 @@ body {
       }
     }
     &__lower {
+      position: relative;
       margin-top: 15px;
       display: flex;
       justify-content: space-between;
@@ -90,6 +91,10 @@ body {
     width: 100%;
   }
 }
+.brand_box {
+  width: 180px;
+  
+}
 
 @media (max-width: 1068px) {
   .main_header__box {
@@ -103,7 +108,7 @@ body {
 @media (max-width: 768px) {
   .main_header {
     height: 100%;
-    width: calc(100% - 20px);
+    width: 100%;
     padding: 10px;
     &__box {
       width: 95%;
@@ -123,9 +128,12 @@ body {
   }
   .main_header__box__lower {
     position: relative;
+    
     &__select {
+      display: flex;
+      justify-content: space-between;
       width: 100%;
-      justify-content: space-around;
+      
     }
     &__users {
       position: absolute;

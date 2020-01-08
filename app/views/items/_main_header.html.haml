@@ -16,9 +16,8 @@
             = icon('fas', 'list', class: "main_header__box__lower__select__lists__icon")
             カテゴリィから探す
             = render partial: '/categories/categories_list', locals: { categories: @categories }
-      %ul.main_header__box__lower__select
         %li.main_header__box__lower__select__lists.brand_box
-          = link_to "#", class: "main_header__link" do
+          = link_to "#", class: "main_header__link brand_box" do
             = icon('fas', 'tags', class: "main_header__box__lower__select__lists__icon")
             ブランドから探す
       %ul.main_header__box__lower__users
