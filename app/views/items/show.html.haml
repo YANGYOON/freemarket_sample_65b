@@ -103,33 +103,35 @@
             .item-detail__contents__center__description__icons__right__content--text
               あんしん・あんぜんへの取り組み
 
+  
+  .item-detail__contents__center__message-form--main
+    
+    .item-detail__contents__center__message-form
+      - if @comments[0] != nil
+        - @comments.each_with_index do |comment, i|
+          .item-detail__contents__center__message-form__comments-sec
+            .item-detail__contents__center__message-form__comments-sec__left
+              = image_tag "/images/item.jpeg", class: "item-detail__contents__center__message-form__comments-sec__left__image"
+            
+            .item-detail__contents__center__message-form__comments-sec__right
+              .item-detail__contents__center__message-form__comments-sec__right__contents
+                .item-detail__contents__center__message-form__comments-sec__right__contents__user-name
+                  = comment.user.nickname
 
-  .item-detail__contents__center__message-form
-    - if @comments[0] != nil
-      - @comments.each_with_index do |comment, i|
-        .item-detail__contents__center__message-form__comments-sec
-          .item-detail__contents__center__message-form__comments-sec__left
-            = image_tag "/images/item.jpeg", class: "item-detail__contents__center__message-form__comments-sec__left__image"
-          
-          .item-detail__contents__center__message-form__comments-sec__right
-            .item-detail__contents__center__message-form__comments-sec__right__contents
-              .item-detail__contents__center__message-form__comments-sec__right__contents__user-name
-                = comment.user.nickname
+                .item-detail__contents__center__message-form__comments-sec__right__contents__comment
+                  .item-detail__contents__center__message-form__comments-sec__right__contents__comment--text
+                    = comment.text
+                  .item-detail__contents__center__message-form__comments-sec__right__contents__comment--time
+                    = comment.created_at.strftime("%Y/%m/%d %H:%M")
 
-              .item-detail__contents__center__message-form__comments-sec__right__contents__comment
-                .item-detail__contents__center__message-form__comments-sec__right__contents__comment--text
-                  = comment.text
-                .item-detail__contents__center__message-form__comments-sec__right__contents__comment--time
-                  = comment.created_at.strftime("%Y/%m/%d %H:%M")
+  .item-detail__contents__center__message-form__text
+    相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
 
-    .item-detail__contents__center__message-form__text
-      相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-
-    = form_with(model: [@item, @comment]) do |f|
-      = f.text_area :text, placeholder: "", class:"item-detail__contents__center__message-form--form", required: true
+    = form_with(model: [@item, @comment], local: true, id: "new_comment", method: "POST") do |f|
+      = f.text_area :text, placeholder: "", class:"item-detail__contents__center__message-form--form textbox"
     
       .item-detail__contents__center__message-form__submit
-        =f.submit class: "item-detail__contents__center__message-form__submit--button", value: "コメントする" ;
+        =f.submit class: "item-detail__contents__center__message-form__submit--button form__submit", value: "コメントする" ;
 
 
   .item-detail__contents__center__change-page
