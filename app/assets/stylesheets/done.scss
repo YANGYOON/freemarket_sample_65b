@@ -1,0 +1,24 @@
+body{
+  height: 100%;
+}
+
+.parchase-done__main {
+  padding: 30px;
+  width: 700px;
+  height: 500px;
+  margin: 0 auto;
+  &__content{
+    text-align: center;
+    height: 100%;
+    &__text{
+      font-size: 40px;
+      line-height: 700%;
+    }
+    &__link{
+      font-size: 20px;
+    }
+    a{
+      color: rgb(128, 197, 230);
+    }
+  }
+}
