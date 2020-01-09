@@ -47,12 +47,15 @@
           %table
             %th カテゴリー
             %td 
-              = @item.brand.name
+              = @item.category.name
 
           %table
             %th ブランド
-            %td 
-              = @item.category.name
+            %td
+              - if @item.brand != nil
+                = @item.brand.name
+              - else
+                なし
           %table
             %th 商品の状態
             %td
