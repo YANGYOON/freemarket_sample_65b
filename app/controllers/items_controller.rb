@@ -56,7 +56,7 @@ class ItemsController < ApplicationController
       @brand_id = nil
     end
 
-    if @item.update!(item_params.merge(brand_id: @brand_id))
+    if @item.update(item_params.merge(brand_id: @brand_id))
       redirect_to root_path
     else
       redirect_to action: 'edit'
