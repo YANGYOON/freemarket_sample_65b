@@ -84,9 +84,17 @@
         送料込み
 
     .item-detail__contents__center__submit
-      = link_to buy_item_purchase_index_path(@item.id), class:"item-detail__contents__center__submit--button" do
-        購入画面に進む
-      -# %input.item-detail__contents__center__submit--button{name: "item-buy", placeholder: "", type: "submit", value: "購入画面に進む"}/
+      - if @item.level == 0
+        = link_to buy_item_purchase_index_path(@item.id), class:"item-detail__contents__center__submit--button" do
+          購入画面に進む
+      - elsif @item.level == 1
+        .item-detail__contents__center__submit--button-if
+          取引中
+      - elsif @item.level == 2
+        .item-detail__contents__center__submit--button-if
+          sold out
+          
+
         
 
     .item-detail__contents__center__description

@@ -26,6 +26,8 @@ class PurchaseController < ApplicationController
       customer: @creditcard.customer_id,
       currency: 'jpy'
      )
+
+      @item.update(level: 1, buyer_id: current_user.id)
       redirect_to done_item_purchase_index_path
     end
   end
