@@ -25,6 +25,7 @@ Rails.application.routes.draw do
       collection do
         get 'buy'
         post 'pay'
+        get 'done'
       end
     end
     resources :comments, only: :create

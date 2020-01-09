@@ -30,8 +30,11 @@ class PurchaseController < ApplicationController
     end
   end
 
-  private
+  def done
+  end
 
+
+  private
   def redirect_to_credit_new
     @creditcard = Creditcard.find_by(user_id: 2)
     if @creditcard.blank?
