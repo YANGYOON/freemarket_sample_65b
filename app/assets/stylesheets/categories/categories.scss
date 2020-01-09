@@ -102,6 +102,7 @@
   color: #333333;
   &__contents {
     width: 70%;
+    max-width: 720px;
     margin: 0 auto;
     &__root-lists {
       &__title {

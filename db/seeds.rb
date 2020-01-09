@@ -368,7 +368,7 @@ smartphone_brand.children.create([{name: "アップル"},
 books_book = books.children.create(name: "本")
 books_music = books.children.create(name: "音楽")
 books_game = books.children.create(name: "ゲーム")
-books_magazine = books.children.create(name: "ゲーム")
+books_magazine = books.children.create(name: "雑誌")
 
 books_book.children.create([{name: "小説"},
                               {name: "漫画"},
@@ -393,7 +393,7 @@ books_magazine.children.create([{name: "アート/エンタメ/ホビー"},
 hobbys_toy = hobbys.children.create(name: "おもちゃ")
 hobbys_goods = hobbys.children.create(name: "グッズ")
 hobbys_musical_instrument = hobbys.children.create(name: "楽器")
-hobbys_card = hobbys.children.create(name: "おもちゃ")
+hobbys_card = hobbys.children.create(name: "トレーディングカード")
 
 hobbys_toy.children.create([{name: "キャラクターグッズ"},
                               {name: "ぬいぐるみ"},
@@ -467,9 +467,9 @@ sports_basket.children.create([{name: "バッシュ"},
                                 {name: "アクセサリー"}])
 sports_snowboard.children.create([{name: "ボード"},
                                 {name: "バインディング"},
-                                {name: "ウェア"},
+                                {name: "ウェア(男性用)"},
+                                {name: "ウェア(女性用)"},
                                 {name: "ブーツ"},
-                                {name: "ウェア"},
                                 {name: "アクセサリー"},
                                 {name: "バッグ"}])
 
