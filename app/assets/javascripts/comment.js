@@ -1,4 +1,4 @@
-$(function(){
+$( document ).on('turbolinks:load', function() {
   function buildHTML(comment){
     var html = 
     `<div class = "item-detail__contents__center__message-form__comments-sec">
@@ -29,7 +29,6 @@ $(function(){
   
   $('#new_comment').on('submit', function(e){
     e.preventDefault();
-    console.log(this)
     var formData = new FormData(this);
     var url = $(this).attr('action')
     $.ajax({
@@ -41,7 +40,6 @@ $(function(){
       contentType: false,
     })
     .done(function(data){
-      console.log("aaaaaaaaaaaaaa")
       var html = buildHTML(data);
       $('.item-detail__contents__center__message-form').append(html);
       $('.item-detail__contents__center__message-form--form').val('');
