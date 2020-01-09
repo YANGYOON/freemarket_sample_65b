@@ -23,7 +23,7 @@
                   %ul.category-index__contents__category-lists__grandchildren
                     - children.children.each do |grandchildren|
                       %li.category-index__contents__category-lists__grandchildren__grandchild
-                        = link_to "/categories/#{grandchildren.id}", class: "category-index__contents__category-lists__grandchildren__grandchild__link" do
+                        = link_to category_path(id: grandchildren.id), class: "category-index__contents__category-lists__grandchildren__grandchild__link" do
                           = grandchildren.name
 = render partial: 'items/main_footer'
 = render partial: 'items/sell_btn'
