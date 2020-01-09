@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.includes(:images).order('created_at DESC').limit(20)
+    @categories = Category.order("id ASC").limit(13)
   end
 
   def new
@@ -57,7 +58,7 @@ class ItemsController < ApplicationController
       @brand_id = nil
     end
 
-    if @item.update!(item_params.merge(brand_id: @brand_id))
+    if @item.update(item_params.merge(brand_id: @brand_id))
       redirect_to root_path
     else
       redirect_to action: 'edit'
