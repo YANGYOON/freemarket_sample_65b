@@ -127,7 +127,11 @@
         color: white;
         font-size: 30px;
         padding: 10px 160px;
-        // padding-right: 160px;
+      }
+      &--button-if{
+        color: white;
+        font-weight: bold;
+        font-size: 30px;
       }
     }
 
