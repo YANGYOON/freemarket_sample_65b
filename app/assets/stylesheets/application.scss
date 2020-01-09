@@ -4,6 +4,7 @@
 @import "./items/new";
 @import "./items/buy";
 @import "./items/show";
+@import "./items/show_js";
 @import "slick-theme"; 
 @import "slick";
 @import "slider";
@@ -31,4 +32,5 @@
 @import "module/done";
 @import "module/signup_creditcard";
 @import "module/user_registration/registration_creditcard"
-
+@import "done";
+@import "categories/categories";

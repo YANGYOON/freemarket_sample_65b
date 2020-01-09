@@ -26,12 +26,15 @@ Rails.application.routes.draw do
       collection do
         get 'buy'
         post 'pay'
+        get 'done'
       end
     end
+    resources :comments, only: :create
   end
   resources :test, only: :index
   resources :user_profiles, only: :index
   resources :creditcards, only: [:create, :new, :index, :show, :destroy]
   resources :users
+  resources :categories, only: [:index, :show]
 
 end
