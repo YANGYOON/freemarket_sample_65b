@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :redirect_to_sign_in, only: [:pay, :buy]
   def create
-    @comment = Comment.create(text: comment_params[:text], item_id: comment_params[:item_id], user_id: 1)
+    @comment = Comment.create(text: comment_params[:text], item_id: comment_params[:item_id], user_id: current_user.id)
     respond_to do |format|
       format.html { redirect_to item_path(params[:item_id])  }
       format.json
