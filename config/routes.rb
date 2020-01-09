@@ -23,5 +23,4 @@ Rails.application.routes.draw do
   resources :creditcards
   resources :users
   resources :categories, only: [:index, :show]
-  
 end
