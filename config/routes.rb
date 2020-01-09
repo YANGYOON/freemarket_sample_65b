@@ -16,8 +16,6 @@ Rails.application.routes.draw do
       get 'category_grandchildren'
       get 'set_sizes'
       get 'cal_profit'
-    end
-    collection do
       get 'search'
     end
     resources :purchase do
@@ -31,5 +29,13 @@ Rails.application.routes.draw do
   resources :user_profiles, only: :index
   resources :creditcards, only: [:create, :new, :index, :show, :destroy]
   resources :users
-
+  resources :searches do
+    collection do
+      get 'category_children'
+      get 'category_grandchildren'
+      get 'set_sizes'
+      get 'cal_profit'
+      get 'search'
+    end
+  end
 end

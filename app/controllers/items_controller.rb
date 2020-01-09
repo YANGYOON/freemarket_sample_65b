@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :update, :destroy]
-
+  before_action :set_ransack
   def index
     @items = Item.includes(:images).order('created_at DESC').limit(20)
   end
@@ -28,6 +28,15 @@ class ItemsController < ApplicationController
       @category = Category.order("id ASC").limit(13)
       redirect_to action: 'new'
     end
+  end
+
+  def search
+    @items =  Item.search(params[:keyword])
+    @search_item = Item.ransack(params[:q]) 
+    @items = @search_item.result.page(params[:page])
+    @category = Category.order("id ASC").limit(13)
+    @size = Size.order("id ASC").limit(9)
+
   end
 
   def buy
@@ -88,11 +97,8 @@ class ItemsController < ApplicationController
     @profit = (@price * 0.9).to_i
   end
 
-  def search
-    @items =  Item.search(params[:keyword])
-  end
-
   private
+
   def item_params
     params.require(:item).permit(:id, :name, :price, :state, :condition, :category_id, :size_id,
                                   images_attributes: [:id, :image, :_destroy], 
@@ -101,6 +107,10 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def set_ransack
+    @q = Item.ransack(params[:q])
   end
 
 end

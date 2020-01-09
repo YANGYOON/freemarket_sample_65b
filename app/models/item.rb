@@ -12,6 +12,7 @@ class Item < ApplicationRecord
   def self.search(search)
     return Item.all unless search
     Item.where('name LIKE(?)', "%#{search}%")
+    Item.where('condition LIKE(?)', "%#{search}%")
   end
 
   # belongs_to :seller, class_name: "User"

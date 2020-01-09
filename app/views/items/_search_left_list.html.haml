@@ -1,0 +1,52 @@
+.left_search_list
+  = form_with model: @q, url: searches_path do |f|
+    .left_search_list__sort
+      = f.select( :sorts, { '並び替え': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' } , { onchange: 'this.form.submit()'} )
+      = icon('fas', 'angle-down', class: "left_search_list__sort--icon")
+    .left_search_list_main
+      .left_search_list_main__text
+        詳細検索
+      .left_search_list_main__text--icon
+        %i.fas.fa-plus
+      .left_search_list_main__keyword__text
+        キーワードを追加する
+      = f.search_field :name_cont, placeholder: "例）値下げ"
+      .left_search_list_main__text--icon
+        %i.fas.fa-list-ul
+      .left_search_list_main__category__text
+        カテゴリーを選択する
+      .contents__main__detail__right__select
+        = f.collection_select :category, @category, :id, :name,{prompt: "---"}, {class: "contents__main__detail__right__select__form", id: "category_select", required: true}
+        = icon('fas', 'angle-down', class: "contents__main__detail__right__select--icon")
+      .item_select-children
+      .left_search_list_main__brand--icon
+        %i.fas.fa-tag
+      .left_search_list_main__brand__text
+        ブランド名から探す
+      = f.search_field :name_cont, placeholder: "例）シャネル"
+      .left_search_list_main__size--icon
+        %i.fas.fa-compress
+      .left_search_list_main__size__text
+        サイズを指定する
+      .left_search_list_main__size__form
+        = f.collection_select :size, @size, :id, :name,{prompt: "---"}, {class: ".left_search_list_main__size__form_box", id: "size_select", required: true}
+        = icon('fas', 'angle-down', class: "left_search_list_main__size__form--icon")
+      .left_search_list_main__price--icon
+        %i.fab.fa-bitcoin
+      .left_search_list_main__price__text
+        価格
+      .left_search_list_main__price__form
+      = f.search_field :price_gteq, placeholder: "¥ Min"
+      %p 〜
+      = f.search_field :price_lteq, placeholder: "¥ Max"
+      .left_search_list_main__status--icon
+        %i.fas.fa-star
+      .left_search_list_main__status__text
+        商品の状態
+      .left_search_list_main__status__checkbox
+        .left_search_list_main__status__checkbox__all
+          %input(type="checkbox")
+          = 'すべて'
+        .left_search_list_main__status__checkbox__new_item
+          = f.check_box :status_in,'新品、未使用',nil
+          = '新品、未使用'
