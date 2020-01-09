@@ -7,8 +7,9 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'users', to: 'users/registrations#index'
     get 'phone_numbers', to: 'users/registrations#new_phone_number'
+    get 'signup_creditcards', to: 'users/registrations#signup_creditcard'
     get 'addresses', to: 'users/registrations#new_address'
-    post 'addresses', to: 'users/registrations#create_address'
+    post 'signup_create', to: 'users/registrations#signup_create'
   end
   root to: 'items#index'
   resources :items do

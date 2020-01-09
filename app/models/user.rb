@@ -7,8 +7,10 @@ class User < ApplicationRecord
   validates :nickname, uniqueness: true
   has_one :address, dependent: :destroy
   has_one :phone_number, dependent: :destroy
+  has_one :creditcard, dependent: :destroy
   accepts_nested_attributes_for :address
   accepts_nested_attributes_for :phone_number
+  accepts_nested_attributes_for :creditcard
   has_many :sns_credentials
   has_many :comments
 

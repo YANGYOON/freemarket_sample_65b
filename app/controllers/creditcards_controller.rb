@@ -33,7 +33,6 @@ class CreditcardsController < ApplicationController
         card: params['payjp-token'],
       )
       @creditcard = Creditcard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
-      
       if @creditcard.save
         redirect_to creditcards_path
       else

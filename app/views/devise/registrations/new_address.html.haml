@@ -35,7 +35,7 @@
     .adress_content_text__top
       住所入力
     .adress_content_text__main
-      = form_for @address, url: addresses_path, method: :post do |f|
+      = form_for @address, url: signup_creditcards_path, method: :get do |f|
         .adress_content_text__main__person
           郵便番号
           .adress_content_text__main__person_required
