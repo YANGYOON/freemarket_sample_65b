@@ -8,8 +8,8 @@ class PurchaseController < ApplicationController
   def buy
     @item = Item.find(params[:item_id])
     @image = Image.find(params[:item_id])
-    @address = Address.find_by(user_id: 2)
-    @user = User.find_by(id: 2)
+    @address = Address.find_by(user_id: current_user.id)
+    @user = User.find_by(id: current_user.id)
 
     customer = Payjp::Customer.retrieve(@creditcard.customer_id)
       @default_card_information = customer.cards.retrieve(@creditcard.card_id)
@@ -17,7 +17,7 @@ class PurchaseController < ApplicationController
 
   def pay
     @item = Item.find(params[:item_id])
-    @creditcard = Creditcard.find_by(user_id: 2)
+    @creditcard = Creditcard.find_by(user_id: current_user.id)
     if @item.blank?
       redirect_to action: "buy"
     else
@@ -26,7 +26,7 @@ class PurchaseController < ApplicationController
       customer: @creditcard.customer_id,
       currency: 'jpy'
      )
-      redirect_to root_path
+      redirect_to done_item_purchase_index_path
     end
   end
 
@@ -36,7 +36,7 @@ class PurchaseController < ApplicationController
 
   private
   def redirect_to_credit_new
-    @creditcard = Creditcard.find_by(user_id: 2)
+    @creditcard = Creditcard.find_by(user_id: current_user.id)
     if @creditcard.blank?
       redirect_to controller: "creditcards", action: "new"
     end
