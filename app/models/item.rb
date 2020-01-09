@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
   has_many :images, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
   
   has_one :shipping, dependent: :destroy, validate: true
@@ -9,6 +10,10 @@ class Item < ApplicationRecord
   belongs_to :category
   belongs_to :brand, optional: true
   belongs_to :size, optional: true
+
+  def like_user(user_id)
+    likes.find_by(user_id: user_id)
+  end
 
   def self.search(search)
     return Item.all unless search
