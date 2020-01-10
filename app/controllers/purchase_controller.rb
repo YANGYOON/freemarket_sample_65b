@@ -50,7 +50,7 @@ class PurchaseController < ApplicationController
 
   def redirect_to_sign_in
     unless user_signed_in?
-      redirect_to new_user_session_path
+      redirect_to users_path
     end
   end
 
