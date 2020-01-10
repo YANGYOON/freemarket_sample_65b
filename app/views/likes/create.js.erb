@@ -1,1 +1,1 @@
-$("#microitem-<%= @item.id %> .like").html("<%= escape_javascript(render "likes/like", item: @mitem) %>");
+$('#likes_buttons_<%= @item.id %>').html("<%= j(render partial: 'likes/like', locals: {item: @item}) %>");
