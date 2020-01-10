@@ -97,7 +97,7 @@
         .item-detail__contents__center__description__icons__left
           .item-detail__contents__center__description__icons__left__likes
             .item-detail__contents__center__description__icons__left__likes--icon
-              %div{id: "likes_buttons_#{@item.id}"}
+              %div{id:"likes_buttons_#{@item.id}"}
                 = render partial: 'likes/like', locals: { item: @item, likes: @likes}
             .item-detail__contents__center__description__icons__left__likes--text
               
