@@ -49,10 +49,17 @@ window.onload=function(){
     {cd:"沖縄県", label:"沖縄県"}
   ];
  
-  for(var i=0;i<arr.length;i++){
-    let op = document.createElement("option");
-    op.value = arr[i].cd;
-    op.text = arr[i].label;
-    document.getElementById("selPref").appendChild(op);
-  }
+  // for(var i=0;i<arr.length;i++){
+  //   let op = document.createElement("option");
+  //   op.value = arr[i].cd;
+  //   op.text = arr[i].label;
+  //   document.getElementById("selPref").appendChild(op);
+  // }
+  
+  for (var i = 0; i < arr.length; i++) {
+    $("<option>", {
+      value: arr[i].cd,
+      text: arr[i].label
+    }).appendTo('#selPref');
+  };
 };
