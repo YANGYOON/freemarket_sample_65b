@@ -32,12 +32,39 @@ class ItemsController < ApplicationController
 
   def search
     @items =  Item.search(params[:keyword])
-    @search_item = Item.ransack(params[:q]) 
-    @items = @search_item.result.page(params[:page])
     @category = Category.order("id ASC").limit(13)
     @size = Size.order("id ASC").limit(9)
-
+    respond_to do |format|
+      format.html
+      format.json do
+       @children = Category.find(params[:category_id]).children
+      end
+    end
   end
+
+  def detail_search
+    @brand_data = Brand.find_by(name: params[:q][:brand_id_cont])
+    if @brand_data != nil
+      @brand_id = Brand.find_by(name: params[:q][:brand_id_cont]).id
+    else
+      @brand_id = nil
+    end
+    if @condition_data != nil
+      @condition_id = Condition.find_by(name: params[:q][:condition_in]).id
+    else
+      @condition_id = nil
+    end
+
+    if params[:q] != nil
+      @search = Item.ransack(search_params.merge(brand_id_eq: @brand_id, condition_eq: @condition_id ))
+      @details = @search.result(distinct: true)
+    else
+      params[:q] = { sorts: 'id desc' }
+      @search = Item.ransack()
+      @details = Item.all
+    end 
+  end
+
 
   def buy
   end
@@ -97,6 +124,8 @@ class ItemsController < ApplicationController
     @profit = (@price * 0.9).to_i
   end
 
+
+
   private
 
   def item_params
@@ -111,6 +140,10 @@ class ItemsController < ApplicationController
 
   def set_ransack
     @q = Item.ransack(params[:q])
+  end
+
+  def search_params
+    params.require(:q).permit(:sorts , :name_cont, :price_gteq, :price_lteq, :category)
   end
 
 end
