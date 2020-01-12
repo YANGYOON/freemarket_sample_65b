@@ -116,7 +116,7 @@
             .next_icon
             = icon('fas', 'fas fa-angle-right')
         %li.list
-          = link_to  "", class: "list_logout" do
+          = link_to  destroy_user_session_path, method: :delete, class: "list_logout" do
             ログアウト
             .next_icon
             = icon('fas', 'fas fa-angle-right')
