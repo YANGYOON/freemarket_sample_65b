@@ -7,6 +7,4 @@ class Address < ApplicationRecord
   validates :prefecture,      presence: true
   validates :city,            presence: true, length: {maximum: 50}
   validates :detail_address,  presence: true, length: {maximum: 100}
-  validates :building
-  validates :optional_phone_number
 end
