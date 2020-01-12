@@ -2,7 +2,7 @@
   box-sizing: content-box;
   background-color: #F5F5F5;
   color: #333333;
-  width: 100%;
+  width: calc(100% - 60px);
   height: 100%;
   padding: 30px;
   &__title {
@@ -41,13 +41,56 @@
         padding: 10px;
         &__rank {
           display: flex;
-          &_iconarea {
-            &__icon {
-
+          &__icon {
+            width: 70px;
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+            &--first {
+              width: 68px;
+              height: 68px;
+            }
+            &--second {
+              width: 58px;
+              height: 58px;
+            }
+            &--third {
+              width: 50px;
+              height: 50px;
+            }
+            &--fourth {
+              width: 40px;
+              height: auto;
+            }
+            &--fifth {
+              width: 40px;
+              height: auto;
             }
           }
           &__name {
-
+            height: 60px;
+            line-height: 70px;
+            font-weight: bold;
+            &--first {
+              margin-top: 8px;
+              font-size: 22px;
+            }
+            &--second {
+              margin-top: 6px;
+              font-size: 21px;
+            }
+            &--third {
+              margin-top: 6px;
+              font-size: 20px;
+            }
+            &--fourth {
+              font-size: 18px;
+            }
+            &--fifth {
+              font-size: 18px;
+            }
           }
         }
       }

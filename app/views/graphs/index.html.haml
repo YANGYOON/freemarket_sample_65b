@@ -8,11 +8,35 @@
         人気のカテゴリー
       .graphs__contents__trends__ranking
         .graphs__contents__trends__ranking__rank
-          .graphs__contents__trends__ranking__rank__iconarea
-            .graphs__contents__trends__ranking__rank__iconarea__icon
-              A
+          .graphs__contents__trends__ranking__rank__icon
+            = image_tag "/images/rankfirst.png", class: "graphs__contents__trends__ranking__rank__icon--first"
           .graphs__contents__trends__ranking__rank__name
-            トップス
+            .graphs__contents__trends__ranking__rank__name--first
+              Tシャツ/カットソー(半袖/袖なし) 
+        .graphs__contents__trends__ranking__rank
+          .graphs__contents__trends__ranking__rank__icon
+            = image_tag "/images/ranksecond.png", class: "graphs__contents__trends__ranking__rank__icon--second"
+          .graphs__contents__trends__ranking__rank__name
+            .graphs__contents__trends__ranking__rank__name--second
+              トップスダダダダダダダダ
+        .graphs__contents__trends__ranking__rank
+          .graphs__contents__trends__ranking__rank__icon
+            = image_tag "/images/rankthird.png", class: "graphs__contents__trends__ranking__rank__icon--third"
+          .graphs__contents__trends__ranking__rank__name
+            .graphs__contents__trends__ranking__rank__name--third
+              Tシャツ/カットソー(半袖/袖なし) 
+        .graphs__contents__trends__ranking__rank
+          .graphs__contents__trends__ranking__rank__icon
+            = image_tag "/images/rankfourth.png", class: "graphs__contents__trends__ranking__rank__icon--fourth"
+          .graphs__contents__trends__ranking__rank__name
+            .graphs__contents__trends__ranking__rank__name--fourth
+              トップストップスかか
+        .graphs__contents__trends__ranking__rank
+          .graphs__contents__trends__ranking__rank__icon
+            = image_tag "/images/rankfifth.png", class: "graphs__contents__trends__ranking__rank__icon--fifth"
+          .graphs__contents__trends__ranking__rank__name
+            .graphs__contents__trends__ranking__rank__name--fifth
+              Tシャツ/カットソー(半袖/袖なし)だよよ
     .graphs-contents__grapharea
       .graphs-contents__grapharea__graph
 = render partial: '/items/main_footer'
