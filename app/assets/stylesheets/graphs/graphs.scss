@@ -1,0 +1,35 @@
+.graphs {
+  box-sizing: content-box;
+  background-color: #F5F5F5;
+  color: #333333;
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  &__title {
+    width: 70%;
+    max-width: 720px;
+    margin: 0 auto;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  &__contents {
+    background-color: white;
+    width: 70%;
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    &__trends {
+      background-color: yellow;
+      &__title {
+        font-size: 20px;
+        background-color: #EA352E;
+        padding: 10px;
+        border-radius: 5px 5px 0 0;
+      }
+      
+    }
+  }
+}
