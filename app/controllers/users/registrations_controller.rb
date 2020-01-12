@@ -41,7 +41,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.build_creditcard(@creditcard.attributes)
     @user.build_phone_number(@phone_number.attributes)
     @user.build_address(@address.attributes)
-    binding.pry
     if @user.save!
       sign_in(:user, @user)
     else
