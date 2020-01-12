@@ -1,6 +1,6 @@
 $(window).on('load',function(){
   var path = location.pathname
-  if(path == "/registrations/new_address.html.haml"){
+  if(path == "/addresses"){
     var arr = [
       {cd:"北海道", label:"北海道"},
       {cd:"青森県", label:"青森県"},
@@ -56,7 +56,7 @@ $(window).on('load',function(){
     //   op.value = arr[i].cd;
     //   op.text = arr[i].label;
     //   document.getElementById("selPref").appendChild(op);
-    // }
+    // };
     
     for (var i = 0; i < arr.length; i++) {
       $("<option>", {
