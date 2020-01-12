@@ -15,3 +15,8 @@ crumb :creditcards do
   link "支払い方法", creditcards_path
   parent :mypage
 end
+
+crumb :identification do
+  link "ログアウト", identification_index_path
+  parent :mypage
+end
