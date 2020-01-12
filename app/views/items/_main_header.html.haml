@@ -35,8 +35,18 @@
             = icon('fas', 'check', class: "main_header__box__lower__users__lists__icon")
             .main_header__box__lower__users__lists__title
               やることリスト
-        %li.main_header__box__lower__users__lists
-          = link_to users_path, class: "main_header__link" do
-            = icon('fas', 'user-circle', class: "main_header__box__lower__users__lists__icon")
-            .main_header__box__lower__users__lists__title
-              マイページ
+        - if user_signed_in?
+          %li.main_header__box__lower__users__lists
+            = link_to "#", class: "main_header__link" do
+              = icon('fas', 'user-circle', class: "main_header__box__lower__users__lists__icon")
+              .main_header__box__lower__users__lists__title
+                マイページ
+        -else 
+          %li.main_header__box__lower__users__lists 
+            = link_to new_user_session_path, class: "main_header_link" do
+              .main_header__box__lower__users__lists__title              
+                ログイン
+          %li.main_header__box__lower__users__lists
+            = link_to users_path, class: "main_header__link" do
+              .main_header__box__lower__users__lists__title
+                新規登録

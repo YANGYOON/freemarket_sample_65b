@@ -35,6 +35,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @creditcard = @user.build_creditcard
   end
 
+
   # # # POST /resource
 
   def signup_create

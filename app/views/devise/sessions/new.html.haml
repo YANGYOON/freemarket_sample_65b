@@ -1,3 +1,30 @@
+.login__body
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .login__header
+      .login__header__logo
+        = image_tag src="/images/fmarket_logo_red.svg", size: "200x100"
+    .login__content
+      .login__content__top
+        .login__content__main__mail_btn
+          = link_to new_user_registration_path, method: :get, class:"new_register_mail" do
+            %i.far.fa-envelope
+            新規会員登録
+      .login__content__main
+        .login__content__main__facebook_btn
+          = link_to user_facebook_omniauth_authorize_path, method: :post, class:"new_register_facebook" do
+            %i.fab.fa-facebook-square
+            Facebookでログイン
+        .login__content__main__google_btn
+          = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class:"new_register_google" do
+            %i.fab.fa-google
+            Googleでログイン
+        .login__content__main__mailadress_form
+          = f.email_field :email, placeholder: "メールアドレス", class:"login__content__main__mailadress_form__button"
+        .login__content__main__password_form
+          = f.password_field :password, placeholder: "パスワード", class:"login__content__main__password_form__button"
+        .login__content__main__login_btn
+          =f.submit "ログイン", class: "login__content__main__login_btn"
+= render "items/items-footer"
 %h2 Log in
 = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
   .field
