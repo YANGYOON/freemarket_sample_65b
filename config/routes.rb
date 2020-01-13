@@ -1,4 +1,6 @@
-devise_for :users, controllers: {
+Rails.application.routes.draw do
+  
+  devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'users/registrations',
   }
@@ -34,3 +36,4 @@ devise_for :users, controllers: {
   resources :creditcards, only: [:create, :new, :index, :show, :destroy]
   resources :users
   resources :categories, only: [:index, :show]
+end
