@@ -43,10 +43,10 @@
                 マイページ
         -else 
           %li.main_header__box__lower__users__lists 
+            = link_to users_path, class: "main_header__link" do
+              .main_header__box__lower__users__lists__title
+                新規会員登録
+          %li.main_header__box__lower__users__lists
             = link_to new_user_session_path, class: "main_header_link" do
               .main_header__box__lower__users__lists__title              
                 ログイン
-          %li.main_header__box__lower__users__lists
-            = link_to users_path, class: "main_header__link" do
-              .main_header__box__lower__users__lists__title
-                新規登録
