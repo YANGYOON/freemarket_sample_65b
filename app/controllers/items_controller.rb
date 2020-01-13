@@ -14,9 +14,14 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params.merge(seller_id: current_user.id))
-    if @item.save
-      redirect_to root_path
+    if params[:item][:images_attributes] != nil
+      @item = Item.new(item_params.merge(seller_id: current_user.id))
+      if @item.save
+        redirect_to root_path
+      else
+        @category = Category.order("id ASC").limit(13)
+        redirect_to action: 'new'
+      end
     else
       @category = Category.order("id ASC").limit(13)
       redirect_to action: 'new'
@@ -33,6 +38,9 @@ class ItemsController < ApplicationController
   end 
 
   def edit
+    if  @item.seller_id != current_user.id
+      redirect_to action: 'show'
+    end
     @category = Category.order("id ASC").limit(13)
     @selected_category = Category.find(@item.category_id)
     if @item.size_id != nil
@@ -46,29 +54,29 @@ class ItemsController < ApplicationController
       @selected_brand = Brand.find(101)
       @selected_brand_siblings = Brand.where(classification: @selected_brand.classification)
     end
-    
   end
 
   def update
-    @brand_data = Brand.find_by(name: params[:item][:brand])
-    if @brand_data != nil
-      @brand_id = Brand.find_by(name: params[:item][:brand]).id
-    else
-      @brand_id = nil
-    end
-
-    if @item.update(item_params.merge(brand_id: @brand_id))
-      redirect_to root_path
-    else
-      redirect_to action: 'edit'
+    if  @item.seller_id == current_user.id
+      if @item.update(item_params)
+        redirect_to root_path
+      else
+        redirect_to action: 'edit'
+      end
+    else 
+      redirect_to item_path(@item)
     end
   end
 
   def destroy
-    if @item.destroy
-      redirect_to root_path
+    if  @item.seller_id == current_user.id
+      if @item.destroy
+        redirect_to root_path
+      else
+        redirect_to action: 'edit'
+      end
     else
-      redirect_to action: 'edit'
+      redirect_to item_path(@item)
     end
   end
 

@@ -1,7 +1,7 @@
 .popular_categories
   .popular_categories__contents
-    .popular_categories__contents__title
-      人気のカテゴリー
+    = link_to graphs_path, class: "popular_categories__contents__title" do
+      トレンドワード
     .popular_categories__contents__categories
       = link_to "#", class: "popular_categories__contents__categories__tag" do
         レディース
