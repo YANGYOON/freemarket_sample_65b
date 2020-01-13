@@ -2,7 +2,9 @@
 = render partial: 'slider'
 = render partial: 'popular_categories'
 - if @items[0] != nil
-  = render partial: 'sell_items_list', locals: { items: @items }
+  = render partial: 'sell_items_list', locals: { items: @items, root_category: @root_category }
+- if @mens_items[0] != nil
+  = render partial: 'sell_items_list', locals: { items: @mens_items, root_category: @root_category }
 = render partial: 'new_items'
 = render partial: 'main_footer'
 - if user_signed_in?
