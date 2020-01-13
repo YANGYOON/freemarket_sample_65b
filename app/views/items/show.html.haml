@@ -86,17 +86,31 @@
       %span.item-detail__contents__center__price__fee
         送料込み
 
-    .item-detail__contents__center__submit
-      - if @item.level == 0
-        = link_to buy_item_purchase_index_path(@item.id), class:"item-detail__contents__center__submit--button" do
-          購入画面に進む
-      - elsif @item.level == 1
-        .item-detail__contents__center__submit--button-if
-          取引中
-      - elsif @item.level == 2
-        .item-detail__contents__center__submit--button-if
-          sold out
-          
+    - if user_signed_in?
+      - if @item.seller_id != current_user.id
+        .item-detail__contents__center__submit
+          - if @item.level == 0
+            = link_to buy_item_purchase_index_path(@item.id), class:"item-detail__contents__center__submit--button" do
+              購入面に進む
+          - elsif @item.level == 1
+            .item-detail__contents__center__submit--button-if
+              取引中
+          - elsif @item.level == 2
+            .item-detail__contents__center__submit--button-if
+              sold out
+
+    - else
+      .item-detail__contents__center__submit
+        - if @item.level == 0
+          = link_to buy_item_purchase_index_path(@item.id), class:"item-detail__contents__center__submit--button" do
+            購入画面に進む
+        - elsif @item.level == 1
+          .item-detail__contents__center__submit--button-if
+            取引中
+        - elsif @item.level == 2
+          .item-detail__contents__center__submit--button-if
+            sold out
+
 
         
 
