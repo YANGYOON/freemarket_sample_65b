@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       get 'category_children'
       get 'category_grandchildren'
       get 'set_sizes'
+      get 'set_brands'
       get 'cal_profit'
     end
     collection do
