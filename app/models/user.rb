@@ -15,11 +15,11 @@ class User < ApplicationRecord
 
 #REGEX and Validation
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{7,128}+\z/i
+  # PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{7,128}+\z/i
   KANA_REGEX = /\A([ァ-ン]|ー)+\z/i
   NAME_REGEX = /\A([ぁ-んァ-ヶー一-龠])+\z/i
   validates :email,             presence: true, uniqueness: { case_sensitive: false }, format: { with: VALID_EMAIL_REGEX }
-  validates :password,          presence: true, length: {minimum: 7, maximum: 128}, format: { with: PASSWORD_REGEX  }
+  validates :password,          presence: true, length: {minimum: 7, maximum: 128}
   validates :nickname,          presence: true
   validates :last_name,         presence: true, length: {maximum: 20}, format: { with: NAME_REGEX }
   validates :first_name,        presence: true, length: {maximum: 20}, format: { with: NAME_REGEX }
