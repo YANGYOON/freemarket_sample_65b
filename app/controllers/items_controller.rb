@@ -53,17 +53,14 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @brand_data = Brand.find_by(name: params[:item][:brand])
-    if @brand_data != nil
-      @brand_id = Brand.find_by(name: params[:item][:brand]).id
-    else
-      @brand_id = nil
-    end
-
-    if @item.update(item_params.merge(brand_id: @brand_id))
-      redirect_to root_path
-    else
-      redirect_to action: 'edit'
+    if  @item.seller_id == current_user.id
+      if @item.update(item_params)
+        redirect_to root_path
+      else
+        redirect_to action: 'edit'
+      end
+    else 
+      redirect_to item_path(@item)
     end
   end
 
