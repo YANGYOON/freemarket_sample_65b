@@ -33,6 +33,9 @@ class ItemsController < ApplicationController
   end 
 
   def edit
+    if  @item.seller_id != current_user.id
+      redirect_to action: 'show'
+    end
     @category = Category.order("id ASC").limit(13)
     @selected_category = Category.find(@item.category_id)
     if @item.size_id != nil
