@@ -22,7 +22,7 @@ class ItemsController < ApplicationController
       @brand_id = nil
     end
     
-    @item = Item.new(item_params.merge(brand_id: @brand_id))
+    @item = Item.new(item_params.merge(brand_id: @brand_id, seller_id: current_user.id))
     if @item.save
       redirect_to root_path
     else
