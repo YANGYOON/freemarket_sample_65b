@@ -11,15 +11,6 @@ class Item < ApplicationRecord
   belongs_to :brand, optional: true
   belongs_to :size, optional: true
 
-  def like_user(user_id)
-    likes.find_by(user_id: user_id)
-  end
-
-  def self.search(search)
-    return Item.all unless search
-    Item.where('name LIKE(?)', "%#{search}%")
-  end
-
   # belongs_to :seller, class_name: "User"
   # belongs_to :buyer, class_name: "User", optional: true
 
@@ -31,4 +22,13 @@ class Item < ApplicationRecord
                     numericality: {
                       greater_than_or_equal_to: 300,
                       less_than_or_equal_to: 9999999}
+
+  def like_user(user_id)
+    likes.find_by(user_id: user_id)
+  end
+
+  def self.search(search)
+    return Item.all unless search
+    Item.where('name LIKE(?)', "%#{search}%")
+  end
 end
