@@ -4,6 +4,7 @@
 @import "./items/new";
 @import "./items/buy";
 @import "./items/show";
+@import "./items/show_js";
 @import "slick-theme"; 
 @import "slick";
 @import "slider";
@@ -21,6 +22,7 @@
 @import "creditcard/side_bar";
 @import "creditcards_after/index";
 @import "user_logout/index";
+@import "identification/identification";
 @import "module/mypage";
 @import "module/new_register";
 @import "module/new_inform";
@@ -28,3 +30,7 @@
 @import "module/adress";
 @import "module/pay";
 @import "module/done";
+@import "module/signup_creditcard";
+@import "module/user_registration/registration_creditcard";
+@import "done";
+@import "categories/categories";

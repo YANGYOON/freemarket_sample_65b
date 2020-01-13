@@ -27,3 +27,4 @@
 /config/_master.key
 /config/master.key
 public/uploads/*
+/db/schema.rb

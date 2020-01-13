@@ -2,25 +2,23 @@
   .main_header__box
     .main_header__box__upper
       .main_header__box__upper__icon
-        = link_to "#", class: "main_header__link" do
+        = link_to root_path, class: "main_header__link" do
           = image_tag "/images/fmarket_logo_red.svg", class: "main_header__box__upper__icon__image"
       .main_header__box__upper__search
-        %input.main_header__box__upper__search__area{name: "body", placeholder: "何かお探しですか", type: "text",}/
-        %label<>
+        = form_with(url: search_items_path, local: true, method: :get, class: "search-form") do |form|
+          = form.text_field :keyword, placeholder: "何かお探しですか？", class: "search-input"
           = icon('fas', 'search', class: "main_header__box__upper__search__icon")
-          %input.main_header__box__upper__search__botton{name: "body", type: "submit"}/
     .main_header__box__lower
-      %ul.main_header__box__lower__select
+      %ul.main_header__box__lower__select.categories_box
         %li.main_header__box__lower__select__lists
-          = link_to "#", class: "main_header__link" do
+          = link_to categories_path, class: "main_header__link categories-list__link" do
             = icon('fas', 'list', class: "main_header__box__lower__select__lists__icon")
-            .main_header__box__lower__select__lits__title
-              カテゴリィから探す
-        %li.main_header__box__lower__select__lists
-          = link_to "#", class: "main_header__link" do
-            = icon('fas', 'tags', class: "main_header__box__lower__select__lists__icon main_header__box__lower__select__lists__icon--tags")
-            .main_header__box__lower__select__lists__title
-              ブランドから探す
+            カテゴリィから探す
+            = render partial: '/categories/categories_list', locals: { categories: @categories }
+        %li.main_header__box__lower__select__lists.brand_box
+          = link_to "#", class: "main_header__link brand_box" do
+            = icon('fas', 'tags', class: "main_header__box__lower__select__lists__icon")
+            ブランドから探す
       %ul.main_header__box__lower__users
         %li.main_header__box__lower__users__lists.main_header__box__lower__users__lists--like
           = link_to "#", class: "main_header__link" do
@@ -38,7 +36,7 @@
             .main_header__box__lower__users__lists__title
               やることリスト
         %li.main_header__box__lower__users__lists
-          = link_to "#", class: "main_header__link" do
+          = link_to users_path, class: "main_header__link" do
             = icon('fas', 'user-circle', class: "main_header__box__lower__users__lists__icon")
             .main_header__box__lower__users__lists__title
               マイページ

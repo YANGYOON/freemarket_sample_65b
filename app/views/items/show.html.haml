@@ -3,93 +3,101 @@
 .item-detail__contents
   .item-detail__contents__center
     .item-detail__contents__center__head
-      商品名
+      = @item.name
+      .itemshow-content
+        .itemshow-content__photo
+          .owl-carousel.owl-loaded.owl-drag
+            .owl-stage-outer
+              .owl-stage{ style: 'left:0px',width: '900px'}
+                - @item.images.each do |i|
+                  - if i.image.present?
+                    .owl-item{ style: 'width:300px'}
+                      .owl-item__inner.is-higher-width
+                        = image_tag i.image.url
+            .owl-dots
+              - if @item.images.present?
+                - @item.images.each do |i|
+                  .owl-dot
+                    .owl-dot-inner
+                      = image_tag i.image.url
+        .item-detail__contents__center__detail__right
+          %table
+            %th 出品者
+            %td.item-detail__contents__center__detail__right__user-rate
+              アルジャーノン
+              .item-detail__contents__center__detail__right__user-rate--icon
+                .item-detail__contents__center__detail__right__user-rate--icon--good
+                  .item-detail__contents__center__detail__right__user-rate--icon--good--left
+                    = icon('fas', 'laugh')
+                  .item-detail__contents__center__detail__right__user-rate--icon--good--right
+                    0
 
-    .item-detail__contents__center__detail
-      .item-detail__contents__center__detail__left.clearfix
-        = image_tag src='/images/item.jpeg', class: "item-detail__contents__center__detail__left__main-image"
+                .item-detail__contents__center__detail__right__user-rate--icon--meh
+                  .item-detail__contents__center__detail__right__user-rate--icon--meh--left
+                    = icon('fas', 'meh')
+                  .item-detail__contents__center__detail__right__user-rate--icon--meh--right
+                    0
 
-        .item-detail__contents__center__detail__left__sub-images
-          .item-detail__contents__center__detail__left__sub-images__dot
-            = image_tag src='/images/item.jpeg', class: "item-detail__contents__center__detail__left__sub-images__dot"
+                .item-detail__contents__center__detail__right__user-rate--icon--sad
+                  .item-detail__contents__center__detail__right__user-rate--icon--sad--left
+                    = icon('fas', 'sad-tear')
+                  .item-detail__contents__center__detail__right__user-rate--icon--sad--right
+                    0
 
-          .item-detail__contents__center__detail__left__sub-images__dot
-            = image_tag src='/images/item.jpeg', class: "item-detail__contents__center__detail__left__sub-images__dot"
+          %table
+            %th カテゴリー
+            %td 
+              = @item.category.name
 
-          .item-detail__contents__center__detail__left__sub-images__dot
-            = image_tag src='/images/item.jpeg', class: "item-detail__contents__center__detail__left__sub-images__dot"
+          %table
+            %th ブランド
+            %td
+              - if @item.brand != nil
+                = @item.brand.name
+              - else
+                なし
+          %table
+            %th 商品の状態
+            %td
+              = @item.condition
+          %table
+            %th 配送料の負担
+            %td 送料込（出品者負担）
 
-          .item-detail__contents__center__detail__left__sub-images__dot
-            = image_tag src='/images/item.jpeg', class: "item-detail__contents__center__detail__left__sub-images__dot"
+          %table
+            %th 配送の方法
+            %td
+              =@item.shipping.method
 
-          .item-detail__contents__center__detail__left__sub-images__dot
-            = image_tag src='/images/item.jpeg', class: "item-detail__contents__center__detail__left__sub-images__dot"
+          %table
+            %th 発送元地域
+            %td 
+              =@item.shipping.prefecture_from
 
-          .item-detail__contents__center__detail__left__sub-images__dot
-            = image_tag src='/images/item.jpeg', class: "item-detail__contents__center__detail__left__sub-images__dot"
-
-      .item-detail__contents__center__detail__right
-        %table
-          %th 出品者
-          %td.item-detail__contents__center__detail__right__user-rate
-            アルジャーノン
-            .item-detail__contents__center__detail__right__user-rate--icon
-              .item-detail__contents__center__detail__right__user-rate--icon--good
-                .item-detail__contents__center__detail__right__user-rate--icon--good--left
-                  = icon('fas', 'laugh')
-                .item-detail__contents__center__detail__right__user-rate--icon--good--right
-                  0
-
-              .item-detail__contents__center__detail__right__user-rate--icon--meh
-                .item-detail__contents__center__detail__right__user-rate--icon--meh--left
-                  = icon('fas', 'meh')
-                .item-detail__contents__center__detail__right__user-rate--icon--meh--right
-                  0
-
-              .item-detail__contents__center__detail__right__user-rate--icon--sad
-                .item-detail__contents__center__detail__right__user-rate--icon--sad--left
-                  = icon('fas', 'sad-tear')
-                .item-detail__contents__center__detail__right__user-rate--icon--sad--right
-                  0
-
-        %table
-          %th カテゴリー
-          %td メンズ
-
-        %table
-          %th ブランド
-          %td ニケ
-        
-        %table
-          %th 商品の状態
-          %td 傷なし
-
-        %table
-          %th 配送料の負担
-          %td 送料込（出品者負担）
-
-        %table
-          %th 配送の方法
-          %td 未定
-        
-        %table
-          %th 発送元地域
-          %td 北海道
-
-        %table
-          %th 発送日の目安
-          %td 2~3日で発送
-    
+          %table
+            %th 発送日の目安
+            %td 2~3日で発送
+      
     .item-detail__contents__center__price
       %span.item-detail__contents__center__price__price
-        ¥9,900
+        = "¥#{@item.price}"
       %span.item-detail__contents__center__price__tax
         （税込）
       %span.item-detail__contents__center__price__fee
         送料込み
 
     .item-detail__contents__center__submit
-      %input.item-detail__contents__center__submit--button{name: "item-buy", placeholder: "", type: "submit", value: "購入画面に進む"}/
+      - if @item.level == 0
+        = link_to buy_item_purchase_index_path(@item.id), class:"item-detail__contents__center__submit--button" do
+          購入画面に進む
+      - elsif @item.level == 1
+        .item-detail__contents__center__submit--button-if
+          取引中
+      - elsif @item.level == 2
+        .item-detail__contents__center__submit--button-if
+          sold out
+          
+
         
 
     .item-detail__contents__center__description
@@ -119,14 +127,34 @@
             .item-detail__contents__center__description__icons__right__content--text
               あんしん・あんぜんへの取り組み
 
+  
+  .item-detail__contents__center__message-form--main
+    .item-detail__contents__center__message-form
+      
+      - @comments.each do |comment|
+        .item-detail__contents__center__message-form__comments-sec
+          .item-detail__contents__center__message-form__comments-sec__left
+            = image_tag "/images/item.jpeg", class: "item-detail__contents__center__message-form__comments-sec__left__image"
+          
+          .item-detail__contents__center__message-form__comments-sec__right
+            .item-detail__contents__center__message-form__comments-sec__right__contents
+              .item-detail__contents__center__message-form__comments-sec__right__contents__user-name
+                = comment.user.nickname
 
-  .item-detail__contents__center__message-form
-    .item-detail__contents__center__message-form__text
-      相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+              .item-detail__contents__center__message-form__comments-sec__right__contents__comment
+                .item-detail__contents__center__message-form__comments-sec__right__contents__comment--text
+                  = comment.text
+                .item-detail__contents__center__message-form__comments-sec__right__contents__comment--time
+                  = comment.created_at.strftime("%Y/%m/%d %H:%M")
 
-    %textarea.item-detail__contents__center__message-form--form(name="item-message" cols="30" rows="5" placeholder="")
-    .item-detail__contents__center__message-form__submit
-      %input.item-detail__contents__center__message-form__submit--button{name: "item-buy", placeholder: "", type: "submit", value: "コメントする"}/
+  .item-detail__contents__center__message-form__text
+    相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+
+    = form_with(model: [@item, @comment], local: true, id: "new_comment", method: "POST") do |f|
+      = f.text_area :text, placeholder: "", class:"item-detail__contents__center__message-form--form textbox"
+    
+      .item-detail__contents__center__message-form__submit
+        =f.submit class: "item-detail__contents__center__message-form__submit--button form__submit", value: "コメントする" ;
 
 
   .item-detail__contents__center__change-page

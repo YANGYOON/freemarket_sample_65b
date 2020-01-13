@@ -3,7 +3,9 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :session_and_valid_for_new_phone_number, only: [:new_phone_number]
   before_action :session_and_valid_for_new_address, only: [:new_address]
-  before_action :session_and_valid_for_create_address, only: [:create_address]
+  before_action :session_and_valid_for_create_address, only: [:signup_create]
+  before_action :session_and_valid_for_signup_creditcard, only: [:signup_creditcard]
+  # before_action :get_payjp_info, only: [:signup_creditcard, :session_and_valid_for_create_address]
   # before_action :user_params, only: [:create_address]
   # before_action :phone_number_params, only: [:create_address]
   # before_action :address_params, only: [:create_address]
@@ -11,7 +13,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
+  require 'payjp'
   # GET /resource/sign_up
+
+  def index
+  end
+
   def new
     @user = User.new
   end
@@ -24,21 +31,29 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @address = @user.build_address
   end
 
+  def signup_creditcard
+    @creditcard = @user.build_creditcard
+  end
 
   # # # POST /resource
 
-  def create_address
+  def signup_create
+    @user.build_creditcard(@creditcard.attributes)
     @user.build_phone_number(@phone_number.attributes)
-    @user.build_address(address_params)
-    if @user.save
+    @user.build_address(@address.attributes)
+    if @user.save!
       sign_in(:user, @user)
     else
-      render :create_address
+      render :signup_creditcard
     end
   end
 
-  #Save and Validation
+  #Session Save and Validation
   def session_and_valid_for_new_phone_number
+    if params[:sns_auth] == "true"
+      pass = Devise.friendly_token
+      params[:user][:password] = pass
+    end
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
     session[:password] = user_params[:password]
@@ -91,6 +106,40 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  def session_and_valid_for_signup_creditcard
+    @user = User.new(
+      nickname: session[:nickname],
+      email: session[:email],
+      password: session[:password],
+      last_name: session[:last_name],
+      first_name: session[:first_name],
+      last_name_kana: session[:last_name_kana],
+      first_name_kana: session[:first_name_kana],
+      birth_year: session[:birth_year],
+      birth_month: session[:birth_month],
+      birth_day: session[:birth_day],
+    )
+    @phone_number = PhoneNumber.new(phone_number: session[:phone_number])
+    session[:zipcode] = address_params[:zipcode]
+    session[:prefecture] = address_params[:prefecture]
+    session[:city] = address_params[:city]
+    session[:detail_address] = address_params[:detail_address]
+    session[:buidling] = address_params[:building]
+    session[:optional_phone_number] = address_params[:optional_phone_number]
+    @address = Address.new(
+      zipcode: session[:zipcode],
+      prefecture: session[:prefecture],
+      city: session[:city],
+      detail_address: session[:detail_address],
+      building: session[:building],
+      optional_phone_number: session[:optional_phone_number]
+    )
+    unless @address.valid?
+      flash.now[:alert] = @address.errors.full_messages
+      render :new_address    and return
+    end
+  end
+
   def session_and_valid_for_create_address
     @user = User.new(
       nickname: session[:nickname],
@@ -105,20 +154,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
       birth_day: session[:birth_day], 
     )
     @phone_number = PhoneNumber.new(phone_number: session[:phone_number])
-    session[:zipcode] = address_params[:zipcode]
-    session[:prefecture] = address_params[:prefecture]
-    session[:city] = address_params[:city]
-    session[:detail_address] = address_params[:detail_address]
     @address = Address.new(
       zipcode: session[:zipcode],
       prefecture: session[:prefecture],
       city: session[:city],
-      detail_address: session[:detail_address]
+      detail_address: session[:detail_address],
+      building: session[:building],
+      optional_phone_number: session[:optional_phone_number]
     )
-    unless @address.valid?
-      flash.now[:alert] = @address.errors.full_messages
-      render :new_address and return
-    end
+    Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
+    customer = Payjp::Customer.create(
+      card: params['payjp-token'],
+    )
+    @creditcard = Creditcard.new(customer_id: customer.id, card_id: customer.default_card) 
   end
 
   protected
@@ -128,7 +176,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def address_params
-    params.require(:address).permit(:zipcode, :prefecture, :city, :detail_address)
+    params.require(:address).permit(:zipcode, :prefecture, :city, :detail_address, :buidling, :optional_phone_number)
   end
 
   def user_params
@@ -145,4 +193,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
       :birth_day
       )
   end
+
+
 end
