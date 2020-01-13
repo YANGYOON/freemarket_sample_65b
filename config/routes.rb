@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       get 'category_children'
       get 'category_grandchildren'
       get 'set_sizes'
+      get 'set_brands'
       get 'cal_profit'
     end
     collection do
@@ -37,4 +38,5 @@ Rails.application.routes.draw do
   resources :creditcards, only: [:create, :new, :index, :show, :destroy]
   resources :users
   resources :categories, only: [:index, :show]
+  resources :graphs, only: [:index]
 end

@@ -47,6 +47,13 @@ class ItemsController < ApplicationController
       @selected_size = Size.find(@item.size_id)
       @selected_size_siblings = Size.where(classification: @selected_size.classification)
     end
+    if @item.brand_id != nil
+      @selected_brand = Brand.find(@item.brand_id)
+      @selected_brand_siblings = Brand.where(classification: @selected_brand.classification)
+    else
+      @selected_brand = Brand.find(101)
+      @selected_brand_siblings = Brand.where(classification: @selected_brand.classification)
+    end
     
   end
 
@@ -85,6 +92,10 @@ class ItemsController < ApplicationController
     @set_sizes = Size.where(classification: params[:parents_category_value])
   end
 
+  def set_brands
+    @set_brands = Brand.where(classification: params[:parents_category_value])
+  end
+
   def cal_profit
     @price = params[:price].to_i
     @sales_commission = (@price * 0.1).to_i
@@ -97,7 +108,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:id, :name, :price, :state, :condition, :category_id, :size_id,
+    params.require(:item).permit(:id, :name, :price, :state, :condition, :category_id, :size_id, :brand_id,
                                   images_attributes: [:id, :image, :_destroy], 
                                   shipping_attributes: [:method, :prefecture_from, :period_before_shopping, :fee_burden])
   end
