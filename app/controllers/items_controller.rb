@@ -14,15 +14,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    # ブランドはstrでparamsにのってくるので、該当するbrand_idを探す
-    @brand_data = Brand.find_by(name: params[:item][:brand])
-    if @brand_data != nil
-      @brand_id = Brand.find_by(name: params[:item][:brand]).id
-    else
-      @brand_id = nil
-    end
-    
-    @item = Item.new(item_params.merge(brand_id: @brand_id, seller_id: current_user.id))
+    @item = Item.new(item_params.merge(seller_id: current_user.id))
     if @item.save
       redirect_to root_path
     else
@@ -116,5 +108,4 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
-
 end
