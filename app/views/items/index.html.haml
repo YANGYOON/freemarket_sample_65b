@@ -5,4 +5,5 @@
   = render partial: 'sell_items_list', locals: { items: @items }
 = render partial: 'new_items'
 = render partial: 'main_footer'
-= render partial: 'sell_btn'
+- if user_signed_in?
+  = render partial: 'sell_btn'

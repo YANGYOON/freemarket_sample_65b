@@ -53,7 +53,25 @@
               = exp_month + " / " + exp_year
 
           .item-buy-contents__main__buy-item__box__pay-method__logo
-            = image_tag src='/images/fmarket_logo_red.svg', class: ".item-buy-contents__main__buy-item__box__pay-method__logo--image"
+            -if @default_card_information.brand == "Visa"
+              = image_tag "/images/visa.svg", height: 15, width: 49, class: "item-buy-contents__main__buy-item__box__pay-method__logo--image"
+            
+            -elsif @default_card_information.brand == "MasterCard"
+              = image_tag "/images/master-card.svg", height: 15, width: 49, class: "item-buy-contents__main__buy-item__box__pay-method__logo--image"
+
+            -elsif @default_card_information.brand == "JCB"
+              = image_tag "/images/jcb.svg", height: 15, width: 49, class: "item-buy-contents__main__buy-item__box__pay-method__logo--image"
+
+            -elsif @default_card_information.brand == "American Express"
+              = image_tag "/images/american_express.svg", height: 15, width: 49, class: "item-buy-contents__main__buy-item__box__pay-method__logo--image"
+
+            -elsif @default_card_information.brand == "Diners Club"
+              = image_tag "/images/dinersclub.svg", height: 15, width: 49, class: "item-buy-contents__main__buy-item__box__pay-method__logo--image"
+
+            -elsif @default_card_information.brand == "Discover"
+              = image_tag "/images/discover.svg", height: 15, width: 49, class: "item-buy-contents__main__buy-item__box__pay-method__logo--image"
+
+            
 
         .item-buy-contents__main__buy-item__box__area
           .item-buy-contents__main__buy-item__box__area--text

@@ -73,12 +73,15 @@
                   .contents__main__detail__right__select
                     = f.collection_select :size_id, @selected_size_siblings, :id, :name,{selected: @selected_size.id}, {class: "contents__main__detail__right__select__form", required: true}
                     = icon('fas', 'angle-down', class: "contents__main__detail__right__select--icon")
-            .contents__main__detail__right__name
-              ブランド
-              .contents__main__detail__right__name--any
-                任意
-            .contents__main__detail__right__select
-              = f.text_field :brand, class: "contents__main__detail__right__text__form", placeholder: "例) シャネル", value: @item.brand.name
+            .item_select-brand
+              #set_brands_wrapper.item-select-wrapper
+                .contents__main__detail__right__name
+                  ブランド
+                  .contents__main__detail__right__name--any
+                    任意
+                .contents__main__detail__right__select
+                  = f.collection_select :brand_id, @selected_brand_siblings, :id, :name,{selected: @selected_brand.id}, {class: "contents__main__detail__right__select__form", required: true}
+                  = icon('fas', 'angle-down', class: "contents__main__detail__right__select--icon")
             .contents__main__detail__right__name
               製品の状態
               .contents__main__detail__right__name--icon

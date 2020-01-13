@@ -2,17 +2,8 @@
 .user_profile_body
   %nav.bread__crumbs
     %ul.bread__crumbs__list
-      %li{itemscope: "", itemtype:"http://data-vocabulary.org/Breadcrumb"}
-        = link_to "#",class: "bread__crumbs__list__url", itemprop: "url" do
-          %span{itemprop: "title"} メルカリ
-        %i.fas.fa-chevron-right
-      %li{itemscope:  "", itemtype: "http://data-vocabulary.org/Breadcrumb"}
-        = link_to "#",class: "bread__crumbs__list__url", itemprop: "url" do
-          %span{itemprop: "title"} マイページ
-        %i.fas.fa-chevron-right
-      %li{itemscope:"", itemtype: "http://data-vocabulary.org/Breadcrumb"}
-        = link_to "#",class: "bread__crumbs__list__url", itemprop: "url" do
-          %span{itemprop: "title"} ログアウト
+      - breadcrumb :identification
+      = breadcrumbs pretext: "",separator: " &rsaquo; ", class: "breadcrumbs-list"
   .userprofile__content
     = render partial: '/common/side_bar'
     = render partial: 'identification'

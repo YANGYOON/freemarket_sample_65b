@@ -41,7 +41,11 @@
         .phone_number_content_text__main__number_form
           = f.text_field :phone_number, placeholder: "携帯電話の番号を入力", class:"phone_number_content_text__main__number_form__button", autofocus: true, required: true     
         .phone_number_content_text__main__number_form__text
-          本人確認のため、携帯電話のSMS（ショートメッセージサービス）を利用して認証を行います。
+          %p 本人確認のため、携帯電話のSMS（ショートメッセージサービス）を利用して認証を行います。
+          .user_sing_in_number_option{style: 'font-size:15px; margin-top:10px;font-weight:bold;color:red;'}
+            %p ※ハイフンを加えて番号入力をして下さい(例:080-1111-1111)
+            .user_sing_in_number_option{style: 'margin-top:10px;'}
+              %p ※先頭3桁は080 or 090のみになります
         .phone_number_content_text__main__number_form__button_2
           %button.btn-default.btn-red{:type => "submit"} 次へ進む
         .phone_number_content_text__main__text_2

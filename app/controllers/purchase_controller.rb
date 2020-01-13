@@ -1,23 +1,24 @@
 class PurchaseController < ApplicationController
   before_action :redirect_to_sign_in, only: [:pay, :buy]
+  before_action :set_item, only: [:pay, :buy, :redirect_to_item_show_if_own_item, :redirect_to_item_show_if_item_sold]
+  before_action :redirect_to_item_show_if_own_item, only: [:pay, :buy]
+  before_action :redirect_to_item_show_if_item_sold, only: [:pay, :buy]
   before_action :redirect_to_credit_new, only: [:pay, :buy]
   before_action :get_payjp_info, only: [:pay, :buy]
 
   require 'payjp'
 
   def buy
-    @item = Item.find(params[:item_id])
     @image = Image.find(params[:item_id])
-    @address = Address.find_by(user_id: 2)
-    @user = User.find_by(id: 2)
+    @address = Address.find_by(user_id: current_user.id)
+    @user = User.find_by(id: current_user.id)
 
     customer = Payjp::Customer.retrieve(@creditcard.customer_id)
       @default_card_information = customer.cards.retrieve(@creditcard.card_id)
   end
 
   def pay
-    @item = Item.find(params[:item_id])
-    @creditcard = Creditcard.find_by(user_id: 2)
+    @creditcard = Creditcard.find_by(user_id: current_user.id)
     if @item.blank?
       redirect_to action: "buy"
     else
@@ -26,17 +27,26 @@ class PurchaseController < ApplicationController
       customer: @creditcard.customer_id,
       currency: 'jpy'
      )
-      redirect_to root_path
+
+      @item.update(level: 1, buyer_id: current_user.id)
+      redirect_to done_item_purchase_index_path
     end
   end
 
-  private
+  def done
+  end
 
+
+  private
   def redirect_to_credit_new
-    @creditcard = Creditcard.find_by(user_id: 2)
+    @creditcard = Creditcard.find_by(user_id: current_user.id)
     if @creditcard.blank?
       redirect_to controller: "creditcards", action: "new"
     end
+  end
+
+  def set_item
+    @item = Item.find(params[:item_id])
   end
 
   def get_payjp_info
@@ -46,6 +56,18 @@ class PurchaseController < ApplicationController
   def redirect_to_sign_in
     unless user_signed_in?
       redirect_to new_user_session_path
+    end
+  end
+
+  def redirect_to_item_show_if_own_item
+    if @item.seller_id == current_user.id
+      redirect_to item_path(params[:item_id])
+    end
+  end
+
+  def redirect_to_item_show_if_item_sold
+    if @item.level != 0
+      redirect_to item_path(params[:item_id])
     end
   end
 

@@ -1,13 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe ItemsController, type: :controller do
-  describe 'GET #show' do
-    it "renders the :show template" do
-      get :show
-      expect(response).to render_template :show
-    end
-  end
-  
   describe 'GET #index' do
     it "renders the :index template" do
       get :index
@@ -22,20 +15,4 @@ RSpec.describe ItemsController, type: :controller do
     end
 
   end
-
-  describe 'GET #edit' do
-    it "renders the :edit template" do
-      get :edit
-      expect(response).to render_template :edit
-    end
-  end
-
-  describe 'GET #update' do
-    it "renders the :update template" do
-      get :update
-      expect(response).to render_template :update
-    end
-  end
-end
-
 end

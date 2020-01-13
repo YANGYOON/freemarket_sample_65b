@@ -8,8 +8,8 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer :level, default: 0
       t.integer :likes_count, default: 0
 
-      # t.integer :buyer_id, null: false
-      # t.integer :seller_id
+      t.integer :buyer_id
+      t.integer :seller_id
       t.timestamps
     end
   end
