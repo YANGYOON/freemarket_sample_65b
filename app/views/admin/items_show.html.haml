@@ -1,0 +1,21 @@
+.admin-item-all
+  .admin-item-all__head
+    .admin-item-all__head--title
+      出品一覧
+    
+    .admin-item-all__head--link
+      = link_to admin_index_path do
+        戻る
+
+
+  .admin-item-all__items
+    - @items.each do |item|
+      .admin-item-all__items__grid__item
+        = link_to "/items/#{item.id}" do
+          = image_tag item.images.last.image.url, class: "admin-item-all__items__grid__item__image"
+          .admin-item-all__items__grid__item__price
+            ¥
+            = item.price
+          .admin-user-all__items__grid__item__name
+            = item.name
+            
