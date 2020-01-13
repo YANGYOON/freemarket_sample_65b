@@ -28,12 +28,6 @@ ActiveRecord::Schema.define(version: 2020_01_08_022002) do
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "ancestry"
-  create_table "phone_numbers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "phone_number", null: false
-    t.bigint "user_id"
-  create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "ancestry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -45,16 +39,10 @@ ActiveRecord::Schema.define(version: 2020_01_08_022002) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "ancestry"
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
     t.integer "item_id"
     t.text "text"
-  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "ancestry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -92,15 +80,6 @@ ActiveRecord::Schema.define(version: 2020_01_08_022002) do
     t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["size_id"], name: "index_items_on_size_id"
-  end
-
-  create_table "phone_numbers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "phone_number", null: false
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["phone_number"], name: "index_phone_numbers_on_phone_number", unique: true
-    t.index ["user_id"], name: "index_phone_numbers_on_user_id"
   end
 
   create_table "phone_numbers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -168,11 +147,4 @@ ActiveRecord::Schema.define(version: 2020_01_08_022002) do
   add_foreign_key "phone_numbers", "users"
   add_foreign_key "shippings", "items"
   add_foreign_key "sns_credentials", "users"
-  add_foreign_key "shippings", "items"
-  add_foreign_key "items", "sizes"
-  add_foreign_key "phone_numbers", "users"
-  add_foreign_key "shippings", "items"
-  add_foreign_key "sns_credentials", "users"
-  add_foreign_key "phone_numbers", "users"
-  add_foreign_key "shippings", "items"
 end
