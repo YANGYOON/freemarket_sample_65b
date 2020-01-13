@@ -1,6 +1,7 @@
 class PurchaseController < ApplicationController
   before_action :redirect_to_sign_in, only: [:pay, :buy]
-  before_action :redirect_to_item_show, only: [:pay, :buy]
+  before_action :redirect_to_item_show_if_own_item, only: [:pay, :buy]
+  before_action :redirect_to_item_show_if_item_sold, only: [:pay, :buy]
   before_action :redirect_to_credit_new, only: [:pay, :buy]
   before_action :get_payjp_info, only: [:pay, :buy]
 
@@ -55,9 +56,16 @@ class PurchaseController < ApplicationController
     end
   end
 
-  def redirect_to_item_show
+  def redirect_to_item_show_if_own_item
     @item = Item.find(params[:item_id])
     if @item.seller_id == current_user.id
+      redirect_to item_path(params[:item_id])
+    end
+  end
+
+  def redirect_to_item_show_if_item_sold
+    @item = Item.find(params[:item_id])
+    if @item.level != 0
       redirect_to item_path(params[:item_id])
     end
   end
