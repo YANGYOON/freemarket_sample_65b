@@ -18,16 +18,17 @@ class User < ApplicationRecord
   # PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{7,128}+\z/i
   KANA_REGEX = /\A([ァ-ン]|ー)+\z/i
   NAME_REGEX = /\A([ぁ-んァ-ヶー一-龠])+\z/i
-  validates :email,             presence: true, uniqueness: { case_sensitive: false }, format: { with: VALID_EMAIL_REGEX }
+  NUMBER_REGEX = /\d{1,4}/
+  validates :email,             presence: {message: "メールを入力してください"}, uniqueness: { case_sensitive: false }, format: { with: VALID_EMAIL_REGEX }
   validates :password,          presence: true, length: {minimum: 7, maximum: 128}
   validates :nickname,          presence: true
   validates :last_name,         presence: true, length: {maximum: 20}, format: { with: NAME_REGEX }
   validates :first_name,        presence: true, length: {maximum: 20}, format: { with: NAME_REGEX }
   validates :last_name_kana,    presence: true, length: {maximum: 20}, format: { with: KANA_REGEX }
   validates :first_name_kana,   presence: true, length: {maximum: 20}, format: { with: KANA_REGEX }
-  validates :birth_year,        presence: true
-  validates :birth_month,       presence: true
-  validates :birth_day,         presence: true
+  validates :birth_year,        presence: true, format: { with: NUMBER_REGEX }
+  validates :birth_month,       presence: true, format: { with: NUMBER_REGEX }
+  validates :birth_day,         presence: true, format: { with: NUMBER_REGEX }
   
 #SNS authentication
   def self.from_omniauth(auth)
