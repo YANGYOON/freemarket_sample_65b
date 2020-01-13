@@ -1,5 +1,6 @@
 class PurchaseController < ApplicationController
   before_action :redirect_to_sign_in, only: [:pay, :buy]
+  before_action :redirect_to_item_show, only: [:pay, :buy]
   before_action :redirect_to_credit_new, only: [:pay, :buy]
   before_action :get_payjp_info, only: [:pay, :buy]
 
@@ -51,6 +52,13 @@ class PurchaseController < ApplicationController
   def redirect_to_sign_in
     unless user_signed_in?
       redirect_to new_user_session_path
+    end
+  end
+
+  def redirect_to_item_show
+    @item = Item.find(params[:item_id])
+    if @item.seller_id == current_user.id
+      redirect_to item_path(params[:item_id])
     end
   end
 
