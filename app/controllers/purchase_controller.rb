@@ -1,5 +1,6 @@
 class PurchaseController < ApplicationController
   before_action :redirect_to_sign_in, only: [:pay, :buy]
+  before_action :set_item, only: [:pay, :buy, :redirect_to_item_show_if_own_item, :redirect_to_item_show_if_item_sold]
   before_action :redirect_to_item_show_if_own_item, only: [:pay, :buy]
   before_action :redirect_to_item_show_if_item_sold, only: [:pay, :buy]
   before_action :redirect_to_credit_new, only: [:pay, :buy]
@@ -8,7 +9,6 @@ class PurchaseController < ApplicationController
   require 'payjp'
 
   def buy
-    @item = Item.find(params[:item_id])
     @image = Image.find(params[:item_id])
     @address = Address.find_by(user_id: current_user.id)
     @user = User.find_by(id: current_user.id)
@@ -18,7 +18,6 @@ class PurchaseController < ApplicationController
   end
 
   def pay
-    @item = Item.find(params[:item_id])
     @creditcard = Creditcard.find_by(user_id: current_user.id)
     if @item.blank?
       redirect_to action: "buy"
@@ -46,6 +45,10 @@ class PurchaseController < ApplicationController
     end
   end
 
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
+
   def get_payjp_info
       Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
   end
@@ -57,14 +60,12 @@ class PurchaseController < ApplicationController
   end
 
   def redirect_to_item_show_if_own_item
-    @item = Item.find(params[:item_id])
     if @item.seller_id == current_user.id
       redirect_to item_path(params[:item_id])
     end
   end
 
   def redirect_to_item_show_if_item_sold
-    @item = Item.find(params[:item_id])
     if @item.level != 0
       redirect_to item_path(params[:item_id])
     end

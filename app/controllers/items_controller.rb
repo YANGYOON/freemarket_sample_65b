@@ -22,9 +22,8 @@ class ItemsController < ApplicationController
       @brand_id = nil
     end
     
-    @item = Item.new(item_params.merge(brand_id: @brand_id))
+    @item = Item.new(item_params.merge(brand_id: @brand_id, seller_id: current_user.id))
     if @item.save
-      @item.update(seller_id: current_user.id)
       redirect_to root_path
     else
       @category = Category.order("id ASC").limit(13)
