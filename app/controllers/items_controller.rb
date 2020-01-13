@@ -14,9 +14,14 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params.merge(seller_id: current_user.id))
-    if @item.save
-      redirect_to root_path
+    if params[:item][:images_attributes] != nil
+      @item = Item.new(item_params.merge(seller_id: current_user.id))
+      if @item.save
+        redirect_to root_path
+      else
+        @category = Category.order("id ASC").limit(13)
+        redirect_to action: 'new'
+      end
     else
       @category = Category.order("id ASC").limit(13)
       redirect_to action: 'new'
@@ -49,7 +54,6 @@ class ItemsController < ApplicationController
       @selected_brand = Brand.find(101)
       @selected_brand_siblings = Brand.where(classification: @selected_brand.classification)
     end
-    
   end
 
   def update
