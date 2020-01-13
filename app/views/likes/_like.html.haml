@@ -2,7 +2,7 @@
   - unless item.like_user(current_user.id).blank?
     = link_to item_like_path(item_id: item.id ,id: item.likes[0].id),method: :delete, remote: true do
       .vertical_like
-        .fa.fa-heart.fa-2x.heart-red
+        .fa.fa-heart.fa-2x.heart-red{style: 'color:pink'}
           %span.red-text
             = item.likes_count
   - else
