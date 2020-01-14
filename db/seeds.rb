@@ -1,24 +1,3 @@
-[
-['70cm', 3],
-['80cm', 3],
-['90cm', 3],
-['95cm', 3]
-].each do |name, state,condition,price,seller_id,category_id,brand_id|
-Item.create(
-  { name: name, state: state, condition: condition, price: price,seller_id:seller_id,category_id:category_id,brand_id:brand_id}
-)
-end
-
-[
-[ open("#{Rails.root}/db/fixtures/"), 3],
-['80cm', 3],
-['90cm', 3],
-['95cm', 3]
-].each do |image, item_id|
-Image.create(
-  { image: image, item_id: item_id}
-)
-end
 
 [
   ['ナイキ', 1],
