@@ -1,7 +1,13 @@
 !!!
 %html
   %head
-    = analytics_init if Rails.env.production?
+    / Google Analytics
+    :javascript
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-156166054-1', 'auto');
+      ga('send', 'pageview');
+    %script{:async => "", :src => "https://www.google-analytics.com/analytics.js"}
+    / End Google Analytics
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title FreemarketSample65b
     = csrf_meta_tags
