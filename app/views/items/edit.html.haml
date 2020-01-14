@@ -51,7 +51,7 @@
               .contents__main__detail__right__name--icon
                 必須
             .contents__main__detail__right__select
-              = f.collection_select :category, @category, :id, :name,{prompt: "---", selected: @selected_category.root_id}, {class: "contents__main__detail__right__select__form", id: "category_select", required: true}
+              = f.collection_select :root_category_id, @category, :id, :name,{prompt: "---", selected: @selected_category.root_id}, {class: "contents__main__detail__right__select__form", id: "category_select", required: true}
               = icon('fas', 'angle-down', class: "contents__main__detail__right__select--icon")
             .item_select-children
               #children_wrapper.item-select-wrapper.edit_select-children

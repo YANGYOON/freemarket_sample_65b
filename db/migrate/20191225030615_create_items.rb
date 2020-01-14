@@ -7,6 +7,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer :price, null: false
       t.integer :level, default: 0
       t.integer :likes_count, default: 0
+      t.integer :root_category_id
       t.integer :buyer_id
       t.integer :seller_id
       t.timestamps
