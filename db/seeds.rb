@@ -1053,3 +1053,17 @@ others_trip.children.create([{name: "タオル"},
 #                               {name: ""},
 #                               {name: ""},
 #                               {name: ""}])
+
+User.create!(nickname:  "管理者",
+  email: "admin@test.jp",
+  first_name: "太郎",
+  last_name: "管理者",
+  first_name_kana: "タロウ",
+  last_name_kana: "カンリシャ",
+  birth_year: "2000",
+  birth_month: "01",
+  birth_day: "01",
+  password:  "abcd1234",
+  password_confirmation: "abcd1234",
+  admin: true
+ )

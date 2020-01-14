@@ -1,0 +1,16 @@
+.admin-user-index{
+  padding: 80px;
+  &__menu{
+    font-size: 50px;
+  }
+  &__list{
+    font-size: 20px;
+    margin: 15px;
+    li{
+      margin: 15px;
+    }
+    a{
+      color: cadetblue;
+    }
+  }
+}

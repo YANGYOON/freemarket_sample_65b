@@ -21,26 +21,32 @@
             ブランドから探す
       %ul.main_header__box__lower__users
         - if user_signed_in?
-          %li.main_header__box__lower__users__lists.main_header__box__lower__users__lists--like
-            = link_to "#", class: "main_header__link" do
-              = icon('far', 'heart', class: "main_header__box__lower__users__lists__icon")
-              .main_header__box__lower__users__lists__title
-                いいね!一覧
-          %li.main_header__box__lower__users__lists
-            = link_to "#", class: "main_header__link" do
-              = icon('far', 'bell', class: "main_header__box__lower__users__lists__icon")
-              .main_header__box__lower__users__lists__title
-                お知らせ
-          %li.main_header__box__lower__users__lists
-            = link_to "#", class: "main_header__link" do
-              = icon('fas', 'check', class: "main_header__box__lower__users__lists__icon")
-              .main_header__box__lower__users__lists__title
-                やることリスト
-          %li.main_header__box__lower__users__lists
-            = link_to user_profiles_path, class: "main_header__link" do
-              = icon('fas', 'user-circle', class: "main_header__box__lower__users__lists__icon")
-              .main_header__box__lower__users__lists__title
-                マイページ
+          - if current_user.admin?
+            %li.main_header__box__lower__users__lists.main_header__box__lower__users__lists--like
+              = link_to admin_index_path, class: "main_header__link" do
+                管理ページ
+          
+          - else
+            %li.main_header__box__lower__users__lists.main_header__box__lower__users__lists--like
+              = link_to "#", class: "main_header__link" do
+                = icon('far', 'heart', class: "main_header__box__lower__users__lists__icon")
+                .main_header__box__lower__users__lists__title
+                  いいね!一覧
+            %li.main_header__box__lower__users__lists
+              = link_to "#", class: "main_header__link" do
+                = icon('far', 'bell', class: "main_header__box__lower__users__lists__icon")
+                .main_header__box__lower__users__lists__title
+                  お知らせ
+            %li.main_header__box__lower__users__lists
+              = link_to "#", class: "main_header__link" do
+                = icon('fas', 'check', class: "main_header__box__lower__users__lists__icon")
+                .main_header__box__lower__users__lists__title
+                  やることリスト
+            %li.main_header__box__lower__users__lists
+              = link_to user_profiles_path, class: "main_header__link" do
+                = icon('fas', 'user-circle', class: "main_header__box__lower__users__lists__icon")
+                .main_header__box__lower__users__lists__title
+                  マイページ
         -else 
           %li.main_header__box__lower__users__lists 
             = link_to users_path, class: "main_header__link" do
