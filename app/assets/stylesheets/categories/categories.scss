@@ -22,17 +22,14 @@
   height: 44px;
   overflow: visible;
 }
-
 .categories-list__parents__parent:hover > .categories-list__children > .categories-list__children__child {
   height: 30px;
   overflow: visible;
 }
-
 .categories-list__children__child:hover > .categories-list__grandchildren > .categories-list__grandchild__grandchild {
   height: 30px;
   overflow: visible;
 }
-
 .categories-list{
   &__parents {
     margin-top: 10px;
