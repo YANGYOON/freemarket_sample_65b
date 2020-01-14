@@ -1,9 +1,8 @@
 = render partial: 'main_header'
 = render partial: 'slider'
 = render partial: 'popular_categories'
-- if @items[0] != nil
-  = render partial: 'sell_items_list', locals: { items: @items }
-= render partial: 'new_items'
+- @trend_categories_ids.each do |root_category_id|
+  = search_new_items_category(root_category_id)
 = render partial: 'main_footer'
 - if user_signed_in?
   = render partial: 'sell_btn'

@@ -22,23 +22,20 @@
   height: 44px;
   overflow: visible;
 }
-
 .categories-list__parents__parent:hover > .categories-list__children > .categories-list__children__child {
   height: 30px;
   overflow: visible;
 }
-
 .categories-list__children__child:hover > .categories-list__grandchildren > .categories-list__grandchild__grandchild {
   height: 30px;
   overflow: visible;
 }
-
 .categories-list{
   &__parents {
     margin-top: 10px;
-  list-style:none;
-  width: 250px;
-  height: 0px;
+    list-style:none;
+    width: 250px;
+    height: 0px;
     &__parent {
       &__link {
       color: #333333;
@@ -138,9 +135,7 @@
     &__category-lists {
       margin-top: 40px;
       &__parents {
-       
         &__parent {
-          
           padding: 10px 0;
           border-radius: 5px 5px 0 0;
           font-size: 24px;

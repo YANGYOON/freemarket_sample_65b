@@ -1,9 +1,20 @@
 class ItemsController < ApplicationController
+  include ApplicationHelper
   before_action :set_item, only: [:edit, :update, :destroy]
 
   def index
-    @items = Item.includes(:images).order('created_at DESC').limit(20)
-    @categories = Category.order("id ASC").limit(13)
+    @items = Item.order('created_at DESC').limit(20)
+
+    @trend_categories = Item.group(:root_category_id).order('count_all DESC').limit(5).count.to_a
+    @trend_categories_ids = []
+    @trend_categories.each_with_index do |trend_category, i|
+      @trend_categories_ids = @trend_categories_ids.push(trend_category[0])
+    end
+
+    @trend_categories_data = []
+    @trend_categories_ids.each do |category_id|
+      @trend_categories_data = @trend_categories_data.push(Category.find(category_id))
+    end
   end
 
   def new
@@ -110,7 +121,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:id, :name, :price, :state, :condition, :category_id, :size_id, :brand_id,
+    params.require(:item).permit(:id, :name, :price, :state, :condition, :root_category_id, :category_id, :size_id, :brand_id,
                                   images_attributes: [:id, :image, :_destroy], 
                                   shipping_attributes: [:method, :prefecture_from, :period_before_shopping, :fee_burden])
   end

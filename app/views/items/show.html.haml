@@ -95,7 +95,7 @@
             
           = link_to admin_index_path, class:"item-detail__contents__center__submit__admin--button-back" do
             戻る
-     
+
       - elsif @item.seller_id != current_user.id
         .item-detail__contents__center__submit
           - if @item.level == 0

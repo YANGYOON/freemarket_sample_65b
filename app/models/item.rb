@@ -26,9 +26,19 @@ class Item < ApplicationRecord
   validates :name, presence: true
   validates :state, presence: true
   validates :condition, presence: true
+  validates :root_category_id, presence: true
   validates :category_id, presence: true
   validates :price, presence: true,
                     numericality: {
                       greater_than_or_equal_to: 300,
                       less_than_or_equal_to: 9999999}
+
+  def like_user(user_id)
+    likes.find_by(user_id: user_id)
+  end
+
+  def self.search(search)
+    return Item.all unless search
+    Item.where('name LIKE(?)', "%#{search}%")
+  end
 end
