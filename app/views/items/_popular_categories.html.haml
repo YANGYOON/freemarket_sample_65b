@@ -1,7 +1,7 @@
 .popular_categories
   .popular_categories__contents
     = link_to graphs_path, class: "popular_categories__contents__title" do
-      = image_tag "/images/rankfirst.png", class: "popular_categories__contents__title__crown-icon", 
+      = image_tag "/images/rankfirst.png", class: "popular_categories__contents__title__crown-icon"
       トレンドワード
     .popular_categories__contents__categories
       - @trend_categories_data.each do |trend_category|
