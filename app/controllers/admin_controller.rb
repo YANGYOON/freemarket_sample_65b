@@ -5,11 +5,15 @@ class AdminController < ApplicationController
   end
 
   def users_show
-    @users = User.all.order("created_at DESC").page(params[:page]).per(5)
+    @users = User.all.order("created_at DESC")
   end
 
   def items_show
-    @items = Item.includes(:images).order('created_at DESC').limit(20)
+    @items = Item.includes(:images).order('created_at DESC')
+  end
+
+  def trading_show
+    @items = Item.includes(:images).order('created_at DESC')
   end
 
   def user_destroy
@@ -21,7 +25,7 @@ class AdminController < ApplicationController
   def item_destroy
     @item = Item.find(params[:id])
     @item.destroy
-    redirect_to users_show_admin_index_path
+    redirect_to items_show_admin_index_path
   end
 
 

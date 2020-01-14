@@ -10,3 +10,11 @@
       %li
         = link_to items_show_admin_index_path do
           出品一覧 
+
+      %li
+        = link_to trading_show_admin_index_path do
+          取引中の商品
+
+      %li
+        = link_to  destroy_user_session_path, method: :delete do
+          ログアウト

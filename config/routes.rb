@@ -37,10 +37,12 @@ Rails.application.routes.draw do
   resources :creditcards, only: [:create, :new, :index, :show, :destroy]
   resources :users
   resources :categories, only: [:index, :show]
+  resources :graphs, only: [:index]
   resources :admin, only: [:index] do
     collection do
       get 'users_show'
       get 'items_show'
+      get 'trading_show'
     end
     member do
       delete 'user_destroy'
