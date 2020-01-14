@@ -17,6 +17,7 @@ class Item < ApplicationRecord
   validates :name, presence: true
   validates :state, presence: true
   validates :condition, presence: true
+  validates :root_category_id, presence: true
   validates :category_id, presence: true
   validates :price, presence: true,
                     numericality: {
