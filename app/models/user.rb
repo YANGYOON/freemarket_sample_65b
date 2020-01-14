@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :comments
 
 
+
 #REGEX and Validation
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   # PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{7,128}+\z/i

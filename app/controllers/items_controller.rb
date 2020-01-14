@@ -33,6 +33,8 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @items = Item.where(seller_id: @item.seller_id).includes(:images).order('created_at DESC').limit(7)
+    @same_category_items = Item.where(category_id: @item.category_id).includes(:images).order('created_at DESC').limit(6)
     @comment = Comment.new
     @comments = @item.comments.includes(:user)
   end 

@@ -14,11 +14,14 @@ body{
       font-size: 40px;
       line-height: 700%;
     }
-    &__link{
+    &__links{
       font-size: 20px;
+      
     }
     a{
       color: rgb(128, 197, 230);
+      margin: 0px 0px 30px 0px;
+      display: block;
     }
   }
 }

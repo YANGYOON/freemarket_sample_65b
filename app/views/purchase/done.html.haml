@@ -5,8 +5,11 @@
     .parchase-done__main__content__text
       %span 購入手続きが完了しました！
 
-    .parchase-done__main__content__link
-      = link_to root_path do
+    .parchase-done__main__content__links
+      = link_to item_path(@item), clss: "parchase-done__main__content__links__item-show-back" do
+        商品詳細画面へ戻る
+
+      = link_to root_path, class: "parchase-done__main__content__links__top-redirect" do
         トップページへ戻る
 
 = render 'items/items-footer'
