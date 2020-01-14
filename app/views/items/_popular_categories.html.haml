@@ -1,13 +1,9 @@
 .popular_categories
   .popular_categories__contents
     = link_to graphs_path, class: "popular_categories__contents__title" do
+      = image_tag "/images/rankfirst.png", class: "popular_categories__contents__title__crown-icon", 
       トレンドワード
     .popular_categories__contents__categories
-      = link_to "#", class: "popular_categories__contents__categories__tag" do
-        レディース
-      = link_to "#", class: "popular_categories__contents__categories__tag" do
-        メンズ
-      = link_to "#", class: "popular_categories__contents__categories__tag" do
-        家電・スマホ・カメラ
-      = link_to "#", class: "popular_categories__contents__categories__tag" do
-        categories.name
+      - @trend_categories_data.each do |trend_category|
+        = link_to category_path(trend_category), class: "popular_categories__contents__categories__tag" do
+          = trend_category.name

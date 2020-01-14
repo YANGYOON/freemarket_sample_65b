@@ -30,23 +30,3 @@
   }
 }
 
-@media (max-width: 768px) {
-  .popular_categories__contents {
-    width: 100%;
-  }
-  .popular_categories__contents__title {
-    font-size: 24px;
-  }
-  .popular_categories__contents__categories {
-    margin: 20px auto;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-content: center;
-    gap: 10px;
-    &__tag {
-    font-size: 14px;
-    width: 230px;
-    height: 21px;
-    }
-  }
-}
