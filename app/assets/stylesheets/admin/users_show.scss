@@ -1,0 +1,32 @@
+.admin-user-all{
+  padding: 50px;
+  &__head{
+    font-size: 30px;
+    display: flex;
+    justify-content: space-between;
+    a{
+      color: red;
+    }
+  }
+  .admin-user-all-sec{
+    margin-left: 80px;
+    text-align: center;
+    &__tb{
+      margin: 10px;
+    }
+    &__th{
+      border: 1px solid black;
+      height: 50px;
+      width: 180px;
+      text-align: center;
+    }
+    &__td{
+      border: 1px solid black;
+      height: 50px;
+      width: 180px;
+    }
+    a{
+      color: red;
+    }
+  }
+} 

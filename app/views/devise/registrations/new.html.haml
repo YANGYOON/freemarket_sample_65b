@@ -1,0 +1,139 @@
+.new_inform_body
+  .new_inform_header
+    .new_inform_header__logo
+      = image_tag src="/images/fmarket_logo_red.svg", size: "200x100"
+    %ul.new_inform_header__pankuzu
+      %li.new_inform_header__pankuzu__register_inform_text
+        会員情報
+        .new_inform_header__pankuzu__register_inform_text__status
+          ●
+        .new_inform_header__pankuzu__register_inform_text__underline
+          あ
+      %li.new_inform_header__pankuzu__phone_number_text
+        電話番号認証
+        .new_inform_header__pankuzu__phone_number_text__status
+          ●
+        .new_inform_header__pankuzu__phone_number_text__underline
+          あ
+      %li.new_inform_header__pankuzu__adress_text
+        お届け先住所入力
+        .new_inform_header__pankuzu__adress_text__status
+          ●
+        .new_inform_header__pankuzu__adress_text__underline
+          あ
+      %li.new_inform_header__pankuzu__pay_text
+        お支払い方法
+        .new_inform_header__pankuzu__pay_text__status
+          ●
+        .new_inform_header__pankuzu__pay_text__underline
+          あ
+      %li.new_inform_header__pankuzu__done_text
+        完了
+        .new_inform_header__pankuzu__done_text__status
+          ●
+  .new_inform_content_text
+    = form_for @user, url: phone_numbers_path, method: :get do |f|
+      .new_inform_content_text__top
+        会員情報入力
+      .new_inform_content_text__main
+        .new_inform_content_text__main__nickname
+          ニックネーム
+          .new_inform_content_text__main__nickname_required
+            必須
+        .new_inform_content_text__main__nickname_form
+          = f.text_field :nickname, placeholder: "例）メルカリ太郎", class:"new_inform_content_text__main__nickname_form__button", autofocus: true
+        .new_inform_content_text__main__mailadress
+          メールアドレス
+          .new_inform_content_text__main__mailadress_required
+            必須
+        .new_inform_content_text__main__mailadress_form
+          = f.email_field :email, placeholder: "PC・携帯どちらでも可", class:"new_inform_content_text__main__mailadress_form__button",  autocomplete: "email"         
+        .new_inform_content_text__main__password
+          - if @sns_id.present?
+            = hidden_field_tag :sns_auth, true          
+          - else
+            パスワード
+          
+          - if @sns_id.present?
+            .new_inform_content_text__main__password_required
+              = hidden_field_tag :sns_auth, true            
+          -else
+            .new_inform_content_text__main__password_required
+              必須   
+
+        .new_inform_content_text__main__password_form
+          - if @sns_id.present?
+            = hidden_field_tag :sns_auth, true
+          - else
+            = f.password_field :password, placeholder: "7文字以上の半角英数字", class:"new_inform_content_text__main__password_form__button"    
+            -# = f.label :password
+            -# - if @minimum_password_length
+              -# %em
+              -#   (#{@minimum_password_length} characters minimum)
+            -# %br/       
+        .new_inform_content_text__main__password_text
+          - if @sns_id.present?
+            = hidden_field_tag :sns_auth, true  
+          - else          
+            ※英字と数字の両方を含めて設定してください
+        .new_inform_content_text__main__checkbox
+          - if @sns_id.present?
+            = hidden_field_tag :sns_auth, true  
+          - else          
+            %input.new_inform_content_text__main__checkbox__button{name: "checkbox", placeholder: "", type: "checkbox"}/
+          
+          - if @sns_id.present?
+            .new_inform_content_text__main__checkbox__text
+              = hidden_field_tag :sns_auth, true  
+          - else            
+            .new_inform_content_text__main__checkbox__text
+              パスワードを表示する
+        .new_inform_content_text__main__person
+          本人確認
+        .new_inform_content_text__main__person_text
+          安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+        .new_inform_content_text__main__person
+          お名前(全角)
+          .new_inform_content_text__main__person_required
+            必須
+        .new_inform_content_text__main__person_name
+          .new_inform_content_text__main__person_name__last_name
+          = f.text_field :last_name, placeholder: "例）山田", class:"new_inform_content_text__main__person_name__last_name_button"         
+          .new_inform_content_text__main__person_name__name
+          = f.text_field :first_name, placeholder: "例）彩", class:"new_inform_content_text__main__person_name__name_button"    
+        .new_inform_content_text__main__person_name_text
+          -# 姓 を入力してください
+        .new_inform_content_text__main__person
+          お名前カナ(全角)
+          .new_inform_content_text__main__person_required
+            必須
+        .new_inform_content_text__main__person_name
+          .new_inform_content_text__main__person_name__last_name
+            = f.text_field :last_name_kana, placeholder: "例）ヤマダ", class:"new_inform_content_text__main__person_name__last_name_button"             
+          .new_inform_content_text__main__person_name__name
+            = f.text_field :first_name_kana, placeholder: "例）サヤカ", class:"new_inform_content_text__main__person_name__name_button"       
+        .new_inform_content_text__main__birthday
+          生年月日
+          .new_inform_content_text__main__birthday__required
+            必須
+        .new_inform_content_text__main__birthday__form
+          .new_inform_content_text__main__birthday__form_icon
+            %i.fas.fa-angle-down.1
+          =f.select :birth_year, ["--"], {}, {class: "select-default_year", id:"select_birth_year"} 
+          .new_inform_content_text__main__birthday__form__text_year
+            年
+          .new_inform_content_text__main__birthday__form_icon
+            %i.fas.fa-angle-down.2
+          =f.select :birth_month, ["--"], {}, {class: "select-default_year", id:"select_birth_month"}
+          .new_inform_content_text__main__birthday__form__text_month
+            月
+          .new_inform_content_text__main__birthday__form_icon
+            %i.fas.fa-angle-down.3
+          =f.select :birth_day, ["--"], {}, {class: "select-default_year", id:"select_birth_day"}
+          .new_inform_content_text__main__birthday__form__text_day
+            日
+        .new_inform_content_text__main__birthday__text
+          ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+        .new_inform_content_text__main__birthday__button
+          %button.btn-default.btn-red{:type => "submit"} 次へ進む
+= render "items/items-footer"

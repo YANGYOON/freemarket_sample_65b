@@ -1,0 +1,61 @@
+= render partial: '/items/main_header'
+.graphs
+  .graphs__title
+    トレンドワード
+  .graphs__contents
+    .graphs__contents__trends
+      .graphs__contents__trends__title
+        人気のカテゴリー
+      = render partial: 'ranking', locals: { trend_id: @trend_categories_id, trend_name: @trend_categories_name }
+  .graphs__contents
+    .graphs__contents__trends    
+      .graphs__contents__trends__title
+        人気のブランド
+      .graphs__contents__trends__ranking
+        .graphs__contents__trends__ranking__rank
+          .graphs__contents__trends__ranking__rank__icon
+            = image_tag "/images/rankfirst.png", class: "graphs__contents__trends__ranking__rank__icon--first"
+          .graphs__contents__trends__ranking__rank__name
+            - if @trend_brands_name[0].present?
+              = link_to "#", class: "graphs__contents__trends__ranking__rank__name--first" do
+                = @trend_brands_name[0][0]
+            - else
+              なし
+        .graphs__contents__trends__ranking__rank
+          .graphs__contents__trends__ranking__rank__icon
+            = image_tag "/images/ranksecond.png", class: "graphs__contents__trends__ranking__rank__icon--second"
+          .graphs__contents__trends__ranking__rank__name
+            - if @trend_brands_name[1].present?
+              = link_to "#", class: "graphs__contents__trends__ranking__rank__name--second" do
+                = @trend_brands_name[1][0]
+            - else
+              なし
+        .graphs__contents__trends__ranking__rank
+          .graphs__contents__trends__ranking__rank__icon
+            = image_tag "/images/rankthird.png", class: "graphs__contents__trends__ranking__rank__icon--third"
+          .graphs__contents__trends__ranking__rank__name
+            - if @trend_brands_name[2].present?
+              = link_to "#", class: "graphs__contents__trends__ranking__rank__name--third" do
+                = @trend_brands_name[2][0]
+            - else
+              なし
+        .graphs__contents__trends__ranking__rank
+          .graphs__contents__trends__ranking__rank__icon
+            = image_tag "/images/rankfourth.png", class: "graphs__contents__trends__ranking__rank__icon--fourth"
+          .graphs__contents__trends__ranking__rank__name
+            - if @trend_brands_name[3].present?
+              = link_to "#", class: "graphs__contents__trends__ranking__rank__name--fourth" do
+                = @trend_brands_name[3][0]
+            - else
+              なし
+        .graphs__contents__trends__ranking__rank
+          .graphs__contents__trends__ranking__rank__icon
+            = image_tag "/images/rankfifth.png", class: "graphs__contents__trends__ranking__rank__icon--fifth"
+          .graphs__contents__trends__ranking__rank__name
+            - if @trend_brands_name[4].present?
+              = link_to "#", class: "graphs__contents__trends__ranking__rank__name--fifth" do
+                = @trend_brands_name[4][0]
+            - else
+              なし
+= render partial: '/items/main_footer'
+= render partial: '/items/sell_btn'

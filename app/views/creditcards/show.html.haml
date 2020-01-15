@@ -13,7 +13,24 @@
             %ul.single__inner__list
               %li
                 .single__inner__list__content
-                  = image_tag "/images/visa.svg", height: 15, width: 49
+                  -if @default_card_information.brand == "Visa"
+                    = image_tag "/images/visa.svg", height: 15, width: 49
+                  
+                  -elsif @default_card_information.brand == "MasterCard"
+                    = image_tag "/images/master-card.svg", height: 15, width: 49
+
+                  -elsif @default_card_information.brand == "JCB"
+                    = image_tag "/images/jcb.svg", height: 15, width: 49
+
+                  -elsif @default_card_information.brand == "American Express"
+                    = image_tag "/images/american_express.svg", height: 15, width: 49
+
+                  -elsif @default_card_information.brand == "Diners Club"
+                    = image_tag "/images/dinersclub.svg", height: 15, width: 49
+
+                  -elsif @default_card_information.brand == "Discover"
+                    = image_tag "/images/discover.svg", height: 15, width: 49
+
                   .single__inner__list__num
                     = "**** **** **** " + @default_card_information.last4
                   .single__inner__list__num

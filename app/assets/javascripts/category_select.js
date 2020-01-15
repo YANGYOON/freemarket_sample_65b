@@ -51,6 +51,25 @@ $(function(){
                               </div>`;
     $('.item_select-size').append(sizeSelectHtml);
   }
+  function appendBrandBox(insertHTML){ // ブランドセレクトボックスのhtml作成
+    var brandSelectHtml = '';
+    brandSelectHtml = `<div class='item-select-wrapper' id= 'set_brands_wrapper'>
+                                <div class="contents__main__detail__right__name">
+                                  ブランド
+                                  <div class="contents__main__detail__right__name--any">
+                                    任意
+                                  </div>
+                                </div>
+                                <div class='contents__main__detail__right__select'>
+                                  <select class="contents__main__detail__right__select__form" name="item[brand_id]">
+                                    <option value="">---</option>
+                                    ${insertHTML} 
+                                  </select>
+                                  <i class="fas fa-angle-down contents__main__detail__right__select--icon"></i>
+                                </div>
+                              </div>`;
+    $('.item_select-brand').append(brandSelectHtml);
+  }
 
   $(document).on('change', '#category_select', function(){  // 親セレクトボックスの選択肢を変えたらイベント発火
     // セレクトボックスのvalueを取得して、category_valueに代入
@@ -75,6 +94,7 @@ $(function(){
           $('#children_wrapper').remove(); 
           $('#grandchildren_wrapper').remove();
           $('#set_sizes_wrapper').remove();
+          $('#set_brands_wrapper').remove();
         })
       })
       .fail(function(){
@@ -107,6 +127,7 @@ $(function(){
         })
         $(document).on('change', '#grandchildren_wrapper',function(){
           $('#set_sizes_wrapper').remove();
+          $('#set_brands_wrapper').remove();
         })
       })  
       .fail(function(){
@@ -132,11 +153,36 @@ $(function(){
         $(document).on('change', '#child_category',function(){
           $('#grandchildren_wrapper').remove();
           $('#set_sizes_wrapper').remove();
+          $('#set_brands_wrapper').remove();
         })
       }) 
       .fail(function(){
         alert('サイズ取得に失敗しました');
       })
     }
+  });
+  $(document).on('change', '#grandchild_category', function(){
+    var parents_category_value = document.getElementById('category_select').value;
+    $.ajax ({
+      url: '/items/set_brands',
+      type: 'GET',
+      data: { parents_category_value: parents_category_value },
+      dataType: 'json'
+    })
+    .done(function(brands){
+      var insertHTML_brand = '';
+      brands.forEach(function(brand){
+        insertHTML_brand += appendOption(brand);
+      });
+      appendBrandBox(insertHTML_brand);  
+      $(document).on('change', '#child_category',function(){
+        $('#grandchildren_wrapper').remove();
+        $('#set_sizes_wrapper').remove();
+        $('#set_brands_wrapper').remove();
+      })
+    }) 
+    .fail(function(){
+      alert('ブランドの取得に失敗しました');
+    })
   });
 });

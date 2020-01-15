@@ -1,4 +1,112 @@
 [
+  ['ナイキ', 1],
+  ['アディダス', 1],
+  ['シャネル', 1],
+  ['ルイヴィトン', 1],
+  ['シュプリーム', 1],
+  ['エルメス', 1],
+  ['プラダ', 1],
+  ['クリスチャン・ディオール', 1],
+  ['イヴ・サンローラン', 1],
+  ['ロエベ', 1],
+  ['セリーヌ', 1],
+  ['クロエ', 1],
+  ['ティファニー', 1],
+  ['ユニクロ', 1],
+  ['その他', 1],
+  ['ナイキ', 2],
+  ['アディダス', 2],
+  ['プーマ', 2],
+  ['リーバイス', 2],
+  ['グローバルワーク', 2],
+  ['ユニクロ', 2],
+  ['ギャップ', 2],
+  ['ナノユニバース', 2],
+  ['ポールスミス', 2],
+  ['ラルフローレン', 2],
+  ['ディーゼル', 2],
+  ['その他', 2],
+  ['ナイキ', 3],
+  ['アディダス', 3],
+  ['プーマ', 3],
+  ['ミキハウス', 3],
+  ['チャンピオンキッズ', 3],
+  ['ユニクロ', 3],
+  ['ベビードール', 3],
+  ['ディズニーピクサー', 3],
+  ['その他', 3],
+  ['イヴサンローラン', 4],
+  ['イケア', 4],
+  ['エルメス', 4],
+  ['グッチ', 4],
+  ['コーチ', 4],
+  ['コストコ', 4],
+  ['バーバリー', 4],
+  ['パイロット', 4],
+  ['ベルーナ', 4],
+  ['アイリスオーヤマ', 4],
+  ['イケア', 4],
+  ['オリエント', 4],
+  ['花王', 4],
+  ['その他', 4],
+  ['集英社', 5],
+  ['講談社', 5],
+  ['幻冬舎', 5],
+  ['中央新書', 5],
+  ['ソニー', 5],
+  ['任天堂', 5],
+  ['スクエア・エニックス', 5],
+  ['CAPCOM', 5],
+  ['コナミ', 5],
+  ['その他', 5],
+  ['タカラトミー', 6],
+  ['LEGO', 6],
+  ['乃木坂', 6],
+  ['その他', 6],
+  ['アーキレイ', 7],
+  ['いち髪', 7],
+  ['エコ', 7],
+  ['エスケーツー', 7],
+  ['大塚製薬', 7],
+  ['資生堂', 7],
+  ['ジーアール', 7],
+  ['その他', 7],
+  ['アップル', 8],
+  ['ソニー', 8],
+  ['パナソニック', 8],
+  ['カシオ', 8],
+  ['シャープ', 8],
+  ['京セラ', 8],
+  ['LG', 8],
+  ['サムスン', 8],
+  ['東芝', 8],
+  ['ファーウェイ', 8],
+  ['その他', 8],
+  ['アウトドア', 9],
+  ['ナイキ', 9],
+  ['アディダス', 9],
+  ['プーマ', 9],
+  ['ニューバランス', 9],
+  ['バタフライ', 9],
+  ['その他', 9],
+  ['ハンドメイド', 10],
+  ['チケット', 11],
+  ['トヨタ', 12],
+  ['日産', 12],
+  ['三菱', 12],
+  ['スズキ', 12],
+  ['スバル', 12],
+  ['ホンダ', 12],
+  ['その他', 12],
+  ['その他', 13],
+  ['なし', 14]
+].each do |name, classification|
+  Brand.create(
+    { name: name, classification: classification }
+  )
+end
+
+[
   ['XXS', 1],
   ['XS', 1],
   ['S', 1],
@@ -276,81 +384,45 @@ mens_legwear.children.create([{name: "ソックス"},
                               {name: "レッグウォーマー"}])
 kids_babyg.children.create([{name: "トップス"},
                             {name: "アウター"},
-                            {name: "パンツ"}])
+                            {name: "パンツ"},
+                            {name: "スカート"},
+                            {name: "ワンピース"},
+                            {name: "ベビードレス"},
+                            {name: "おくるみ"},
+                            {name: "パジャマ"},])
 kids_babyb.children.create([{name: "トップス"},
                             {name: "アウター"},
-                            {name: "パンツ"}])
+                            {name: "パンツ"},
+                            {name: "ロンパース"},
+                            {name: "パジャマ"}])
 kids_kid.children.create([{name: "トップス"},
                             {name: "アウター"},
-                            {name: "パンツ"}])
+                            {name: "パンツ"},
+                            {name: "ロンパース"},
+                            {name: "パジャマ"}])
 
 interiors_kitchen.children.create([{name: "食器"},
                               {name: "調理器具"},
+                              {name: "収納"},
+                              {name: "テーブル用品"},
+                              {name: "エプロン"},
+                              {name: "浄水機"},
                               {name: "エプロン"}])
 interiors_bed.children.create([{name: "セミシングルベッド"},
                               {name: "シングルベッド"},
-                              {name: "ダブルベッド"}])
+                              {name: "ダブルベッド"},
+                              {name: "クイーンベッド"},
+                              {name: "キングベッド"},])
 interiors_table.children.create([{name: "こたつ"},
                               {name: "カウンターテーブル"},
-                              {name: "ダイニングテーブル"}])
-
-ladys_brand = Brand.create(name: "レディース")
-mens_brand = Brand.create(name: "メンズ")
-kids_brand = Brand.create(name: "ベビー・キッズ")
-smartphone_brand = Brand.create(name: "スマートフォン")
-interiors_brand = Brand.create(name: "インテリア・住まい・小物")
-kitchens_brand = Brand.create(name: "キッチン・食器")
-hobbys_brand = Brand.create(name: "おもちゃ・ホビー・グッズ")
-cosmetics_brand = Brand.create(name: "コスメ・香水・美容")
-sports_brand = Brand.create(name: "スポーツ・レジャー")
-musical_instrumen_brand = Brand.create(name: "楽器")
-cars_brand = Brand.create(name: "自動車・オートバイ")
-others_brand = Brand.create(name: "その他")
-
-ladys_brand.children.create([{name: "ナイキ"},
-                              {name: "アディダス"},
-                              {name: "シャネル"},
-                              {name: "ルイヴィトン"},
-                              {name: "シュプリーム"},
-                              {name: "エルメス"},
-                              {name: "プラダ"},
-                              {name: "クリスチャン・ディオール"},
-                              {name: "イヴ・サンローラン"},
-                              {name: "ロエベ"},
-                              {name: "セリーヌ"},
-                              {name: "クロエ"},
-                              {name: "ティファニー"}])
-mens_brand.children.create([{name: "ナイキ"},
-                            {name: "アディダス"},
-                            {name: "リーバイス"},
-                            {name: "グローバルワーク"},
-                            {name: "ユニクロ"},
-                            {name: "ギャップ"},
-                            {name: "ナノユニバース"},
-                            {name: "ポール・スミス"},
-                            {name: "ラルフローレン"},
-                            {name: "ディーゼル"},
-                            {name: "ユナイテッドアローズ"},
-                            {name: "バーバリー"},
-                            {name: "ラコステ"}])
-kids_brand.children.create([{name: "ナイキ"},
-                            {name: "アディダス"},
-                            {name: "ミキハウス"},
-                            {name: "チャンピオンキッズ"},
-                            {name: "ユニクロ"},
-                            {name: "ベビードール"},
-                            {name: "ディズニーピクサー"}])
-smartphone_brand.children.create([{name: "アップル"},
-                                  {name: "ソニー"},
-                                  {name: "カシオ"},
-                                  {name: "シャープ"},
-                                  {name: "パナソニック"},
-                                  {name: "サムスン"},
-                                  {name: "ファーウェイ"}])
+                              {name: "ダイニングテーブル"},
+                              {name: "アウトドア用"},
+                              {name: "学習机"},])
 
 books_book = books.children.create(name: "本")
 books_music = books.children.create(name: "音楽")
 books_game = books.children.create(name: "ゲーム")
+books_magazine = books.children.create(name: "雑誌")
 
 books_book.children.create([{name: "小説"},
                               {name: "漫画"},
@@ -360,17 +432,28 @@ books_book.children.create([{name: "小説"},
 books_music.children.create([{name: "邦楽"},
                                 {name: "洋楽"},
                                 {name: "クラシック"},
-                                {name: "アニメ"}])
-books_game.children.create([{name: "家庭用ゲーム"},
-                            {name: "携帯用ゲーム"},
+                                {name: "アニメ"},
+                                {name: "キッズ/ファミリー"}])
+books_game.children.create([{name: "家庭用ゲーム(本体)"},
+                            {name: "家庭用ゲーム(ソフト)"},
+                            {name: "携帯用ゲーム(本体)"},
+                            {name: "携帯用ゲーム(ソフト)"},
                             {name: "PCゲーム"}])
+books_magazine.children.create([{name: "アート/エンタメ/ホビー"},
+                            {name: "ファッション"},
+                            {name: "ニュース/総合"},
+                            {name: "趣味/スポーツ"}])
 
 hobbys_toy = hobbys.children.create(name: "おもちゃ")
 hobbys_goods = hobbys.children.create(name: "グッズ")
 hobbys_musical_instrument = hobbys.children.create(name: "楽器")
+hobbys_card = hobbys.children.create(name: "トレーディングカード")
 
 hobbys_toy.children.create([{name: "キャラクターグッズ"},
                               {name: "ぬいぐるみ"},
+                              {name: "小物/アクセサリー"},
+                              {name: "ミニカー"},
+                              {name: "鉄道モデル"},
                               {name: "模型/プラモデル"},
                               {name: "ラジコン"}])
 hobbys_goods.children.create([{name: "ミュージシャン"},
@@ -382,6 +465,12 @@ hobbys_musical_instrument.children.create([{name: "ギター"},
                                             {name: "ドラム"},
                                             {name: "弦楽器"},
                                             {name: "管楽器"}])
+hobbys_card.children.create([{name: "遊戯王"},
+                              {name: "マジック:ザ・ギャザリング"},
+                              {name: "ポケモンカードゲーム"},
+                              {name: "デュエル・マスターズ"},
+                              {name: "ドラゴンボール"},
+                              {name: "プロ野球オーナーズリーグ"}])                                            
 
 cosmetics_perfume = cosmetics.children.create(name: "香水")
 cosmetics_base = cosmetics.children.create(name: "ベースメイク")
@@ -393,11 +482,50 @@ cosmetics_perfume.children.create([{name: "香水(女性用)"},
 cosmetics_base.children.create([{name: "ファンデーション"},
                                 {name: "化粧下地"},
                                 {name: "コントロールカラー"},
-                                {name: "コンシーラー"}])
+                                {name: "コンシーラー"},
+                                {name: "BBクリーム"},
+                                {name: "CCクリーム"},
+                                {name: "フェイスパウダー"}])
 cosmetics_skin.children.create([{name: "化粧水"},
                                 {name: "乳液"},
                                 {name: "美容液"},
-                                {name: "洗顔料"}])
+                                {name: "洗顔料"},
+                                {name: "パック"},
+                                {name: "フェイスクリーム"},
+                                {name: "アイケア"}])
+
+sports_golf = sports.children.create(name: "ゴルフ")
+sports_soccer = sports.children.create(name: "サッカー")
+sports_tennis = sports.children.create(name: "テニス")
+sports_basket = sports.children.create(name: "バスケットボール")
+sports_snowboard = sports.children.create(name: "スノーボード")
+
+sports_golf.children.create([{name: "クラブ"},
+                              {name: "ウエア"},
+                              {name: "バッグ"},
+                              {name: "アクセサリー"}])
+sports_soccer.children.create([{name: "ウェア"},
+                                {name: "シューズ"},
+                                {name: "ボール"},
+                                {name: "記念グッズ"},
+                                {name: "応援グッズ"}])
+sports_tennis.children.create([{name: "ラケット"},
+                                {name: "ウェア"},
+                                {name: "ボール"},
+                                {name: "アクセサリー"},
+                                {name: "シューズ"}])
+sports_basket.children.create([{name: "バッシュ"},
+                                {name: "ウェア"},
+                                {name: "バッグ"},
+                                {name: "ビブス"},
+                                {name: "アクセサリー"}])
+sports_snowboard.children.create([{name: "ボード"},
+                                {name: "バインディング"},
+                                {name: "ウェア(男性用)"},
+                                {name: "ウェア(女性用)"},
+                                {name: "ブーツ"},
+                                {name: "アクセサリー"},
+                                {name: "バッグ"}])
 
 home_appliances_smartphone = home_appliances.children.create(name: "スマートフォン/携帯電話")
 home_appliances_pc = home_appliances.children.create(name: "PC/タブレット")
@@ -428,23 +556,130 @@ home_appliances_life.children.create([{name: "冷蔵庫"},
                                       {name: "掃除機"},
                                       {name: "電子レンジ"}])
 
-sports_golf = sports.children.create(name: "ゴルフ")
-sports_soccer = sports.children.create(name: "サッカー")
-sports_tennis = sports.children.create(name: "テニス")
+handmades_accessory = handmades.children.create(name: "アクセサリー")
+handmades_fashion = handmades.children.create(name: "ファッション")
+handmades_watch = handmades.children.create(name: "時計")
 
-sports_golf.children.create([{name: "クラブ"},
-                              {name: "ウエア"},
-                              {name: "バッグ"}])
-sports_soccer.children.create([{name: "ウェア"},
-                                {name: "シューズ"},
-                                {name: "ボール"},
-                                {name: "応援グッズ"}])
-sports_tennis.children.create([{name: "ラケット"},
-                                {name: "ウェア"},
-                                {name: "シューズ"},
+handmades_accessory.children.create([{name: "ピアス"},
+                              {name: "イヤリング"},
+                              {name: "チャーム"},
+                              {name: "アンクレット"},
+                              {name: "ネックレス"},
+                              {name: "ヘアゴム"},
+                              {name: "ブレスレット"}])
+handmades_fashion.children.create([{name: "ウェア"},
+                                {name: "バッグ(女性用)"},
+                                {name: "バッグ(男性用)"},
+                                {name: "財布(女性用)"},
+                                {name: "財布(男性用)"},
+                                {name: "ファッション雑貨"}])
+handmades_watch.children.create([{name: "時計(女性用)"},
+                                {name: "時計(男性用)"},
                                 {name: "アクセサリー"}])
-                                            
-#                               {name: ""},
+
+tickets_music = tickets.children.create(name: "音楽")
+tickets_sports = tickets.children.create(name: "スポーツ")
+tickets_dance = tickets.children.create(name: "演劇/芸能")
+tickets_events = tickets.children.create(name: "イベント")
+tickets_movie = tickets.children.create(name: "映画")
+
+tickets_music.children.create([{name: "男性アイドル"},
+                              {name: "女性アイドル"},
+                              {name: "韓流"},
+                              {name: "国内アーティスト"},
+                              {name: "海外アーティスト"},
+                              {name: "音楽フェス"},
+                              {name: "声優/アニメ"}])
+tickets_sports.children.create([{name: "サッカー"},
+                                {name: "野球"},
+                                {name: "テニス"},
+                                {name: "格闘技/プロレス"},
+                                {name: "バレーボール"},
+                                {name: "バスケットボール"}])
+tickets_dance.children.create([{name: "ミュージカル"},
+                                {name: "演劇"},
+                                {name: "伝統芸能"}])
+tickets_events.children.create([{name: "声優/アニメ"},
+                              {name: "キッズ/ファミリー"},
+                              {name: "トークショー/講演会"}])
+tickets_movie.children.create([{name: "邦画"},
+                                {name: "洋画"}])
+            
+cars_body = cars.children.create(name: "自動車本体")
+cars_whoel = cars.children.create(name: "自動車タイヤ/ホイール")
+cars_parts = cars.children.create(name: "自動車パーツ")
+cars_acce = cars.children.create(name: "自動車アクセサリー")
+cars_bike = cars.children.create(name: "オートバイ")
+
+cars_body.children.create([{name: "国内自動車本体"},
+                              {name: "外国自動車本体"}])
+cars_whoel.children.create([{name: "タイヤ"},
+                                {name: "ホイール"},
+                                {name: "タイヤ/ホイール"}])
+cars_parts.children.create([{name: "サスペンション"},
+                            {name: "ブレーキ"},
+                            {name: "外装"},
+                            {name: "ライト"},
+                            {name: "内装品、シート"},
+                            {name: "ステアリング"},
+                            {name: "マフラー、排気系"},
+                            {name: "エンジン"}])
+cars_acce.children.create([{name: "車内アクセサリー"},
+                            {name: "カーナビ"},
+                            {name: "カーオーディオ"},
+                            {name: "車外アクセサリー"},
+                            {name: "メンテナンス用品"},
+                            {name: "チャイルドシート"},
+                            {name: "ETC"}])
+cars_bike.children.create([{name: "タイヤ"},
+                            {name: "マフラー"},
+                            {name: "外装"},
+                            {name: "エンジン"},
+                            {name: "シート"},
+                            {name: "ライト、ウィンカー"},
+                            {name: "マフラー、排気系"}])
+
+others_art = others.children.create(name: "芸術品")
+others_pets = others.children.create(name: "ペット用品")
+others_eats = others.children.create(name: "食品")
+others_sake = others.children.create(name: "飲料/酒")
+others_trip = others.children.create(name: "日用品/生活雑貨")
+
+others_art.children.create([{name: "絵画"},
+                            {name: "絵巻"},
+                            {name: "陶器/陶芸"},
+                            {name: "家具"}])
+others_pets.children.create([{name: "ペットフード"},
+                                {name: "犬用品"},
+                                {name: "魚用品/水草"},
+                                {name: "小動物用品"},
+                                {name: "かご/おり"},
+                                {name: "鳥用品"},
+                                {name: "猫用品"}])
+others_eats.children.create([{name: "菓子"},
+                            {name: "米"},
+                            {name: "果実"},
+                            {name: "野菜"},
+                            {name: "果物"},
+                            {name: "調味料"},
+                            {name: "肉類"},
+                            {name: "魚類"}])
+others_sake.children.create([{name: "コーヒー"},
+                            {name: "ソフトドリンク"},
+                            {name: "ミネラルウォーター"},
+                            {name: "お茶"},
+                            {name: "ウイスキー"},
+                            {name: "ワイン"},
+                            {name: "日本酒"}])
+others_trip.children.create([{name: "タオル"},
+                            {name: "日用品"},
+                            {name: "洗剤"},
+                            {name: "旅行用品"},
+                            {name: "防災グッズ"}])
+  
+      
+            
+
 #                               {name: ""},
 #                               {name: ""},
 #                               {name: ""},
@@ -818,3 +1053,17 @@ sports_tennis.children.create([{name: "ラケット"},
 #                               {name: ""},
 #                               {name: ""},
 #                               {name: ""}])
+
+User.create!(nickname:  "管理者",
+  email: "admin@test.jp",
+  first_name: "太郎",
+  last_name: "管理者",
+  first_name_kana: "タロウ",
+  last_name_kana: "カンリシャ",
+  birth_year: "2000",
+  birth_month: "01",
+  birth_day: "01",
+  password:  "abcd1234",
+  password_confirmation: "abcd1234",
+  admin: true
+ )

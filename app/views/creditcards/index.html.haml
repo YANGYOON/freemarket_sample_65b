@@ -1,4 +1,7 @@
-= render partial: '/common/sub_header'
+.creditcard_index_main
+  = render partial: '/common/sub_header'
+  - breadcrumb :creditcards
+  = breadcrumbs pretext: "",separator: " &rsaquo; ", class: "breadcrumbs-list"
 .creditcard_index_body
   = render partial: '/creditcards/credit_bar'
   .creditcard_content

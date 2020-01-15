@@ -1,8 +1,20 @@
 class ItemsController < ApplicationController
+  include ApplicationHelper
   before_action :set_item, only: [:edit, :update, :destroy]
   before_action :set_ransack
   def index
-    @items = Item.includes(:images).order('created_at DESC').limit(20)
+    @items = Item.order('created_at DESC').limit(20)
+
+    @trend_categories = Item.group(:root_category_id).order('count_all DESC').limit(5).count.to_a
+    @trend_categories_ids = []
+    @trend_categories.each_with_index do |trend_category, i|
+      @trend_categories_ids = @trend_categories_ids.push(trend_category[0])
+    end
+
+    @trend_categories_data = []
+    @trend_categories_ids.each do |category_id|
+      @trend_categories_data = @trend_categories_data.push(Category.find(category_id))
+    end
   end
 
   def new
@@ -13,17 +25,14 @@ class ItemsController < ApplicationController
   end
 
   def create
-    # ブランドはstrでparamsにのってくるので、該当するbrand_idを探す
-    @brand_data = Brand.find_by(name: params[:item][:brand])
-    if @brand_data != nil
-      @brand_id = Brand.find_by(name: params[:item][:brand]).id
-    else
-      @brand_id = nil
-    end
-    
-    @item = Item.new(item_params.merge(brand_id: @brand_id))
-    if @item.save
-      redirect_to root_path
+    if params[:item][:images_attributes] != nil
+      @item = Item.new(item_params.merge(seller_id: current_user.id))
+      if @item.save
+        redirect_to root_path
+      else
+        @category = Category.order("id ASC").limit(13)
+        redirect_to action: 'new'
+      end
     else
       @category = Category.order("id ASC").limit(13)
       redirect_to action: 'new'
@@ -59,38 +68,52 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @items = Item.where(seller_id: @item.seller_id).includes(:images).order('created_at DESC').limit(7)
+    @same_category_items = Item.where(category_id: @item.category_id).includes(:images).order('created_at DESC').limit(6)
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
   end 
 
   def edit
+    if  @item.seller_id != current_user.id
+      redirect_to action: 'show'
+    end
     @category = Category.order("id ASC").limit(13)
     @selected_category = Category.find(@item.category_id)
     if @item.size_id != nil
       @selected_size = Size.find(@item.size_id)
       @selected_size_siblings = Size.where(classification: @selected_size.classification)
     end
-    
+    if @item.brand_id != nil
+      @selected_brand = Brand.find(@item.brand_id)
+      @selected_brand_siblings = Brand.where(classification: @selected_brand.classification)
+    else
+      @selected_brand = Brand.find(101)
+      @selected_brand_siblings = Brand.where(classification: @selected_brand.classification)
+    end
   end
 
   def update
-    @brand_data = Brand.find_by(name: params[:item][:brand])
-    if @brand_data != nil
-      @brand_id = Brand.find_by(name: params[:item][:brand]).id
-    else
-      @brand_id = nil
-    end
-
-    if @item.update!(item_params.merge(brand_id: @brand_id))
-      redirect_to root_path
-    else
-      redirect_to action: 'edit'
+    if  @item.seller_id == current_user.id
+      if @item.update(item_params)
+        redirect_to root_path
+      else
+        redirect_to action: 'edit'
+      end
+    else 
+      redirect_to item_path(@item)
     end
   end
 
   def destroy
-    if @item.destroy
-      redirect_to root_path
+    if  @item.seller_id == current_user.id
+      if @item.destroy
+        redirect_to root_path
+      else
+        redirect_to action: 'edit'
+      end
     else
-      redirect_to action: 'edit'
+      redirect_to item_path(@item)
     end
   end
 
@@ -106,6 +129,10 @@ class ItemsController < ApplicationController
     @set_sizes = Size.where(classification: params[:parents_category_value])
   end
 
+  def set_brands
+    @set_brands = Brand.where(classification: params[:parents_category_value])
+  end
+
   def cal_profit
     @price = params[:price].to_i
     @sales_commission = (@price * 0.1).to_i
@@ -117,7 +144,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:id, :name, :price, :state, :condition, :category_id, :size_id,
+    params.require(:item).permit(:id, :name, :price, :state, :condition, :root_category_id, :category_id, :size_id, :brand_id,
                                   images_attributes: [:id, :image, :_destroy], 
                                   shipping_attributes: [:method, :prefecture_from, :period_before_shopping, :fee_burden])
   end
