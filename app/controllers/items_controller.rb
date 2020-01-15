@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   include ApplicationHelper
   before_action :set_item, only: [:edit, :update, :destroy]
-
+  before_action :set_ransack
   def index
     @items = Item.order('created_at DESC').limit(20)
 
@@ -38,6 +38,30 @@ class ItemsController < ApplicationController
       redirect_to action: 'new'
     end
   end
+
+  def search
+
+    @items =  Item.search(params[:keyword])
+    @category = Category.order("id ASC").limit(13)
+    @size = Size.order("id ASC").limit(9)
+  end
+
+  def detail_search
+    @brand_data = Brand.find_by(name: params[:q][:brand_id_cont])
+    if @brand_data != nil
+      @brand_data_id = @brand_data.id
+    else
+      @brand_data_id = nil
+    end
+    if params[:q] != nil
+      @search = Item.ransack(search_params.merge(brand_id_eq: @brand_data_id))
+      @details = @search.result(distinct: true)
+    else
+      params[:q] = { sorts: 'id desc' }
+      @search = Item.ransack()
+    end 
+  end
+
 
   def buy
   end
@@ -115,11 +139,10 @@ class ItemsController < ApplicationController
     @profit = (@price * 0.9).to_i
   end
 
-  def search
-    @items =  Item.search(params[:keyword])
-  end
+
 
   private
+
   def item_params
     params.require(:item).permit(:id, :name, :price, :state, :condition, :root_category_id, :category_id, :size_id, :brand_id,
                                   images_attributes: [:id, :image, :_destroy], 
@@ -129,4 +152,13 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
+
+  def set_ransack
+    @q = Item.ransack(params[:q])
+  end
+
+  def search_params
+    params.require(:q).permit(:comdition_in , :sorts , :name_cont, :price_gteq, :price_lteq)
+  end
+
 end

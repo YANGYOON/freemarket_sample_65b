@@ -21,9 +21,8 @@ Rails.application.routes.draw do
       get 'set_sizes'
       get 'set_brands'
       get 'cal_profit'
-    end
-    collection do
       get 'search'
+      get 'detail_search'
     end
     resources :purchase do
       collection do
