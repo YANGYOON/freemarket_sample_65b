@@ -13,6 +13,6 @@ class Category < ApplicationRecord
       result_categories_ids = self.id
     end
 
-    Item.where(category_id: result_categories_ids)
+    Item.where(category_id: result_categories_ids).order('created_at DESC')
   end
 end
