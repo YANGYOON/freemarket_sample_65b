@@ -400,3 +400,26 @@
     }
   }
 }
+
+.soldout-show {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 0;
+  border-top: 50px solid #ea352d;
+  border-right:50px solid transparent;
+  border-bottom: 50px solid transparent;
+  border-left: 50px solid #ea352d;
+  z-index: 3;
+  &__name {
+    width: 70px;
+    position: absolute;
+    top: -29px;
+    left: -55px;
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+    transform: rotate(-45deg);
+    overflow: hidden;
+  }
+}

@@ -6,6 +6,10 @@
       = @item.name
       .itemshow-content
         .itemshow-content__photo
+          - if @item.level == 2
+            .soldout-show
+              .soldout-show__name
+                sold
           .owl-carousel.owl-loaded.owl-drag
             .owl-stage-outer
               .owl-stage{ style: 'left:0px',width: '900px'}
@@ -241,6 +245,4 @@
                   = same_category_item.name
                 .item-detail__contents__center__relatede-items__sec__box__price
                   = same_category_item.price
-
-
 = render 'main_footer'
