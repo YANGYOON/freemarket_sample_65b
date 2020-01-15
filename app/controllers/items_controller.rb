@@ -3,8 +3,6 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :update, :destroy]
 
   def index
-    @items = Item.order('created_at DESC').limit(20)
-
     @trend_categories = Item.group(:root_category_id).order('count_all DESC').limit(5).count.to_a
     @trend_categories_ids = []
     @trend_categories.each_with_index do |trend_category, i|
