@@ -6,6 +6,10 @@
       = @item.name
       .itemshow-content
         .itemshow-content__photo
+          - if @item.level == 2
+            .soldout-show
+              .soldout-show__name
+                sold
           .owl-carousel.owl-loaded.owl-drag
             .owl-stage-outer
               .owl-stage{ style: 'left:0px',width: '900px'}
@@ -230,7 +234,7 @@
           - if item.id != @item.id && item.level == 0
             .item-detail__contents__center__owner-items__sec__box
               = link_to "/items/#{item.id}" do
-                = image_tag item.images.last.image.url, class: "item-detail__contents__center__owner-items__sec__box--image"
+                = image_tag item.images.first.image.url, class: "item-detail__contents__center__owner-items__sec__box--image"
                 .item-detail__contents__center__owner-items__sec__box__name
                   = item.name
                 .item-detail__contents__center__owner-items__sec__box__price
@@ -247,11 +251,9 @@
           - if same_category_item.id != @item.id && same_category_item.level == 0
             .item-detail__contents__center__relatede-items__sec__box
               = link_to "/items/#{same_category_item.id}", class:"" do
-                = image_tag same_category_item.images.last.image.url, class: "item-detail__contents__center__relatede-items__sec__box--image"
+                = image_tag same_category_item.images.first.image.url, class: "item-detail__contents__center__relatede-items__sec__box--image"
                 .item-detail__contents__center__relatede-items__sec__box__name
                   = same_category_item.name
                 .item-detail__contents__center__relatede-items__sec__box__price
                   = same_category_item.price
-
-
 = render 'main_footer'
