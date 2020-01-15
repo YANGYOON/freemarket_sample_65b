@@ -38,7 +38,14 @@ Rails.application.routes.draw do
   resources :test, only: :index
   resources :user_profiles, only: :index
   resources :creditcards, only: [:create, :new, :index, :show, :destroy]
-  resources :users
+  resources :users do
+    member do
+      get 'identification'
+      get 'before_logout'
+      get 'change_profile'
+      get 'mypage'
+    end
+  end
   resources :categories, only: [:index, :show]
   resources :graphs, only: [:index]
   resources :admin, only: [:index] do
