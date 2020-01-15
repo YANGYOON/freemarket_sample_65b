@@ -30,6 +30,7 @@ Rails.application.routes.draw do
         get 'buy'
         post 'pay'
         get 'done'
+        put 'transaction_comp'
       end
     end
     resources :comments, only: :create

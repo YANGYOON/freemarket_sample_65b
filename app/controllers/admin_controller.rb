@@ -1,5 +1,5 @@
 class AdminController < ApplicationController
-  before_action :if_not_admin, only:[:index, :users_show, :items_show, :user_destroy, :item_destroy]
+  before_action :if_not_admin, only:[:index, :users_show, :items_show, :user_destroy, :item_destroy, :trading_show]
 
   def index
   end
