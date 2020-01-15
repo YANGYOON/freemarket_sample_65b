@@ -330,19 +330,24 @@
         .main_link {
           padding-top: 50px;
           .content-right_main__photo {
+            font-size: 60px;
             color: #333;
           }
           .content-right_main__name {
+            font-size: 30px;
             text-decoration: none;
             color: #333;
           }
       }
         .content-right_main__other {
+          margin-top: 15px;
           display: flex;
           justify-content: center;
-          &__other_evaluation {
+          &__evaluation {
+            font-size: 20px;
           }
-          &__other_item {
+          &__item {
+            font-size: 20px;
           }
         }
       }
