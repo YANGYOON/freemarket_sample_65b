@@ -1,0 +1,20 @@
+.new_items 
+  .new_items__contents 
+    .new_items__contents__header 
+      .new_items__contents__header__title
+        =  root_category.name
+        の新着アイテム
+      = link_to category_path(root_category), class: "new_items__contents__header__more" do
+        もっとみる ＞
+    .new_items__contents__grid
+      - items.each_with_index do |item, i|
+        .new_items__contents__grid__item
+          = link_to "/items/#{item.id}" do
+            = image_tag item.images.last.image.url, class: "new_items__contents__grid__item__image"
+            .new_items__contents__grid__item__price
+              ¥
+              = items[i].price
+            .new_items__contents__grid__item__name
+              = items[i].name
+              %br/
+              = items[i].category.name
