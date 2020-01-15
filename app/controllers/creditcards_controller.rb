@@ -32,8 +32,7 @@ class CreditcardsController < ApplicationController
         # email: current_user.email,
         card: params['payjp-token'],
       )
-      @creditcard = Creditcard.new(user_id: 2, customer_id: customer.id, card_id: customer.default_card)
-      
+      @creditcard = Creditcard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @creditcard.save
         redirect_to creditcards_path
       else
@@ -55,7 +54,7 @@ class CreditcardsController < ApplicationController
   end
 
   def get_credit_info
-    @creditcard = Creditcard.find_by(user_id: 2)
+    @creditcard = Creditcard.find_by(user_id: current_user.id)
   end
   
 end

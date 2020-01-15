@@ -96,7 +96,7 @@
             .next_icon
             = icon('fas', 'fas fa-angle-right')
         %li.list
-          = link_to  "", class: "list_shipping" do
+          = link_to  creditcard_path(current_user.id), class: "list_shipping" do
             お支払い方法
             .next_icon
             = icon('fas', 'fas fa-angle-right')
@@ -116,7 +116,7 @@
             .next_icon
             = icon('fas', 'fas fa-angle-right')
         %li.list
-          = link_to  "", class: "list_logout" do
+          = link_to  destroy_user_session_path, method: :delete, class: "list_logout" do
             ログアウト
             .next_icon
             = icon('fas', 'fas fa-angle-right')

@@ -4,6 +4,7 @@
 @import "./items/new";
 @import "./items/buy";
 @import "./items/show";
+@import "./items/show_js";
 @import "slick-theme"; 
 @import "slick";
 @import "slider";
@@ -31,3 +32,12 @@
 @import "module/adress";
 @import "module/pay";
 @import "module/done";
+@import "module/signup_creditcard";
+@import "module/login";
+@import "module/user_registration/registration_creditcard";
+@import "done";
+@import "categories/categories";
+@import "graphs/graphs";
+@import "admin/users_show";
+@import "admin/items_show";
+@import "admin/index"; 

@@ -1,0 +1,38 @@
+.admin-user-all
+  .admin-user-all__head
+    .admin-user-all__head
+      登録者一覧
+    
+    .admin-user-all__link
+      = link_to admin_index_path do
+        戻る
+
+  .admin-user-all-sec
+    - @users.each do |user|
+      -if user.admin == false
+        %table.admin-user-all-sec__tb
+          %tr
+            %th.admin-user-all-sec__th
+              メール
+            %th.admin-user-all-sec__th
+              ニックネーム
+            %th.admin-user-all-sec__th
+              名前
+            %th.admin-user-all-sec__th
+              生年月日
+            %th.admin-user-all-sec__th
+
+          %tr
+            %td.admin-user-all-sec__td
+              = user.email
+            %td.admin-user-all-sec__td
+              = user.nickname
+            %td.admin-user-all-sec__td
+              = user.last_name
+              = user.first_name 
+            %td.admin-user-all-sec__td
+              = user.birth_year + "/" + user.birth_month + "/" + user.birth_day
+            - if current_user.admin?
+              %td.admin-user-all-sec__td
+                = link_to user_destroy_admin_path(user.id), method: :delete do
+                  削除 

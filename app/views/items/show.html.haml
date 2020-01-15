@@ -4,64 +4,81 @@
   .item-detail__contents__center
     .item-detail__contents__center__head
       = @item.name
-    .item-detail__contents__center__detail
-      .item-detail__contents__center__detail__left.clearfix
-        = image_tag src= @item.images[0].image.url, class: "show_main_image",id:"show_main_image"
-        %ul.item-detail__contents__center__detail__left__sub-images
-          - @item.images.each do |i|
-            %li= image_tag src=i.image.url, class: "thumbnail","data-url": "sub_thumbnail"
-      .item-detail__contents__center__detail__right
-        %table
-          %th 出品者
-          %td.item-detail__contents__center__detail__right__user-rate
-            アルジャーノン
-            .item-detail__contents__center__detail__right__user-rate--icon
-              .item-detail__contents__center__detail__right__user-rate--icon--good
-                .item-detail__contents__center__detail__right__user-rate--icon--good--left
-                  = icon('fas', 'laugh')
-                .item-detail__contents__center__detail__right__user-rate--icon--good--right
-                  0
+      .itemshow-content
+        .itemshow-content__photo
+          .owl-carousel.owl-loaded.owl-drag
+            .owl-stage-outer
+              .owl-stage{ style: 'left:0px',width: '900px'}
+                - @item.images.each do |i|
+                  - if i.image.present?
+                    .owl-item{ style: 'width:300px'}
+                      .owl-item__inner.is-higher-width
+                        = image_tag i.image.url
+            .owl-dots
+              - if @item.images.present?
+                - @item.images.each do |i|
+                  .owl-dot
+                    .owl-dot-inner
+                      = image_tag i.image.url
+        .item-detail__contents__center__detail__right
+          %table
+            %th 出品者
+            %td.item-detail__contents__center__detail__right__user-rate
+              = @item.seller.nickname
+              .item-detail__contents__center__detail__right__user-rate--icon
+                .item-detail__contents__center__detail__right__user-rate--icon--good
+                  .item-detail__contents__center__detail__right__user-rate--icon--good--left
+                    = icon('fas', 'laugh')
+                  .item-detail__contents__center__detail__right__user-rate--icon--good--right
+                    0
 
-              .item-detail__contents__center__detail__right__user-rate--icon--meh
-                .item-detail__contents__center__detail__right__user-rate--icon--meh--left
-                  = icon('fas', 'meh')
-                .item-detail__contents__center__detail__right__user-rate--icon--meh--right
-                  0
+                .item-detail__contents__center__detail__right__user-rate--icon--meh
+                  .item-detail__contents__center__detail__right__user-rate--icon--meh--left
+                    = icon('fas', 'meh')
+                  .item-detail__contents__center__detail__right__user-rate--icon--meh--right
+                    0
 
-              .item-detail__contents__center__detail__right__user-rate--icon--sad
-                .item-detail__contents__center__detail__right__user-rate--icon--sad--left
-                  = icon('fas', 'sad-tear')
-                .item-detail__contents__center__detail__right__user-rate--icon--sad--right
-                  0
+                .item-detail__contents__center__detail__right__user-rate--icon--sad
+                  .item-detail__contents__center__detail__right__user-rate--icon--sad--left
+                    = icon('fas', 'sad-tear')
+                  .item-detail__contents__center__detail__right__user-rate--icon--sad--right
+                    0
 
-        %table
-          %th カテゴリー
-          %td メンズ
+          %table
+            %th カテゴリー
+            %td 
+              = @item.category.name
 
-        %table
-          %th ブランド
-          %td ニケ
-        
-        %table
-          %th 商品の状態
-          %td
-            = @item.condition
-        %table
-          %th 配送料の負担
-          %td 送料込（出品者負担）
 
-        %table
-          %th 配送の方法
-          %td 未定
-        
-        %table
-          %th 発送元地域
-          %td 北海道
+          %table
+            %th ブランド
+            %td
+              - if @item.brand != nil
+                = @item.brand.name
+              - else
+                なし
+          %table
+            %th 商品の状態
+            %td
+              = @item.condition
+          %table
+            %th 配送料の負担
+            %td 送料込（出品者負担）
 
-        %table
-          %th 発送日の目安
-          %td 2~3日で発送
-    
+          %table
+            %th 配送の方法
+            %td
+              =@item.shipping.method
+
+          %table
+            %th 発送元地域
+            %td 
+              =@item.shipping.prefecture_from
+
+          %table
+            %th 発送日の目安
+            %td 2~3日で発送
+      
     .item-detail__contents__center__price
       %span.item-detail__contents__center__price__price
         = "¥#{@item.price}"
@@ -70,25 +87,59 @@
       %span.item-detail__contents__center__price__fee
         送料込み
 
-    .item-detail__contents__center__submit
-      = link_to buy_item_purchase_index_path(@item.id), class:"item-detail__contents__center__submit--button" do
-        購入画面に進む
-      -# %input.item-detail__contents__center__submit--button{name: "item-buy", placeholder: "", type: "submit", value: "購入画面に進む"}/
+    - if user_signed_in?
+      - if current_user.admin?
+        .item-detail__contents__center__submit__admin
+          = link_to item_destroy_admin_path(@item.id), method: :delete, class:"item-detail__contents__center__submit__admin--button" do
+            削除
+            
+          = link_to admin_index_path, class:"item-detail__contents__center__submit__admin--button-back" do
+            戻る
+
+      - elsif @item.seller_id != current_user.id
+        .item-detail__contents__center__submit
+          - if @item.level == 0
+            = link_to buy_item_purchase_index_path(@item.id), class:"item-detail__contents__center__submit--button" do
+              購入画面に進む
+          - elsif @item.level == 1
+            .item-detail__contents__center__submit--button-if
+              取引中
+          - elsif @item.level == 2
+            .item-detail__contents__center__submit--button-if
+              sold out
+      - elsif @item.seller_id == current_user.id
+        .item-detail__contents__center__submit
+          = link_to edit_item_path(@item), class:"item-detail__contents__center__submit--button" do
+            商品編集画面に進む
+
+    - else
+      .item-detail__contents__center__submit
+        - if @item.level == 0
+          = link_to buy_item_purchase_index_path(@item.id), class:"item-detail__contents__center__submit--button" do
+            購入画面に進む
+        - elsif @item.level == 1
+          .item-detail__contents__center__submit--button-if
+            取引中
+        - elsif @item.level == 2
+          .item-detail__contents__center__submit--button-if
+            sold out
+
+
         
 
     .item-detail__contents__center__description
       %p.item-detail__contents__center__description__description
-        寿限無寿限無五劫の擦り切れ海砂利水魚の水行末雲来末風来末食う寝る処に住む処やぶら小路の藪柑子
-
+        = @item.state
       .item-detail__contents__center__description__icons
         .item-detail__contents__center__description__icons__left
           .item-detail__contents__center__description__icons__left__likes
             .item-detail__contents__center__description__icons__left__likes--icon
-              = icon('far', 'heart' )
+              %div{id:"likes_buttons_#{@item.id}"}
+                = render partial: 'likes/like', locals: { item: @item, likes: @likes}
             .item-detail__contents__center__description__icons__left__likes--text
-              いいね！
+              
             .item-detail__contents__center__description__icons__left__likes--num
-              0
+            
 
           .item-detail__contents__center__description__icons__left__flag
             .item-detail__contents__center__description__icons__left__flag--icon
@@ -102,15 +153,34 @@
               = icon('fas', 'lock' )
             .item-detail__contents__center__description__icons__right__content--text
               あんしん・あんぜんへの取り組み
+  
+  .item-detail__contents__center__message-form--main
+    .item-detail__contents__center__message-form
+      
+      - @comments.each do |comment|
+        .item-detail__contents__center__message-form__comments-sec
+          .item-detail__contents__center__message-form__comments-sec__left
+            = image_tag "/images/item.jpeg", class: "item-detail__contents__center__message-form__comments-sec__left__image"
+          
+          .item-detail__contents__center__message-form__comments-sec__right
+            .item-detail__contents__center__message-form__comments-sec__right__contents
+              .item-detail__contents__center__message-form__comments-sec__right__contents__user-name
+                = comment.user.nickname
 
+              .item-detail__contents__center__message-form__comments-sec__right__contents__comment
+                .item-detail__contents__center__message-form__comments-sec__right__contents__comment--text
+                  = comment.text
+                .item-detail__contents__center__message-form__comments-sec__right__contents__comment--time
+                  = comment.created_at.strftime("%Y/%m/%d %H:%M")
 
-  .item-detail__contents__center__message-form
-    .item-detail__contents__center__message-form__text
-      相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+  .item-detail__contents__center__message-form__text
+    相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
 
-    %textarea.item-detail__contents__center__message-form--form(name="item-message" cols="30" rows="5" placeholder="")
-    .item-detail__contents__center__message-form__submit
-      %input.item-detail__contents__center__message-form__submit--button{name: "item-buy", placeholder: "", type: "submit", value: "コメントする"}/
+    = form_with(model: [@item, @comment], local: true, id: "new_comment", method: "POST") do |f|
+      = f.text_area :text, placeholder: "", class:"item-detail__contents__center__message-form--form textbox"
+    
+      .item-detail__contents__center__message-form__submit
+        =f.submit class: "item-detail__contents__center__message-form__submit--button form__submit", value: "コメントする" ;
 
 
   .item-detail__contents__center__change-page
@@ -136,78 +206,41 @@
       = link_to "https://www.pinterest.jp/", class: "" do
         = icon('fab','pinterest-square fa-3x')
 
+
+  
   .item-detail__contents__center__owner-items.clearfix
-    = link_to root_path, class:"item-detail__contents__center__owner-items__head" do
-      アルジャーノンさんのその他の出品
+    - if @items.length >= 2 
+      .item-detail__contents__center__owner-items__head
+        = @item.seller.nickname
+        さんのその他の出品
 
-    .item-detail__contents__center__owner-items__sec
-      .item-detail__contents__center__owner-items__sec__box
-        = link_to root_path, class:"" do
-          = image_tag "/images/item.jpeg", class: "item-detail__contents__center__owner-items__sec__box--image"
-          .item-detail__contents__center__owner-items__sec__box__name
-            暖かい服
-          .item-detail__contents__center__owner-items__sec__box__price
-            ¥900
+      .item-detail__contents__center__owner-items__sec
+        - @items.each do |item|
+          - if item.id != @item.id && item.level == 0
+            .item-detail__contents__center__owner-items__sec__box
+              = link_to "/items/#{item.id}" do
+                = image_tag item.images.last.image.url, class: "item-detail__contents__center__owner-items__sec__box--image"
+                .item-detail__contents__center__owner-items__sec__box__name
+                  = item.name
+                .item-detail__contents__center__owner-items__sec__box__price
+                  ¥
+                  = item.price
 
-      .item-detail__contents__center__owner-items__sec__box
-        = link_to root_path, class:"" do
-          = image_tag "/images/item.jpeg", class: "item-detail__contents__center__owner-items__sec__box--image"
-          .item-detail__contents__center__owner-items__sec__box__name
-            暖かい服
-          .item-detail__contents__center__owner-items__sec__box__price
-            ¥900
-
-      .item-detail__contents__center__owner-items__sec__box
-        = link_to root_path, class:"" do
-          = image_tag "/images/item.jpeg", class: "item-detail__contents__center__owner-items__sec__box--image"
-          .item-detail__contents__center__owner-items__sec__box__name
-            暖かい服
-          .item-detail__contents__center__owner-items__sec__box__price
-            ¥900
-
-      .item-detail__contents__center__owner-items__sec__box
-        = link_to root_path, class:"" do
-          = image_tag "/images/item.jpeg", class: "item-detail__contents__center__owner-items__sec__box--image"
-          .item-detail__contents__center__owner-items__sec__box__name
-            暖かい服
-          .item-detail__contents__center__owner-items__sec__box__price
-            ¥900
-          
   .item-detail__contents__center__relatede-items.clearfix
-    = link_to root_path, class:"item-detail__contents__center__relatede-items__head" do
-      その他の出品
+    - if  @same_category_items.length >= 2
+      .item-detail__contents__center__relatede-items__head
+        同じカテゴリーの出品
 
-    .item-detail__contents__center__relatede-items__sec
-      .item-detail__contents__center__relatede-items__sec__box
-        = link_to root_path, class:"" do
-          = image_tag "/images/item.jpeg", class: "item-detail__contents__center__relatede-items__sec__box--image"
-          .item-detail__contents__center__relatede-items__sec__box__name
-            暖かい服
-          .item-detail__contents__center__relatede-items__sec__box__price
-            ¥900
+      .item-detail__contents__center__relatede-items__sec
+        - @same_category_items.each do |same_category_item|
+          - if same_category_item.id != @item.id && same_category_item.level == 0
+            .item-detail__contents__center__relatede-items__sec__box
+              = link_to "/items/#{same_category_item.id}", class:"" do
+                = image_tag same_category_item.images.last.image.url, class: "item-detail__contents__center__relatede-items__sec__box--image"
+                .item-detail__contents__center__relatede-items__sec__box__name
+                  = same_category_item.name
+                .item-detail__contents__center__relatede-items__sec__box__price
+                  = same_category_item.price
 
-      .item-detail__contents__center__relatede-items__sec__box
-        = link_to root_path, class:"" do
-          = image_tag "/images/item.jpeg", class: "item-detail__contents__center__relatede-items__sec__box--image"
-          .item-detail__contents__center__relatede-items__sec__box__name
-            暖かい服
-          .item-detail__contents__center__relatede-items__sec__box__price
-            ¥900
-
-      .item-detail__contents__center__relatede-items__sec__box
-        = link_to root_path, class:"" do
-          = image_tag "/images/item.jpeg", class: "item-detail__contents__center__relatede-items__sec__box--image"
-          .item-detail__contents__center__relatede-items__sec__box__name
-            暖かい服
-          .item-detail__contents__center__relatede-items__sec__box__price
-            ¥900
-
-      .item-detail__contents__center__relatede-items__sec__box
-        = link_to root_path, class:"" do
-          = image_tag "/images/item.jpeg", class: "item-detail__contents__center__relatede-items__sec__box--image"
-          .item-detail__contents__center__relatede-items__sec__box__name
-            暖かい服
-          .item-detail__contents__center__relatede-items__sec__box__price
-            ¥900
 
 = render 'main_footer'
