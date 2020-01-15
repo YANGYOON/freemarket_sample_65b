@@ -2,9 +2,8 @@
   .new_items__contents 
     .new_items__contents__header 
       .new_items__contents__header__title
-        = @detail
-        の検索結果
-      .search-result-number
+        検索結果
+      .search-result-detail-number
         ="1-#{@details.count}件表示"
     .new_details__contents__grid
       - @details.each_with_index do |detail, i|

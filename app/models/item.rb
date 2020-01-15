@@ -10,11 +10,14 @@ class Item < ApplicationRecord
   belongs_to :size, optional: true
 
   def self.search(search)
-    return Item.all unless search
-    Item.where('name LIKE(?)', "%#{search}%")
-    Item.where('condition LIKE(?)', "%#{search}%")
+    if search
+      Item.where('name LIKE(?)', "%#{search}%")
+    else
+      Item.all
+    end
   end
 
+  
   # belongs_to :seller, class_name: "User"
   # belongs_to :buyer, class_name: "User", optional: true
 
