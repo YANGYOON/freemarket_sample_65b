@@ -151,7 +151,9 @@ body {
           font-weight: bold;
           margin-top: 30px;
           &--icon {
-            padding: 2px 4px;
+            height: 20px;
+            line-height: 20px;
+            padding: 0 4px;
             background-color: #EA352E;
             font-size: 12px;
             vertical-align: top;
@@ -161,7 +163,9 @@ body {
             vertical-align: top;
           }
           &--any {
-            padding: 2px 4px;
+            height: 20px;
+            line-height: 20px;
+            padding: 0 4px;
             background-color: #dddddd;
             font-size: 12px;
             vertical-align: top;
@@ -348,7 +352,9 @@ body {
           line-height: 43px;
           margin-bottom: 25px;
           &--icon{
-            padding: 0px 4px;
+            height: 20px;
+            line-height: 20px;
+            padding: 0 4px;
             background: #EA352E;
             font-size: 12px;
             vertical-align: top;
@@ -357,8 +363,6 @@ body {
             margin-left: 8px;
             color: white;
             background-position-y: center;
-            line-height: 25px;
-            height: 25px;
           }
           &--form{
             position: absolute;
