@@ -12,7 +12,7 @@
     - @items.each do |item|
       -if item.level == 1
         .admin-item-all__items__grid__item
-          = image_tag item.images.last.image.url, class: "admin-item-all__items__grid__item__image"
+          = image_tag item.images.first.image.url, class: "admin-item-all__items__grid__item__image"
           .admin-item-all__items__grid__item__price
             ¥
             = item.price
