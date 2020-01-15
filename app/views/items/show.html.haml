@@ -227,8 +227,7 @@
                   = item.price
 
   .item-detail__contents__center__relatede-items.clearfix
-    - if  @same_category_items.length != 2
-      
+    - if  @same_category_items.length >= 2
       .item-detail__contents__center__relatede-items__head
         同じカテゴリーの出品
 
