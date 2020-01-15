@@ -40,12 +40,12 @@ class ItemsController < ApplicationController
   def detail_search
     @brand_data = Brand.find_by(name: params[:q][:brand_id_cont])
     if @brand_data != nil
-      @brand_id = Brand.find_by(name: params[:q][:brand_id_cont]).id
+      @brand_data_id = Brand.find_by(name: params[:q][:brand_id_cont]).id
     else
       @brand_id = nil
     end
     if params[:q] != nil
-      @search = Item.ransack(search_params.merge(brand_id_eq: @brand_id))
+      @search = Item.ransack(search_params.merge(brand_id_eq: @brand_data_id))
       @details = @search.result(distinct: true)
     else
       params[:q] = { sorts: 'id desc' }
