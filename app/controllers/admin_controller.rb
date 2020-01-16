@@ -5,15 +5,15 @@ class AdminController < ApplicationController
   end
 
   def users_show
-    @users = User.all.order("created_at DESC")
+    @users = User.all.page(params[:page]).per(5).order("created_at DESC")
   end
 
   def items_show
-    @items = Item.includes(:images).order('created_at DESC')
+    @items = Item.includes(:images).page(params[:page]).per(10).order('created_at DESC')
   end
 
   def trading_show
-    @items = Item.includes(:images).order('created_at DESC')
+    @items = Item.includes(:images).page(params[:page]).per(10).order('created_at DESC')
   end
 
   def user_destroy

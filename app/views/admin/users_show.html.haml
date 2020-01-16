@@ -36,3 +36,5 @@
               %td.admin-user-all-sec__td
                 = link_to user_destroy_admin_path(user.id), method: :delete do
                   削除 
+
+= paginate(@users)
