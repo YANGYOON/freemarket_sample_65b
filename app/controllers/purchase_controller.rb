@@ -41,7 +41,6 @@ class PurchaseController < ApplicationController
     redirect_to item_path(@item.id)
   end
 
-
   private
   def redirect_to_credit_new
     @creditcard = Creditcard.find_by(user_id: current_user.id)

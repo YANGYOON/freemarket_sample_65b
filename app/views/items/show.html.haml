@@ -104,7 +104,7 @@
           - elsif @item.level == 1 && @item.buyer_id == current_user.id
             .item-detail__contents__center__submit--button-if
               = link_to transaction_comp_item_purchase_index_path(@item), method: :put, class:"item-detail__contents__center__submit--button" do
-                取引完了
+                取引完了する
           - elsif @item.level == 1
             .item-detail__contents__center__submit--button-if
               取引中
@@ -133,7 +133,7 @@
             取引中
         - elsif @item.level == 2
           .item-detail__contents__center__submit--button-if
-            sold out
+            SOLD OUT
 
 
         
@@ -220,38 +220,38 @@
 
   
   .item-detail__contents__center__owner-items.clearfix
-    - if @items.length >= 2 
+    - if @items != nil
       .item-detail__contents__center__owner-items__head
         = @item.seller.nickname
         さんのその他の出品
 
-      .item-detail__contents__center__owner-items__sec
-        - @items.each do |item|
-          - if item.id != @item.id && item.level == 0
-            .item-detail__contents__center__owner-items__sec__box
-              = link_to "/items/#{item.id}" do
-                = image_tag item.images.last.image.url, class: "item-detail__contents__center__owner-items__sec__box--image"
-                .item-detail__contents__center__owner-items__sec__box__name
-                  = item.name
-                .item-detail__contents__center__owner-items__sec__box__price
-                  ¥
-                  = item.price
+        .item-detail__contents__center__owner-items__sec
+          - @items.each do |item|
+            - if item.id != @item.id
+              .item-detail__contents__center__owner-items__sec__box
+                = link_to "/items/#{item.id}" do
+                  = image_tag item.images.last.image.url, class: "item-detail__contents__center__owner-items__sec__box--image"
+                  .item-detail__contents__center__owner-items__sec__box__name
+                    = item.name
+                  .item-detail__contents__center__owner-items__sec__box__price
+                    ¥
+                    = item.price
 
   .item-detail__contents__center__relatede-items.clearfix
-    - if  @same_category_items.length >= 2
+    - if  @same_category_items != nil
       .item-detail__contents__center__relatede-items__head
         同じカテゴリーの出品
 
-      .item-detail__contents__center__relatede-items__sec
-        - @same_category_items.each do |same_category_item|
-          - if same_category_item.id != @item.id && same_category_item.level == 0
-            .item-detail__contents__center__relatede-items__sec__box
-              = link_to "/items/#{same_category_item.id}", class:"" do
-                = image_tag same_category_item.images.last.image.url, class: "item-detail__contents__center__relatede-items__sec__box--image"
-                .item-detail__contents__center__relatede-items__sec__box__name
-                  = same_category_item.name
-                .item-detail__contents__center__relatede-items__sec__box__price
-                  = same_category_item.price
+    .item-detail__contents__center__relatede-items__sec
+      - @same_category_items.each do |same_category_item|
+        - if same_category_item.id != @item.id
+          .item-detail__contents__center__relatede-items__sec__box
+            = link_to "/items/#{same_category_item.id}", class:"" do
+              = image_tag same_category_item.images.last.image.url, class: "item-detail__contents__center__relatede-items__sec__box--image"
+              .item-detail__contents__center__relatede-items__sec__box__name
+                = same_category_item.name
+              .item-detail__contents__center__relatede-items__sec__box__price
+                = same_category_item.price
 
 
 = render 'main_footer'

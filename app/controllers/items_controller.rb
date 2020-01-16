@@ -44,8 +44,8 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @items = Item.where(seller_id: @item.seller_id).includes(:images).order('created_at DESC').limit(7)
-    @same_category_items = Item.where(category_id: @item.category_id).includes(:images).order('created_at DESC').limit(6)
+    @items = Item.where(seller_id: @item.seller_id, level: 0 ).includes(:images).order('created_at DESC').limit(7)
+    @same_category_items = Item.where(category_id: @item.category_id, level: 0).includes(:images).order('created_at DESC').limit(6)
     @comment = Comment.new
     @comments = @item.comments.includes(:user)
   end 
@@ -117,6 +117,18 @@ class ItemsController < ApplicationController
 
   def search
     @items =  Item.search(params[:keyword])
+  end
+
+  def show_selling_items
+    @items = Item.where(seller_id: current_user.id, level: 0).includes(:images).order('created_at DESC')
+  end
+
+  def show_transactions
+    @items = Item.where(seller_id: current_user.id, level: 1).includes(:images).order('created_at DESC')
+  end
+
+  def show_sold_items
+    @items = Item.where(seller_id: current_user.id, level: 2).includes(:images).order('created_at DESC')
   end
 
   private

@@ -1,0 +1,13 @@
+.show_transactions_contents
+  .show_transactions_contents__head
+    = render partial: '/common/sub_header'
+
+  .show_transactions_contents__center
+    .show_transactions_contents__center__side_bar
+      = render partial: '/common/side_bar'
+
+    .show_transactions_contents__center__items
+      = render partial: '/items/owner_items'
+
+  .show_transactions_contents__footer
+    = render partial: '/items/main_footer'

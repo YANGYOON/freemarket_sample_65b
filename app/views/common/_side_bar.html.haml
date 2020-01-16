@@ -23,17 +23,17 @@
             .next_icon
             = icon('fas', 'fas fa-angle-right')
         %li.list
-          = link_to  "", class: "list_exhibit_item" do
+          = link_to  show_selling_items_items_path, class: "list_exhibit_item" do
             出品した商品-出品中
             .next_icon
             = icon('fas', 'fas fa-angle-right')
         %li.list
-          = link_to  "", class: "list_exhibit_trade" do
+          = link_to  show_transactions_items_path, class: "list_exhibit_trade" do
             出品した商品-取引中
             .next_icon
             = icon('fas', 'fas fa-angle-right')
         %li.list
-          = link_to  "", class: "list_exhibit_sold" do
+          = link_to  show_sold_items_items_path, class: "list_exhibit_sold" do
             出品した商品-売却済み
             .next_icon
             = icon('fas', 'fas fa-angle-right')
