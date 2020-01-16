@@ -7,3 +7,7 @@
       .item-detail__contents__center__owner-items__sec__box__price
         ¥
         = item.price
+      - if item.level == 2
+        .soldout-mypage
+          .soldout-mypage__name
+            sold

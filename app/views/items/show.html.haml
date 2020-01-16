@@ -96,52 +96,32 @@
         .item-detail__contents__center__submit__admin
           = link_to item_destroy_admin_path(@item.id), method: :delete, class:"item-detail__contents__center__submit__admin--button" do
             削除
-            
           = link_to admin_index_path, class:"item-detail__contents__center__submit__admin--button-back" do
             戻る
-
-      - elsif @item.seller_id != current_user.id
+      - elsif @item.level == 0
         .item-detail__contents__center__submit
-          - if @item.level == 0
-            = link_to buy_item_purchase_index_path(@item.id), class:"item-detail__contents__center__submit--button" do
-              購入画面に進む
-          - elsif @item.level == 1 && @item.buyer_id == current_user.id
-            .item-detail__contents__center__submit--button-if
-              = link_to transaction_comp_item_purchase_index_path(@item), method: :put, class:"item-detail__contents__center__submit--button" do
-                取引完了する
-          - elsif @item.level == 1
-            .item-detail__contents__center__submit--button-if
-              取引中
-          - elsif @item.level == 2
-            .item-detail__contents__center__submit--button-if
-              SOLD OUT
-      - elsif @item.seller_id == current_user.id
-        .item-detail__contents__center__submit
-          -if @item.level == 0
+          - if @item.seller_id == current_user.id
             = link_to edit_item_path(@item), class:"item-detail__contents__center__submit--button" do
               商品編集画面に進む
-          - elsif @item.level == 1
+          - else
+            = link_to buy_item_purchase_index_path(@item.id), class:"item-detail__contents__center__submit--button" do
+              購入画面に進む
+      - elsif @item.level == 1
+        .item-detail__contents__center__submit
+          - if @item.buyer_id == current_user.id
+            = link_to transaction_comp_item_purchase_index_path(@item), method: :put, class:"item-detail__contents__center__submit--button" do
+              取引完了
+          - else
             .item-detail__contents__center__submit--button-if
               取引中
-          - elsif @item.level == 2
+      - elsif @item.level == 2
+        .item-detail__contents__center__submit
+          - if @item.seller_id == current_user.id
+            = link_to edit_item_path(@item), class:"item-detail__contents__center__submit--button" do
+              商品編集画面に進む
+          - else
             .item-detail__contents__center__submit--button-if
-              取引完了
-
-    - else
-      .item-detail__contents__center__submit
-        - if @item.level == 0
-          = link_to buy_item_purchase_index_path(@item.id), class:"item-detail__contents__center__submit--button" do
-            購入画面に進む
-        - elsif @item.level == 1
-          .item-detail__contents__center__submit--button-if
-            取引中
-        - elsif @item.level == 2
-          .item-detail__contents__center__submit--button-if
-            SOLD OUT
-
-
-        
-
+              SOLD OUT
     .item-detail__contents__center__description
       %p.item-detail__contents__center__description__description
         = @item.state

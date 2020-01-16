@@ -7,10 +7,10 @@ class UsersController < ApplicationController
   end
 
   def purchase
-    @purchase_items = Item.where(buyer_id: current_user.id, level: 1).order('created_at DESC')
+    @items = Item.where(buyer_id: current_user.id, level: 1).order('created_at DESC')
   end    
   
   def purchased
-    @purchased_items = Item.where(buyer_id: current_user.id, level: 2).order('created_at DESC')
+    @items = Item.where(buyer_id: current_user.id, level: 2).order('created_at DESC')
   end
 end

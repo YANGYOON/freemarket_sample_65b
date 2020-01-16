@@ -423,3 +423,24 @@
     overflow: hidden;
   }
 }
+
+.soldout-mypage {
+  width: 50px;
+  position: absolute;
+  top: 125px;
+  border-top: 18px solid #ea352d;
+  border-right:20px solid transparent;
+  border-bottom: 50px solid transparent;
+  border-left: 52px solid #ea352d;
+  &__name {
+    width: 70px;
+    position: absolute;
+    top: -15px;
+    left: -55px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    transform: rotate(-45deg);
+    overflow: hidden;
+  }
+}
