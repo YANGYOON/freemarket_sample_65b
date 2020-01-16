@@ -1,4 +1,4 @@
-.new_items 
+.search_result_main 
   .new_items__contents 
     .new_items__contents__header 
       .new_items__contents__header__title
@@ -10,7 +10,7 @@
       - items.each_with_index do |item, i|
         .new_items__contents__grid__item
           = link_to "/items/#{item.id}" do
-            = image_tag item.images.last.image.url, class: "new_items__contents__grid__item__image"
+            = image_tag item.images.first.image.url, class: "new_items__contents__grid__item__image"
             .new_items__contents__grid__item__price
               ¥
               = items[i].price
@@ -18,3 +18,7 @@
               = items[i].name
               %br/
               = items[i].category.name
+            - if item.level == 2
+              .soldout
+                .soldout__name
+                  sold

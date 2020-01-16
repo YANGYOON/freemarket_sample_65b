@@ -1,4 +1,5 @@
-.sell_btn
-  = link_to new_item_path, class:"sell_btn__link" do
-    出品
-    = icon('fas', 'camera', class: "sell_btn__icon")
+- if user_signed_in?
+  .sell_btn
+    = link_to new_item_path, class:"sell_btn__link" do
+      出品
+      = icon('fas', 'camera', class: "sell_btn__icon")

@@ -28,7 +28,7 @@
           position: relative;
           z-index: 2;
           font-size: 20px;
-          color: red;
+          color: #ea352d;
         }
         &__underline {
           height: 2px;
@@ -41,19 +41,19 @@
           min-width: 40px;
           margin: 0 5% 0 0;
           font-size: 12px;
-          background-color: red;
+          background-color: #ea352d;
           margin-left: 2px;
         }
       }
       &__phone_number_text {
         font-weight: 600;
         min-width: 50px;
-        color: red;
+        color: #ea352d;
         &__status {
           position: relative;
           z-index: 2;
           font-size: 20px;
-          color: red;
+          color: #ea352d;
         }
         &__underline {
           height: 2px;
@@ -185,11 +185,10 @@
         color: black;
       }
       &__button_2 {
-        padding-top: 50px;
         .btn-red {
           width: 200px;
           height: 50px;
-          background-color: red;
+          background-color: #ea352d;
           text-decoration: none;
           color: white;
           }

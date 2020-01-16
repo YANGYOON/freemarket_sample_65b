@@ -1,11 +1,3 @@
-.nav
-  .nav__box
-    = link_to "#", class: "nav__box__link" do
-      メルカリ ＞
-    = link_to "#", class: "nav__box__link" do
-      マイページ ＞
-    = link_to "#", class: "nav__box__link nav__box__link--here" do
-      本人情報の登録
 .identification
   .identification__contents
     .identification__contents__header
@@ -22,17 +14,23 @@
       %li.identification__contents__form__title
         お名前
       %li.identification__contents__form__content
-        自分の名前
+        = user.last_name
+        = user.first_name
     %ul.identification__contents__form__ul
       %li.identification__contents__form__title
         お名前カナ
       %li.identification__contents__form__content
-        ジブンノナマエ
+        = user.last_name_kana
+        = user.first_name_kana
     %ul.identification__contents__form__ul
       %li.identification__contents__form__title
         生年月日
       %li.identification__contents__form__content
-        2000/11/33
+        = user.birth_year 
+        &#047;
+        = user.birth_month
+        &#047;
+        = user.birth_day
     %ul.identification__contents__form__ul
       %li.identification__contents__form__title
         郵便番号

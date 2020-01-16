@@ -1,0 +1,19 @@
+.new_items 
+  .new_items__contents 
+    .new_items__contents__header 
+      .new_items__contents__header__title
+        検索結果
+      .search-result-detail-number
+        ="1-#{@details.count}件表示"
+    .new_details__contents__grid
+      - @details.each_with_index do |detail, i|
+        .new_details__contents__grid__detail
+          = link_to "detail_search_items_path#{detail.id}" do
+            = image_tag detail.images.last.image.url, class: "new_details__contents__grid__detail__image"
+            .new_details__contents__grid__detail__price
+              ¥
+              = details[i].price
+            .new_details__contents__grid__detail__name
+              = details[i].name
+              %br/
+              = details[i].category.name

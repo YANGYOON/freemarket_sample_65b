@@ -24,9 +24,8 @@ Rails.application.routes.draw do
       get 'show_selling_items'
       get 'show_transactions'
       get 'show_sold_items'
-    end
-    collection do
       get 'search'
+      get 'detail_search'
     end
     resources :purchase do
       collection do
@@ -42,7 +41,14 @@ Rails.application.routes.draw do
   resources :test, only: :index
   resources :user_profiles, only: :index
   resources :creditcards, only: [:create, :new, :index, :show, :destroy]
-  resources :users
+  resources :users do
+    member do
+      get 'identification'
+      get 'before_logout'
+      get 'change_profile'
+      get 'mypage'
+    end
+  end
   resources :categories, only: [:index, :show]
   resources :graphs, only: [:index]
   resources :admin, only: [:index] do

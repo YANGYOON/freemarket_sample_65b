@@ -103,6 +103,11 @@ ActiveRecord::Schema.define(version: 2020_01_13_073440) do
     t.index ["user_id"], name: "index_phone_numbers_on_user_id"
   end
 
+  create_table "searches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "shippings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "method", null: false
     t.string "prefecture_from", null: false
