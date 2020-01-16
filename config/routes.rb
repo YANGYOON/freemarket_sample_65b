@@ -44,6 +44,8 @@ Rails.application.routes.draw do
       get 'before_logout'
       get 'change_profile'
       get 'mypage'
+      get 'purchase'
+      get 'purchased'
     end
   end
   resources :categories, only: [:index, :show]
