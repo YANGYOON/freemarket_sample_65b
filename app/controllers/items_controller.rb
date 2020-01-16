@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   include ApplicationHelper
   before_action :set_item, only: [:edit, :update, :destroy]
-  before_action :set_ransack
+  before_action :set_ransack, only: [:set_ransack]
   def index
     @trend_categories = Item.group(:root_category_id).order('count_all DESC').limit(5).count.to_a
     @trend_categories_ids = []
@@ -135,20 +135,6 @@ class ItemsController < ApplicationController
     @price = params[:price].to_i
     @sales_commission = (@price * 0.1).to_i
     @profit = (@price * 0.9).to_i
-  end
-
-
-
-  def show_selling_items
-    @items = Item.where(seller_id: current_user.id, level: 0).includes(:images).order('created_at DESC')
-  end
-
-  def show_transactions
-    @items = Item.where(seller_id: current_user.id, level: 1).includes(:images).order('created_at DESC')
-  end
-
-  def show_sold_items
-    @items = Item.where(seller_id: current_user.id, level: 2).includes(:images).order('created_at DESC')
   end
 
   private
