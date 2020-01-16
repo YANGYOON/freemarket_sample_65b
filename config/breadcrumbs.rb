@@ -31,17 +31,17 @@ crumb :purchased do
   parent :mypage
 end
 
-crumb : do
-  link "出品した商品 - 出品中", _path
-  parent :mypage
-end
+# crumb : do
+#   link "出品した商品 - 出品中", _path
+#   parent :mypage
+# end
 
-crumb : do
-  link "出品した商品 - 取引中", _path
-  parent :mypage
-end
+# crumb : do
+#   link "出品した商品 - 取引中", _path
+#   parent :mypage
+# end
 
-crumb : do
-  link "出品した商品 - 売却済み", _path
-  parent :mypage
-end
+# crumb : do
+#   link "出品した商品 - 売却済み", _path
+#   parent :mypage
+# end
