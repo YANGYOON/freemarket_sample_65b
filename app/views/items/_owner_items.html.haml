@@ -1,5 +1,9 @@
 - @items.each do |item|
   .item-detail__contents__center__owner-items__sec__box.mypage-imagebox
+    - if item.level == 2
+      .soldout-mypage
+        .soldout-mypage__name
+          sold
     = link_to "/items/#{item.id}" do
       = image_tag item.images.last.image.url, class: "item-detail__contents__center__owner-items__sec__box--image"
       .item-detail__contents__center__owner-items__sec__box__name
@@ -7,7 +11,3 @@
       .item-detail__contents__center__owner-items__sec__box__price
         ¥
         = item.price
-      - if item.level == 2
-        .soldout-mypage
-          .soldout-mypage__name
-            sold
