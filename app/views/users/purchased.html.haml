@@ -1,0 +1,11 @@
+= render partial: '/common/sub_header'
+.user_profile_body
+  %nav.bread__crumbs
+    .bread__crumbs__list
+    - breadcrumb :purchased
+    = breadcrumbs pretext: "",separator: " &rsaquo; ", class: "breadcrumbs-list"
+  .userprofile__content
+    = render partial: '/common/side_bar'
+    = render partial: '', locals: { items: @purchased_items }
+= render partial: '/items/main_footer'
+= render partial: '/items/sell_btn'
