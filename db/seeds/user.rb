@@ -1,14 +1,14 @@
-100.times do |n|
+200.times do |n|
   name = Faker::Name.name
   email = Faker::Internet.email
   nickname = "#{n}子"
-  User.create!(
+  User.create(
     nickname:nickname,
     email: email,
-    first_name: "田中",
-    last_name: "孝良",
-    first_name_kana: "タロウ",
-    last_name_kana: "カンリシャ",
+    first_name: "散布流",
+    last_name: "太郎",
+    first_name_kana: "サンプル",
+    last_name_kana: "タロウ",
     birth_year: "2000",
     birth_month: "01",
     birth_day: "01",
