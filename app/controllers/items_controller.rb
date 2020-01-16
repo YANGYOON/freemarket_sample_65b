@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   include ApplicationHelper
   before_action :set_item, only: [:edit, :update, :destroy]
-  before_action :set_ransack, only: [:set_ransack]
+  before_action :set_ransack, only: [:detail_search, :search]
   def index
     @trend_categories = Item.group(:root_category_id).order('count_all DESC').limit(5).count.to_a
     @trend_categories_ids = []
