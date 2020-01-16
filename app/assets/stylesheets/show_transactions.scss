@@ -1,0 +1,20 @@
+.show_transactions_contents{
+  &__head{
+    
+  }
+  &__center{
+    display: flex;
+    padding: 20px;
+    &__side_bar{
+    }
+    &__items{
+      float: left;
+    }
+  }
+  &__footer{
+
+  }
+}
+.mypage-imagebox {
+  height: 300px;
+}
