@@ -21,7 +21,27 @@ crumb :creditcards do
   parent :mypage
 end
 
-# crumb :identification do
-#   link "ログアウト", identification_path
-#   parent :mypage
-# end
+crumb :purchase do
+  link "購入した商品 - 取引中", purchase_user_path
+  parent :mypage
+end
+
+crumb :purchased do
+  link "購入した商品 - 取引完了", purchased_user_path
+  parent :mypage
+end
+
+crumb : do
+  link "出品した商品 - 出品中", _path
+  parent :mypage
+end
+
+crumb : do
+  link "出品した商品 - 取引中", _path
+  parent :mypage
+end
+
+crumb : do
+  link "出品した商品 - 売却済み", _path
+  parent :mypage
+end
