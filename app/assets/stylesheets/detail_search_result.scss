@@ -3,7 +3,6 @@
   background-color: #f5f5f5;
 }
 .new_items {
-  margin-left: 180px;
   .new_items__contents {
     &__header {
       &__title {
@@ -55,3 +54,6 @@
     }
   }
 }
+.search_detail {
+  margin-left: 180px;
+  }
