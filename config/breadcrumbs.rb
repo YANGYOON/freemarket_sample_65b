@@ -3,11 +3,16 @@ crumb :root do
 end
 
 crumb :mypage do
-  link "マイページ", users_path
+  link "マイページ", mypage_user_path
 end
 
 crumb :user_profiles do
-  link "本人情報の登録", user_profiles_path
+  link "本人情報の登録", identification_user_path
+  parent :mypage
+end
+
+crumb :change_profiles do
+  link "本人情報の登録", change_profile_user_path
   parent :mypage
 end
 
@@ -16,7 +21,27 @@ crumb :creditcards do
   parent :mypage
 end
 
-crumb :identification do
-  link "ログアウト", identification_index_path
+crumb :purchase do
+  link "購入した商品 - 取引中", purchase_user_path
   parent :mypage
 end
+
+crumb :purchased do
+  link "購入した商品 - 取引完了", purchased_user_path
+  parent :mypage
+end
+
+# crumb : do
+#   link "出品した商品 - 出品中", _path
+#   parent :mypage
+# end
+
+# crumb : do
+#   link "出品した商品 - 取引中", _path
+#   parent :mypage
+# end
+
+# crumb : do
+#   link "出品した商品 - 売却済み", _path
+#   parent :mypage
+# end

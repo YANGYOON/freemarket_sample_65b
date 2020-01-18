@@ -21,15 +21,15 @@ Rails.application.routes.draw do
       get 'set_sizes'
       get 'set_brands'
       get 'cal_profit'
-    end
-    collection do
       get 'search'
+      get 'detail_search'
     end
     resources :purchase do
       collection do
         get 'buy'
         post 'pay'
         get 'done'
+        put 'transaction_comp'
       end
     end
     resources :comments, only: :create
@@ -38,7 +38,30 @@ Rails.application.routes.draw do
   resources :test, only: :index
   resources :user_profiles, only: :index
   resources :creditcards, only: [:create, :new, :index, :show, :destroy]
-  resources :users
+  resources :users do
+    member do
+      get 'identification'
+      get 'before_logout'
+      get 'change_profile'
+      get 'mypage'
+      get 'purchase'
+      get 'purchased'
+      get 'show_selling_items'
+      get 'show_transactions'
+      get 'show_sold_items'
+    end
+  end
   resources :categories, only: [:index, :show]
   resources :graphs, only: [:index]
+  resources :admin, only: [:index] do
+    collection do
+      get 'users_show'
+      get 'items_show'
+      get 'trading_show'
+    end
+    member do
+      delete 'user_destroy'
+      delete 'item_destroy'
+    end
+  end
 end

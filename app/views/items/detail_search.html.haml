@@ -1,0 +1,6 @@
+= render "main_header"
+.search_detail_result_main_list
+  = render partial: 'search_left_list', locals: { q: @q }
+  = render partial: 'search_detail_main', locals: { details: @details }
+= render "main_footer"
+= render "sell_btn"

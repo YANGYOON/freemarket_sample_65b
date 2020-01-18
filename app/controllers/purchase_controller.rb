@@ -1,6 +1,6 @@
 class PurchaseController < ApplicationController
   before_action :redirect_to_sign_in, only: [:pay, :buy]
-  before_action :set_item, only: [:pay, :buy, :redirect_to_item_show_if_own_item, :redirect_to_item_show_if_item_sold]
+  before_action :set_item, only: [:pay, :buy, :done, :redirect_to_item_show_if_own_item, :redirect_to_item_show_if_item_sold, :transaction_comp]
   before_action :redirect_to_item_show_if_own_item, only: [:pay, :buy]
   before_action :redirect_to_item_show_if_item_sold, only: [:pay, :buy]
   before_action :redirect_to_credit_new, only: [:pay, :buy]
@@ -36,6 +36,10 @@ class PurchaseController < ApplicationController
   def done
   end
 
+  def transaction_comp
+    @item.update(level: 2)
+    redirect_to item_path(@item.id)
+  end
 
   private
   def redirect_to_credit_new

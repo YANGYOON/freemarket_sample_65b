@@ -1,0 +1,19 @@
+= render partial: '/common/sub_header'
+.user_profile_body
+  %nav.bread__crumbs
+    .bread__crumbs__list
+    - breadcrumb :user_profiles
+    = breadcrumbs pretext: "",separator: " &rsaquo; ", class: "breadcrumbs-list"
+  .userprofile__content
+    = render partial: '/common/side_bar'
+    .my-page__contents
+      .my-page__contents__image
+        .my-page__contents__image__info
+          .my-page__contents__image__info__icon
+            = icon('fas', 'far fa-smile')
+          .my-page__contents__image__info__nickname
+            = current_user.nickname
+          .my-page__contents__image__info__number
+            評価 0 出品数 0
+= render partial: '/items/main_footer'
+= render partial: '/items/sell_btn'

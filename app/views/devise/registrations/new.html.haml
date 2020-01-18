@@ -41,13 +41,13 @@
           .new_inform_content_text__main__nickname_required
             必須
         .new_inform_content_text__main__nickname_form
-          = f.text_field :nickname, placeholder: "例）メルカリ太郎", class:"new_inform_content_text__main__nickname_form__button", autofocus: true, required: true     
+          = f.text_field :nickname, placeholder: "例）フリマ太郎", class:"new_inform_content_text__main__nickname_form__button", autofocus: true
         .new_inform_content_text__main__mailadress
           メールアドレス
           .new_inform_content_text__main__mailadress_required
             必須
         .new_inform_content_text__main__mailadress_form
-          = f.email_field :email, placeholder: "PC・携帯どちらでも可", class:"new_inform_content_text__main__mailadress_form__button",  autocomplete: "email", required: true               
+          = f.email_field :email, placeholder: "PC・携帯どちらでも可", class:"new_inform_content_text__main__mailadress_form__button",  autocomplete: "email"         
         .new_inform_content_text__main__password
           - if @sns_id.present?
             = hidden_field_tag :sns_auth, true          
@@ -65,7 +65,7 @@
           - if @sns_id.present?
             = hidden_field_tag :sns_auth, true
           - else
-            = f.password_field :password, placeholder: "7文字以上の半角英数字", class:"new_inform_content_text__main__password_form__button", required: true        
+            = f.password_field :password, placeholder: "7文字以上の半角英数字", class:"new_inform_content_text__main__password_form__button"    
             -# = f.label :password
             -# - if @minimum_password_length
               -# %em
@@ -98,9 +98,9 @@
             必須
         .new_inform_content_text__main__person_name
           .new_inform_content_text__main__person_name__last_name
-          = f.text_field :last_name, placeholder: "例）山田", class:"new_inform_content_text__main__person_name__last_name_button", required: true           
+          = f.text_field :last_name, placeholder: "例）山田", class:"new_inform_content_text__main__person_name__last_name_button"         
           .new_inform_content_text__main__person_name__name
-          = f.text_field :first_name, placeholder: "例）彩", class:"new_inform_content_text__main__person_name__name_button", required: true      
+          = f.text_field :first_name, placeholder: "例）彩", class:"new_inform_content_text__main__person_name__name_button"    
         .new_inform_content_text__main__person_name_text
           -# 姓 を入力してください
         .new_inform_content_text__main__person
@@ -109,9 +109,9 @@
             必須
         .new_inform_content_text__main__person_name
           .new_inform_content_text__main__person_name__last_name
-            = f.text_field :last_name_kana, placeholder: "例）ヤマダ", class:"new_inform_content_text__main__person_name__last_name_button", required: true              
+            = f.text_field :last_name_kana, placeholder: "例）ヤマダ", class:"new_inform_content_text__main__person_name__last_name_button"             
           .new_inform_content_text__main__person_name__name
-            = f.text_field :first_name_kana, placeholder: "例）サヤカ", class:"new_inform_content_text__main__person_name__name_button", required: true           
+            = f.text_field :first_name_kana, placeholder: "例）サヤカ", class:"new_inform_content_text__main__person_name__name_button"       
         .new_inform_content_text__main__birthday
           生年月日
           .new_inform_content_text__main__birthday__required

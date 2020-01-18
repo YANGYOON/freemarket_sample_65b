@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function(){
+$(document).on('turbolinks:load', function() {
   $('.slick').slick({
     autoplay:true, 
     autoplaySpeed: 5000,
@@ -6,6 +6,7 @@ $(document).on('turbolinks:load', function(){
     dots:true,     
   });
 });
+
 
 $('#target').slick({
   autoplay: true,

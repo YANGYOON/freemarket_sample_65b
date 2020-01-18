@@ -42,17 +42,11 @@
               .contents__main__detail__right__name--icon
                 必須
             .contents__main__detail__right__select
-              = f.collection_select :category, @category, :id, :name,{prompt: "---"}, {class: "contents__main__detail__right__select__form", id: "category_select", required: true}
+              = f.collection_select :root_category_id, @category, :id, :name,{prompt: "---"}, {class: "contents__main__detail__right__select__form", id: "category_select", required: true}
               = icon('fas', 'angle-down', class: "contents__main__detail__right__select--icon")
             .item_select-children
             .item_select-size
             .item_select-brand
-            -# .contents__main__detail__right__name
-            -#   ブランド
-            -#   .contents__main__detail__right__name--any
-            -#     任意
-            -# .contents__main__detail__right__select
-            -#   = f.text_field :brand, class: "contents__main__detail__right__text__form", placeholder: "例) シャネル"
             .contents__main__detail__right__name
               製品の状態
               .contents__main__detail__right__name--icon
@@ -79,7 +73,7 @@
                 .contents__main__detail__right__name--icon
                   必須
               .contents__main__detail__right__select
-                = s.select :fee_burden, [["ゆうパック", "ゆうパック"],["クロネコヤマト", "クロネコヤマト"],["らくらくメルカリ便", "らくらくメルカリ便"],["レターパック", "レターパック"]], {prompt: "---"}, class: "contents__main__detail__right__select__form", required: true
+                = s.select :fee_burden, [["ゆうパック", "ゆうパック"],["クロネコヤマト", "クロネコヤマト"],["らくらくフリマ便", "らくらくフリマ便"],["レターパック", "レターパック"]], {prompt: "---"}, class: "contents__main__detail__right__select__form", required: true
                 = icon('fas', 'angle-down', class: "contents__main__detail__right__select--icon")
               .contents__main__delivery__right__shipping-area
                 発送元の地域

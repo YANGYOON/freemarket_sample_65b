@@ -70,3 +70,35 @@
     }
   }
 } 
+
+.my-page__contents {
+  background-color: white;
+  width: 740px;
+  height: 100%;
+  overflow: hidden;
+  &__image {
+    background-image: url("/images/watermark.jpg");
+    height: 200px;
+    width: 700px;
+    padding-top: 50px;
+    &__info {
+      width: 30%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      &__icon {
+        font-size: 60px;
+      }
+      &__nickname {
+        font-size: 20px;
+        margin-top: 10px;
+      }
+      &__number {
+        font-size: 18px;
+        margin-top: 10px;
+      }
+    }
+  }
+}

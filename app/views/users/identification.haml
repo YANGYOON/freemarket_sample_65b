@@ -1,11 +1,11 @@
 = render partial: '/common/sub_header'
 .user_profile_body
   %nav.bread__crumbs
-    %ul.bread__crumbs__list
-      - breadcrumb :identification
-      = breadcrumbs pretext: "",separator: " &rsaquo; ", class: "breadcrumbs-list"
+    .bread__crumbs__list
+    - breadcrumb :user_profiles
+    = breadcrumbs pretext: "",separator: " &rsaquo; ", class: "breadcrumbs-list"
   .userprofile__content
     = render partial: '/common/side_bar'
-    = render partial: 'identification'
+    = render partial: 'identification', locals: { user: @user }
 = render partial: '/items/main_footer'
 = render partial: '/items/sell_btn'

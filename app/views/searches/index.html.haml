@@ -1,0 +1,6 @@
+= render "items/main_header"
+.main_header__box__upper__search__row
+  = render partial: 'items/search_left_list', locals: { category: @category }
+  = render partial: 'search_main', locals: { items: @items }
+= render "items/main_footer"
+= render "items/sell_btn"

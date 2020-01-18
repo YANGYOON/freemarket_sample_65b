@@ -4,13 +4,11 @@
       .new_items__contents__header__title
         = searched_category.name
         の商品一覧
-      = link_to "#", class: "new_items__contents__header__more" do
-        もっとみる ＞
     .new_items__contents__grid
       - result_items.each_with_index do |item, i|
         .new_items__contents__grid__item
           = link_to item_path(item) do
-            = image_tag item.images.last.image.url, class: "new_items__contents__grid__item__image"
+            = image_tag item.images.first.image.url, class: "new_items__contents__grid__item__image"
             .new_items__contents__grid__item__price
               ¥
               = item.price
@@ -18,3 +16,7 @@
               = item.name
               %br/
               = item.category.name
+            - if item.level == 2
+              .soldout
+                .soldout__name
+                  sold

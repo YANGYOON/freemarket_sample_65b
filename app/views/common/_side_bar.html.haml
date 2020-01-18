@@ -23,27 +23,27 @@
             .next_icon
             = icon('fas', 'fas fa-angle-right')
         %li.list
-          = link_to  "", class: "list_exhibit_item" do
+          = link_to  show_selling_items_user_path, class: "list_exhibit_item" do
             出品した商品-出品中
             .next_icon
             = icon('fas', 'fas fa-angle-right')
         %li.list
-          = link_to  "", class: "list_exhibit_trade" do
+          = link_to  show_transactions_user_path, class: "list_exhibit_trade" do
             出品した商品-取引中
             .next_icon
             = icon('fas', 'fas fa-angle-right')
         %li.list
-          = link_to  "", class: "list_exhibit_sold" do
+          = link_to  show_sold_items_user_path, class: "list_exhibit_sold" do
             出品した商品-売却済み
             .next_icon
             = icon('fas', 'fas fa-angle-right')
         %li.list
-          = link_to  "", class: "list_purchase_trade" do
+          = link_to  purchase_user_path(current_user.id), class: "list_purchase_trade" do
             購入した商品-取引中
             .next_icon
             = icon('fas', 'fas fa-angle-right')
         %li.list
-          = link_to  "", class: "list_purchase_trade_past" do
+          = link_to  purchased_user_path(current_user.id), class: "list_purchase_trade_past" do
             購入した商品-過去の取引
             .next_icon
             = icon('fas', 'fas fa-angle-right')
@@ -86,7 +86,7 @@
           = link_to  "", class: "list_set" do
             設定
         %li.list
-          = link_to  "", class: "list_profile" do
+          = link_to  change_profile_user_path, class: "list_profile" do
             プロフィール
             .next_icon
             = icon('fas', 'fas fa-angle-right')
@@ -96,7 +96,7 @@
             .next_icon
             = icon('fas', 'fas fa-angle-right')
         %li.list
-          = link_to  "", class: "list_shipping" do
+          = link_to  creditcard_path(current_user.id), class: "list_shipping" do
             お支払い方法
             .next_icon
             = icon('fas', 'fas fa-angle-right')
@@ -106,7 +106,7 @@
             .next_icon
             = icon('fas', 'fas fa-angle-right')
         %li.list
-          = link_to  "", class: "list_inform" do
+          = link_to  identification_user_path, class: "list_inform" do
             本人情報
             .next_icon
             = icon('fas', 'fas fa-angle-right')
