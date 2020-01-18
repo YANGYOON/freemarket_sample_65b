@@ -90,3 +90,5 @@ gem 'ancestry'
 gem 'recaptcha', require: "recaptcha/rails"
 gem 'gretel'
 gem 'faker'
+gem 'aws-sdk', '~> 3'
+gem 'aws-sdk-rails'

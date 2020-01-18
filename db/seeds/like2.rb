@@ -1,549 +1,377 @@
-151.times do |n|
-  user_count = n
-  time = Time.now.to_i
-  Like.create(
-    user_id:user_count,
-    item_id:1,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:2,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:3,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:4,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:5,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:6,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:7,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:8,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:9,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:10,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:11,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:12,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:13,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:14,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:15,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:16,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:17,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:18,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:19,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:20,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:21,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:22,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:23,
-    TIMESTAMP:time,
-  )
-end
-
-101.times do |n|
-  user_count = n+99
-  time = Time.now.to_i
-  Like.create(
-    user_id:user_count,
-    item_id:24,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:25,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:26,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:27,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:28,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:29,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:30,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:31,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:32,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:33,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:34,
-    TIMESTAMP:time,
-  )
-end
-
-26.times do |n|
-  user_count = n+75
-  time = Time.now.to_i
-  Like.create(
-    user_id:user_count,
-    item_id:35,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:36,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:37,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:38,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:39,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:40,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:41,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:42,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:43,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:44,
-    TIMESTAMP:time,
-  )
-end
-
 31.times do |n|
-  user_count = n+101
+  user_count = n+126
   time = Time.now.to_i
   Like.create(
     user_id:user_count,
-    item_id:45,
+    item_id:99,
     TIMESTAMP:time,
   )
   Like.create(
     user_id:user_count,
-    item_id:46,
+    item_id:100,
     TIMESTAMP:time,
   )
   Like.create(
     user_id:user_count,
-    item_id:47,
+    item_id:101,
     TIMESTAMP:time,
   )
   Like.create(
     user_id:user_count,
-    item_id:48,
+    item_id:102,
     TIMESTAMP:time,
   )
   Like.create(
     user_id:user_count,
-    item_id:49,
+    item_id:103,
     TIMESTAMP:time,
   )
   Like.create(
     user_id:user_count,
-    item_id:50,
+    item_id:104,
     TIMESTAMP:time,
   )
   Like.create(
     user_id:user_count,
-    item_id:51,
+    item_id:105,
     TIMESTAMP:time,
   )
   Like.create(
     user_id:user_count,
-    item_id:52,
+    item_id:106,
     TIMESTAMP:time,
   )
   Like.create(
     user_id:user_count,
-    item_id:53,
+    item_id:107,
     TIMESTAMP:time,
   )
   Like.create(
     user_id:user_count,
-    item_id:54,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:55,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:56,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:57,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:58,
+    item_id:108,
     TIMESTAMP:time,
   )
 end
-
-21.times do |n|
+101.times do |n|
+  user_count = n+100
+  time = Time.now.to_i
+  Like.create(
+    user_id:user_count,
+    item_id:109,
+    TIMESTAMP:time,
+  )
+  Like.create(
+    user_id:user_count,
+    item_id:110,
+    TIMESTAMP:time,
+  )
+  Like.create(
+    user_id:user_count,
+    item_id:111,
+    TIMESTAMP:time,
+  )
+  Like.create(
+    user_id:user_count,
+    item_id:112,
+    TIMESTAMP:time,
+  )
+  Like.create(
+    user_id:user_count,
+    item_id:113,
+    TIMESTAMP:time,
+  )
+  Like.create(
+    user_id:user_count,
+    item_id:114,
+    TIMESTAMP:time,
+  )
+  Like.create(
+    user_id:user_count,
+    item_id:115,
+    TIMESTAMP:time,
+  )
+  Like.create(
+    user_id:user_count,
+    item_id:116,
+    TIMESTAMP:time,
+  )
+  Like.create(
+    user_id:user_count,
+    item_id:117,
+    TIMESTAMP:time,
+  )
+  Like.create(
+    user_id:user_count,
+    item_id:118,
+    TIMESTAMP:time,
+  )
+  Like.create(
+    user_id:user_count,
+    item_id:119,
+    TIMESTAMP:time,
+  )
+  Like.create(
+    user_id:user_count,
+    item_id:120,
+    TIMESTAMP:time,
+  )
+  Like.create(
+    user_id:user_count,
+    item_id:121,
+    TIMESTAMP:time,
+  )
+  Like.create(
+    user_id:user_count,
+    item_id:122,
+    TIMESTAMP:time,
+  )
+  Like.create(
+    user_id:user_count,
+    item_id:123,
+    TIMESTAMP:time,
+  )
+  Like.create(
+    user_id:user_count,
+    item_id:124,
+    TIMESTAMP:time,
+  )
+  Like.create(
+    user_id:user_count,
+    item_id:125,
+    TIMESTAMP:time,
+  ) 
+  Like.create(
+    user_id:user_count,
+    item_id:126,
+    TIMESTAMP:time,
+  ) 
+  Like.create(
+    user_id:user_count,
+    item_id:127,
+    TIMESTAMP:time,
+  ) 
+  Like.create(
+    user_id:user_count,
+    item_id:128,
+    TIMESTAMP:time,
+  ) 
+end
+101.times do |n|
   user_count = n+1
   time = Time.now.to_i
   Like.create(
     user_id:user_count,
-    item_id:59,
+    item_id:129,
     TIMESTAMP:time,
   )
   Like.create(
     user_id:user_count,
-    item_id:60,
+    item_id:130,
     TIMESTAMP:time,
   )
   Like.create(
     user_id:user_count,
-    item_id:61,
+    item_id:131,
     TIMESTAMP:time,
   )
   Like.create(
     user_id:user_count,
-    item_id:62,
+    item_id:132,
     TIMESTAMP:time,
   )
   Like.create(
     user_id:user_count,
-    item_id:63,
+    item_id:133,
+    TIMESTAMP:time,
+  )
+  Like.create(
+    user_id:user_count,
+    item_id:134,
+    TIMESTAMP:time,
+  )
+  Like.create(
+    user_id:user_count,
+    item_id:135,
+    TIMESTAMP:time,
+  )
+  Like.create(
+    user_id:user_count,
+    item_id:136,
+    TIMESTAMP:time,
+  )
+  Like.create(
+    user_id:user_count,
+    item_id:136,
+    TIMESTAMP:time,
+  )
+  Like.create(
+    user_id:user_count,
+    item_id:137,
+    TIMESTAMP:time,
+  )
+  Like.create(
+    user_id:user_count,
+    item_id:138,
+    TIMESTAMP:time,
+  )
+  Like.create(
+    user_id:user_count,
+    item_id:139,
+    TIMESTAMP:time,
+  )
+  Like.create(
+    user_id:user_count,
+    item_id:140,
+    TIMESTAMP:time,
+  )
+  Like.create(
+    user_id:user_count,
+    item_id:141,
+    TIMESTAMP:time,
+  )
+  Like.create(
+    user_id:user_count,
+    item_id:142,
+    TIMESTAMP:time,
+  )
+  Like.create(
+    user_id:user_count,
+    item_id:143,
+    TIMESTAMP:time,
+  )
+  Like.create(
+    user_id:user_count,
+    item_id:144,
+    TIMESTAMP:time,
+  )
+  Like.create(
+    user_id:user_count,
+    item_id:145,
+    TIMESTAMP:time,
+  )
+  Like.create(
+    user_id:user_count,
+    item_id:146,
+    TIMESTAMP:time,
+  )
+  Like.create(
+    user_id:user_count,
+    item_id:147,
+    TIMESTAMP:time,
+  )
+  Like.create(
+    user_id:user_count,
+    item_id:148,
+    TIMESTAMP:time,
+  )
+  Like.create(
+    user_id:user_count,
+    item_id:149,
     TIMESTAMP:time,
   )
 end
 
-51.times do |n|
-  user_count = n+21
+81.times do |n|
+  user_count = n+121
   time = Time.now.to_i
   Like.create(
     user_id:user_count,
-    item_id:64,
+    item_id:150,
     TIMESTAMP:time,
   )
   Like.create(
     user_id:user_count,
-    item_id:65,
+    item_id:151,
     TIMESTAMP:time,
   )
   Like.create(
     user_id:user_count,
-    item_id:66,
+    item_id:152,
     TIMESTAMP:time,
   )
   Like.create(
     user_id:user_count,
-    item_id:67,
+    item_id:153,
     TIMESTAMP:time,
   )
   Like.create(
     user_id:user_count,
-    item_id:68,
+    item_id:154,
     TIMESTAMP:time,
   )
   Like.create(
     user_id:user_count,
-    item_id:69,
+    item_id:155,
     TIMESTAMP:time,
   )
   Like.create(
     user_id:user_count,
-    item_id:70,
+    item_id:156,
     TIMESTAMP:time,
   )
   Like.create(
     user_id:user_count,
-    item_id:71,
+    item_id:157,
     TIMESTAMP:time,
   )
   Like.create(
     user_id:user_count,
-    item_id:72,
+    item_id:158,
     TIMESTAMP:time,
   )
   Like.create(
     user_id:user_count,
-    item_id:73,
-    TIMESTAMP:time,
-  )
-end
-
-26.times do |n|
-  user_count = n+71
-  time = Time.now.to_i
-  Like.create(
-    user_id:user_count,
-    item_id:74,
+    item_id:159,
     TIMESTAMP:time,
   )
   Like.create(
     user_id:user_count,
-    item_id:75,
+    item_id:160,
     TIMESTAMP:time,
   )
   Like.create(
     user_id:user_count,
-    item_id:76,
+    item_id:161,
     TIMESTAMP:time,
   )
   Like.create(
     user_id:user_count,
-    item_id:77,
+    item_id:162,
     TIMESTAMP:time,
   )
   Like.create(
     user_id:user_count,
-    item_id:78,
-    TIMESTAMP:time,
-  )
-end
-
-31.times do |n|
-  user_count = n+96
-  time = Time.now.to_i
-  Like.create(
-    user_id:user_count,
-    item_id:79,
+    item_id:163,
     TIMESTAMP:time,
   )
   Like.create(
     user_id:user_count,
-    item_id:80,
+    item_id:164,
     TIMESTAMP:time,
   )
   Like.create(
     user_id:user_count,
-    item_id:81,
+    item_id:165,
     TIMESTAMP:time,
   )
   Like.create(
     user_id:user_count,
-    item_id:82,
+    item_id:166,
     TIMESTAMP:time,
   )
   Like.create(
     user_id:user_count,
-    item_id:79,
+    item_id:167,
     TIMESTAMP:time,
   )
   Like.create(
     user_id:user_count,
-    item_id:80,
+    item_id:168,
     TIMESTAMP:time,
   )
   Like.create(
     user_id:user_count,
-    item_id:81,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:82,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:83,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:84,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:85,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:86,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:87,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:88,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:89,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:90,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:91,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:92,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:93,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:94,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:95,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:96,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:97,
-    TIMESTAMP:time,
-  )
-  Like.create(
-    user_id:user_count,
-    item_id:98,
+    item_id:169,
     TIMESTAMP:time,
   )
 end
