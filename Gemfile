@@ -43,7 +43,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rails-controller-testing'
   gem 'factory_bot_rails'
-  gem 'faker'
   gem 'capistrano'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
@@ -91,4 +90,8 @@ gem 'ancestry'
 gem 'ransack' 
 gem 'recaptcha', require: "recaptcha/rails"
 gem 'gretel'
+gem 'faker'
+gem 'aws-sdk', '~> 3'
+gem 'aws-sdk-rails'
 gem 'google-analytics-rails'
+
