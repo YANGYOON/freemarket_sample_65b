@@ -13,13 +13,13 @@
 TECH::EXPER在籍中にチーム開発として制作したECアプリケーションになります。
 
 ## 📕工夫点
-カリキュラム外のオリジナル機能として以下の機能を付加しています。
-google analytics
-コメント機能
-トレンド機能
-ランキング機能
-Like機能
-管理者権限機能
+カリキュラム外のオリジナル機能として以下の機能を付加しています。  
+google analytics  
+コメント機能  
+トレンド機能  
+ランキング機能  
+Like機能  
+管理者権限機能  
 
 ## 📕Demo
 [![Image from Gyazo](https://i.gyazo.com/a5a498895abff451ed43e5c7b4b5f6e4.gif)](https://gyazo.com/a5a498895abff451ed43e5c7b4b5f6e4)
@@ -28,31 +28,31 @@ Like機能
 http://18.177.235.133/
 
 ## 📕Usage
-このアプリには下記の機能があります。
-Basic認証(ID:admin/pass:0601)
-ユーザー登録機能(登録にはmail/Facebook/Google)
-ユーザーログイン/ログアウト機能
-商品購入機能(pay.jp対応)
-商品出品機能
-商品編集機能
-商品削除機能
-商品詳細機能
-カテゴリ機能
-商品検索機能(ワード検索/詳細検索)
-パンくず機能
+このアプリには下記の機能があります。  
+Basic認証(ID:admin/pass:0601)  
+ユーザー登録機能(登録にはmail/Facebook/Google)  
+ユーザーログイン/ログアウト機能  
+商品購入機能(pay.jp対応)  
+商品出品機能  
+商品編集機能  
+商品削除機能  
+商品詳細機能  
+カテゴリ機能  
+商品検索機能(ワード検索/詳細検索)  
+パンくず機能  
 
 ## 📕Install
-https://github.com/Milia-yuuta/freemarket_sample_65b.git
+https://github.com/Milia-yuuta/freemarket_sample_65b.git  
 
 ## 💳Licence
 [Licence](https://raw.githubusercontent.com/Milia-yuuta/freemarket_sample_65b/master/LICENSE)
 
 ## Author
-櫻田：[Twitter](https://twitter.com/yuuta_sakurada)
-高砂：
-武石：
-田中：[HP](https://ttportfolio.herokuapp.com/)
-劉：[Facebook]()
+櫻田：[Twitter](https://twitter.com/yuuta_sakurada)  
+高砂：  
+武石：  
+田中：[HP](https://ttportfolio.herokuapp.com/)  
+劉：[Facebook]()  
 
 # DB設計図
 ## users テーブル
