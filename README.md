@@ -1,5 +1,60 @@
 # README
+![](https://img.shields.io/badge/ruby-2.5.1-red)
+![](https://img.shields.io/badge/rails-5.2.4.1-red)
+![](https://img.shields.io/badge/AWS-EC2-orange)
+![](https://img.shields.io/badge/AWS-S3-orange)
+![](https://img.shields.io/badge/mysql-56-blue)
+![](https://img.shields.io/badge/jQuery-%20-blue)
 
+
+## Name:freemarketアプリケーション
+
+## 📕Description
+TECH::EXPER在籍中にチーム開発として制作したECアプリケーションになります。
+
+## 📕工夫点
+カリキュラム外のオリジナル機能として以下の機能を付加しています。
+google analytics
+コメント機能
+トレンド機能
+ランキング機能
+Like機能
+管理者権限機能
+
+## 📕Demo
+[![Image from Gyazo](https://i.gyazo.com/a5a498895abff451ed43e5c7b4b5f6e4.gif)](https://gyazo.com/a5a498895abff451ed43e5c7b4b5f6e4)
+
+🖥デモサイト⬇︎  
+http://18.177.235.133/
+
+## 📕Usage
+このアプリには下記の機能があります。
+Basic認証(ID:admin/pass:0601)
+ユーザー登録機能(登録にはmail/Facebook/Google)
+ユーザーログイン/ログアウト機能
+商品購入機能(pay.jp対応)
+商品出品機能
+商品編集機能
+商品削除機能
+商品詳細機能
+カテゴリ機能
+商品検索機能(ワード検索/詳細検索)
+パンくず機能
+
+## 📕Install
+https://github.com/Milia-yuuta/freemarket_sample_65b.git
+
+## 💳Licence
+[Licence](https://raw.githubusercontent.com/Milia-yuuta/freemarket_sample_65b/master/LICENSE)
+
+## Author
+櫻田：[Twitter](https://twitter.com/yuuta_sakurada)
+高砂：
+武石：
+田中：[HP](https://ttportfolio.herokuapp.com/)
+劉：[Facebook]()
+
+# DB設計図
 ## users テーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -24,7 +79,7 @@
 - has_one :address
 - has_one :phone_number
 
-##　phone_number　テーブル
+## phone_number　テーブル
 |Column|Type|Options|
 |------|----|-------|
 |phone_number|string|null: false|
@@ -36,7 +91,6 @@
 ## address テーブル
 |Column|Type|Options|
 |------|----|-------|
-
 |zipcode|integer|null: false|
 |prefecture|string|null: false|
 |city|string|null: false|
