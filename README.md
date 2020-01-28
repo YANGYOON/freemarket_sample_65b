@@ -21,8 +21,9 @@ google analytics
 Like機能  
 管理者権限機能  
 
+
 ## 📕Demo
-[![Image from Gyazo](https://i.gyazo.com/a5a498895abff451ed43e5c7b4b5f6e4.gif)](https://gyazo.com/a5a498895abff451ed43e5c7b4b5f6e4)  
+[![Image from Gyazo](https://i.gyazo.com/a5a498895abff451ed43e5c7b4b5f6e4.gif)](https://gyazo.com/a5a498895abff451ed43e5c7b4b5f6e4)
 
 
 ## 🖥デモサイト⬇︎  
