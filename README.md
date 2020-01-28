@@ -23,7 +23,7 @@ TECH::EXPER在籍中にチーム開発として制作したECアプリケーシ�
 
 
 ## 📕Demo
-[![Image from Gyazo](https://i.gyazo.com/a5a498895abff451ed43e5c7b4b5f6e4.gif)](https://gyazo.com/a5a498895abff451ed43e5c7b4b5f6e4)
+[![Image from Gyazo](https://i.gyazo.com/6c02153730f1a9249d4b89ef8ecc1527.gif)](https://gyazo.com/6c02153730f1a9249d4b89ef8ecc1527)
 
 ## 🖥デモサイト⬇︎  
 http://18.177.235.133/  
