@@ -13,21 +13,20 @@
 TECH::EXPER在籍中にチーム開発として制作したECアプリケーションになります。
 
 ## 📕工夫点
-カリキュラム外のオリジナル機能として以下の機能を付加しています。  
-google analytics  
-コメント機能  
-トレンド機能  
-ランキング機能  
-Like機能  
-管理者権限機能  
+  カリキュラム外のオリジナル機能として以下の機能を付加しています。  
+  google analytics  
+  コメント機能  
+  トレンド機能  
+  ランキング機能  
+  Like機能  
+  管理者権限機能  
 
 
 ## 📕Demo
 [![Image from Gyazo](https://i.gyazo.com/a5a498895abff451ed43e5c7b4b5f6e4.gif)](https://gyazo.com/a5a498895abff451ed43e5c7b4b5f6e4)
 
-
 ## 🖥デモサイト⬇︎  
-http://18.177.235.133/
+http://18.177.235.133/  
 
 ## 📕Usage
 このアプリには下記の機能があります。  
